@@ -36,3 +36,14 @@ reviews = Review.create(
     {user_id: 2, book_id: 4, comment: "Great!", stars: 4}
   ]
 )
+
+reading_lists = ReadingList.create(
+  [
+    {user_id: 1, book_id: 1, read_status: 'want to', date_completed: Time.now},
+    {user_id: 1, book_id: 2, read_status: 'currently', date_completed: Time.now},
+    {user_id: 1, book_id: 3, read_status: 'finished', date_completed: Time.now},
+    {user_id: 2, book_id: 4, read_status: 'want to', date_completed: Time.now},
+    {user_id: 2, book_id: 2, read_status: 'currently', date_completed: Time.now},
+    {user_id: 2, book_id: 3, read_status: 'finished', date_completed: Time.now}
+  ]
+)
