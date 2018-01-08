@@ -50,5 +50,11 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    @user = current_user
+    @user.destroy
+    session[:user_id] = nil
+    flash[:notice] = "You have successfully deleted your account"
+    redirect_to books_url
   end
+
 end

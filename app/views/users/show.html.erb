@@ -2,3 +2,4 @@
 <p>Find me in app/views/users/show.html.erb</p>
 
 <%= link_to 'Edit Profile', edit_user_path %>
+<%= link_to('Delete', user_path(current_user), method: :delete, data: {confirm: "Are you sure you want to delete your account? This change can not be undone."}) %>
