@@ -28,10 +28,25 @@ class UsersController < ApplicationController
   end
 
   def edit
-    
+    @user = current_user
   end
 
   def update
+    @user = current_user
+
+    @user.email = params[:user][:email]
+    @user.username = params[:user][:username]
+    @user.password = params[:user][:password]
+    @user.password_confirmation = params[:user][:password_confirmation]
+
+    if @user.save
+      # # Auto-login on succesful signup
+      flash[:notice] = 'Account successfully created!'
+      session[:user_id] = @user.id
+      redirect_to user_url(current_user)
+    else
+      render :new
+    end
   end
 
   def destroy
