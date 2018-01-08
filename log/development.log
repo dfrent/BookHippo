@@ -1720,3 +1720,33 @@ Processing by BooksController#index as HTML
 Completed 200 OK in 181ms (Views: 167.3ms | ActiveRecord: 11.6ms)
 
 
+Started DELETE "/logout" for 127.0.0.1 at 2018-01-08 14:17:14 -0500
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"hpWpBrWKl+g4pYqzPt2+9Yq+pqNwoN3Vxb1VTdB8topx9z/R9FSZKLm/zwsxGJBFW/9YsKw3fGgIWy/DGH464g=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-08 14:17:14 -0500
+Processing by BooksController#index as HTML
+  Rendering books/index.html.erb within layouts/application
+  Rendered books/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 63ms (Views: 60.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-01-08 14:17:15 -0500
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 71ms (Views: 67.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2018-01-08 14:17:19 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Rp9Fu5sX3NC2F2ifDCCceFuzlyIDM1H2qN72aRFwbGS3SvjKa1qxd9qG2FBxhQ5EVrmUKqT4b7veR8ISZbtbzw==", "email"=>"james@gmail.com", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "james@gmail.com"], ["LIMIT", 1]]
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 74ms (Views: 68.9ms | ActiveRecord: 0.7ms)
+
+

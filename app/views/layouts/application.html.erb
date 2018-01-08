@@ -28,6 +28,10 @@
       </nav>
     </header>
 
+    <% flash.each do |key, message| %>
+      <div class="flash-<%= key %>"><%= message %></div>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>
