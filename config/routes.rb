@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
 
-  get 'login' => 'user_sessions#new', :as => :login
+  root 'books#index'
 
-  delete 'logout' => 'user_sessions#destroy', :as => :logout
+  get 'login' => 'sessions#new', :as => :login
+
+  delete 'logout' => 'sessions#destroy', :as => :logout
 
   resources :reading_lists
   resources :genres, only: [:index, :show]
