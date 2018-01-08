@@ -13,4 +13,11 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def ensure_logged_in
+    unless current_user
+      flash[:alert] = "Please log in"
+      redirect_to login_url
+    end
+  end
+
 end
