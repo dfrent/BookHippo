@@ -9,6 +9,29 @@
   </head>
 
   <body>
+
+    <header class="site-header">
+      <h1 class="logo">BookHippo</h1>
+
+      <nav class="site-nav">
+        <p> <%= link_to "Home", root_path %> </p>
+
+        <% if current_user %>
+          <p> <%= link_to "My Account", user_path(current_user) %> </p>
+          <p> <%= link_to "Logout", :logout, method: :delete %> </p>
+        <% else %>
+
+          <p> <%= link_to "Register", new_user_path %> </p>
+          <p> <%= link_to "Login", :login %> </p>
+
+        <% end %>
+      </nav>
+    </header>
+
+    <% flash.each do |key, message| %>
+      <div class="flash-<%= key %>"><%= message %></div>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>
