@@ -1,2 +1,11 @@
-<h1>Books#index</h1>
-<p>Find me in app/views/books/index.html.erb</p>
+<h1> Top Selling Books</h1>
+
+<% @books.each do |book| %>
+  <h2><%= book[:title].titleize %></h2>
+  <ul>
+    <li>  <%= book[:author] %>  </li>
+    <li>  <%= book[:description] %>  </li>
+    <li>  <%= book[:isbn] %>  </li>
+  </ul>
+<% end %>
+<img src=" <%= @bookimg  %>  " alt="">
