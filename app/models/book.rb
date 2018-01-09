@@ -11,8 +11,9 @@ class Book < ApplicationRecord
     if book
       return book
     else
-      book = HTTParty.get("https://www.googleapis.com/books/v1/volumes?q=isbn=#{isbn}&key=#{ENV['GBOOKS_KEY']}")
-      Book.create(title: isbn)
+      book_response = HTTParty.get("https://www.googleapis.com/books/v1/volumes?q=isbn=#{isbn}&key=#{ENV['GBOOKS_KEY']}")
+      book = book_response.parsed_response["items"][0]["volumeInfo"]
+      Book.create(title: book["title"], author: book["authors"][0], description: book["description"], book_cover: book["imageLinks"]["thumbnail"])
     end
 
   end
