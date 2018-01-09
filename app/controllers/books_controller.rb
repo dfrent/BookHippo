@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
   def index
-    response = HTTParty.get("https://api.nytimes.com/svc/books/v3/lists.json?api-key=8177ba7834fc44ba85e618d089ca956e&list=mass-market-paperback")
+    response = HTTParty.get("https://api.nytimes.com/svc/books/v3/lists.json?api-key=#{ENV['NYTIMES_KEY']}&list=mass-market-paperback")
 
 
     @books = []
@@ -10,7 +10,7 @@ class BooksController < ApplicationController
       @isbn = result["book_details"][0]["primary_isbn10"]
 
 
-      goog_response = HTTParty.get("https://www.googleapis.com/books/v1/volumes?q=isbn=#{@isbn}&key=AIzaSyDY0vkSLjkG15HziglfhAHBbYnHWntOkJ4")
+      goog_response = HTTParty.get("https://www.googleapis.com/books/v1/volumes?q=isbn=#{@isbn}&key=#{ENV['GBOOKS_KEY']}")
 
       bookimg = goog_response.parsed_response["items"][0]["volumeInfo"]["imageLinks"]["smallThumbnail"]
 
