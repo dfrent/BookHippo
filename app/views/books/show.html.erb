@@ -1,9 +1,10 @@
-<h1>Books#show</h1>
-
 <!-- <pre><%#= @book.to_yaml %></pre> -->
-
-<h2>
+<main>
   <h2> <%= @book.title %> </h2>
+  <h4> <%= @book.author %> </h4>
   <img src="<%= @book.book_cover %>" alt="<%= @book.title %>">
-  <p> <%= @book.description %> </p>
-</h2>
+  <div class="description">
+    <p> <%= @book.description %> </p>
+    <button type="button" name="read">Mark as Read</button>
+  </div>
+</main>
