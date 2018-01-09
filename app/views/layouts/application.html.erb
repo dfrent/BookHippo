@@ -33,11 +33,12 @@
     <% end %>
 
   <% unless @user && @user == current_user %>
-    <section class="stats">
+    <section class="current-user-stats">
       <%= render partial: 'shared/stats', locals: {user: current_user} %>
     </section>
   <% end %>
 
     <%= yield %>
+    <%= console %>
   </body>
 </html>
