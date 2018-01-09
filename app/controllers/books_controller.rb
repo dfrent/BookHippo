@@ -17,6 +17,10 @@ class BooksController < ApplicationController
   end
 
   def show
+    isbn = params[:id]
+    @book = HTTParty.get("https://www.googleapis.com/books/v1/volumes?q=isbn=#{isbn}&key=#{ENV['GBOOKS_KEY']}")
+
+
   end
 
   def edit
