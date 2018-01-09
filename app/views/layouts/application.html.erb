@@ -32,6 +32,10 @@
       <div class="flash-<%= key %>"><%= message %></div>
     <% end %>
 
+    <section class="stats">
+      <%= render partial: 'shared/stats', locals: {user: current_user} %>
+    </section>
+
     <%= yield %>
   </body>
 </html>
