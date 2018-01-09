@@ -12,7 +12,7 @@ class SearchForController < ApplicationController
         goog_response.parsed_response["items"][0..5].each do |result|
 
           book_img = result["volumeInfo"]["imageLinks"]["smallThumbnail"]
-          @books << { title: result["volumeInfo"]["title"], author: result["volumeInfo"]["authors"], description: result["volumeInfo"]["description"], isbn: result["volumeInfo"]["industryIdentifiers"][1]["identifier"], bookimage: book_img }
+          @books << { title: result["volumeInfo"]["title"], author: result["volumeInfo"]["authors"], description: result["volumeInfo"]["description"], isbn: result["volumeInfo"]["industryIdentifiers"][1]["identifier"], book_image: book_img }
 
 
         end
