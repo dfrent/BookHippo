@@ -1,11 +1,16 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+a {
+  text-decoration: none;
+}
+
 .stats {
   overflow: auto;
   margin-top: 0;
   padding: 0;
-  p {
+  a {
     float: left;
     padding: 0 10px;
     border-left: 1px solid gray;
@@ -13,6 +18,10 @@
     &:first-child {
       padding-left: 0;
       border: 0;
+    }
+    &:hover {
+      text-decoration: none;
+      color: blue;
     }
   }
   strong {
