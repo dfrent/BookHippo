@@ -1,9 +1,11 @@
 class UsersController < ApplicationController
+  before_action :ensure_logged_in
+
   def index
   end
 
   def show
-    @user = current_user
+    @user = User.find(params[:id])
   end
 
   def new
