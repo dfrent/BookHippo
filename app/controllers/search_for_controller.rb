@@ -11,10 +11,10 @@ class SearchForController < ApplicationController
 
         goog_response.parsed_response["items"][0..5].each do |result|
 
-          bookimg = result["volumeInfo"]["imageLinks"]["smallThumbnail"]
-          @books << { title: result["volumeInfo"]["title"], author: result["volumeInfo"]["authors"], description: result["volumeInfo"]["description"], isbn: result["volumeInfo"]["industryIdentifiers"][1]["identifier"], bookimage: bookimg }
+          book_img = result["volumeInfo"]["imageLinks"]["smallThumbnail"]
+          @books << { title: result["volumeInfo"]["title"], author: result["volumeInfo"]["authors"], description: result["volumeInfo"]["description"], isbn: result["volumeInfo"]["industryIdentifiers"][1]["identifier"], bookimage: book_img }
 
-          p "################################################## #{@books}"
+
         end
 
           if @user.length > 0 || @books.length > 0

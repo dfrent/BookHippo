@@ -7,15 +7,15 @@ class BooksController < ApplicationController
 
     response.parsed_response["results"].each do |result|
 
-      @isbn = result["book_details"][0]["primary_isbn10"]
+      isbn = result["book_details"][0]["primary_isbn10"]
 
 
-      goog_response = HTTParty.get("https://www.googleapis.com/books/v1/volumes?q=#{@isbn}&key=#{ENV['GBOOKS_KEY']}")
+      goog_response = HTTParty.get("https://www.googleapis.com/books/v1/volumes?q=isbn=#{isbn}&key=#{ENV['GBOOKS_KEY']}")
 
-      bookimg = goog_response.parsed_response["items"][0]["volumeInfo"]["imageLinks"]["smallThumbnail"]
+      book_img = goog_response.parsed_response["items"][0]["volumeInfo"]["imageLinks"]["smallThumbnail"]
 
 
-      @books << { title: result["book_details"][0]["title"], author: result["book_details"][0]["author"], description: result["book_details"][0]["description"], isbn: result["book_details"][0]["primary_isbn10"], bookimage: bookimg }
+      @books << { title: result["book_details"][0]["title"], author: result["book_details"][0]["author"], description: result["book_details"][0]["description"], isbn: result["book_details"][0]["primary_isbn10"], bookimage: book_img }
     end
   end
 
