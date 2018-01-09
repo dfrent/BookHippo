@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(version: 20180109220931) do
     t.string "isbn"
     t.integer "page_count"
     t.string "country_of_origin"
+    t.text "description"
+    t.string "small_thumbnail"
   end
 
   create_table "genres", force: :cascade do |t|

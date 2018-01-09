@@ -18,6 +18,8 @@ class BooksController < ApplicationController
   end
 
   def show
+    isbn = params[:id]
+    @book = Book.find_or_api_call(isbn)
   end
 
   def edit
