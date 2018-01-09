@@ -11,7 +11,7 @@ class ApplicationRecord < ActiveRecord::Base
   end
 
   def search_for
-
+    
   end
 
 end
