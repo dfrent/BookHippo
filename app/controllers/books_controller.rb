@@ -10,7 +10,7 @@ class BooksController < ApplicationController
       @isbn = result["book_details"][0]["primary_isbn10"]
 
 
-      goog_response = HTTParty.get("https://www.googleapis.com/books/v1/volumes?q=isbn=#{@isbn}&key=#{ENV['GBOOKS_KEY']}")
+      goog_response = HTTParty.get("https://www.googleapis.com/books/v1/volumes?q=#{@isbn}&key=#{ENV['GBOOKS_KEY']}")
 
       bookimg = goog_response.parsed_response["items"][0]["volumeInfo"]["imageLinks"]["smallThumbnail"]
 
