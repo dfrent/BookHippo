@@ -1,0 +1,7 @@
+follow_form.innerHTML = "<%= escape_javascript(render('users/unfollow')) %>"
+
+followers = document.querySelector('.other-user-stats .followers')
+followers.innerHTML = '<%= @user.followers.count %>'
+
+current_user_following = document.querySelector('.current-user-stats .following')
+current_user_following.innerHTML = '<%= current_user.following.count %>'
