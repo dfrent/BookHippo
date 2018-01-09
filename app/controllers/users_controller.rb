@@ -1,9 +1,11 @@
 class UsersController < ApplicationController
+  before_action :ensure_logged_in
+
   def index
   end
 
   def show
-    @user = current_user
+    @user = User.find(params[:id])
   end
 
   def new
@@ -56,6 +58,20 @@ class UsersController < ApplicationController
     session[:user_id] = nil
     flash[:notice] = "You have successfully deleted your account"
     redirect_to books_url
+  end
+
+  def following
+    @title = "Following"
+    @user  = User.find(params[:id])
+    @users = @user.following
+    render 'show_follow'
+  end
+
+  def followers
+    @title = "Followers"
+    @user  = User.find(params[:id])
+    @users = @user.followers
+    render 'show_follow'
   end
 
 end
