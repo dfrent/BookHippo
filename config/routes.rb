@@ -8,7 +8,11 @@ Rails.application.routes.draw do
 
   resources :reading_lists
   resources :genres, only: [:index, :show]
-  resources :users
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
   resources :books, only: [:index, :show, :edit, :update] do
     resources :reviews, only: [:new, :create, :edit, :update, :destroy]
   end
