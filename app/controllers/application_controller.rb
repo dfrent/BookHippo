@@ -13,9 +13,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  private
   def ensure_logged_in
     unless current_user
-      flash[:alert] = "Please log in"
+      flash[:alert] = "Please log in first."
       redirect_to login_url
     end
   end
