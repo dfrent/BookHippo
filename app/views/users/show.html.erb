@@ -2,3 +2,13 @@
 
 <%= link_to 'Edit Profile', edit_user_path %>
 <%= link_to('Delete', user_path(current_user), method: :delete, data: {confirm: "Are you sure you want to delete your account? This change can not be undone."}) %>
+
+<br><br>
+
+<section class="other-user-stats">
+  <%= render partial: 'shared/stats', locals: {user: @user} %>
+</section>
+
+<section class="follow-button">
+  <%= render partial: 'follow_form' if logged_in? %>
+</section>
