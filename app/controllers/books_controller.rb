@@ -13,6 +13,7 @@ class BooksController < ApplicationController
       book_img = goog_response.parsed_response["items"][0]["volumeInfo"]["imageLinks"]["smallThumbnail"]
 
       @books << { title: result["book_details"][0]["title"], author: result["book_details"][0]["author"], description: result["book_details"][0]["description"], isbn: result["book_details"][0]["primary_isbn10"], book_image: book_img }
+
     end
   end
 

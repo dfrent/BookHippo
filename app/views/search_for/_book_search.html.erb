@@ -1,0 +1,11 @@
+<h1>search view2</h1>
+
+<% books.each do |book| %>
+  <h2><%= book[:title].titleize %></h2>
+  <ul>
+    <li>  <%= book[:author] %>  </li>
+    <li>  <%= book[:description] %>  </li>
+    <li>  <%= book[:isbn] %>  </li>
+    <li>  <img src="<%= book[:bookimage] %> "> </li>
+  </ul>
+<% end %>
