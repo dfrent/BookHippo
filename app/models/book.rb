@@ -20,8 +20,4 @@ class Book < ApplicationRecord
       Book.create(isbn: isbn, title: book["title"], author: book["authors"][0], description: book["description"], book_cover: book["imageLinks"]["thumbnail"], genre_id: 1)
     end
   end
-
-
-
-
 end
