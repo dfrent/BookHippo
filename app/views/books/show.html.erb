@@ -6,6 +6,8 @@
 
   <% if logged_in? %>
     <%= render partial: "books/read_status" %>
+  <% else %>
+    <%= render partial: "books/new_user_buttons" %>
   <% end %>
 
   <div class="description">
