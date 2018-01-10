@@ -3,8 +3,15 @@
   <h2> <%= @book.title %> </h2>
   <h4> <%= @book.author %> </h4>
   <img src="<%= @book.book_cover %>" alt="<%= @book.title %>">
+
+  <div class="button-container">
+    <h4>Mark a book to add it to your library</h4>
+    <button type="button" name="read" data-read-status="0">Want to Read</button>
+    <button type="button" name="read" data-read-status="1">Currently Reading</button>
+    <button type="button" name="read" data-read-status="2">Finished Reading</button>
+  </div>
+
   <div class="description">
     <p> <%= @book.description %> </p>
-    <button type="button" name="read">Mark as Read</button>
   </div>
 </main>
