@@ -8,14 +8,21 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <li class='search_bar'>
-    <%= form_tag( search_for_path, :method => "get", id: "search-form") do %>
-        <%= text_field_tag :search, params[:search], placeholder: "Search books, people" %>
-        <%= submit_tag "Search", :name => nil %>
-    <% end %>
-  </li>
-
   <body>
+
+    <li class='search_bar'>
+      <%= form_tag( search_for_path, :method => "get", id: "search-form") do %>
+          <%= text_field_tag :search, params[:search], placeholder: "Search books, people" %>
+          <%= submit_tag "Search", :name => nil %>
+      <% end %>
+    </li>
+
+    <% unless @user && @user == current_user %>
+      <section class="current-user-stats">
+        <%= render partial: 'shared/stats', locals: {user: current_user} %>
+      </section>
+    <% end %>
+
     <header class="site-header">
       <h1 class="logo">BookHippo</h1>
 
@@ -37,12 +44,6 @@
     <% flash.each do |key, message| %>
       <div class="flash-<%= key %>"><%= message %></div>
     <% end %>
-
-  <% unless @user && @user == current_user %>
-    <section class="current-user-stats">
-      <%= render partial: 'shared/stats', locals: {user: current_user} %>
-    </section>
-  <% end %>
 
     <%= yield %>
   </body>
