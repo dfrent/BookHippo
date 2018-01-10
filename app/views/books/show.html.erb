@@ -4,7 +4,9 @@
   <h4> <%= @book.author %> </h4>
   <img src="<%= @book.book_cover %>" alt="<%= @book.title %>">
 
-  <%= render partial: "books/read_status" %>
+  <% if logged_in? %>
+    <%= render partial: "books/read_status" %>
+  <% end %>
 
   <div class="description">
     <p> <%= @book.description %> </p>

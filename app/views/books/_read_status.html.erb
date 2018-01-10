@@ -6,7 +6,7 @@
       <%= hidden_field_tag :book_id, @book.id %>
       <%= hidden_field_tag :read_status, "want_to_read" %>
     </div>
-    <%= f.submit "Want to Read" %>
+    <%= f.submit "Want to Read", class: 'read-btn' %>
   <% end %>
 
   <%= form_for(current_user.reading_lists.build, remote: true) do |f| %>
@@ -15,7 +15,7 @@
       <%= hidden_field_tag :book_id, @book.id %>
       <%= hidden_field_tag :read_status, "currently_reading" %>
     </div>
-    <%= f.submit "Currently Reading" %>
+    <%= f.submit "Currently Reading", class: 'read-btn' %>
   <% end %>
 
   <%= form_for(current_user.reading_lists.build, remote: true) do |f| %>
@@ -24,6 +24,6 @@
       <%= hidden_field_tag :book_id, @book.id %>
       <%= hidden_field_tag :read_status, "finished_reading" %>
     </div>
-    <%= f.submit "Finished Reading" %>
+    <%= f.submit "Finished Reading", class: 'read-btn' %>
   <% end %>
 </div>
