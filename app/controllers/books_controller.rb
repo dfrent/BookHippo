@@ -16,8 +16,6 @@ class BooksController < ApplicationController
 
       # @books << { title: result["book_details"][0]["title"], author: result["book_details"][0]["author"], description: result["book_details"][0]["description"], isbn: result["book_details"][0]["primary_isbn10"], book_image: book_img }
 
-      # link_to("View Book", books_path(:id))
-
     end
   end
 
