@@ -1,6 +1,6 @@
 class ReadingList < ApplicationRecord
   belongs_to :user
-  has_many :books
+  belongs_to :book
 
-  validates :read_status, inclusion:{in:  %w(want_to_read currently_reading finished_reading)}
+  validates :read_status, inclusion:{in:  ["want_to_read", "currently_reading", "finished_reading"]}
 end

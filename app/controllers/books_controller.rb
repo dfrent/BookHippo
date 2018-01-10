@@ -20,6 +20,7 @@ class BooksController < ApplicationController
   def show
     isbn = params[:id]
     @book = Book.find_or_api_call(isbn)
+    @reading_list = ReadingList.new
   end
 
   def edit
