@@ -12,12 +12,20 @@ class ReadingListsController < ApplicationController
 
   def create
     @book = Book.find_by(params[:id])
-    @reading_list = ReadingList.new
-    @reading_list.book_id = params[:book_id]
-    @reading_list.read_status = params[:read_status]
-    current_user.reading_lists << @reading_list
+    @existing_list = ReadingList.find_by(user_id: params[:user_id], book_id: params[:book_id])
+
+    if @existing_list.nil?
+      @reading_list = ReadingList.create(
+                                         user_id: params[:user_id],
+                                         book_id: params[:book_id],
+                                         read_status: params[:read_status]
+                                        )
+    else
+      @existing_list.read_status = params[:read_status]
+      @existing_list.save
+    end
     respond_to do |format|
-      format.html { redirect_to @book }
+      format.html {redirect_to @book}
       format.js
     end
   end
