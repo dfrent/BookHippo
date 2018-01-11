@@ -13,3 +13,8 @@
  *= require_tree .
  *= require_self
  */
+
+.current-user-stats {
+  display: inline-block;
+  float: right;
+}
