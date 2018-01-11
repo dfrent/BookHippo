@@ -24,7 +24,7 @@ class UsersController < ApplicationController
       # # Auto-login on succesful signup
       flash[:notice] = 'Account successfully created!'
       session[:user_id] = @user.id
-      redirect_to new_follow_url
+      redirect_to genres_url
     else
       render :new
     end
