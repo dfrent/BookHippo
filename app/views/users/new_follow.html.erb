@@ -1,0 +1,13 @@
+<h1>Choose Some Members to Follow...</h1>
+
+<% @users.each do |user| %>
+  <div><%= user.username %></div>
+  <section class='other-user-stats'>
+    <%= render partial: 'shared/stats', locals: {user: user} %>
+  </section>
+
+  <section class='follow-button'>
+    <%= render partial: 'follow_form', locals: {user: user} %>
+  </section>
+  <br>
+<% end %>
