@@ -7,6 +7,13 @@ document.addEventListener("DOMContentLoaded", function(e){
   read_buttons.forEach(function(button){
     button.addEventListener("click", function(e){
       e.target.style.visibility = 'hidden';
+
+      reading_message = document.querySelector('.read-message');
+
+      if (e.target.value === "Want ")
+
+
+      reading_message.innerText =
     });
   });
 });
