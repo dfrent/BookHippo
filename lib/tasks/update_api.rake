@@ -9,12 +9,14 @@ namespace :update_api do
     response_travel = HTTParty.get("https://api.nytimes.com/svc/books/v3/lists.json?api-key=#{ENV['NYTIMES_KEY']}&list=travel")
     response_science = HTTParty.get("https://api.nytimes.com/svc/books/v3/lists.json?api-key=#{ENV['NYTIMES_KEY']}&list=science")
     response_business = HTTParty.get("https://api.nytimes.com/svc/books/v3/lists.json?api-key=#{ENV['NYTIMES_KEY']}&list=business-books")
+    response_animals =         HTTParty.get("https://api.nytimes.com/svc/books/v3/lists.json?api-key=#{ENV['NYTIMES_KEY']}&list=animals")
 
     items = []
     items << response.parsed_response['results']
     items << response_travel.parsed_response['results']
     items << response_science.parsed_response['results']
     items << response_business.parsed_response['results']
+    items << response_animals.parsed_response['results']
     puts 'Starting'
 
     items.each do |item|

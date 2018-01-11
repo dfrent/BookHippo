@@ -18,3 +18,8 @@
 <% @books_business.each do |book| %>
   <%= render partial: "single_book", locals: {book: book} %>
 <% end %>
+
+<h2> Animals </h2>
+<% @books_animals.each do |book| %>
+  <%= render partial: "single_book", locals: {book: book} %>
+<% end %>
