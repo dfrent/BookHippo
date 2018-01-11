@@ -23,6 +23,7 @@ class BooksController < ApplicationController
     isbn = params[:id]
     @book = Book.find_or_api_call(isbn)
     @reading_list = ReadingList.new
+    @existing_list = ReadingList.find_by(user_id: current_user.id, book_id: @book.id)
   end
 
   def edit
