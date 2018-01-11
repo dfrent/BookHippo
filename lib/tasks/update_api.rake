@@ -7,14 +7,16 @@ namespace :update_api do
   task :ny_times do
     response = HTTParty.get("https://api.nytimes.com/svc/books/v3/lists.json?api-key=#{ENV['NYTIMES_KEY']}&list=mass-market-paperback")
 
-    books = []
     puts "Starting"
     response.parsed_response["results"].each do |result|
 
       isbn = result["book_details"][0]["primary_isbn10"]
+      list = result["list_name"]
       book = Book.find_or_api_call(isbn)
-      books << book
+      book.ny_times_list = "mass-market-paperback"
+      book.save
       puts book.title + " found or created."
+      puts book.ny_times_list
     end
   end
 end
