@@ -23,38 +23,37 @@ document.addEventListener("DOMContentLoaded", function(e){
     });
   });
 
-  function(){
-    $('new_review').on('submit', function(eventObject){
-        // 1. Prevent the browser from submitting the form
-      evnentObject.preventDefault();
 
-      // 2. Make an AJAX call
+    document.querySelector('#new_review').addEventListener('submit',function(e){
+        // 1. Prevent the browser from submitting the form
+      e.preventDefault();
+      //2. Make an AJAX call
+      console.log($(this).serialize());
       $.ajax({
         url: $(this).attr('action'),
         method: $(this).attr('method'),
         data: $(this).serialize(),
         dataType: 'json'
       }).done(function(responseData){
+        console.log(responseData);
         // Create the list item with class
-        var listItem = $('<li class="list-review"></li>')
-        var completedInput = $('<ul class="post-list"></ul>');
+        var listItem = document.createElement('li')
+        var completedInput = $('.post-list');
+        listItem.class = 'list-review'
+        listItem.innerText = responseData.comment
 
-      completedInput.attr('value', responseData.id);
 
       // Add the is-complete class if there is a value for completed_at
-      if ( responseData.completed_at ) {
-        listItem.addClass('is-complete');
-        completedInput.attr('checked', 'checked');
-      }
-      $('.list-review').append(responseData);
+      completedInput.append(listItem)
       // listItem.append(completedInput).append(label).appendTo('.list-review')
 
         // Clear out the text field
-      $('.list-review').val('');
+        $('#new_review').trigger("reset");
 
       });
     });
-  }
+
+
 
 
 

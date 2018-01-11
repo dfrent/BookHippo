@@ -16,12 +16,19 @@ class ReviewsController < ApplicationController
     @review.user_id = current_user.id
 
     if @review.save
-      flash[:success] = "review added to #{@book.title}"
-      redirect_to book_url(@book.isbn)
-    else
-        flash.now[:alert] = "Sorry, there was a problem adding your review"
-        render "/books/show"
+    respond_to do |format|
+      format.html
+      format.json {render json: @review}
     end
+  end
+
+    # if @review.save
+    #   flash[:success] = "review added to #{@book.title}"
+    #   redirect_to book_url(@book.isbn)
+    # else
+    #     flash.now[:alert] = "Sorry, there was a problem adding your review"
+    #     render "/books/show"
+    # end
   end
 
   def edit

@@ -20,18 +20,6 @@
   <div class="review-wrapper">
     <%= render partial: "reviews/reviews_form", locals: {book: @book, review: @review}%>
 
-    <div class="review-container">
-
-      <h4>Reviews</h4>
-      <ul class="post-list">
-        <% @reviews.each do |post|%>
-            <% unless post == nil %>
-              <li class="list-review"> <%= post.comment %> </li>
-            <% end %>
-        <% end %>
-      </ul>
-
-    </div>
   </div>
 
 </main>
