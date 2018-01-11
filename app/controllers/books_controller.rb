@@ -1,6 +1,7 @@
 class BooksController < ApplicationController
   def index
-    @books = Book.where("ny_times_list = ?", "mass-market-paperback")
+    @books = Book.where("ny_times_list = ?", "Mass Market Paperback")
+    @books_travel = Book.where("ny_times_list = ?", "Travel")
   end
 
   def show
