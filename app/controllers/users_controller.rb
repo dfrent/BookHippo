@@ -75,6 +75,7 @@ class UsersController < ApplicationController
   end
 
   def new_follow
-    @users = User.all.sample(5)
+    @user = current_user
+    @users = User.users_to_follow(5, @user)
   end
 end
