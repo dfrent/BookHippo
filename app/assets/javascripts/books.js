@@ -9,11 +9,15 @@ document.addEventListener("DOMContentLoaded", function(e){
       e.target.style.visibility = 'hidden';
 
       reading_message = document.querySelector('.read-message');
+      book_title = document.querySelector('.book-title').innerText;
 
-      if (e.target.value === "Want ")
-
-
-      reading_message.innerText =
+      if (e.target.value === "Want to Read") {
+        reading_message.innerText = "You currently have '" + book_title + "' in your 'want to read' list"
+      } else if (e.target.value === "Currently Reading") {
+        reading_message.innerText = "You are currently reading '" + book_title + "'. Enjoy it!"
+      } else if (e.target.value === "Finished Reading") {
+        reading_message.innerText = "You finished reading '" + book_title + "'. Awesome!!"
+      }
     });
   });
 });
