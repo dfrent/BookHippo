@@ -1,10 +1,18 @@
 <!-- <pre><%#= @book.to_yaml %></pre> -->
 <main>
-  <h2> <%= @book.title %> </h2>
+  <h2 class="book-title"> <%= @book.title %> </h2>
   <h4> <%= @book.author %> </h4>
   <img src="<%= @book.book_cover %>" alt="<%= @book.title %>">
+  
   <p>Page Count: <%= @book.page_count %> </p>
   <p>Rating: <%= @book.average_rating%> </p>
+
+  <% if logged_in? %>
+    <%= render partial: "books/read_status" %>
+  <% else %>
+    <%= render partial: "books/new_user_buttons" %>
+  <% end %>
+
   <div class="description">
     <p>Description: <%= @book.description %> </p>
   </div>
