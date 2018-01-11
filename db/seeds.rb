@@ -15,10 +15,10 @@ genres = Genre.create(
 
 books = Book.create(
   [
-    {title: 'Lord of the Rings', author: 'J.R.R. Tolkien', release_date: Time.now - 20.years, genre_id: 1},
-    {title: 'Cat in the Hat', author: 'Dr. Seuss', release_date: Time.now - 35.years, genre_id: 1},
-    {title: 'War of the Worlds', author: 'H.G. Wells', release_date: Time.now - 120.years, genre_id: 1},
-    {title: 'Lord of the Flies', author: 'Willaim Golding', release_date: Time.now - 73.years, genre_id: 1}
+    {title: 'Lord of the Rings', author: 'J.R.R. Tolkien', published_date: Time.now - 20.years, genre_id: 1},
+    {title: 'Cat in the Hat', author: 'Dr. Seuss', published_date: Time.now - 35.years, genre_id: 1},
+    {title: 'War of the Worlds', author: 'H.G. Wells', published_date: Time.now - 120.years, genre_id: 1},
+    {title: 'Lord of the Flies', author: 'Willaim Golding', published_date: Time.now - 73.years, genre_id: 1}
   ]
 )
 
