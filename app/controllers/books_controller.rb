@@ -3,6 +3,7 @@ class BooksController < ApplicationController
     @books = Book.where("ny_times_list = ?", "Mass Market Paperback")
     @books_travel = Book.where("ny_times_list = ?", "Travel")
     @books_science = Book.where("ny_times_list = ?", "Science")
+    @books_business = Book.where("ny_times_list = ?", "Business Books")
   end
 
   def show

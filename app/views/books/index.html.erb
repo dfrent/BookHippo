@@ -1,24 +1,20 @@
-<h1> Top Selling Books</h1>
+<h2> Top Selling Books </h2>
 
 <% @books.each do |book| %>
   <%= render partial: "single_book", locals: {book: book} %>
 <% end %>
 
-<h2> travel </h2>
+<h2> Travel </h2>
 <% @books_travel.each do |book| %>
-  <div class="book-container">
-    <h2><%= book[:title].titleize %></h2>
-    <h3> <%= book[:author] %> </h3>
-    <p>  <%= book[:description] %>  </p>
-    <div class="book-cover"> <%= link_to(image_tag(book[:book_cover]), book_path(book[:isbn])) %> </div>
-  </div>
+  <%= render partial: "single_book", locals: {book: book} %>
 <% end %>
 
+<h2> Science </h2>
 <% @books_science.each do |book| %>
-  <div class="book-container">
-    <h2><%= book[:title].titleize %></h2>
-    <h3> <%= book[:author] %> </h3>
-    <p>  <%= book[:description] %>  </p>
-    <div class="book-cover"> <%= link_to(image_tag(book[:book_cover]), book_path(book[:isbn])) %> </div>
-  </div>
+  <%= render partial: "single_book", locals: {book: book} %>
+<% end %>
+
+<h2> Business </h2>
+<% @books_business.each do |book| %>
+  <%= render partial: "single_book", locals: {book: book} %>
 <% end %>

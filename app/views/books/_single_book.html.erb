@@ -1,6 +1,6 @@
 <div class="book-container">
-  <h2><%= book[:title].titleize %></h2>
-  <h3> <%= book[:author] %> </h3>
+  <h3><%= book[:title].titleize %></h3>
+  <h4> <%= book[:author] %> </h4>
   <p>  <%= book[:description] %>  </p>
   <div class="book-cover"> <%= link_to(image_tag(book[:book_cover]), book_path(book[:isbn])) %> </div>
 </div>
