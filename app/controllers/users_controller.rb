@@ -24,7 +24,7 @@ class UsersController < ApplicationController
       # # Auto-login on succesful signup
       flash[:notice] = 'Account successfully created!'
       session[:user_id] = @user.id
-      redirect_to root_url
+      redirect_to new_follow_url
     else
       render :new
     end
@@ -74,4 +74,7 @@ class UsersController < ApplicationController
     render 'show_follow'
   end
 
+  def new_follow
+    @users = User.all.sample(5)
+  end
 end
