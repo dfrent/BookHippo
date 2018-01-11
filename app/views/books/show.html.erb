@@ -13,4 +13,12 @@
   <div class="description">
     <p> <%= @book.description %> </p>
   </div>
+
+  <div class="review-container">
+
+      <%= render partial: "reviews_form", locals: {review: @review}%> 
+
+
+  </div>
+
 </main>
