@@ -15,10 +15,16 @@
   </div>
 
   <div class="review-container">
+      <%= render partial: "reviews/reviews_form", locals: {book: @book, review: @review}%>
 
-      <%= render partial: "reviews_form", locals: {review: @review}%> 
-
-
+      <h4>Previous Reviews</h4>
+  <ul>
+    <% @reviews.each do |post|%>
+        <% unless post == nil %>
+          <li>  <%= post.comment %> </li>
+        <% end %>
+    <% end %>
+  </ul>
   </div>
 
 </main>
