@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", function(e){
   read_buttons = document.querySelectorAll('.read-btn')
 
   read_buttons.forEach(function(button){
-    console.log('hello');
     button.addEventListener("click", function(e){
       e.target.style.visibility = 'hidden';
     });
