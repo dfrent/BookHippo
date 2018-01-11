@@ -12,7 +12,7 @@ class User < ApplicationRecord
   has_many :passive_relationships, class_name:  "Relationship",
                                    foreign_key: "followed_id",
                                    dependent:   :destroy
-                                   
+
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
 
@@ -33,5 +33,13 @@ class User < ApplicationRecord
   # Returns true if the current user is following the other user.
   def following?(other_user)
     following.include?(other_user)
+  end
+
+  def self.users_to_follow(num_of_users, current_user)
+    users_array = []
+    self.all.reject{|user| user == current_user}.each do |user|
+      users_array << user
+    end
+    users_array.sample(num_of_users)
   end
 end

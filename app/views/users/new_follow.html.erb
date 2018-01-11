@@ -2,12 +2,15 @@
 
 <% @users.each do |user| %>
   <div><%= user.username %></div>
-  <section class='other-user-stats'>
-    <%= render partial: 'shared/stats', locals: {user: user} %>
-  </section>
 
-  <section class='follow-button'>
-    <%= render partial: 'follow_form', locals: {user: user} %>
+  <section class="user-data-<%= user.id %>">
+    <section class='other-user-stats'>
+      <%= render partial: 'shared/stats', locals: {user: user} %>
+    </section>
+
+    <section class='follow-button'>
+      <%= render partial: 'follow_form', locals: {user: user} %>
+    </section>
   </section>
   <br>
 <% end %>

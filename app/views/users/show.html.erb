@@ -5,10 +5,12 @@
 
 <br><br>
 
-<section class="other-user-stats">
-  <%= render partial: 'shared/stats', locals: {user: @user} %>
-</section>
+<section class="user-data-<%= @user.id %>">
+  <section class="other-user-stats">
+    <%= render partial: 'shared/stats', locals: {user: @user} %>
+  </section>
 
-<section class="follow-button">
-  <%= render partial: 'follow_form' if logged_in? %>
+  <section class="follow-button">
+    <%= render partial: 'follow_form', locals: {user: @user} if logged_in? %>
+  </section>
 </section>
