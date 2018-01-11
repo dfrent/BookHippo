@@ -3,7 +3,7 @@
   <h2 class="book-title"> <%= @book.title %> </h2>
   <h4> <%= @book.author %> </h4>
   <img src="<%= @book.book_cover %>" alt="<%= @book.title %>">
-  
+
   <p>Page Count: <%= @book.page_count %> </p>
   <p>Rating: <%= @book.average_rating%> </p>
 
@@ -15,19 +15,23 @@
 
   <div class="description">
     <p>Description: <%= @book.description %> </p>
+
   </div>
+  <div class="review-wrapper">
+    <%= render partial: "reviews/reviews_form", locals: {book: @book, review: @review}%>
 
-  <div class="review-container">
-      <%= render partial: "reviews/reviews_form", locals: {book: @book, review: @review}%>
+    <div class="review-container">
 
-      <h4>Previous Reviews</h4>
-  <ul>
-    <% @reviews.each do |post|%>
-        <% unless post == nil %>
-          <li> <%= post.comment %> </li>
+      <h4>Reviews</h4>
+      <ul class="post-list">
+        <% @reviews.each do |post|%>
+            <% unless post == nil %>
+              <li class="list-review"> <%= post.comment %> </li>
+            <% end %>
         <% end %>
-    <% end %>
-  </ul>
+      </ul>
+
+    </div>
   </div>
 
 </main>
