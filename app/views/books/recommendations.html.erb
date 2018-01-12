@@ -6,3 +6,5 @@
   <%= render partial: "single_book", locals: {book: book} %>
   <%= book.genre.name.titleize %>
 <% end %>
+
+<%= link_to 'Next', new_follow_path %>
