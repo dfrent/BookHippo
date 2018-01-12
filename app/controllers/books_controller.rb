@@ -31,6 +31,7 @@ class BooksController < ApplicationController
 
     user_genres.each do |genre|
       name = genre.name
+      id = genre.id
       response =  HTTParty.get("https://www.googleapis.com/books/v1/volumes?q=subject=#{name}&key=#{ENV['GBOOKS_KEY']}")
       items = response.parsed_response["items"]
 
@@ -53,7 +54,7 @@ class BooksController < ApplicationController
         # if info["industryIdentifiers"][1] != nil && authors != nil && info["title"] != nil
         #   isbn = info["industryIden tifiers"][1]["identifier"]
         if isbn != nil
-          new_book = Book.create(isbn: isbn, title: info["title"], author: authors_string, description: info["description"], book_cover: info["imageLinks"]["thumbnail"], small_thumbnail: info["imageLinks"]["smallThumbnail"], genre_id: 1, page_count: info["pageCount"], average_rating: info["averageRating"], published_date: info["publishedDate"], publisher: info["publisher"])
+          new_book = Book.create(isbn: isbn, title: info["title"], author: authors_string, description: info["description"], book_cover: info["imageLinks"]["thumbnail"], small_thumbnail: info["imageLinks"]["smallThumbnail"], genre_id: id, page_count: info["pageCount"], average_rating: info["averageRating"], published_date: info["publishedDate"], publisher: info["publisher"])
 
           @books << new_book
         end
