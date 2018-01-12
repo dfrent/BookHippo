@@ -22,7 +22,10 @@ class SearchForController < ApplicationController
               result_identifier = result_identifier.split(':')[1]
             end
 
-          @books << { title: result["volumeInfo"]["title"], author: result["volumeInfo"]["authors"],description: result["volumeInfo"]["description"],isbn: result_identifier, book_image: book_img }
+            author_string = result["volumeInfo"]["authors"][0]
+
+
+          @books << { title: result["volumeInfo"]["title"], author: author_string.to_s ,description: result["volumeInfo"]["description"],isbn: result_identifier, book_image: book_img }
           end
         end
 

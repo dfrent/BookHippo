@@ -44,8 +44,7 @@ document.addEventListener("DOMContentLoaded", function(e){
           var completedInput = $('.post-list');
           listItem.class = 'list-review'
           listItem.innerText = responseData.comment
-
-
+          
         // Add the is-complete class if there is a value for completed_at
         completedInput.append(listItem)
         // listItem.append(completedInput).append(label).appendTo('.list-review')
