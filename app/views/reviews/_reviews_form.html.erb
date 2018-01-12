@@ -1,16 +1,19 @@
+<h4>Rate This Book</h4>
+
+<% for i in (0..4)  %>
+  <div class="stars-outer stars-outer-<%= i %>">
+    <div class="stars-inner stars-inner-<%= i %>"></div>
+  </div>
+<% end %>
+
 <h4>Add A Review</h4>
+
 <p>
   <%= form_for [book, review] do |f| %>
   <%= f.text_area :comment %>
   <%= f.submit  %>
 </p>
 <% end %>
-
-  <div class="stars-outer">
-    <div class="stars-inner">
-    
-    </div>
-  </div>
 
   <div class="review-container">
     <h4>Reviews</h4>
