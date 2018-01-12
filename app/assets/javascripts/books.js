@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function(e){
           var completedInput = $('.post-list');
           listItem.class = 'list-review'
           listItem.innerText = responseData.comment
-          
+
         // Add the is-complete class if there is a value for completed_at
         completedInput.append(listItem)
         // listItem.append(completedInput).append(label).appendTo('.list-review')
@@ -54,8 +54,55 @@ document.addEventListener("DOMContentLoaded", function(e){
 
         });
     });
+    // Make the stars light up on hover
+    star1 = document.querySelector(`[data-outer-value='0']`);
+    starValue1 = star1.getAttribute(`data-outer-value`);
+    innerStar1 = document.querySelector(`[data-inner-value='${starValue1}']`);
+    star1.addEventListener("mouseenter", function(){
+      innerStar1.style.width = "100%";
+    });
+    star1.addEventListener("mouseleave", function(){
+      innerStar1.style.width = "0%";
+    });
+
+    star2 = document.querySelector(`[data-outer-value='1']`);
+    starValue2 = star2.getAttribute(`data-outer-value`);
+    innerStar2 = document.querySelector(`[data-inner-value='${starValue2}']`);
+    star2.addEventListener("mouseenter", function(){
+      innerStar2.style.width = "100%";
+    });
+    star2.addEventListener("mouseleave", function(){
+      innerStar2.style.width = "0%";
+    });
+
+    star3 = document.querySelector(`[data-outer-value='2']`);
+    starValue3 = star3.getAttribute(`data-outer-value`);
+    innerStar3 = document.querySelector(`[data-inner-value='${starValue3}']`);
+    star3.addEventListener("mouseenter", function(){
+      innerStar3.style.width = "100%";
+    });
+    star3.addEventListener("mouseleave", function(){
+      innerStar3.style.width = "0%";
+    });
+
+    star4 = document.querySelector(`[data-outer-value='3']`);
+    starValue4 = star4.getAttribute(`data-outer-value`);
+    innerStar4 = document.querySelector(`[data-inner-value='${starValue4}']`);
+    star4.addEventListener("mouseenter", function(){
+      innerStar4.style.width = "100%";
+    });
+    star4.addEventListener("mouseleave", function(){
+      innerStar4.style.width = "0%";
+    });
+
+    star5 = document.querySelector(`[data-outer-value='4']`);
+    starValue5 = star5.getAttribute(`data-outer-value`);
+    innerStar5 = document.querySelector(`[data-inner-value='${starValue5}']`);
+    star5.addEventListener("mouseenter", function(){
+      innerStar5.style.width = "100%";
+    });
+    star5.addEventListener("mouseleave", function(){
+      innerStar5.style.width = "0%";
+    });
   }
-
-
-
 });

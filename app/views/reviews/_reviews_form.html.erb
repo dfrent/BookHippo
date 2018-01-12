@@ -1,10 +1,10 @@
 <h4>Rate This Book</h4>
 
-<% for i in (0..4)  %>
-  <div class="stars-outer stars-outer-<%= i %>">
-    <div class="stars-inner stars-inner-<%= i %>"></div>
-  </div>
-<% end %>
+  <% for i in (0..4)  %>
+    <div class="stars-outer" data-outer-value="<%= i %>">
+      <div class="stars-inner" data-inner-value="<%= i %>"></div>
+    </div>
+  <% end %>
 
 <h4>Add A Review</h4>
 
