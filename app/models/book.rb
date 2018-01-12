@@ -5,6 +5,7 @@ class Book < ApplicationRecord
   belongs_to :genre
   has_many :reviews
   has_many :reading_lists
+  has_many :ratings
 
   validates :isbn, uniqueness: true
 
