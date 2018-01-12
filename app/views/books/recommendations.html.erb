@@ -1,0 +1,8 @@
+<h1>Book recommendations</h1>
+
+<%= link_to 'Next', new_follow_path %>
+
+<% @books.each do |book| %>
+  <%= render partial: "single_book", locals: {book: book} %>
+  <%= book.genre.name.titleize %>
+<% end %>
