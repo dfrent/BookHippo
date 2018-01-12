@@ -2,12 +2,12 @@
 // All this logic will automatically be available in application.js.
 
 document.addEventListener("DOMContentLoaded", function(e){
-  read_buttons = document.querySelectorAll('.read-btn')
+  var read_buttons = document.querySelectorAll('.read-btn')
 
   read_buttons.forEach(function(button){
     button.addEventListener("click", function(e){
-      reading_message = document.querySelector('.read-message');
-      book_title = document.querySelector('.book-title').innerText;
+      var reading_message = document.querySelector('.read-message');
+      var book_title = document.querySelector('.book-title').innerText;
 
       if (e.target.value === "Want to Read") {
         reading_message.innerText = "You currently have '" + book_title + "' in your 'want to read' list";
@@ -55,54 +55,27 @@ document.addEventListener("DOMContentLoaded", function(e){
         });
     });
     // Make the stars light up on hover
-    star1 = document.querySelector(`[data-outer-value='0']`);
-    starValue1 = star1.getAttribute(`data-outer-value`);
-    innerStar1 = document.querySelector(`[data-inner-value='${starValue1}']`);
-    star1.addEventListener("mouseenter", function(){
-      innerStar1.style.width = "100%";
-    });
-    star1.addEventListener("mouseleave", function(){
-      innerStar1.style.width = "0%";
-    });
+    for (i = 0; i < 5 ; i++){
+     handleStar(i)
+    }
+    function handleStar(i) {
+      var star = document.querySelector(`[data-outer-value='${i}'`);
+      var starValue = star.getAttribute(`data-outer-value`);
+      var innerStar = document.querySelector(`[data-inner-value='${starValue}']`);
+      star.addEventListener("mouseenter", function(){
+        for (x = 0; x <= starValue ; x++){
+          var currentStar = document.querySelector(`[data-inner-value='${x}']`);
+          currentStar.style.width = "100%"
+        }
+      });
+      star.addEventListener("mouseleave", function(){
+        for (y = 0; y <= starValue; y++){
+          var currentStar = document.querySelector(`[data-inner-value='${y}']`);
+          currentStar.style.width = "0%";
+        }
+      });
+    }
 
-    star2 = document.querySelector(`[data-outer-value='1']`);
-    starValue2 = star2.getAttribute(`data-outer-value`);
-    innerStar2 = document.querySelector(`[data-inner-value='${starValue2}']`);
-    star2.addEventListener("mouseenter", function(){
-      innerStar2.style.width = "100%";
-    });
-    star2.addEventListener("mouseleave", function(){
-      innerStar2.style.width = "0%";
-    });
 
-    star3 = document.querySelector(`[data-outer-value='2']`);
-    starValue3 = star3.getAttribute(`data-outer-value`);
-    innerStar3 = document.querySelector(`[data-inner-value='${starValue3}']`);
-    star3.addEventListener("mouseenter", function(){
-      innerStar3.style.width = "100%";
-    });
-    star3.addEventListener("mouseleave", function(){
-      innerStar3.style.width = "0%";
-    });
-
-    star4 = document.querySelector(`[data-outer-value='3']`);
-    starValue4 = star4.getAttribute(`data-outer-value`);
-    innerStar4 = document.querySelector(`[data-inner-value='${starValue4}']`);
-    star4.addEventListener("mouseenter", function(){
-      innerStar4.style.width = "100%";
-    });
-    star4.addEventListener("mouseleave", function(){
-      innerStar4.style.width = "0%";
-    });
-
-    star5 = document.querySelector(`[data-outer-value='4']`);
-    starValue5 = star5.getAttribute(`data-outer-value`);
-    innerStar5 = document.querySelector(`[data-inner-value='${starValue5}']`);
-    star5.addEventListener("mouseenter", function(){
-      innerStar5.style.width = "100%";
-    });
-    star5.addEventListener("mouseleave", function(){
-      innerStar5.style.width = "0%";
-    });
   }
 });
