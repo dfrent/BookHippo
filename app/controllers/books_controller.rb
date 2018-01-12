@@ -45,9 +45,11 @@ class BooksController < ApplicationController
         # google_id = response.parsed_response["items"][item]["id"]
         identifiers = item["volumeInfo"]["industryIdentifiers"]
         isbn = nil
-        identifiers.each do |identifier|
-          if identifier.has_value?("ISBN_10")
-            isbn = identifier["identifier"]
+        if identifiers
+          identifiers.each do |identifier|
+            if identifier.has_value?("ISBN_10")
+              isbn = identifier["identifier"]
+            end
           end
         end
 

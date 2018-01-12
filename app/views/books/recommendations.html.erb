@@ -2,4 +2,5 @@
 
 <% @books.each do |book| %>
   <%= render partial: "single_book", locals: {book: book} %>
+  <%= book.genre.name.titleize %>
 <% end %>
