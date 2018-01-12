@@ -1,0 +1,5 @@
+<h1>Book recommendations</h1>
+
+<% @books.each do |book| %>
+  <%= render partial: "single_book", locals: {book: book} %>
+<% end %>

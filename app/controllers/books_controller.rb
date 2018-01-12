@@ -21,4 +21,38 @@ class BooksController < ApplicationController
 
   def update
   end
+
+  def recommendations
+    @user = current_user
+    @books = []
+
+    user_genres = @user.genres
+
+    user_genres.each do |genre|
+      name = genre.name
+      response =  HTTParty.get("https://www.googleapis.com/books/v1/volumes?q=subject=#{name}&key=#{ENV['GBOOKS_KEY']}")
+      items = response.parsed_response["items"]
+
+      items.each do |item|
+        # info = item["volumeInfo"]
+        # authors = info["authors"]
+        # # google_id = response.parsed_response["items"][item]["id"]
+        # if info["industryIdentifiers"][1] != nil && authors != nil && info["title"] != nil
+        #   isbn = info["industryIdentifiers"][1]["identifier"]
+        #   authors_string = authors.join(", ")
+        #   new_book = Book.create(isbn: isbn, title: info["title"], author: authors_string, description: info["description"], book_cover: info["imageLinks"]["thumbnail"], small_thumbnail: info["imageLinks"]["smallThumbnail"], genre_id: 1, page_count: info["pageCount"], average_rating: info["averageRating"], published_date: info["publishedDate"], publisher: info["publisher"])
+
+
+
+
+        # end
+
+        @books << item
+        # @books << new_book
+
+      end
+
+    end
+    console
+  end
 end
