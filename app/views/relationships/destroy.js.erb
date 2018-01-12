@@ -1,7 +1,11 @@
-follow_form.innerHTML = "<%= escape_javascript(render('users/follow')) %>"
+user_data_selector = ".user-data-" + "<%= @user.id %>";
 
-followers = document.querySelector('.other-user-stats .followers')
-followers.innerHTML = '<%= @user.followers.count %>'
+follow_form = document.querySelector(user_data_selector + "  #follow_form");
 
-current_user_following = document.querySelector('.current-user-stats .following')
-current_user_following.innerHTML = '<%= current_user.following.count %>'
+follow_form.innerHTML = "<%= escape_javascript(render partial: 'users/follow', locals: {user: @user}) %>";
+
+followers = document.querySelector(user_data_selector + ' .other-user-stats .followers');
+followers.innerHTML = '<%= @user.followers.count %>';
+
+current_user_following = document.querySelector('.current-user-stats .following');
+current_user_following.innerHTML = '<%= current_user.following.count %>';

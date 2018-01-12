@@ -40,9 +40,11 @@ ActiveRecord::Schema.define(version: 20180111143025) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "genres_users", id: false, force: :cascade do |t|
-    t.integer "genre_id"
+  create_table "interests", force: :cascade do |t|
     t.integer "user_id"
+    t.integer "genre_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "reading_lists", force: :cascade do |t|

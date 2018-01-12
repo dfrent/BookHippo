@@ -4,6 +4,10 @@ Rails.application.routes.draw do
 
   get "search_for" => "search_for#search_for", :as => :search_for
 
+  get "new_follow" => "users#new_follow", :as => :new_follow
+
+  post "users_genres" => "interests#creation"
+
   get 'login' => 'sessions#new', :as => :login
 
   delete 'logout' => 'sessions#destroy', :as => :logout
