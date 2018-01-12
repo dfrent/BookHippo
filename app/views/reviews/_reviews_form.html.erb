@@ -6,9 +6,13 @@
 </p>
 <% end %>
 
-  
-  <div class="review-container">
+  <div class="stars-outer">
+    <div class="stars-inner">
+    
+    </div>
+  </div>
 
+  <div class="review-container">
     <h4>Reviews</h4>
     <ul class="post-list">
       <% @reviews.each do |post|%>
@@ -17,5 +21,4 @@
           <% end %>
       <% end %>
     </ul>
-
   </div>
