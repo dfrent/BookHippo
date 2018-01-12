@@ -15,11 +15,12 @@
 
   <div class="description">
     <p>Description: <%= @book.description %> </p>
-
   </div>
+
+  <% if logged_in? && @existing_list && @existing_list.read_status == "finished_reading" %>
   <div class="review-wrapper">
     <%= render partial: "reviews/reviews_form", locals: {book: @book, review: @review}%>
-
+    <% else %>
   </div>
-
+  <% end %>
 </main>
