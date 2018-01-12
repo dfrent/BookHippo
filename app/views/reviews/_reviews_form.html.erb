@@ -1,0 +1,21 @@
+<h4>Add A Review</h4>
+<p>
+  <%= form_for [book, review] do |f| %>
+  <%= f.text_area :comment %>
+  <%= f.submit  %>
+</p>
+<% end %>
+
+  
+  <div class="review-container">
+
+    <h4>Reviews</h4>
+    <ul class="post-list">
+      <% @reviews.each do |post|%>
+          <% unless post == nil %>
+            <li class="list-review"> <%= post.comment %> </li>
+          <% end %>
+      <% end %>
+    </ul>
+
+  </div>

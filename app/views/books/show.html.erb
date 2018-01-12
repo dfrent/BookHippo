@@ -3,7 +3,7 @@
   <h2 class="book-title"> <%= @book.title %> </h2>
   <h4> <%= @book.author %> </h4>
   <img src="<%= @book.book_cover %>" alt="<%= @book.title %>">
-  
+
   <p>Page Count: <%= @book.page_count %> </p>
   <p>Rating: <%= @book.average_rating%> </p>
 
@@ -15,5 +15,11 @@
 
   <div class="description">
     <p>Description: <%= @book.description %> </p>
+
   </div>
+  <div class="review-wrapper">
+    <%= render partial: "reviews/reviews_form", locals: {book: @book, review: @review}%>
+
+  </div>
+
 </main>
