@@ -23,10 +23,11 @@
   display: inline-block;
   position: relative;
   font-family: FontAwesome;
+  font-size: 25px;
 }
 
 .stars-outer::before {
-  content: "\2606 \2606 \2606 \2606 \2606"
+  content: "\2606 \2606 \2606 \2606 \2606";
 }
 
 .stars-inner {
@@ -36,6 +37,7 @@
   white-space: nowrap;
   overflow: hidden;
   width: 0;
+  font-size: 25px;
 }
 
 .stars-inner::before {
