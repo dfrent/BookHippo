@@ -7,6 +7,6 @@ class InterestsController < ApplicationController
       interest.genre_id = genre.to_i
       interest.save
     end
-    redirect_to new_follow_url
+    redirect_to recommendations_url
   end
 end
