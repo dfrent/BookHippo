@@ -21,11 +21,11 @@ class SearchForController < ApplicationController
             if result_type == "OTHER"
               result_identifier = result_identifier.split(':')[1]
             end
+            authors = result["volumeInfo"]["authors"]
+            author_string = authors.join(", ")
 
-            author_string = result["volumeInfo"]["authors"][0]
 
-
-          @books << { title: result["volumeInfo"]["title"], author: author_string.to_s ,description: result["volumeInfo"]["description"],isbn: result_identifier, book_image: book_img }
+          @books << { title: result["volumeInfo"]["title"], author: author_string ,description: result["volumeInfo"]["description"],isbn: result_identifier, book_image: book_img }
           end
         end
 
