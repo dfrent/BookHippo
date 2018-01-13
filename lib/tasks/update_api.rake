@@ -50,13 +50,11 @@ namespace :update_api do
           identifiers.each do |identifier|
             if identifier.has_value?("ISBN_10")
               isbn = identifier["identifier"]
-            else
-              return
             end
           end
         end
 
-        if isbn = nil
+        if isbn == nil
           next
         else
           if Book.exists?(isbn)
