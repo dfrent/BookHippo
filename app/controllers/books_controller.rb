@@ -27,7 +27,8 @@ class BooksController < ApplicationController
   def recommendations
     @user = current_user
     @books = []
-    temp_books = []
+    @reading_list = ReadingList.new
+    # temp_books = []
 
     user_genres = @user.genres
 
@@ -62,5 +63,6 @@ class BooksController < ApplicationController
         end
       end
     end
+    console
   end
 end
