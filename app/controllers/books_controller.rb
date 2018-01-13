@@ -26,9 +26,10 @@ class BooksController < ApplicationController
 
   def recommendations
     @user = current_user
+    @genres = @user.genres.ids
     @books = []
     @reading_list = ReadingList.new
-    @books_sports = Book.where('genre_id = ?', "16")
+    # @books = Book.where('genre_id = ?', "16")
     console
   end
 end
