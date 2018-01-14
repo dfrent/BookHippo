@@ -35,6 +35,7 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'capistrano-rails', group: :development
 
 gem 'httparty'
+gem 'bootstrap', '~> 4.0.0.beta3'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
