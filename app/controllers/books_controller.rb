@@ -26,10 +26,13 @@ class BooksController < ApplicationController
 
   def recommendations
     @user = current_user
-    @genres = @user.genres.ids
+    if logged_in?
+      @genres = @user.genres.ids
+    else
+      redirect_to root_url
+    end
     @books = []
     @reading_list = ReadingList.new
     # @books = Book.where('genre_id = ?', "16")
-    console
   end
 end
