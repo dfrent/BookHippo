@@ -1,13 +1,11 @@
-<h1>Pick your favourite genres </h1>
+<h1>Pick your favourite genres</h1>
 
-<%= form_for @user, url: users_genres_path, method: :post do |f| %>
-  <% @genres.each do |genre| %>
-    <input type="checkbox" name="genres[]" value="<%= genre.id %>"> <%= genre.name.capitalize %><br>
+<div class="checkbox-group required">
+  <%= form_for @user, url: users_genres_path, method: :post do |f| %>
+    <% @genres.each do |genre| %>
+      <input type="checkbox" name="genres[]" value="<%= genre.id %>">
+      <%= genre.name.capitalize %><br>
+    <% end %>
+    <input type="submit" value="Submit" id="genre-submit">
   <% end %>
-  <input type="submit" value="Submit">
-<% end %>
-
-
-<!-- <form class="done" action="new_follow" method="get">
-  <button type="submit" name="button">Done</button>
-</form> -->
+</div>
