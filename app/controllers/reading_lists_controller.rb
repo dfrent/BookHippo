@@ -33,7 +33,7 @@ class ReadingListsController < ApplicationController
       #   format.js
       # end
     else
-      format.html {redirect_to book_path(@book[:isbn]}
+      format.html {redirect_to book_path(@book[:isbn])}
     end
   end
 
