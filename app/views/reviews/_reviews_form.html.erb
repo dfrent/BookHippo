@@ -6,6 +6,10 @@
     </div>
   <% end %>
 
+  <%= form_for [book, @rating], method: "PATCH" do |f| %>
+    <%= f.submit "Submit Rating", class: "star-submit" %>
+  <% end %>
+
 <h4>Add A Review</h4>
 
 <p>
