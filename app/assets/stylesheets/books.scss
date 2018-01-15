@@ -26,6 +26,7 @@
 
 
   img {
+      display: block;
       position: absolute;
       margin: auto;
       height: 80%;
@@ -47,13 +48,27 @@
   padding: 5%;
   margin-top: 0;
   width: 100%;
+  min-height: 20%;
+  max-height: 20%;
 
   .card-title {
     margin: auto;
     text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
   }
 
   p {
-    font-size: $font-size-sm;
+    font-size: .7rem;
   }
 }
+
+// .ellipsis {
+//   text-overflow: ellipsis;
+//
+//   /* Required for text-overflow to do anything */
+//   white-space: nowrap;
+//   overflow: hidden;
+// }
