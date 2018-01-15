@@ -2,7 +2,14 @@
 
 <%= link_to 'Next', new_follow_path %>
 
-<% @books.each do |book| %>
-  <%= render partial: "single_book", locals: {book: book} %>
-  <%= book.genre.name.titleize %>
+<% @genres.each do |genre| %>
+  <!-- <% name = Genre.where('id = ?', genre).name %> -->
+  <%#= name %>
+  <% books = Book.where('genre_id = ?', genre)  %>
+  <% books.each do |book| %>
+    <%= render partial: "single_book", locals: {book: book} %>
+    <%= render partial: "books/read_status", locals: {book: book, existing_list: ReadingList.find_by(user_id: current_user.id, book_id: book.id)} %>
+  <% end %>
 <% end %>
+
+<%= link_to 'Next', new_follow_path %>
