@@ -19,6 +19,7 @@ class User < ApplicationRecord
   has_many :genres, through: :interests
   has_many :reviews
   has_many :reading_lists
+  has_many :ratings
 
   # Follows a user.
   def follow(other_user)

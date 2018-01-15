@@ -2,12 +2,14 @@
 // All this logic will automatically be available in application.js.
 
 document.addEventListener("DOMContentLoaded", function(e){
-  read_buttons = document.querySelectorAll('.read-btn')
+  var starSubmit = document.querySelector('.star-submit')
+  starSubmit.style.visibility = "hidden";
+  var read_buttons = document.querySelectorAll('.read-btn')
 
   read_buttons.forEach(function(button){
     button.addEventListener("click", function(e){
-      reading_message = document.querySelector('.read-message');
-      book_title = document.querySelector('.book-title').innerText;
+      var reading_message = document.querySelector('.read-message');
+      var book_title = document.querySelector('.book-title').innerText;
 
       if (e.target.value === "Want to Read") {
         reading_message.innerText = "You currently have '" + book_title + "' in your 'want to read' list";
@@ -23,7 +25,6 @@ document.addEventListener("DOMContentLoaded", function(e){
     });
   });
 
-
     var newReview = document.querySelector('#new_review');
     // ensures content is present
     if (newReview){
@@ -31,20 +32,18 @@ document.addEventListener("DOMContentLoaded", function(e){
         // 1. Prevent the browser from submitting the form
         e.preventDefault();
         //2. Make an AJAX call
-        console.log($(this).serialize());
         $.ajax({
           url: $(this).attr('action'),
           method: $(this).attr('method'),
           data: $(this).serialize(),
           dataType: 'json'
         }).done(function(responseData){
-          console.log(responseData);
           // Create the list item with class
           var listItem = document.createElement('li')
           var completedInput = $('.post-list');
           listItem.class = 'list-review'
           listItem.innerText = responseData.comment
-          
+
         // Add the is-complete class if there is a value for completed_at
         completedInput.append(listItem)
         // listItem.append(completedInput).append(label).appendTo('.list-review')
@@ -53,9 +52,43 @@ document.addEventListener("DOMContentLoaded", function(e){
           $('#new_review').trigger("reset");
 
         });
+      });
+    // Make the stars light up on hover
+    var stars = $('#rating_stars').val();
+
+    function updateStarRating(stars){
+
+      for (i = 0; i < 5 ; i++){
+        if (i < stars) {
+          var currentStar = document.querySelector(`[data-inner-value='${i}']`);
+          currentStar.style.width = "100%";
+        } else {
+          var currentStar = document.querySelector(`[data-inner-value='${i}']`);
+          currentStar.style.width = "0%";
+        }
+      };
+    };
+
+    document.querySelectorAll('.stars-outer').forEach(function(star){
+      var starValue = star.getAttribute('data-outer-value');
+      star.addEventListener("click", function(e){
+        console.log(starValue);
+        $('#rating_stars').val(parseInt(starValue) + 1)
+        $('.edit_rating').submit()
+        updateStarRating(stars);
+      });
+    })
+
+    $('.edit_rating').on("submit", function(e){
+      e.preventDefault();
+      $.ajax({
+        url: this.action,
+        method: "PATCH",
+        dataType: "json",
+        data: $(this).serialize()
+      }).done(function(data){
+        updateStarRating(data);
+      });
     });
-  }
-
-
-
+  };
 });
