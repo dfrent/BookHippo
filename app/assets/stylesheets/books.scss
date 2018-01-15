@@ -1,3 +1,59 @@
 // Place all the styles related to the Books controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+//
+// img {
+//     // position: relative;
+//     // float: left;
+//     max-width:100%;
+//     max-height:100%;
+//     background-position: 50% 50%;
+//     background-repeat:   no-repeat;
+//     background-size:     cover;
+// }
+
+.book-container {
+  display: inline-block;
+  width: 12%;
+  height: 290px;
+  border: 2px solid red;
+  overflow: hidden;
+  margin: 7px;
+  position: relative;
+
+
+
+
+  img {
+      position: absolute;
+      margin: auto;
+      height: 80%;
+      min-width: 100%;
+
+
+      left: -100%;
+      right: -100%;
+      top: -120%;
+      bottom: -100%;
+  }
+
+}
+
+.book-info {
+  display: block;
+  position: absolute;
+  bottom: 0 !important;
+  padding: 5%;
+  margin-top: 0;
+  width: 100%;
+
+  .card-title {
+    margin: auto;
+    text-align: center;
+  }
+
+  p {
+    font-size: $font-size-sm;
+  }
+}

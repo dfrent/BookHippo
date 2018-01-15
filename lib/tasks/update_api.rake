@@ -5,6 +5,7 @@ require File.dirname(__FILE__) + '/../../config/environment'
 namespace :update_api do
   desc 'Update NY Times API'
   task :ny_times do
+    puts "Updating NY Times List book data..."
     response = HTTParty.get("https://api.nytimes.com/svc/books/v3/lists.json?api-key=#{ENV['NYTIMES_KEY']}&list=mass-market-paperback")
     response_travel = HTTParty.get("https://api.nytimes.com/svc/books/v3/lists.json?api-key=#{ENV['NYTIMES_KEY']}&list=travel")
     response_science = HTTParty.get("https://api.nytimes.com/svc/books/v3/lists.json?api-key=#{ENV['NYTIMES_KEY']}&list=science")
@@ -27,13 +28,13 @@ namespace :update_api do
         book.ny_times_list = list
         book.save
         puts book.title + ' found or created.'
-        puts book.ny_times_list
       end
     end
   end
 
   desc 'Update Google API for recommendations'
   task :google_rec do
+    puts "Updating genre recommendations from Google Books API"
     genres = Genre.all
 
     genres.each do |genre|
@@ -66,7 +67,8 @@ namespace :update_api do
               authors_string = authors.join(", ")
             end
             # google_id = response.parsed_response["items"][item]["id"]
-            Book.create(isbn: isbn, title: info["title"], author: authors_string, description: info["description"], book_cover: info["imageLinks"]["thumbnail"], small_thumbnail: info["imageLinks"]["smallThumbnail"], genre_id: id, page_count: info["pageCount"], average_rating: info["averageRating"], published_date: info["publishedDate"], publisher: info["publisher"])
+            book = Book.create(isbn: isbn, title: info["title"], author: authors_string, description: info["description"], book_cover: info["imageLinks"]["thumbnail"], small_thumbnail: info["imageLinks"]["smallThumbnail"], genre_id: id, page_count: info["pageCount"], average_rating: info["averageRating"], published_date: info["publishedDate"], publisher: info["publisher"])
+            puts book.title + ' created.'
           end
         end
       end
