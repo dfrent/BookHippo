@@ -2,6 +2,8 @@
 // All this logic will automatically be available in application.js.
 
 document.addEventListener("DOMContentLoaded", function(e){
+  var starSubmit = document.querySelector('.star-submit')
+  starSubmit.style.visibility = "hidden";
   var read_buttons = document.querySelectorAll('.read-btn')
 
   read_buttons.forEach(function(button){
@@ -22,7 +24,6 @@ document.addEventListener("DOMContentLoaded", function(e){
       e.target.style.visibility = 'hidden';
     });
   });
-
 
     var newReview = document.querySelector('#new_review');
     // ensures content is present
@@ -53,53 +54,41 @@ document.addEventListener("DOMContentLoaded", function(e){
         });
       });
     // Make the stars light up on hover
+    var stars = $('#rating_stars').val();
+
+    function updateStarRating(stars){
+
       for (i = 0; i < 5 ; i++){
-       handleStar(i);
-       starReview(i);
-      }
-      function handleStar(i) {
-        var star = document.querySelector(`[data-outer-value='${i}'`);
-        var starValue = star.getAttribute(`data-outer-value`);
-        var innerStar = document.querySelector(`[data-inner-value='${starValue}']`);
-        star.addEventListener("mouseenter", function(){
-          for (x = 0; x <= starValue ; x++){
-            var currentStar = document.querySelector(`[data-inner-value='${x}']`);
-            currentStar.style.width = "100%"
-          }
-        });
-        star.addEventListener("mouseleave", function(){
-          for (y = 0; y <= starValue; y++){
-            var currentStar = document.querySelector(`[data-inner-value='${y}']`);
-            currentStar.style.width = "0%";
-          }
-        });
-      }
-
-      function starReview(i) {
-
-        var star = document.querySelector(`[data-inner-value='${i}'`);
-        var starValue = parseInt(star.getAttribute(`data-inner-value`)) + 1;
-        star.addEventListener('click', function(e){
-          console.log(starValue);
-          $('.edit_rating').submit()
-        });
-        $('.edit_rating').on("submit", function(e){
-          e.preventDefault();
-          $.ajax({
-            url: this.action,
-            method: "PATCH",
-            dataType: "json",
-            data: $(this).serialize() + '&stars=' + starValue
-          }).done(function(data){
-            for (star = data - 1; star === 0; star--) {
-              var currentStar = document.querySelector(`[data-inner-value='${star}'`);
-              currentStar.removeEventListener("mouseleave", function(){
-                var currentStar = document.querySelector(`[data-inner-value='${y}']`);
-                currentStar.style.width = "0%";
-              });
-            };
-          });
-        });
+        if (i < stars) {
+          var currentStar = document.querySelector(`[data-inner-value='${i}']`);
+          currentStar.style.width = "100%";
+        } else {
+          var currentStar = document.querySelector(`[data-inner-value='${i}']`);
+          currentStar.style.width = "0%";
+        }
       };
     };
+
+    document.querySelectorAll('.stars-outer').forEach(function(star){
+      var starValue = star.getAttribute('data-outer-value');
+      star.addEventListener("click", function(e){
+        console.log(starValue);
+        $('#rating_stars').val(parseInt(starValue) + 1)
+        $('.edit_rating').submit()
+        updateStarRating(stars);
+      });
+    })
+
+    $('.edit_rating').on("submit", function(e){
+      e.preventDefault();
+      $.ajax({
+        url: this.action,
+        method: "PATCH",
+        dataType: "json",
+        data: $(this).serialize()
+      }).done(function(data){
+        updateStarRating(data);
+      });
+    });
+  };
 });
