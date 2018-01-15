@@ -1,29 +1,10 @@
-<h2> Top Selling Books </h2>
-
-<div class="scroll-container">
-  <div class="scrollable">
-  <% @books.each do |book| %>
-    <%= render partial: "single_book", locals: {book: book} %>
-  <% end %>
+<% @books.each do |key, value| %>
+  <h4><%= key %></h4>
+  <div class="scroll-container">
+    <div class="scrollable">
+      <% value.each do |book| %>
+        <%= render partial: "single_book", locals: {book: book} %>
+      <% end %>
+    </div>
   </div>
-</div>
-
-<h2> Travel </h2>
-<% @books_travel.each do |book| %>
-  <%= render partial: "single_book", locals: {book: book} %>
-<% end %>
-
-<h2> Science </h2>
-<% @books_science.each do |book| %>
-  <%= render partial: "single_book", locals: {book: book} %>
-<% end %>
-
-<h2> Business </h2>
-<% @books_business.each do |book| %>
-  <%= render partial: "single_book", locals: {book: book} %>
-<% end %>
-
-<h2> Animals </h2>
-<% @books_animals.each do |book| %>
-  <%= render partial: "single_book", locals: {book: book} %>
 <% end %>
