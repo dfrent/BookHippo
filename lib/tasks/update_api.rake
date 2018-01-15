@@ -68,7 +68,7 @@ namespace :update_api do
             end
             # google_id = response.parsed_response["items"][item]["id"]
             book = Book.create(isbn: isbn, title: info["title"], author: authors_string, description: info["description"], book_cover: info["imageLinks"]["thumbnail"], small_thumbnail: info["imageLinks"]["smallThumbnail"], genre_id: id, page_count: info["pageCount"], average_rating: info["averageRating"], published_date: info["publishedDate"], publisher: info["publisher"])
-            puts book.title + ' found or created.'
+            puts book.title + ' created.'
           end
         end
       end
