@@ -13,6 +13,25 @@
 //     background-size:     cover;
 // }
 
+// .scrollable {
+//   overflow: auto;
+//   white-space: nowrap;
+// }
+
+.scroll-container{
+    overflow: hidden;
+}
+
+ .scrollable{
+    overflow: auto;
+    white-space: nowrap;
+    &::-webkit-scrollbar {
+    display: none;
+  }
+
+}
+
+
 .book-container {
   display: inline-block;
   width: 12%;

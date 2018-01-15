@@ -1,8 +1,12 @@
 <h2> Top Selling Books </h2>
 
-<% @books.each do |book| %>
-  <%= render partial: "single_book", locals: {book: book} %>
-<% end %>
+<div class="scroll-container">
+  <div class="scrollable">
+  <% @books.each do |book| %>
+    <%= render partial: "single_book", locals: {book: book} %>
+  <% end %>
+  </div>
+</div>
 
 <h2> Travel </h2>
 <% @books_travel.each do |book| %>
