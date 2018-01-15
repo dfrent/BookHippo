@@ -8,7 +8,7 @@
   <p>Rating: <%= @book.average_rating%> </p>
 
   <% if logged_in? %>
-    <%= render partial: "books/read_status" %>
+    <%= render partial: "books/read_status", locals: {book: @book, existing_list: @existing_list} %>
   <% else %>
     <%= render partial: "books/new_user_buttons" %>
   <% end %>

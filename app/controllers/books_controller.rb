@@ -26,41 +26,13 @@ class BooksController < ApplicationController
 
   def recommendations
     @user = current_user
-    @books = []
-    temp_books = []
-
-    user_genres = @user.genres
-
-    user_genres.each do |genre|
-      name = genre.name
-      id = genre.id
-      response =  HTTParty.get("https://www.googleapis.com/books/v1/volumes?q=subject=#{name}&key=#{ENV['GBOOKS_KEY']}")
-      items = response.parsed_response["items"]
-
-      items.each do |item|
-
-        info = item["volumeInfo"]
-        authors = info["authors"]
-        if authors
-          authors_string = authors.join(", ")
-        end
-        # google_id = response.parsed_response["items"][item]["id"]
-        identifiers = item["volumeInfo"]["industryIdentifiers"]
-        isbn = nil
-        if identifiers
-          identifiers.each do |identifier|
-            if identifier.has_value?("ISBN_10")
-              isbn = identifier["identifier"]
-            end
-          end
-        end
-
-        if isbn != nil
-          new_book = Book.create(isbn: isbn, title: info["title"], author: authors_string, description: info["description"], book_cover: info["imageLinks"]["thumbnail"], small_thumbnail: info["imageLinks"]["smallThumbnail"], genre_id: id, page_count: info["pageCount"], average_rating: info["averageRating"], published_date: info["publishedDate"], publisher: info["publisher"])
-
-          @books << new_book
-        end
-      end
+    if logged_in?
+      @genres = @user.genres.ids
+    else
+      redirect_to root_url
     end
+    @books = []
+    @reading_list = ReadingList.new
+    # @books = Book.where('genre_id = ?', "16")
   end
 end
