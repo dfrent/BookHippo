@@ -24,9 +24,17 @@ class ReadingListsController < ApplicationController
       @existing_list.read_status = params[:read_status]
       @existing_list.save
     end
-    respond_to do |format|
+      if request.xhr?
+        p "helloooooooooooooooooooo"
+        @reviews = Review.all
+        render partial: "reviews/reviews_form", locals: {book: @book, review: Review.new }
+      # respond_to do |format|
+      #   format.html {render partial: "reviews/reviews_form", locals: {book: @book, review: Review.new} }
+      #   format.js
+      # end
+    else
+      p "hiiiiiiiiiiiiiiiiiiiiii"
       format.html {redirect_to @book}
-      format.js
     end
   end
 
