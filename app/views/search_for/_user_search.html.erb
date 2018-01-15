@@ -1,5 +1,5 @@
-<h1> 1search view</h1>
+<h1>User Search Results</h1>
 
-<% user.each do |t| %>
-  <%= t.username %>
+<% user.each do |user| %>
+<h2><%= link_to "#{user[:username].titleize}", user_path(user[:id]) %></h2>
 <% end %>
