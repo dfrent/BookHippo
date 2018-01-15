@@ -15,7 +15,7 @@ class BooksController < ApplicationController
       @existing_list = ReadingList.find_by(user_id: current_user.id, book_id: @book.id)
     end
     @review = Review.new
-    @reviews = @book.reviews.all
+    @reviews = @book.reviews
   end
 
   def edit

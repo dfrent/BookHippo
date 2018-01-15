@@ -11,7 +11,7 @@ class ReadingListsController < ApplicationController
   end
 
   def create
-    @book = Book.find_by(params[:id])
+    @book = Book.find(params[:book_id])
     @existing_list = ReadingList.find_by(user_id: params[:user_id], book_id: params[:book_id])
 
     if @existing_list.nil?
@@ -25,16 +25,15 @@ class ReadingListsController < ApplicationController
       @existing_list.save
     end
       if request.xhr?
-        p "helloooooooooooooooooooo"
-        @reviews = Review.all
+
+        @reviews = Review.where(book_id: params[:book_id])
         render partial: "reviews/reviews_form", locals: {book: @book, review: Review.new }
       # respond_to do |format|
       #   format.html {render partial: "reviews/reviews_form", locals: {book: @book, review: Review.new} }
       #   format.js
       # end
     else
-      p "hiiiiiiiiiiiiiiiiiiiiii"
-      format.html {redirect_to @book}
+      format.html {redirect_to book_path(@book[:isbn]}
     end
   end
 
