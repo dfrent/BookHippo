@@ -18,8 +18,16 @@
 //   white-space: nowrap;
 // }
 
+.list-title {
+  padding-left: 1.2rem;
+  padding-top: 1%;
+}
+
 .scroll-container{
     overflow: hidden;
+    background-color: #e0dfdb;
+    padding: 2% 0;
+    margin-bottom: 1%;
 }
 
  .scrollable{
@@ -36,7 +44,8 @@
   display: inline-block;
   width: 12%;
   height: 290px;
-  border: 2px solid red;
+  // border: 2px solid red;
+  border: none;
   overflow: hidden;
   margin: 7px;
   position: relative;
