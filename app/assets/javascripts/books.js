@@ -57,6 +57,7 @@ document.addEventListener("DOMContentLoaded", function(e){
     // Make the stars light up on hover
     for (i = 0; i < 5 ; i++){
      handleStar(i)
+     starRating(i)
     }
     function handleStar(i) {
       var star = document.querySelector(`[data-outer-value='${i}'`);
@@ -75,7 +76,10 @@ document.addEventListener("DOMContentLoaded", function(e){
         }
       });
     }
-
-
+    function starRating(i) {
+      var star = document.querySelector(`[data-inner-value='${i}'`);
+      var ratingValue = parseInt(star.getAttribute(`data-inner-value`)) + 1;
+      console.log(ratingValue);
+    };
   }
 });
