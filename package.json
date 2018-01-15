@@ -1,5 +1,8 @@
 {
   "name": "book_hippo",
   "private": true,
-  "dependencies": {}
+  "dependencies": {},
+  "devDependencies": {
+    "font-awesome": "^4.7.0"
+  }
 }
