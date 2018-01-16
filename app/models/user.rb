@@ -58,21 +58,4 @@ class User < ApplicationRecord
     end
     users_array.sample(num_of_users)
   end
-
-  def all_friends
-    friends = []
-    followers.each do |follower|
-      unless friends.include?(follower)
-        friends << follower
-      end
-    end
-
-    following.each do |following|
-      unless friends.include?(following)
-        friends << following
-      end
-    end
-    friends
-  end
-
 end
