@@ -21,6 +21,8 @@ class User < ApplicationRecord
   has_many :reading_lists
   has_many :ratings
 
+  has_many :conversations
+
   validates :username, :email, :password, :password_confirmation, presence: true
   validates :username, :email, uniqueness: true
   validates_length_of :password, :minimum => 8
