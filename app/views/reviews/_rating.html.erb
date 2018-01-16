@@ -12,7 +12,7 @@ $(function () {
               $.ajax({
                          url: '/books/'+bookId+'/ratings',
                          method: 'post',
-                         data: {rating: data.rating},
+                         data: { rating: data.rating },
                          dataType: 'json',
 
                        }).done(function(response){

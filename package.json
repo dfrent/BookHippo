@@ -1,14 +1,11 @@
 {
   "name": "book_hippo",
   "private": true,
-<<<<<<< Updated upstream
-  "dependencies": {}
-=======
   "dependencies": {
     "rateyo": "^2.3.3"
   },
   "devDependencies": {
     "font-awesome": "^4.7.0"
   }
->>>>>>> Stashed changes
+
 }
