@@ -8,6 +8,7 @@ class Book < ApplicationRecord
   has_many :ratings
 
   validates :isbn, uniqueness: true
+  validates :isbn, :author, :title, :book_cover, :description, presence: true
 
   def self.find_or_api_call(isbn)
     book = Book.find_by(isbn: isbn)
