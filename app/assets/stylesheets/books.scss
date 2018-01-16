@@ -28,6 +28,7 @@
     background-color: #e0dfdb;
     padding: 2% 0;
     margin-bottom: 1%;
+    position: relative;
 }
 
  .scrollable{
@@ -100,3 +101,22 @@
 //   white-space: nowrap;
 //   overflow: hidden;
 // }
+
+
+.paddles {
+}
+.paddle {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 3em;
+}
+.left-paddle {
+	left: 0;
+}
+.right-paddle {
+	right: 0;
+}
+.hidden {
+	display: none;
+}
