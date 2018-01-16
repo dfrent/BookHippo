@@ -22,7 +22,9 @@ class SearchForController < ApplicationController
               result_identifier = result_identifier.split(':')[1]
             end
             authors = result["volumeInfo"]["authors"]
-            author_string = authors.join(", ")
+            if authors
+              author_string = authors.join(", ")
+            end
 
 
           @books << { title: result["volumeInfo"]["title"], author: author_string ,description: result["volumeInfo"]["description"],isbn: result_identifier, book_image: book_img }

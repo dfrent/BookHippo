@@ -43,7 +43,7 @@
           </ul>
           <%= form_tag( search_for_path, :method => "get", id: "search-form", class: "form-inline my-2 my-lg-0") do %>
           <%= text_field_tag :search, params[:search], placeholder: "Search books, people", class: "form-control mr-sm-2" %>
-          <%= submit_tag "Search", class: "btn btn-outline-success my-2 my-sm-0", :name => nil %>
+          <%= submit_tag "Search", id:"search-submit-btn", class: "btn btn-outline-success my-2 my-sm-0", :name => nil %>
         <% end %>
       </div>
     </nav>
