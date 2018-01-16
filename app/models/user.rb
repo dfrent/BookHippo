@@ -20,7 +20,7 @@ class User < ApplicationRecord
   has_many :reviews
   has_many :reading_lists
   has_many :ratings
-  
+
   has_many :sent_conversations, class_name:  "Conversation",
                                 foreign_key: "sender_id",
                                 dependent:   :destroy
@@ -58,4 +58,21 @@ class User < ApplicationRecord
     end
     users_array.sample(num_of_users)
   end
+
+  def all_friends
+    friends = []
+    followers.each do |follower|
+      unless friends.include?(follower)
+        friends << follower
+      end
+    end
+
+    following.each do |following|
+      unless friends.include?(following)
+        friends << following
+      end
+    end
+    friends
+  end
+
 end

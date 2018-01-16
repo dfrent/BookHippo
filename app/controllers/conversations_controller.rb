@@ -2,7 +2,8 @@ class ConversationsController < ApplicationController
   before_action :ensure_logged_in
 
   def index
-    @users = User.all
+    @user = current_user
+    @users = current_user.all_friends
     @conversations = Conversation.all
   end
 
