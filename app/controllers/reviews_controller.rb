@@ -10,7 +10,6 @@ class ReviewsController < ApplicationController
     @review = Review.new
     @book = Book.find(params[:book_id])
     @review.comment = params[:review][:comment]
-    @review.stars = params[:review][:stars]
     @review.date_added = params[:review][:date_added]
     @review.book = @book
     @review.user_id = current_user.id
