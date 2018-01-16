@@ -20,7 +20,7 @@ class User < ApplicationRecord
   has_many :reviews
   has_many :reading_lists
   has_many :ratings
-
+  
   has_many :sent_conversations, class_name:  "Conversation",
                                 foreign_key: "sender_id",
                                 dependent:   :destroy
