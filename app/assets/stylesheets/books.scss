@@ -36,12 +36,13 @@
     white-space: nowrap;
     &::-webkit-scrollbar {
     display: none;
+    -webkit-overflow-scrolling: touch;
   }
 
 }
 
 
-.book-container {
+.book-container, .item {
   display: inline-block;
   width: 160px;
   height: 290px;
@@ -106,6 +107,8 @@
 .paddles {
 }
 .paddle {
+  background-color: lightgray;
+  opacity: 0.2;
 	position: absolute;
 	top: 0;
 	bottom: 0;

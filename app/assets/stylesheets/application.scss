@@ -1,2 +1,24 @@
 @import 'bootstrap-custom';
 @import 'books.scss';
+
+
+.navbar {
+  padding: 0.5rem;
+}
+
+.navbar-brand {
+  margin: 0;
+  padding: 0;
+
+}
+
+.navbar-collapse {
+  display: flex;
+  // position: relative;
+}
+
+.navbar-nav {
+  // display: block;
+  // position: absolute;
+  // top: 50%;
+}

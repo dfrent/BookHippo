@@ -1,14 +1,15 @@
 <% @books.each do |key, value| %>
   <h4 class="list-title"><%= key %></h4>
-  <div class="scroll-container">
-    <div class="scrollable">
+  <div class="scroll-container menu-wrapper">
+    <div class="scrollable menu" id= "menu-<%= key.parameterize %>" >
       <% value.each do |book| %>
         <%= render partial: "single_book", locals: {book: book} %>
       <% end %>
     </div>
 
     <div class="paddles">
-      <button class="left-paddle paddle hidden"> < </button> <button class="right-paddle paddle"> > </button>
+      <button class="left-paddle paddle hidden"> < </button>
+      <button class="right-paddle paddle"> > </button>
     </div>
   </div>
 <% end %>
