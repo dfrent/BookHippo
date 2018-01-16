@@ -21,6 +21,11 @@ class User < ApplicationRecord
   has_many :reading_lists
   has_many :ratings
 
+  validates :username, :email, :password, :password_confirmation, presence: true
+  validates :username, :email, uniqueness: true
+  validates_length_of :password, :minimum => 8
+  # validates :username, :format => { with: /(\w|\s)/ , :message => 'no special characters, only letters and numbers' }
+
   # Follows a user.
   def follow(other_user)
     following << other_user
