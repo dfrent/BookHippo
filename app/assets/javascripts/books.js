@@ -4,7 +4,7 @@
 document.addEventListener("DOMContentLoaded", function(e){
   var starSubmit = document.querySelector('.star-submit')
   starSubmit.style.visibility = "hidden";
-  var read_buttons = document.querySelectorAll('.read-btn')
+  var read_buttons = document.querySelectorAll('.read-btn');
 
   read_buttons.forEach(function(button){
     button.closest('form').addEventListener("click", function(e){
@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function(e){
       var reading_message = document.querySelector('.read-message');
       var book_title = document.querySelector('.book-title').innerText;
       var review_wrapper = document.querySelector("div.review-wrapper");
-      
+
       $.ajax({
         url: $(this).attr('action'),
         method: $(this).attr('method'),
@@ -67,6 +67,7 @@ document.addEventListener("DOMContentLoaded", function(e){
       });
     // Make the stars light up on hover
     var stars = $('#rating_stars').val();
+    updateStarRating(stars);
 
     function updateStarRating(stars){
 
