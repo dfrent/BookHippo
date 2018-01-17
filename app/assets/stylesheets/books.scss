@@ -47,7 +47,7 @@
 .book-container, .item {
   display: inline-block;
   width: 160px;
-  height: 290px;
+  height: 270px;
   // border: 2px solid red;
   border: none;
   overflow: hidden;
@@ -59,9 +59,10 @@
 
   img {
       display: block;
-      position: absolute;
+      // float: left;
+      // position: absolute;
       margin: auto;
-      height: 80%;
+      height: 91%;
       min-width: 100%;
 
 
@@ -75,13 +76,15 @@
 
 .book-info {
   display: block;
-  position: absolute;
-  bottom: 0 !important;
-  padding: 5%;
+  // flex-wrap: wrap !important;
+  // clear: both;
+  // position: absolute;
+  // bottom: 0 !important;
+  padding: 2%;
   margin-top: 0;
   width: 100%;
-  min-height: 20%;
-  max-height: 20%;
+  // height: 10%;
+  // max-height: 10%;
 
   .card-title {
     margin: auto;
@@ -109,19 +112,41 @@
 .paddles {
 }
 .paddle {
+  // color: white;
+  // font-size:1.4rem;
+  // display: block;
+  border: none;
   background-color: lightgray;
-  opacity: 0.4;
+  // opacity: 0.4;
 	position: absolute;
 	top: 0;
 	bottom: 0;
 	width: 3em;
+  text-shadow: 1px 1px 2px black;
 }
 .left-paddle {
+  background: linear-gradient(to left, rgba(130,130,130,0), rgba(160,160,160,1));
+  // opacity: 1;
 	left: 0;
+  &:active {
+    background-color: none;
+    border: none;
+  }
 }
 .right-paddle {
+  background: linear-gradient(to right, rgba(130,130,130,0), rgba(160,160,160,1));
+  // opacity: 0.5;
 	right: 0;
+  &:active {
+    background-color: none;
+    border: none;
+  }
 }
 .hidden {
 	display: none;
 }
+
+.clickable {
+ cursor:pointer;
+}
+// .scroll-container:h  over .hidden { display:block; }

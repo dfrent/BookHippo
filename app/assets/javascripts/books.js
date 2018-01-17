@@ -63,6 +63,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
   // paddles
   var leftPaddles = document.querySelectorAll('.left-paddle');
   var rightPaddles = document.querySelectorAll('.right-paddle');
+  var clickables = document.querySelectorAll('.clickable');
 
   // get some relevant size for the paddle triggering point
   var paddleMargin = 20;
@@ -145,7 +146,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
     console.log(menuWrapperSize)
     console.log(menuInvisibleSize)
     $(e.target).parent().parent().find('.menu').animate({
-      scrollLeft: menuInvisibleSize
+      scrollLeft: menuInvisibleSize + 100
     }, scrollDuration);
   });
 
