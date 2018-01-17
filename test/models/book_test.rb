@@ -30,18 +30,16 @@ class BookTest < ActiveSupport::TestCase
     refute book.persisted?
   end
 
-# # Testing isbn uniqueness
-#   def test_book_needs_a_isbn_is_unique
-#     book1 = build(:book, isbn: "1")
-#     book2 = build(:book, isbn: "1")
-#     book1.save
-#     book2.save
-#     refute book1.persisted?
-#     refute book2.persisted?
-#   end
-
-
-
+# Testing isbn uniqueness
+  def test_book_needs_a_isbn_is_unique
+    book = create(:book, isbn: '123456789')
+    # book2 = build(:book)
+    book2 = Book.new(isbn: "123456789", title: "jayz", author: 'Thomas the Tank',
+        average_rating: '3',
+        book_cover: 'poster',
+        description: 'history')
+    refute book2.valid?
+  end
 
   def test_create_a_book
     book = create(:book)

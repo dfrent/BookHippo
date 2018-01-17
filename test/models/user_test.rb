@@ -71,4 +71,27 @@ class UserTest < ActiveSupport::TestCase
     assert_equal(actual, expected)
   end
 
+  def test_following_method_returns_true_if_user_is_following
+    user = build(:user)
+    user2 = build(:user, username: "kyle", email: "kyle@bitmaker.com")
+    user.follow(user2)
+
+    assert user.following?(user2)
+  end
+
+  def test_following_method_returns_false_if_user_is_not_following
+    user = build(:user)
+    user2 = build(:user, username: "kyle", email: "kyle@bitmaker.com")
+
+    refute user.following?(user2)
+  end
+
+  def test_users_to_follow_does_not_include_current_user
+    user = build(:user)
+    user2 = build(:user, username: "kyle", email: "kyle@bitmaker.com")
+
+    user_array = User.users_to_follow(2, user)
+
+    refute user_array.include?(user)
+  end
 end

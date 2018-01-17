@@ -3,29 +3,20 @@ require 'test_helper'
 class ReadingListTest < ActiveSupport::TestCase
 
 # Validation Testing
-  def reading_list_
-    rating = build(:rating, stars: nil)
-    rating.save
-    refute rating.persisted?
+  def test_reading_list
+    reading_list = build(:reading_list)
+    reading_list.save
+    assert reading_list.persisted?
   end
 
-  def rating_star_needs_to_be_an_integer
-    rating = build(:rating, stars: "hey")
-    rating.save
-    refute rating.persisted?
-  end
+  def test_done_reading_method_sets_date_completed
+    reading_list = build(:reading_list)
+    reading_list.save
+    reading_list.done_reading
 
-  def rating_must_be_between_0_and_5
-    rating = build(:rating, stars: 7)
-    rating.save
-    refute rating.persisted?
+    actual = reading_list.date_completed
+    expected = Time.now.to_datetime
+    assert_equal(actual, expected)
   end
-
-  def rating_can_be_destroyed
-    rating = build(:rating)
-    rating.destroy
-    refute rating.persisted?
-  end
-
 
 end
