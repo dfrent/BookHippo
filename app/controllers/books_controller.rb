@@ -18,7 +18,7 @@ class BooksController < ApplicationController
     @reviews = @book.reviews
 
     # Checks for presence of rating, and creates one for the user if it doesn't exist
-    @rating = Rating.find_by(user_id: current_user.id)
+    @rating = @book.ratings.find_by(user_id: current_user.id)
     unless @rating
       # @rating = Rating.create(book_id: @book.id, user_id: current_user.id, stars: 0)
     end

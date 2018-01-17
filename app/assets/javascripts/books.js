@@ -64,11 +64,23 @@ document.addEventListener("DOMContentLoaded", function(e){
       });
     });
   }
+
+  $("#rateYo").rateYo({
+    rating: 0
+  });
   var numStars = $("#rateYo").rateYo("option", "numStars");
   //returns 10
     var bookId = $("#book_rating").value;
 
-
-
+    setStars()
 
 });
+
+function setStars() {
+  var starRatingDiv = document.querySelector('.rating-stars');
+  var starRating = starRatingDiv.classList[0];
+  var starPercent = parseFloat(starRating) * 20;
+  var ratingWidth = document.querySelector('.jq-ry-rated-group');
+
+  ratingWidth.style.width = `${starPercent}%`;
+}
