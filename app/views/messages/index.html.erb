@@ -40,10 +40,13 @@
 
   <%= f.hidden_field :body, class: "form-share" %>
 
-  <% if params[:share] != nil %>
+  <% if !params[:share].nil? %>
     <div contenteditable="true", class="share-div">
       <%= link_to "I thought you would enjoy this book!", book_path(params[:share]) %>
     </div>
+  <% elsif params[:share].nil? %>
+  <div contenteditable="true", class="share-div">
+  </div>
   <% end %>
 
   </div>
