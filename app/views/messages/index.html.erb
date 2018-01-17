@@ -40,7 +40,7 @@
 
   <% if !params[:share].nil? %>
     <div contenteditable="true", class="share-div">
-      <%= link_to "I thought you would enjoy this book!", book_path(params[:share]) %>
+      <%= link_to "#{current_user.username} thought you would enjoy #{Book.find_by(isbn: params[:share]).title}!", book_path(params[:share]) %>
     </div>
   <% elsif params[:share].nil? %>
   <div contenteditable="true", class="share-div">
