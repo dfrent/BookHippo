@@ -10,13 +10,15 @@ class ReadingListTest < ActiveSupport::TestCase
   end
 
   def test_done_reading_method_sets_date_completed
-    reading_list = build(:reading_list)
-    reading_list.save
-    reading_list.done_reading
+    Timecop.freeze(Time.now) do
+      reading_list = build(:reading_list)
+      reading_list.save
+      reading_list.done_reading
 
-    actual = reading_list.date_completed
-    expected = Time.now.to_datetime
-    assert_equal(actual, expected)
+      actual = reading_list.date_completed
+      expected = Time.now.to_datetime
+      assert_equal(actual, expected)
+    end
   end
 
 end
