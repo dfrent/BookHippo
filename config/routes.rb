@@ -22,10 +22,14 @@ Rails.application.routes.draw do
   end
   resources :books, only: [:index, :show, :edit, :update] do
     resources :reviews, only: [:new, :create, :edit, :update, :destroy]
-    resources :ratings, only: [:update, :show]
+    resources :ratings, only: [:update, :show, :create]
   end
   resources :sessions, only: [:create]
   resources :relationships, only: [:create, :destroy]
+
+  resources :conversations do
+    resources :messages
+  end
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
