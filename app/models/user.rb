@@ -21,6 +21,16 @@ class User < ApplicationRecord
   has_many :reading_lists
   has_many :ratings
 
+  has_many :sent_conversations, class_name:  "Conversation",
+                                foreign_key: "sender_id",
+                                dependent:   :destroy
+
+  has_many :received_conversations, class_name:  "Conversation",
+                                    foreign_key: "recipient_id",
+                                    dependent:   :destroy
+
+  has_many :messages
+
   validates :username, :email, :password, :password_confirmation, presence: true
   validates :username, :email, uniqueness: true
   validates_length_of :password, :minimum => 8
