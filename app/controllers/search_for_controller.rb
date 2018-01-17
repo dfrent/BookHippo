@@ -12,7 +12,7 @@ class SearchForController < ApplicationController
       if @google_items
         @google_items[0..5].each do |result|
           if result['volumeInfo']['imageLinks']
-            book_img = result['volumeInfo']['imageLinks']['smallThumbnail']
+            book_img = result['volumeInfo']['imageLinks']['thumbnail']
           end
 
           identifiers = result["volumeInfo"]["industryIdentifiers"]
@@ -30,11 +30,6 @@ class SearchForController < ApplicationController
 
           next if isbn == nil
 
-          # result_type = result['volumeInfo']['industryIdentifiers'][0]['type']
-          # result_identifier = result['volumeInfo']['industryIdentifiers'][0]['identifier']
-          # if result_type == 'OTHER'
-          #   result_identifier = result_identifier.split(':')[1]
-          # end
           authors = result['volumeInfo']['authors']
           if authors
             authors_string = authors.join(", ")
