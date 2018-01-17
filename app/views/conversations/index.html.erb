@@ -22,7 +22,7 @@
     <% @users.each do |user| %>
       <% if user.id != current_user.id %>
         <div class=”item”>
-          <%= user.username %> <%= link_to 'Message me!', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post'%>
+          <%= user.username %> <%= link_to 'Message me!', conversations_path(sender_id: current_user.id, recipient_id: user.id, share: params[:share]), method: 'post'%>
         </div>
       <% end %>
     <% end %>
