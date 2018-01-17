@@ -54,11 +54,11 @@
     </nav>
     <!-- <h1 class="logo">BookHippo</h1> -->
 
-    <% unless @user && @user == current_user %>
+    <!-- <% unless @user && @user == current_user %>
       <section class="current-user-stats">
-        <%= render partial: 'shared/stats', locals: {user: current_user} %>
+        <%#= render partial: 'shared/stats', locals: {user: current_user} %>
       </section>
-    <% end %>
+    <% end %> -->
   </header>
 
   <% flash.each do |key, message| %>
