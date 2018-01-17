@@ -4,6 +4,7 @@
   <h4> <%= @book.author %> </h4>
   <img src="<%= @book.book_cover %>" alt="<%= @book.title %>">
 
+  <%= link_to "Share this book?", conversations_path(share: @book.isbn) %>
   <p>Page Count: <%= @book.page_count %> </p>
   <p>Rating: <%= @book.average_rating%> </p>
 
@@ -17,10 +18,10 @@
     <p>Description: <%= @book.description %> </p>
   </div>
 
-  <% if logged_in? && @existing_list && @existing_list.read_status == "finished_reading" %>
   <div class="review-wrapper">
+  <% if logged_in? && @existing_list && @existing_list.read_status == "finished_reading" %>
     <%= render partial: "reviews/reviews_form", locals: {book: @book, review: @review}%>
     <% else %>
-  </div>
   <% end %>
+</div>
 </main>

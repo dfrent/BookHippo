@@ -10,14 +10,13 @@ class ReviewsController < ApplicationController
     @review = Review.new
     @book = Book.find(params[:book_id])
     @review.comment = params[:review][:comment]
-    @review.stars = params[:review][:stars]
     @review.date_added = params[:review][:date_added]
-    @review.book_id = params[:book_id]
+    @review.book = @book
     @review.user_id = current_user.id
 
     if @review.save
     respond_to do |format|
-      format.html
+      format.html {redirect_to book_path(@book[:isbn])}
       format.json {render json: @review}
     end
   end

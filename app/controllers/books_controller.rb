@@ -16,7 +16,16 @@ class BooksController < ApplicationController
       @existing_list = ReadingList.find_by(user_id: current_user.id, book_id: @book.id)
     end
     @review = Review.new
-    @reviews = @book.reviews.all
+    @reviews = @book.reviews
+
+    # Checks for presence of rating, and creates one for the user if it doesn't exist
+    if logged_in?
+      @rating = Rating.find_by(user_id: current_user.id, book_id: @book.id)
+      unless @rating
+        @rating = Rating.create(book_id: @book.id, user_id: current_user.id, stars: 0)
+      end
+    end
+
   end
 
   def edit
