@@ -1,6 +1,3 @@
-// Place all the behaviors and hooks related to the matching controller here.
-// All this logic will automatically be available in application.js.
-
 document.addEventListener("DOMContentLoaded", function(e){
   var read_buttons = document.querySelectorAll('.read-btn');
 
@@ -17,6 +14,7 @@ document.addEventListener("DOMContentLoaded", function(e){
         data: $(this).serialize(),
         dataType: 'html'
       }).done(function(responseData){
+
 
       if (e.target.value === "Want to Read") {
         reading_message.innerText = "You currently have '" + book_title + "' in your 'want to read' list";
@@ -35,28 +33,28 @@ document.addEventListener("DOMContentLoaded", function(e){
     });
   });
 
-    var newReview = document.querySelector('#new_review');
-    // ensures content is present
-    if (newReview){
-      newReview.addEventListener('submit',function(e){
-        // 1. Prevent the browser from submitting the form
-        e.preventDefault();
-        //2. Make an AJAX call
-        $.ajax({
-          url: $(this).attr('action'),
-          method: $(this).attr('method'),
-          data: $(this).serialize(),
-          dataType: 'json'
-        }).done(function(responseData){
-          // Create the list item with class
-          var listItem = document.createElement('li')
-          var completedInput = $('.post-list');
-          listItem.class = 'list-review'
-          listItem.innerText = responseData.comment
+  var newReview = document.querySelector('#new_review');
+  // ensures content is present
+  if (newReview){
+    newReview.addEventListener('submit',function(e){
+      // 1. Prevent the browser from submitting the form
+      e.preventDefault();
+      //2. Make an AJAX call
+      $.ajax({
+        url: $(this).attr('action'),
+        method: $(this).attr('method'),
+        data: $(this).serialize(),
+        dataType: 'json'
+      }).done(function(responseData){
+        // Create the list item with class
+        var listItem = document.createElement('li')
+        var completedInput = $('.post-list');
+        listItem.class = 'list-review'
+        listItem.innerText = responseData.comment
 
-        // Add the is-complete class if there is a value for completed_at
-        completedInput.append(listItem)
-        // listItem.append(completedInput).append(label).appendTo('.list-review')
+      // Add the is-complete class if there is a value for completed_at
+      completedInput.append(listItem)
+      // listItem.append(completedInput).append(label).appendTo('.list-review')
 
         // Clear out the text field
         $('#new_review').trigger("reset");
@@ -168,7 +166,7 @@ document.addEventListener("DOMContentLoaded", function(e){
   });
 
   //********
-
+  
         });
       });
     // Make the stars light up on hover
@@ -198,16 +196,26 @@ document.addEventListener("DOMContentLoaded", function(e){
       });
     })
 
-    $('.edit_rating').on("submit", function(e){
-      e.preventDefault();
-      $.ajax({
-        url: this.action,
-        method: "PATCH",
-        dataType: "json",
-        data: $(this).serialize()
-      }).done(function(data){
-        updateStarRating(data);
       });
     });
-  };
+  }
+
+  $("#rateYo").rateYo({
+    rating: 0
+  });
+  var numStars = $("#rateYo").rateYo("option", "numStars");
+  //returns 10
+    var bookId = $("#book_rating").value;
+
+    setStars()
+
 });
+
+function setStars() {
+  var starRatingDiv = document.querySelector('.rating-stars');
+  var starRating = starRatingDiv.classList[0];
+  var starPercent = parseFloat(starRating) * 20;
+  var ratingWidth = document.querySelector('.jq-ry-rated-group');
+
+  ratingWidth.style.width = `${starPercent}%`;
+}

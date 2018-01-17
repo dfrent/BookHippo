@@ -17,6 +17,7 @@
   <div class="description">
     <p>Description: <%= @book.description %> </p>
   </div>
+  <input type='hidden' value= <%=@book.isbn%> id= "book_rating">
 
   <div class="review-wrapper">
   <% if logged_in? && @existing_list && @existing_list.read_status == "finished_reading" %>
