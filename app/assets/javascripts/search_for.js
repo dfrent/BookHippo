@@ -8,8 +8,8 @@ document.addEventListener("DOMContentLoaded", function(e){
   searchForm.addEventListener('submit', function(e) {
     if (search.value === "") {
       e.preventDefault()
-        alert("Black search.");
-        
+        alert("Search can't be blank.");
+
     };
   });
 });
