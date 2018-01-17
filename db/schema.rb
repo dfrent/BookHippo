@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20180116210741) do
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -55,6 +56,7 @@ ActiveRecord::Schema.define(version: 20180116210741) do
   end
 
   create_table "messages", force: :cascade do |t|
+
     t.text "body"
     t.bigint "conversation_id"
     t.bigint "user_id"
