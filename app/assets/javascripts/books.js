@@ -164,58 +164,21 @@ document.addEventListener("DOMContentLoaded", function(e){
       scrollLeft: '0'
     }, scrollDuration);
   });
-
-  //********
-  
-        });
-      });
-    // Make the stars light up on hover
-    var stars = $('#rating_stars').val();
-    updateStarRating(stars);
-
-    function updateStarRating(stars){
-
-      for (i = 0; i < 5 ; i++){
-        if (i < stars) {
-          var currentStar = document.querySelector(`[data-inner-value='${i}']`);
-          currentStar.style.width = "100%";
-        } else {
-          var currentStar = document.querySelector(`[data-inner-value='${i}']`);
-          currentStar.style.width = "0%";
-        }
-      };
-    };
-
-    document.querySelectorAll('.stars-outer').forEach(function(star){
-      var starValue = star.getAttribute('data-outer-value');
-      star.addEventListener("click", function(e){
-        console.log(starValue);
-        $('#rating_stars').val(parseInt(starValue) + 1)
-        $('.edit_rating').submit()
-        updateStarRating(stars);
-      });
-    })
-
-      });
-    });
-  }
-
+ // initialising the stars
   $("#rateYo").rateYo({
     rating: 0
   });
+
   var numStars = $("#rateYo").rateYo("option", "numStars");
-  //returns 10
+  //returns 5
     var bookId = $("#book_rating").value;
 
-    setStars()
+    // set the stars if it has a value if not zero will b set
+    var starsdiv = document.querySelector('#rating');
+    var stars = starsdiv.value;
+    //var rating = getRandomRating();
+
+    $("#rateYo").rateYo("option", "rating", stars);
+    // setStars()
 
 });
-
-function setStars() {
-  var starRatingDiv = document.querySelector('.rating-stars');
-  var starRating = starRatingDiv.classList[0];
-  var starPercent = parseFloat(starRating) * 20;
-  var ratingWidth = document.querySelector('.jq-ry-rated-group');
-
-  ratingWidth.style.width = `${starPercent}%`;
-}

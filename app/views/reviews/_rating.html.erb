@@ -9,7 +9,6 @@ $(function () {
           .on("rateyo.set", function (e, data) {
 
               var bookId = document.getElementById("book_rating").value;
-              alert("The rating is set to " + data.rating + "!");
               $.ajax({
                          url: '/books/'+bookId+'/ratings',
                          method: 'post',
@@ -28,7 +27,5 @@ $(function () {
 });
 
 </script>
-<div id="rateYo"></div>
-<div class="<%= @rating.stars %> rating-stars">
 
-</div>
+<div id="rateYo"></div>

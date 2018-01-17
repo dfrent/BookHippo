@@ -17,10 +17,10 @@ document.addEventListener("DOMContentLoaded", function(){
         item.className = ".message-item"
         item.innerHTML = shareDiv.innerHTML;
 
-        var username = document.querySelector('h4');
+        var username = document.querySelector('.user-name');
         var userSpan = document.createElement('span');
         userSpan.className = "message-name";
-        userSpan.innerText = username.innerText.split("'")[0] + " ";
+        userSpan.innerText = username.getAttribute("value") + " ";
 
         var time = document.querySelector('#message_created_at');
         var timeSpan = document.createElement('span');
