@@ -1,0 +1,68 @@
+<style type="text/css">
+  .share-div {
+    width: 400px;
+    margin: 0;
+    overflow: auto;
+    border: 1px solid #000;
+    padding: 2px;
+    text-align: justify;
+    background: transparent;
+  }
+
+  .message-name {
+    font-weight: 900;
+  }
+</style>
+
+<% if @over_ten %>
+  <%= link_to 'Show Previous', '?m=all' %>
+<% end %>
+
+<div class='ui segment'>
+  <% @messages.each do |message| %>
+    <% if message.body %>
+      <% user = User.find(message.user_id) %>
+      <div class="message-content">
+        <span class="message-name">
+          <%= user.username %>
+        </span>
+        <span class="message-time">
+          <%= message.message_time %>
+        </span>
+        <div class="message-item">
+          <%= message.body %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+<%= form_for [@conversation, @message], html: {class: "ui reply form"} do |f| %>
+  <div class="field">
+
+  <%= f.hidden_field :body, class: "form-share" %>
+
+  <% if !params[:share].nil? %>
+    <div contenteditable="true", class="share-div">
+      <%= link_to "#{current_user.username} thought you would enjoy #{Book.find_by(isbn: params[:share]).title}!", book_path(params[:share]) %>
+    </div>
+  <% elsif params[:share].nil? %>
+  <div contenteditable="true", class="share-div">
+  </div>
+  <% end %>
+
+  </div>
+  <%= f.text_field :user_id, value: current_user.id, type: "hidden" %>
+
+  <%= f.text_field :created_at, value: Time.now.strftime("%m/%d/%y at %l:%M %p"), type: "hidden" %>
+
+  <div>
+    <%= f.submit "Add Reply", class: "message-submit" %>
+  </div>
+<% end %>
+
+<div class="user-name" value="<%= current_user.username %>">
+
+</div>
+
+<%= link_to "Back", conversations_path %>

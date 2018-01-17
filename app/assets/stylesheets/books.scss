@@ -167,4 +167,37 @@
     border-color: #272369;
   }
 }
+
 // .scroll-container:h  over .hidden { display:block; }
+
+/* Star Ratings */ 
+.current-user-stats {
+  display: inline-block;
+  float: right;
+}
+
+.stars-outer {
+  display: inline-block;
+  position: relative;
+  font-family: FontAwesome;
+  font-size: 25px;
+}
+
+.stars-outer::before {
+  content: "\2606";
+}
+
+.stars-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+  font-size: 25px;
+}
+
+.stars-inner::before {
+  content: "\2605";
+  color: gold;
+}
