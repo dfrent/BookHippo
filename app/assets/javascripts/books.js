@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", function(e){
 
     // get how much have we scrolled to the left
     var getMenuPosition = function() {
-      return $('.menu').scrollLeft();
+      return $(e.target).scrollLeft();
     };
 
     // get how much of menu is invisible
@@ -135,7 +135,7 @@ document.addEventListener("DOMContentLoaded", function(e){
   });
 
   // scroll to left
-  $('.right-paddle').on('click', function(e) {
+  $('.js-right-clickable').on('click', function(e) {
     // debugger
     var itemsLength = $(e.target).parent().parent().find('.item').length;
     var getMenuSize = function() {
@@ -147,11 +147,11 @@ document.addEventListener("DOMContentLoaded", function(e){
     }
     var menuWrapperSize = getMenuWrapperSize();
     var menuInvisibleSize = menuSize - menuWrapperSize;
-    console.log(itemsLength);
-    console.log(itemSize);
-    console.log(menuSize)
-    console.log(menuWrapperSize)
-    console.log(menuInvisibleSize)
+    // console.log(itemsLength);
+    // console.log(itemSize);
+    // console.log(menuSize)
+    // console.log(menuWrapperSize)
+    // console.log(menuInvisibleSize)
     $(e.target).parent().parent().find('.menu').animate({
       scrollLeft: menuInvisibleSize + 100
     }, scrollDuration);
@@ -159,7 +159,7 @@ document.addEventListener("DOMContentLoaded", function(e){
 
 
   // scroll to right
-  $('.left-paddle').on('click', function(e) {
+  $('.js-left-clickable').on('click', function(e) {
     $(e.target).parent().parent().find('.menu').animate({
       scrollLeft: '0'
     }, scrollDuration);
