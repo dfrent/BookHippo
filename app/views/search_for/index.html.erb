@@ -1,9 +1,13 @@
-<h1>search view</h1>
+<% if @google_items %>
+  <h1>search view</h1>
 
-<% if @user.any? %>
-<%= render partial: "user_search", locals: {user: @user} %>
-<% end %>
+  <% if @user.any? %>
+    <%= render partial: "user_search", locals: {user: @user} %>
+  <% end %>
 
-<% if @books.any? %>
-<%= render partial: "book_search", locals: {books: @books} %>
+  <% if @books.any? %>
+    <%= render partial: "book_search", locals: {books: @books} %>
+  <% end %>
+<% else %>
+  <%= render partial: "no_results"%>
 <% end %>
