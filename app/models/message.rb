@@ -8,4 +8,8 @@ class Message < ApplicationRecord
     created_at.strftime("%m/%d/%y at %l:%M %p")
   end
 
+  def self.read_message(message)
+    message.read = true
+  end
+
 end

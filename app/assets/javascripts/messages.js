@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function(){
         data: { body: shareDiv.innerHTML },
         dataType: 'html'
       }).done(function(responseData){
+        console.log(responseData);
         var item = document.createElement('div');
         item.className = ".message-item"
         item.innerHTML = shareDiv.innerHTML;
