@@ -9,7 +9,6 @@ $(function () {
           .on("rateyo.set", function (e, data) {
 
               var bookId = document.getElementById("book_rating").value;
-              alert("The rating is set to " + data.rating + "!");
               $.ajax({
                          url: '/books/'+bookId+'/ratings',
                          method: 'post',
