@@ -4,6 +4,7 @@
   <h4> <%= @book.author %> </h4>
   <img src="<%= @book.book_cover %>" alt="<%= @book.title %>">
 
+  <%= link_to "Share this book?", conversations_path(share: @book.isbn) %>
   <p>Page Count: <%= @book.page_count %> </p>
   <p>Rating: <%= @book.average_rating%> </p>
 
