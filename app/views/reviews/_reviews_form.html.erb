@@ -1,15 +1,6 @@
 <h4>Rate This Book</h4>
 
-    <% for i in (0..4)  %>
-      <div class="stars-outer" data-outer-value="<%= i %>">
-        <div class="stars-inner" data-inner-value="<%= i %>"></div>
-      </div>
-    <% end %>
-
-  <%= form_for [book, @rating], method: "PATCH" do |f| %>
-    <%= f.hidden_field "stars", value: @rating.stars %>
-    <%= f.submit "Submit Rating", class: "star-submit" %>
-  <% end %>
+<%= render partial: "reviews/rating", locals: {book: @book, rating: @rating}%>
 
 <h4>Add A Review</h4>
 
@@ -19,6 +10,7 @@
   <%= f.submit  %>
 </p>
 <% end %>
+
 
   <div class="review-container">
     <h4>Reviews</h4>

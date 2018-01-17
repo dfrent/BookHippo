@@ -11,6 +11,7 @@ class ReadingListsController < ApplicationController
   end
 
   def create
+
     @book = Book.find(params[:book_id])
     @existing_list = ReadingList.find_by(user_id: params[:user_id], book_id: params[:book_id])
 
@@ -27,7 +28,22 @@ class ReadingListsController < ApplicationController
       if request.xhr?
 
         @reviews = Review.where(book_id: params[:book_id])
-        render partial: "reviews/reviews_form", locals: {book: @book, review: Review.new }
+
+        @rating = Rating.where(book_id: params[:book_id], user_id: current_user)
+        puts "...........................................#{@rating.inspect}"
+
+      if @rating == nil
+        @rating = Rating.new
+        @rating.stars = 0
+      end
+        render partial: "reviews/reviews_form", locals: {book: @book, review: Review.new, rating: @rating}
+      # else
+      #   @rating = Rating.new
+      #   @rating.stars = 0
+      #   Rails.logger.info(@rating.errors.inspect)
+      #   render partial: "reviews/reviews_form", locals: {book: @book, review: Review.new, rating: @rating}
+      # end
+
       # respond_to do |format|
       #   format.html {render partial: "reviews/reviews_form", locals: {book: @book, review: Review.new} }
       #   format.js
