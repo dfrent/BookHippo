@@ -109,7 +109,7 @@
 // }
 
 .nav-link {
-  
+
 }
 
 .paddles {
@@ -126,11 +126,15 @@
 	bottom: 0;
 	width: 3em;
   text-shadow: 1px 1px 2px black;
+  &:focus {
+    outline: 0;
+  }
 }
 .left-paddle {
   background: linear-gradient(to left, rgba(130,130,130,0), rgba(160,160,160,1));
   // opacity: 1;
 	left: 0;
+  outline: 0;
   &:active {
     background-color: none;
     border: none;
@@ -140,6 +144,7 @@
   background: linear-gradient(to right, rgba(130,130,130,0), rgba(160,160,160,1));
   // opacity: 0.5;
 	right: 0;
+  outline: 0;
   &:active {
     background-color: none;
     border: none;
