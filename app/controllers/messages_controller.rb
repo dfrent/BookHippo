@@ -30,7 +30,6 @@ class MessagesController < ApplicationController
 
   def create
     @message = @conversation.messages.new
-    puts "/////////////////////////////////////////////////////////////////////////////////////////#{params[:body]}"
     @message.body = params[:body]
     @message.user_id = current_user.id
     if @message.save

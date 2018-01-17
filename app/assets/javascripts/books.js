@@ -3,7 +3,10 @@
 
 document.addEventListener("DOMContentLoaded", function(e){
   var starSubmit = document.querySelector('.star-submit')
-  starSubmit.style.visibility = "hidden";
+  if (starSubmit) {
+    starSubmit.style.visibility = "hidden";
+  }
+
   var read_buttons = document.querySelectorAll('.read-btn');
 
   read_buttons.forEach(function(button){

@@ -3,7 +3,7 @@
     width: 400px;
     margin: 0;
     overflow: auto;
-    border: 1px solid #0f0;
+    border: 1px solid #000;
     padding: 2px;
     text-align: justify;
     background: transparent;
@@ -18,17 +18,15 @@
   <% @messages.each do |message| %>
     <% if message.body %>
       <% user = User.find(message.user_id) %>
-      <div class="item">
-        <div class="content">
-          <div class="header">
-            <strong>
-              <%= user.username %>
-            </strong>
-            <%= message.message_time %>
-          </div>
-          <div class="message-item">
-            <%= message.body %>
-          </div>
+      <div class="message-content">
+        <div class="message-header">
+          <strong>
+            <%= user.username %>
+          </strong>
+          <%= message.message_time %>
+        </div>
+        <div class="message-item">
+          <%= message.body %>
         </div>
       </div>
     <% end %>
