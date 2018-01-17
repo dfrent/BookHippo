@@ -24,8 +24,9 @@ class ReadingListTest < ActiveSupport::TestCase
   def test_read_status_when_finished_book
     reading_list = build(:reading_list)
     reading_list.save
+    reading_list.read_status = "finished_reading"
 
-    actual = reading_list.finished_book?
+    assert reading_list.finished_book?
   end
 
 
