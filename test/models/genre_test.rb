@@ -6,7 +6,7 @@ class GenreTest < ActiveSupport::TestCase
   # end
 
 # Validation Testing
-  def test_genre_needs_a_name
+  def test_genre_needs_a_username
     genre = build(:genre, name: nil)
     genre.save
     refute genre.persisted?
