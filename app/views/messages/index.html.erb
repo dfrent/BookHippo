@@ -8,6 +8,10 @@
     text-align: justify;
     background: transparent;
   }
+
+  .message-name {
+    font-weight: 900;
+  }
 </style>
 
 <% if @over_ten %>
@@ -19,12 +23,12 @@
     <% if message.body %>
       <% user = User.find(message.user_id) %>
       <div class="message-content">
-        <div class="message-header">
-          <strong>
-            <%= user.username %>
-          </strong>
+        <span class="message-name">
+          <%= user.username %>
+        </span>
+        <span class="message-time">
           <%= message.message_time %>
-        </div>
+        </span>
         <div class="message-item">
           <%= message.body %>
         </div>
@@ -49,6 +53,9 @@
 
   </div>
   <%= f.text_field :user_id, value: current_user.id, type: "hidden" %>
+
+  <%= f.text_field :created_at, value: Time.now.strftime("%m/%d/%y at %l:%M %p"), type: "hidden" %>
+
   <div>
     <%= f.submit "Add Reply", class: "message-submit" %>
   </div>

@@ -13,11 +13,23 @@ document.addEventListener("DOMContentLoaded", function(){
         data: { body: shareDiv.innerHTML },
         dataType: 'html'
       }).done(function(responseData){
-        console.log(responseData);
         var item = document.createElement('div');
         item.className = ".message-item"
         item.innerHTML = shareDiv.innerHTML;
+
+        var username = document.querySelector('h4');
+        var userSpan = document.createElement('span');
+        userSpan.className = "message-name";
+        userSpan.innerText = username.innerText.split("'")[0] + " ";
+
+        var time = document.querySelector('#message_created_at');
+        var timeSpan = document.createElement('span');
+        timeSpan.className = "message-time";
+        timeSpan.innerText = time.value;
+
         var segment = document.querySelector('.segment');
+        segment.appendChild(userSpan);
+        segment.appendChild(timeSpan);
         segment.appendChild(item);
         shareDiv.innerHTML = null;
       });
