@@ -2,7 +2,7 @@
 
 
 <% @books.each do |key, value| %>
-  <h4 class="list-title"><%= key %></h4>
+  <h5 class="list-title"><%= key %></h5>
   <div class="scroll-container menu-wrapper">
     <div class="scrollable menu" id= "menu-<%= key.parameterize %>" >
       <% value.each do |book| %>
