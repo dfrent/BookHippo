@@ -20,8 +20,13 @@
   <input type='hidden' value= <%=@book.isbn%> id= "book_rating">
 
   <div class="review-wrapper">
+    <% if @rating != nil %>
+    <div><input type = "hidden", value = '<%=@rating.stars%>' , id = "rating"></div>
+    <% else %>
+    <div><input type = "hidden", value = '0' , id = "rating"></div>
+    <%end%>
   <% if logged_in? && @existing_list && @existing_list.read_status == "finished_reading" %>
-    <%= render partial: "reviews/reviews_form", locals: {book: @book, review: @review}%>
+    <%= render partial: "reviews/reviews_form", locals: {book: @book, review: @review, rating: @rating}%>
     <% else %>
   <% end %>
 </div>
