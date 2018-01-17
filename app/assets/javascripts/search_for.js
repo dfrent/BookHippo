@@ -3,11 +3,13 @@
 document.addEventListener("DOMContentLoaded", function(e){
   var searchSubmit = document.querySelector('#search-submit-btn');
   var search = document.querySelector('#search');
+  var searchForm = document.querySelector('#search-form');
 
-  searchSubmit.addEventListener('click', function(e) {
-    if (search.innerText === null) {
+  searchForm.addEventListener('submit', function(e) {
+    if (search.value === "") {
       e.preventDefault()
         alert("Black search.");
+        
     };
   });
 });

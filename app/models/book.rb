@@ -17,7 +17,9 @@ class Book < ApplicationRecord
 
       book = book_response.parsed_response["items"][0]["volumeInfo"]
       authors = book["authors"]
-      authors_string = authors.join(", ")
+      if authors
+        authors_string = authors.join(", ")
+      end
       google_id = book_response.parsed_response["items"][0]["id"]
 
       Book.create(isbn: isbn, title: book["title"], author: authors_string, description: book["description"], book_cover: book["imageLinks"]["thumbnail"], small_thumbnail: book["imageLinks"]["smallThumbnail"], genre_id: 20,  google_id: google_id, page_count: book["pageCount"], average_rating: book["averageRating"], published_date: book["publishedDate"], publisher: book["publisher"])
