@@ -1,11 +1,6 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
-
-# Validation Testing
   def test_user_has_a_username
     user = build(:user, username: nil)
     user.save
