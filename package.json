@@ -2,10 +2,12 @@
   "name": "book_hippo",
   "private": true,
   "dependencies": {
-    "rateyo": "^2.3.3"
+    "rateyo": "^2.3.3",
+    "yarn": "^1.3.2"
   },
   "devDependencies": {
-    "font-awesome": "^4.7.0"
+    "font-awesome": "^4.7.0",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.11.0"
   }
-
 }
