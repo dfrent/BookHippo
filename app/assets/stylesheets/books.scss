@@ -203,17 +203,21 @@
 }
 
 /*****Book show page *****/
-
+// @include media-breakpoint-up(lg) {
 .show-wrapper {
   width: 80%;
   margin: 0 auto;
   padding-top: 3%;
 }
+// }
 
 .book-show-info {
   margin: 1% 0;
   padding-left: 0;
   padding-left: 2% !important;
+  h2 {
+    font-size: 1.7rem !important;
+  }
 }
 
 .book-show-cover {
@@ -236,5 +240,11 @@
     right: -100%;
     top: -120%;
     bottom: -100%;
+  }
+}
+
+@include media-breakpoint-down(md) {
+  p {
+    font-size: 0.7rem;
   }
 }

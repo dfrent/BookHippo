@@ -1,12 +1,12 @@
 <main>
-  <div class="show-wrapper">
+  <div class="container show-wrapper">
     <div class="row no-gutters">
-      <div class="col-3">
+      <div class="col-sm-3 col-xs-12">
         <div class="book-show-cover">
           <img src="<%= @book.book_cover %>" alt="<%= @book.title %>">
         </div>
       </div>
-      <div class="col-9 book-show-info">
+      <div class="col-sm-9 book-show-info col-xs-12">
         <h2 class="book-title">
           <%= @book.title %>
         </h2>
@@ -18,9 +18,17 @@
             <%= @book.description %>
           </p>
         </div>
-        <button class="share-btn">
-          <%= link_to "Share this book?", conversations_path(share: @book.isbn) %>
-        </button>
+        <div class="user-action-buttons">
+
+          <button class="share-btn">
+            <%= link_to "Share this book?", conversations_path(share: @book.isbn) %>
+          </button>
+          <% if logged_in? %>
+            <%= render partial: "books/read_status", locals: {book: @book, existing_list: @existing_list} %>
+          <% else %>
+            <%= render partial: "books/new_user_buttons" %>
+          <% end %>
+        </div>
       </div>
     </div>
     <div class="row no-gutters">
@@ -35,12 +43,6 @@
       <div class="col-9"></div>
 
     </div>
-
-    <% if logged_in? %>
-      <%= render partial: "books/read_status", locals: {book: @book, existing_list: @existing_list} %>
-    <% else %>
-      <%= render partial: "books/new_user_buttons" %>
-    <% end %>
 
     <input type='hidden' value=<%=@book.isbn%> id="book_rating">
 
