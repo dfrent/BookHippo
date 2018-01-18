@@ -136,8 +136,8 @@ document.addEventListener("DOMContentLoaded", function(e){
 
   // scroll to left
   $('.js-right-clickable').on('click', function(e) {
-    console.log('Clicked right.');
-    console.log($(e.target).parents('.menu-wrapper'));
+    // console.log('Clicked right.');
+    // console.log($(e.target).parents('.menu-wrapper'));
     var itemsLength = $(e.target).parents('.menu-wrapper').find('.item').length;
     var getMenuSize = function() {
       return itemsLength * itemSize;
@@ -161,7 +161,7 @@ document.addEventListener("DOMContentLoaded", function(e){
 
   // scroll to right
   $('.js-left-clickable').on('click', function(e) {
-    console.log('Clicked left.');
+    // console.log('Clicked left.');
     $(e.target).parents('.menu-wrapper').find('.menu').animate({
       scrollLeft: '0'
     }, scrollDuration);
