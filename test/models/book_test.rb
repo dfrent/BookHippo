@@ -64,5 +64,12 @@ class BookTest < ActiveSupport::TestCase
     refute book.persisted?
   end
 
+  def test_find_or_api_call_returns_book_with_correct_isbn
+    book = Book.find_or_api_call("0826215491")
+    expected = "0826215491"
+    actual = book.isbn
+
+    assert_equal(actual, expected)
+  end
 
 end
