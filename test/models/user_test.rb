@@ -1,31 +1,31 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
-  def test_user_has_a_username
+  def test_user_needs_a_username_to_save
     user = build(:user, username: nil)
     user.save
     refute user.persisted?
   end
 
-  def test_user_has_a_email
+  def test_user_needs_a_email_to_save
     user = build(:user, email: nil)
     user.save
     refute user.persisted?
   end
 
-  def test_user_has_a_password
+  def test_user_needs_a_password_to_save
     user = build(:user, password: nil)
     user.save
     refute user.persisted?
   end
 
-  def test_user_password_confirmation
+  def test_user_must_confirm_password_to_save
     user = build(:user, password_confirmation: nil)
     user.save
     refute user.persisted?
   end
 
-  def test_user_password_and_password_confirmation_match
+  def test_user_does_not_save_when_password_and_confirmation_do_not_match
     user = build(:user, password: "abcd1234", password_confirmation: "wxyz5678")
     user.save
     refute user.persisted?
@@ -41,6 +41,36 @@ class UserTest < ActiveSupport::TestCase
     user = build(:user)
     user.save
     assert user.persisted?
+  end
+
+  def test_user_saves_with_unique_email
+    user = build(:user)
+    user.save
+
+    user2 = build(:user, username: "cordell", email: "cordell@g.com")
+    user2.save
+
+    assert user2.persisted?
+  end
+
+  def test_user_does_not_save_with_duplicate_email
+    user = build(:user)
+    user.save
+
+    user2 = build(:user, username: "cordell", email: user.email)
+    user2.save
+
+    refute user2.persisted?
+  end
+
+  def test_user_does_not_save_with_duplicate_username
+    user = build(:user)
+    user.save
+
+    user2 = build(:user, username: user.username, email: "cordell@g.com")
+    user2.save
+
+    refute user2.persisted?
   end
 
   def test_user_can_follow_another_user
