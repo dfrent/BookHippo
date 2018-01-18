@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :message do
-    body "Hello world!"
+    body 'awesome book'
     conversation
   end
 end
