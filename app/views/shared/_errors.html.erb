@@ -1,0 +1,7 @@
+<% if errors.any? %>
+  <p>
+    <% errors.full_messages.each do |error_message| %>
+      <%= error_message %> <br />
+    <% end %>
+  </p>
+<% end %>
