@@ -64,5 +64,32 @@ class BookTest < ActiveSupport::TestCase
     refute book.persisted?
   end
 
+  def test_find_or_api_call_returns_book_with_correct_isbn
+    book = Book.find_or_api_call("0826215491")
+    expected = "0826215491"
+    actual = book.isbn
 
+    assert_equal(actual, expected)
+  end
+
+  def test_find_or_api_call_returns_book_if_it_already_exists
+    book = build(:book)
+    actual = Book.find_or_api_call(book.isbn).isbn
+    expected = '123456789'
+
+    assert_equal(actual, expected)
+  end
+
+  def test_book_exists_returns_false_if_book_does_not_exist
+    book_presence = Book.exists?("123456789")
+
+    refute book_presence
+  end
+
+  def test_book_exists_returns_true_if_book_exists
+    book = build(:book)
+    book_presence = Book.exists?(book.isbn)
+
+    refute book_presence
+  end
 end

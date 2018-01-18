@@ -4,9 +4,15 @@ class Conversation < ApplicationRecord
 
   has_many :messages, dependent: :destroy
 
-  validates_uniqueness_of :sender_id, :scope => :recipient_id
+  validate :sender_is_not_recipient
 
   scope :between, -> (sender_id,recipient_id) do
     where("(conversations.sender_id = ? AND conversations.recipient_id =?) OR (conversations.sender_id = ? AND conversations.recipient_id =?)", sender_id,recipient_id, recipient_id, sender_id)
+  end
+
+  def sender_is_not_recipient
+    if sender == recipient
+      errors.add(:base, "Sender cannot be the same user as recipient.")
+    end
   end
 end

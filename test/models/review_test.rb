@@ -1,12 +1,13 @@
 require 'test_helper'
 
-class GenreTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+class ReviewTest < ActiveSupport::TestCase
+  def test_review_saves_with_a_comment
+    comment = build(:review)
+    comment.save
+    assert comment.persisted?
+  end
 
-# Validation Testing
-  def test_review_needs_a_comment
+  def test_review_does_not_save_without_comment
     comment = build(:review, comment: nil)
     comment.save
     refute comment.persisted?
