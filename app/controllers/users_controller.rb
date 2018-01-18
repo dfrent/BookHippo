@@ -35,6 +35,7 @@ class UsersController < ApplicationController
   end
 
   def update
+    puts "************************"
     @user = current_user
 
     @user.email = params[:user][:email]
@@ -42,12 +43,16 @@ class UsersController < ApplicationController
     @user.password = params[:user][:password]
     @user.password_confirmation = params[:user][:password_confirmation]
 
+
     if @user.save
+      puts "1 ************************"
+
       # # Auto-login on succesful signup
       flash[:notice] = 'Account successfully created!'
       session[:user_id] = @user.id
       redirect_to user_url(current_user)
     else
+      puts "2 ************************"
       render :new
     end
   end
