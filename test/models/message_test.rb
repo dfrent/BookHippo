@@ -54,16 +54,4 @@ class MessageTest < ActiveSupport::TestCase
 
     assert_equal(actual, expected)
   end
-
-  # def test_message_time_displays_time_properly
-  #   Timecop.freeze(Time.now) do
-  #     message = build(:message)
-  #     message.user = build(:user)
-  #     message.save
-  #
-  #     actual = message.message_time
-  #     expected = Time.now.strftime("%m/%d/%y at %l:%M %p")
-  #     assert_equal(actual, expected)
-  #   end
-  # end
 end
