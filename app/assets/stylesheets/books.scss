@@ -170,7 +170,7 @@
 
 // .scroll-container:h  over .hidden { display:block; }
 
-/* Star Ratings */ 
+/* Star Ratings */
 .current-user-stats {
   display: inline-block;
   float: right;
@@ -200,4 +200,41 @@
 .stars-inner::before {
   content: "\2605";
   color: gold;
+}
+
+/*****Book show page *****/
+
+.show-wrapper {
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 3%;
+}
+
+.book-show-info {
+  margin: 1% 0;
+  padding-left: 0;
+  padding-left: 2% !important;
+}
+
+.book-show-cover {
+  display: block;
+  width: 85%;
+  // height: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  img {
+    display: block;
+    margin: auto;
+    padding-top: 9%;
+    // height: 200%;
+    // width: 65%;
+    // min-height: 100%;
+    min-width: 80%;
+
+
+    left: -100%;
+    right: -100%;
+    top: -120%;
+    bottom: -100%;
+  }
 }
