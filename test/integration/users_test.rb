@@ -91,11 +91,6 @@ class UsersTest < ActionDispatch::IntegrationTest
       password_confirmation: 'abcd12345'
     }}
 
-    p @response.body
-    puts
-    puts
-    puts
-    puts
 
 
     assert_equal('eric', user.reload.username)
