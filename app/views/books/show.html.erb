@@ -5,24 +5,32 @@
         <div class="book-show-cover">
           <img src="<%= @book.book_cover %>" alt="<%= @book.title %>">
         </div>
+        <div class="other-info">
+          <p><strong>Page Count:</strong>
+            <%= @book.page_count %>
+          </p>
+          <p><strong>Publisher:</strong>
+            <%= @book.publisher %>
+          </p>
+        </div>
+
       </div>
       <div class="col-sm-9 book-show-info col-xs-12">
         <h2 class="book-title">
           <%= @book.title %>
         </h2>
-        <h4>
+        <h6 class="show-author">
           <%= @book.author %>
-        </h4>
+        </h6>
         <div class="description">
-          <p>Description:
+          <p><strong>Description:</strong>
             <%= @book.description %>
           </p>
         </div>
         <div class="user-action-buttons">
 
-          <button class="share-btn">
-            <%= link_to "Share this book?", conversations_path(share: @book.isbn) %>
-          </button>
+            <%= link_to "Share this book?", conversations_path(share: @book.isbn), class:"btn btn-primary share-btn user-action-button" %>
+
           <% if logged_in? %>
             <%= render partial: "books/read_status", locals: {book: @book, existing_list: @existing_list} %>
           <% else %>
@@ -32,30 +40,29 @@
       </div>
     </div>
     <div class="row no-gutters">
-      <div class="col-3">
-        <p>Page Count:
-          <%= @book.page_count %>
-        </p>
-        <p>Page Count:
-          <%= @book.publisher %>
-        </p>
+      <div class="col-sm-3 col-xs-12">
+
       </div>
-      <div class="col-9"></div>
+      <div class="col-sm-9 col-xs-12 book-show-review">
+        <input type='hidden' value=<%=@book.isbn%> id="book_rating">
+
+        <div class="review-wrapper">
+          <% if @rating != nil %>
+            <div><input type="hidden" ,="," value='<%=@rating.stars%>' id="rating"></div>
+          <% else %>
+            <div><input type="hidden" ,="," value='0' id="rating"></div>
+          <%end%>
+          <% if logged_in? && @existing_list && @existing_list.read_status == "finished_reading" %>
+            <%= render partial: "reviews/reviews_form", locals: {book: @book, review: @review, rating: @rating}%>
+          <% else %>
+          <% end %>
+        </div>
+
+
+      </div>
 
     </div>
 
-    <input type='hidden' value=<%=@book.isbn%> id="book_rating">
 
-    <div class="review-wrapper">
-      <% if @rating != nil %>
-        <div><input type="hidden" ,="," value='<%=@rating.stars%>' id="rating"></div>
-      <% else %>
-        <div><input type="hidden" ,="," value='0' id="rating"></div>
-      <%end%>
-      <% if logged_in? && @existing_list && @existing_list.read_status == "finished_reading" %>
-        <%= render partial: "reviews/reviews_form", locals: {book: @book, review: @review, rating: @rating}%>
-      <% else %>
-      <% end %>
-    </div>
   </div>
 </main>

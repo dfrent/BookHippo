@@ -7,7 +7,9 @@
 <p>
   <%= form_for [book, review] do |f| %>
   <%= f.text_area :comment %>
-  <%= f.submit  %>
+  <div class="sumbit-review-btn">
+    <%= f.submit  %>
+  </div>
 </p>
 <% end %>
 
