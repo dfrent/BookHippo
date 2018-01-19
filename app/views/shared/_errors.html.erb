@@ -1,7 +1,10 @@
-<% if errors.any? %>
-  <p>
-    <% errors.full_messages.each do |error_message| %>
-      <%= error_message %> <br />
-    <% end %>
-  </p>
-<% end %>
+<div class="form-error-partial">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <% if errors.any? %>
+    <p>
+      <% errors.full_messages.each do |error_message| %>
+        <%= error_message %> <br />
+      <% end %>
+    </p>
+  <% end %>
+</div>
