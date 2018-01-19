@@ -1,5 +1,7 @@
+<div class="content search-wrapper">
+
+
 <% if @google_items %>
-  <h1>search view</h1>
 
   <% if @user.any? %>
     <%= render partial: "user_search", locals: {user: @user} %>
@@ -11,3 +13,5 @@
 <% else %>
   <%= render partial: "no_results"%>
 <% end %>
+
+</div>
