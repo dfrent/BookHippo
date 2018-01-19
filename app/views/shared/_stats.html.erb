@@ -1,17 +1,16 @@
 <% if logged_in? %>
   <div class="stats">
-    <h4> <%= user.username.capitalize %>'s Community </h4>
-    <a href="<%= following_user_path(user) %>">
+    <h4> <%= user.username.capitalize %> </h4>
+    <p>
       <strong class="stat following">
         <%= user.following.count %>
       </strong>
       following
-    </a>
-    <a href="<%= followers_user_path(user) %>">
+      <span>|</span>
       <strong class="stat followers">
         <%= user.followers.count %>
       </strong>
       followers
-    </a>
+    </p>
   </div>
 <% end %>
