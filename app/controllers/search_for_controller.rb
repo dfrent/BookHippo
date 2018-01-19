@@ -1,9 +1,10 @@
 class SearchForController < ApplicationController
   def search_for
     @books = []
-    @users = User.all
+    # @users = User.find_user(:search)
     if params[:search]
-      @user = User.find_user(params[:user_id])
+      @user = User.find_user(params[:search].downcase)
+      Rails.logger.info(@user.inspect)
 
       goog_response = HTTParty.get("https://www.googleapis.com/books/v1/volumes?q=#{params[:search]}&key=#{ENV['GBOOKS_KEY']}") #
 
