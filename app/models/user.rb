@@ -34,8 +34,12 @@ class User < ApplicationRecord
   validates :username, :email, :password, :password_confirmation, presence: true
   validates :username, :email, uniqueness: true
   validates_length_of :password, :minimum => 8
+  before_save :downcase_fields
   # validates :username, :format => { with: /(\w|\s)/ , :message => 'no special characters, only letters and numbers' }
 
+  def downcase_fields
+      self.username.downcase!
+   end
   # Follows a user.
   def follow(other_user)
     following << other_user
@@ -58,4 +62,12 @@ class User < ApplicationRecord
     end
     users_array.sample(num_of_users)
   end
+
+
+  def self.find_user(search)
+  where(" username LIKE ? ", "%#{search}%")
+  end
+
+
+
 end
