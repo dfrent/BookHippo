@@ -2,6 +2,12 @@
 @import 'books.scss';
 @import 'sessions.scss';
 
+* {margin: 0;}
+
+
+html, body, main, .show-wrapper { height:100%; }
+
+
 
 .navbar {
   padding: 0.5rem;
@@ -11,4 +17,57 @@
   margin: 0;
   padding: 0;
 
+}
+
+
+footer {
+  height: 200px;
+  margin-top: 0;
+  // border: 2px solid black;
+  background-color: #272369;
+  color: white;
+  overflow:hidden;
+
+
+  @media (min-width: 1200px) {
+    .container {
+      max-width: 1650px;
+    }
+  }
+  .container {
+    margin: 0 !important;
+  }
+    .footer-wrapper {
+      margin: 0 !important;
+      width: 100% !important;
+    }
+
+    .footer-left, .footer-right {
+      padding: 3% 2%;
+      display: inline-block !important;
+      p {
+        text-align: center;
+        vertical-align: middle;
+        margin-top: 30px;
+      }
+      img {
+        display: block;
+
+        // margin: ;
+
+      }
+      @media (max-width: 575.98px) {
+      img {
+        margin: 0 auto;
+      }
+    }
+  }
+}
+
+.bottom {
+  height: 5rem;
+}
+
+.content {
+  min-height: calc(100vh - 70px);
 }

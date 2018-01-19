@@ -208,15 +208,18 @@
   width: 80%;
   margin: 0 auto;
   padding-top: 3%;
+  // background-color: #f7f2ff;
+  background-color: #f9f2ff;;
 }
 // }
 
-.book-show-info {
+.book-show-info, .book-show-review {
   margin: 1% 0;
   padding-left: 0;
   padding-left: 2% !important;
   h2 {
-    font-size: 1.7rem !important;
+    font-size: 2.1rem !important;
+    color: #272369;
   }
 }
 
@@ -247,4 +250,47 @@
   p {
     font-size: 0.7rem;
   }
+}
+
+.read-btn {
+  display: inline-block;
+}
+
+.show-author {
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+}
+
+.button-container {
+  form {
+    display: inline-block;
+  }
+  .read-message {
+    font-size: 1.1rem;
+  }
+}
+
+.other-info {
+  padding: 1.0rem 2.8rem;
+  p {
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.share-btn, .read-btn, .sumbit-review-btn >  input[type="submit"] {
+  margin-bottom: 10px;
+  background-color: #272369;
+  border-color: #272369;
+  color: white;
+  &:hover {
+    color: #272369;
+    background-color: white;
+    border-color: #272369;
+    font-weight: 700;
+  }
+}
+
+.description {
+  padding-right: 1%;
 }
