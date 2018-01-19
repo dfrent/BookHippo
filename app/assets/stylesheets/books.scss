@@ -92,7 +92,7 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    font-weight:  800;
+    font-weight:  700;
 
   }
 
@@ -265,7 +265,8 @@
   margin-bottom: 0.6rem;
 }
 
-.button-container {
+.button-container-show {
+  display: inline;
   form {
     display: inline-block;
   }
