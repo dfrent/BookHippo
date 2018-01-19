@@ -1,11 +1,14 @@
-<h1>Book Search Results</h1>
+<h3>Books</h3>
+<div class="search-book-container">
 
 <% books.each do |book| %>
-  <h2><%= link_to "#{book[:title].titleize}", book_path(book[:isbn]) %></h2>
-  <ul>
-    <li>  <%= book[:author] %>  </li>
-    <li>  <%= book[:description] %>  </li>
-    <li>  <%= book[:isbn] %>  </li>
-    <li>  <img src="<%= book[:book_image] %> "> </li>
-  </ul>
+  <!-- <h4><%#= link_to "#{book[:title].titleize}", book_path(book[:isbn]) %></h4> -->
+
+  <div class="book-container card item search-book-item">
+    <%= link_to(image_tag(book[:book_image], class:"card-img-top", title: book[:title].titleize), book_path(book[:isbn])) %>
+    <div class="card-body book-info">
+      <p class="card-title"><strong><%= book[:title].titleize.strip %></strong> | <%= book[:author] %>  </p>
+    </div>
+  </div>
 <% end %>
+</div>
