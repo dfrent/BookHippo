@@ -211,6 +211,9 @@
   padding-top: 3%;
   // background-color: #f7f2ff;
   background-color: #f9f2ff;
+  height: 100%;
+  overflow: hidden;
+
 }
 // }
 
@@ -294,7 +297,18 @@
 
 .description {
   padding-right: 1%;
+  margin-bottom: 20px;
+  // white-space: nowrap;
+  min-height: 200px;
+  max-height: 300px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  p {
+    font-size: 0.9rem;
+  }
 }
+
+
 
 .new-user-button {
   background-color: #272369;

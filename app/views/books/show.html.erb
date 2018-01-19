@@ -1,4 +1,4 @@
-<main>
+<main class="content">
   <div class="container show-wrapper">
     <div class="row no-gutters">
       <div class="col-sm-3 col-xs-12">
@@ -27,6 +27,7 @@
             <%= @book.description %>
           </p>
         </div>
+
         <div class="user-action-buttons">
 
             <%= link_to "Share this book?", conversations_path(share: @book.isbn), class:"btn btn-primary share-btn user-action-button" %>

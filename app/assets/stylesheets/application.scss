@@ -4,11 +4,12 @@
 @import 'genres.scss';
 @import 'relationships.scss';
 @import 'users.scss';
+@import 'search_for.scss';
 
 * {margin: 0;}
 
 
-html, body, main, .show-wrapper { height:100%; }
+html, body, main { height:100%; }
 
 
 
@@ -24,7 +25,7 @@ html, body, main, .show-wrapper { height:100%; }
 
 
 footer {
-  height: 200px;
+  height: 150px;
   margin-top: 0;
   // border: 2px solid black;
   background-color: #272369;
@@ -46,12 +47,12 @@ footer {
     }
 
     .footer-left, .footer-right {
-      padding: 3% 2%;
+      padding: 1% 2%;
       display: inline-block !important;
       p {
         text-align: center;
         vertical-align: middle;
-        margin-top: 30px;
+        margin-top: 40px;
       }
       img {
         display: block;
