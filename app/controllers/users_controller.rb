@@ -22,7 +22,7 @@ class UsersController < ApplicationController
 
     if @user.save
       # # Auto-login on succesful signup
-      flash.alert = 'Account successfully created!'
+      flash[:alert] = 'Account successfully created!'
       session[:user_id] = @user.id
       redirect_to genres_url
     else
@@ -78,6 +78,6 @@ class UsersController < ApplicationController
 
   def new_follow
     @user = current_user
-    @users = User.users_to_follow(5, @user)
+    @users = User.users_to_follow(10, @user)
   end
 end

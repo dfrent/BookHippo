@@ -81,10 +81,6 @@
   <% end %>
 
 
-  <% flash.each do |key, message| %>
-    <div class="flash-<%= key %>"><%= message %></div>
-  <% end %>
-
   <%= yield %>
   <footer>
     <div class="container footer-wrapper">
