@@ -1,15 +1,7 @@
 <div class="button-container">
 
   <% if existing_list != nil %>
-    <% if existing_list.read_status == "want_to_read" %>
-      <h4 class="read-message">You currently have '<%= book.title %>' in your "want to read" list</h4>
-    <% elsif existing_list.read_status == "currently_reading" %>
-      <h4 class="read-message">You are currently reading '<%= book.title %>'. Enjoy it!</h4>
-    <% elsif existing_list.read_status == "finished_reading" %>
-      <h4 class="read-message">You finished reading '<%= book.title %>'. Awesome!!</h4>
-    <% else %>
-      <h4 class="read-message">Mark a book to add it to your library</h4>
-    <% end %>
+
 
     <% unless existing_list.read_status != nil %>
       <%= form_for(current_user.reading_lists.build, remote: true) do |f| %>
