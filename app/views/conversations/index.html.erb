@@ -1,40 +1,44 @@
-<% if params[:share].nil? %>
-  <div class=”ui segment”>
-    <h3>Mailbox</h3>
-    <div class=”ui list”>
-      <div class=”item”>
-        <% @conversations.each do |conversation| %>
-          <% if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id %>
-            <% if conversation.sender_id == current_user.id %>
-              <% recipient = User.find(conversation.recipient_id) %>
-            <% else %>
-              <% recipient = User.find(conversation.sender_id) %>
-            <% end %>
-            <% if conversation.messages.any? && conversation.messages.last.user_id != current_user.id && conversation.messages.last.read == false %>
-              <%= link_to "#{recipient.username} (new messages!)", conversation_messages_path(conversation) %>
-            <% else %>
-              <%= link_to recipient.username, conversation_messages_path(conversation) %>
-            <% end %>
-          <% end %>
-        <% end %>
-      </div>
-    </div>
-  </div>
+<div class="content">
 
-  <div class=”ui segment”>
-    <h3>Your Friends</h3>
-<% elsif !params[:share].nil? %>
-
-  <div class=”ui segment”>
-    <h3>Who would you like to share <%= Book.find_by(isbn: params[:share]).title %> with?</h3>
-<% end %>
-  <div class=”ui list”>
-    <% @users.each do |user| %>
-      <% if user.id != current_user.id %>
-        <div class=”item”>
-          <%= link_to user.username, conversations_path(sender_id: current_user.id, recipient_id: user.id, share: params[:share]), method: 'post'%>
+  <% if params[:share].nil? %>
+    <div class="”ui" segment”="segment”">
+      <h3>Mailbox</h3>
+      <div class="”ui" list”="list”">
+        <div class="”item”">
+          <% @conversations.each do |conversation| %>
+            <% if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id %>
+              <% if conversation.sender_id == current_user.id %>
+                <% recipient = User.find(conversation.recipient_id) %>
+                <% else %>
+                  <% recipient = User.find(conversation.sender_id) %><% end %>
+                  <% if conversation.messages.any? && conversation.messages.last.user_id != current_user.id && conversation.messages.last.read == false %>
+                    <%= link_to "#{recipient.username} (new messages!)", conversation_messages_path(conversation) %>
+                  <% else %>
+                    <%= link_to recipient.username, conversation_messages_path(conversation) %>
+                  <% end %>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
         </div>
-      <% end %>
-    <% end %>
-  </div>
-</div>
+
+        <div class="”ui" segment”="segment”">
+          <h3>Your Friends</h3>
+          <% elsif !params[:share].nil? %>
+
+            <div class="”ui" segment”="segment”">
+              <h3>Who would you like to share
+                <%= Book.find_by(isbn: params[:share]).title %>
+                with?</h3>
+            <% end %>
+            <div class="”ui" list”="list”">
+              <% @users.each do |user| %>
+                <% if user.id != current_user.id %>
+                  <div class="”item”">
+                    <%= link_to user.username, conversations_path(sender_id: current_user.id, recipient_id: user.id, share: params[:share]), method: 'post'%>
+                  </div>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        </div>
