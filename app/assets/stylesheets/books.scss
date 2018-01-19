@@ -322,3 +322,9 @@
     font-weight: 700;
   }
 }
+
+body.books.show {
+  .footer {
+    display: none;
+  }
+}
