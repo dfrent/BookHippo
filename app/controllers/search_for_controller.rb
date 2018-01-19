@@ -11,9 +11,11 @@ class SearchForController < ApplicationController
       @google_items = goog_response.parsed_response['items']
 
       if @google_items
-        @google_items[0..5].each do |result|
+        @google_items[0..19].each do |result|
           if result['volumeInfo']['imageLinks']
             book_img = result['volumeInfo']['imageLinks']['thumbnail']
+          else
+            next
           end
 
           identifiers = result["volumeInfo"]["industryIdentifiers"]
