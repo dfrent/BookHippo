@@ -31,12 +31,13 @@
         <div class="user-action-buttons">
 
             <%= link_to "Share this book?", conversations_path(share: @book.isbn), class:"btn btn-primary share-btn user-action-button" %>
-
-          <% if logged_in? %>
-            <%= render partial: "books/read_status", locals: {book: @book, existing_list: @existing_list} %>
-          <% else %>
-            <%= render partial: "books/new_user_buttons" %>
-          <% end %>
+          <div class="button-container-show">
+            <% if logged_in? %>
+              <%= render partial: "books/read_status", locals: {book: @book, existing_list: @existing_list} %>
+            <% else %>
+              <%= render partial: "books/new_user_buttons" %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
