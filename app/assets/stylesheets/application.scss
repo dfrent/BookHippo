@@ -1,6 +1,12 @@
 @import 'bootstrap-custom';
 @import 'books.scss';
 
+* {margin: 0;}
+
+
+html, body, main, .show-wrapper { height:100%; }
+
+
 
 .navbar {
   padding: 0.5rem;
@@ -15,11 +21,12 @@
 
 footer {
   height: 200px;
-  margin-top: 3%;
+  margin-top: 0;
   // border: 2px solid black;
   background-color: #272369;
   color: white;
   overflow:hidden;
+
 
   @media (min-width: 1200px) {
     .container {
@@ -54,4 +61,12 @@ footer {
       }
     }
   }
+}
+
+.bottom {
+  height: 5rem;
+}
+
+.content {
+  min-height: calc(100vh - 70px);
 }

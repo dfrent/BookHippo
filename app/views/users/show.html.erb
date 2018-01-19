@@ -1,17 +1,22 @@
-<h3> <%= @user.username.capitalize %>'s Profile </h3>
+<div class="content">
 
-<%= link_to 'Edit Profile', edit_user_path %>
-<%= link_to('Delete', user_path(current_user), method: :delete, data: {confirm: "Are you sure you want to delete your account? This change can not be undone."}) %>
-<%= link_to "My Conversations", conversations_path %>
+  <h3>
+    <%= @user.username.capitalize %>'s Profile
+  </h3>
 
-<br><br>
+  <%= link_to 'Edit Profile', edit_user_path %>
+  <%= link_to('Delete', user_path(current_user), method: :delete, data: {confirm: "Are you sure you want to delete your account? This change can not be undone."}) %>
+  <%= link_to "My Conversations", conversations_path %>
 
-<section class="user-data-<%= @user.id %>">
-  <section class="other-user-stats">
-    <%= render partial: 'shared/stats', locals: {user: @user} %>
+  <br><br>
+
+  <section class="user-data-<%= @user.id %>">
+    <section class="other-user-stats">
+      <%= render partial: 'shared/stats', locals: {user: @user} %>
+    </section>
+
+    <section class="follow-button">
+      <%= render partial: 'follow_form', locals: {user: @user} if logged_in? %>
+    </section>
   </section>
-
-  <section class="follow-button">
-    <%= render partial: 'follow_form', locals: {user: @user} if logged_in? %>
-  </section>
-</section>
+</div>
