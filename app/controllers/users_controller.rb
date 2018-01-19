@@ -22,7 +22,7 @@ class UsersController < ApplicationController
 
     if @user.save
       # # Auto-login on succesful signup
-      flash[:notice] = 'Account successfully created!'
+      flash.alert = 'Account successfully created!'
       session[:user_id] = @user.id
       redirect_to genres_url
     else
