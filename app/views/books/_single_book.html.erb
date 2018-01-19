@@ -1,6 +1,6 @@
 <div class="book-container card item">
-  <div class="card-body book-info">
-    <p class="book-title"><%= book[:title].titleize.strip %></p>
-  </div>
   <%= link_to(image_tag(book[:book_cover], class:"card-img-top", title: book[:title].titleize), book_path(book[:isbn])) %>
+  <div class="card-body book-info">
+    <p class="card-title"><%= book[:title].titleize.strip %></p>
+  </div>
 </div>
