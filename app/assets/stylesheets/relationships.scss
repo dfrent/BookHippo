@@ -1,3 +1,20 @@
 // Place all the styles related to the Relationships controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+input.btn.btn-primary {
+    margin-bottom: 10px;
+    background-color: #272369;
+    border-color: #272369;
+    color: white;
+}
+
+.user-follow-wrapper {
+    display: inline-block;
+    text-align:  center;
+    padding: .5rem;
+    margin-bottom:  1rem;
+    margin-top:  1rem;
+    margin-left: .6rem;
+    margin-right: .6rem;
+}
