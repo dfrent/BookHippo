@@ -136,14 +136,15 @@ document.addEventListener("DOMContentLoaded", function(e){
 
   // scroll to left
   $('.js-right-clickable').on('click', function(e) {
-    // debugger
-    var itemsLength = $(e.target).parent().parent().find('.item').length;
+    // console.log('Clicked right.');
+    // console.log($(e.target).parents('.menu-wrapper'));
+    var itemsLength = $(e.target).parents('.menu-wrapper').find('.item').length;
     var getMenuSize = function() {
       return itemsLength * itemSize;
     };
     var menuSize = getMenuSize();
     var getMenuWrapperSize = function() {
-      return $(e.target).parent().parent().outerWidth();
+      return $(e.target).parents('.menu-wrapper').outerWidth();
     }
     var menuWrapperSize = getMenuWrapperSize();
     var menuInvisibleSize = menuSize - menuWrapperSize;
@@ -152,7 +153,7 @@ document.addEventListener("DOMContentLoaded", function(e){
     // console.log(menuSize)
     // console.log(menuWrapperSize)
     // console.log(menuInvisibleSize)
-    $(e.target).parent().parent().find('.menu').animate({
+    $(e.target).parents('.menu-wrapper').find('.menu').animate({
       scrollLeft: menuInvisibleSize + 100
     }, scrollDuration);
   });
@@ -160,7 +161,8 @@ document.addEventListener("DOMContentLoaded", function(e){
 
   // scroll to right
   $('.js-left-clickable').on('click', function(e) {
-    $(e.target).parent().parent().find('.menu').animate({
+    // console.log('Clicked left.');
+    $(e.target).parents('.menu-wrapper').find('.menu').animate({
       scrollLeft: '0'
     }, scrollDuration);
   });
