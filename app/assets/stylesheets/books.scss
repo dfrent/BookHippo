@@ -283,7 +283,7 @@
   }
 }
 
-.share-btn, .read-btn, .sumbit-review-btn >  input[type="submit"] {
+.share-btn, .read-btn, .new-user-button, .sumbit-review-btn >  input[type="submit"] {
   margin-bottom: 10px;
   background-color: #272369;
   border-color: #272369;
@@ -311,20 +311,20 @@
 
 
 
-.new-user-button {
-  background-color: #272369;
-  border-color: #272369;
-  color: white;
-  &:hover {
-    color: #272369;
-    background-color: white;
-    border-color: #272369;
-    font-weight: 700;
-  }
-}
+// .new-user-button {
+//   background-color: #272369;
+//   border-color: #272369;
+//   color: white;
+//   &:hover {
+//     color: #272369;
+//     background-color: white;
+//     border-color: #272369;
+//     font-weight: 700;
+//   }
+// }
 
-body.books.show {
-  .footer {
-    display: none;
-  }
-}
+// body.books.show {
+//   .footer {
+//     display: none;
+//   }
+// }
