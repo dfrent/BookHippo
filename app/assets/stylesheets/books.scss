@@ -206,7 +206,7 @@
 /*****Book show page *****/
 // @include media-breakpoint-up(lg) {
 .content {
-  overflow: hidden;
+  overflow: auto;
   position: relative;
 
 }
@@ -216,7 +216,7 @@
   padding-top: 3%;
   // background-color: #f7f2ff;
   background-color: #f9f2ff;
-  height: 100%;
+  height: inherit;
   margin: auto;
   position: absolute;
   top: 0; left: 0; bottom: 0; right: 0;
