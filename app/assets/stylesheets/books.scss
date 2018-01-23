@@ -205,14 +205,22 @@
 
 /*****Book show page *****/
 // @include media-breakpoint-up(lg) {
+.content {
+  overflow: hidden;
+  position: relative;
+
+}
 .show-wrapper {
   width: 80%;
-  margin: 0 auto;
+  // margin: 0 auto;
   padding-top: 3%;
   // background-color: #f7f2ff;
   background-color: #f9f2ff;
   height: 100%;
-  overflow: hidden;
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  // overflow: hidden;
 
 }
 // }
