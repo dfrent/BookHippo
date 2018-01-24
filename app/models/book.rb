@@ -6,6 +6,7 @@ class Book < ApplicationRecord
   has_many :reviews
   has_many :reading_lists
   has_many :ratings
+  has_many :book_clubs
 
   validates :isbn, uniqueness: true
   validates :isbn, :author, :title, :book_cover, :description, presence: true

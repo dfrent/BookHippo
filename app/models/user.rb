@@ -30,6 +30,9 @@ class User < ApplicationRecord
                                     dependent:   :destroy
 
   has_many :messages
+  has_and_belongs_to_many :book_clubs
+  has_many :book_clubs, through: :messages
+  has_many :book_clubs
 
   validates :username, :email, :password, :password_confirmation, presence: true
   validates :username, :email, uniqueness: true
