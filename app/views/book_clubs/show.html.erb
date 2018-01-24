@@ -1,1 +1,16 @@
 <h1>Bookclub show page</h1>
+
+<div class="row col-md-8 col-md-offset-2">
+  <h1><%= @book_club.name %></h1>
+
+  <div class="panel panel-default">
+    <% if @book_club.messages.any? %>
+      <div class="panel-body" id="messages">
+        <%= render partial: 'messages/message', collection: @book_club.messages %>
+      </div>
+    <%else%>
+      <div class="panel-body hidden" id="messages"></div>
+    <%end%>
+  </div>
+  <%= render partial: 'messages/message_form', locals: {message: @message, book_club: @book_club}%>
+</div>

@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
 
+  # Serve websocket cable requests in-process
+  mount ActionCable.server => '/cable'
+
+  
+  resources :messages
+
+
   root 'books#index'
 
   get "search_for" => "search_for#search_for", :as => :search_for
