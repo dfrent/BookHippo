@@ -1,4 +1,4 @@
-<div class="content">
+
 
   <h3>
     <%= @user.username.capitalize %>'s Profile
@@ -25,4 +25,3 @@
       <%= render partial: 'follow_form', locals: {user: @user} if logged_in? %>
     </section>
   </section>
-</div>

@@ -20,7 +20,7 @@
 
       <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between">
         <a class="navbar-brand" href="/">
-          <%= image_tag("bookhippo_logo.png", width:'200px')  %>
+          <%= image_tag("bookhippo_logo.png", width:'200px') %>
         </a>
         <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
           <span class="navbar-toggler-icon"></span>
@@ -28,9 +28,7 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
-            <!-- <li class="nav-item">
-              <%#= link_to "Home", root_path, class:"nav-link" %>
-            </li> -->
+            <!-- <li class="nav-item"> <%#= link_to "Home", root_path, class:"nav-link" %> </li> -->
 
             <% if current_user %>
               <li class="nav-item">
@@ -41,7 +39,7 @@
               </li>
             <% else %>
               <li class="nav-item">
-                <%= link_to "Register", new_user_path, class:"nav-link active"  %>
+                <%= link_to "Register", new_user_path, class:"nav-link active" %>
               </li>
               <li class="nav-item">
                 <%= link_to "Login", :login, class:"nav-link" %>
@@ -56,45 +54,42 @@
     </nav>
     <!-- <h1 class="logo">BookHippo</h1> -->
 
-    <!-- <% unless @user && @user == current_user %>
-      <section class="current-user-stats">
-        <%#= render partial: 'shared/stats', locals: {user: current_user} %>
-      </section>
-    <% end %> -->
+    <!-- <% unless @user && @user == current_user %> <section class="current-user-stats"> <%#= render partial: 'shared/stats', locals: {user: current_user} %> </section> <% end %> -->
   </header>
 
-  <% if flash[:notice] %>
-    <div class="alert alert-success">
-      <button type="button" class="close" data-dismiss="alert">&times;</button>
-      <%= flash[:notice] %>
-    </div>
-  <% elsif flash[:error] %>
-    <div class="alert alert-error">
-      <button type="button" class="close" data-dismiss="alert">&times;</button>
-      <%= flash[:error] %>
-    </div>
-  <% elsif flash[:alert] %>
-    <div class="alert">
-      <button type="button" class="close" data-dismiss="alert">&times;</button>
-      <%= flash[:alert] %>
-    </div>
-  <% end %>
+  <div class="content">
 
+    <% if flash[:notice] %>
+      <div class="alert alert-success">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <%= flash[:notice] %>
+      </div>
+    <% elsif flash[:error] %>
+      <div class="alert alert-error">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <%= flash[:error] %>
+      </div>
+    <% elsif flash[:alert] %>
+      <div class="alert">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <%= flash[:alert] %>
+      </div>
+    <% end %>
 
-  <%= yield %>
-  <footer class="footer">
-    <div class="container footer-wrapper">
-      <div class="row no-gutters">
-        <div class="col-sm-4 col-xs-12 footer-left">
-          <%= image_tag("bookhippo-footer.png", width:'200px')  %>
-        </div>
-        <div class="col-sm-4 col-xs-12">
-        </div>
-        <div class="col-sm-4 col-xs-12 footer-right">
-          <p>Made by Cordell, Eric, James &amp; Kyle</p>
+      <%= yield %>
+    </div>
+    <footer class="footer">
+      <div class="container footer-wrapper">
+        <div class="row no-gutters">
+          <div class="col-sm-4 col-xs-12 footer-left">
+            <%= image_tag("bookhippo-footer.png", width:'200px') %>
+          </div>
+          <div class="col-sm-4 col-xs-12"></div>
+          <div class="col-sm-4 col-xs-12 footer-right">
+            <p>Made by Cordell, Eric, James &amp; Kyle</p>
+          </div>
         </div>
       </div>
-    </div>
-  </footer>
-</body>
+    </footer>
+  </body>
 </html>

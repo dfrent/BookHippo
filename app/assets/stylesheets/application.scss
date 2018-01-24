@@ -74,4 +74,14 @@ footer {
 
 .content {
   min-height: calc(100vh - 70px);
+  padding-left: 3%;
+  padding-right: 3%;
+  margin: 0 auto;
+}
+
+body.books.index {
+  .content {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }

@@ -1,7 +1,7 @@
 <h1>Book recommendations</h1>
 
 <div class="next">
-  <%= link_to 'Next', new_follow_path %>
+  <%= link_to 'Next', new_follow_path, class:"btn btn-primary" %>
 </div>
 <% @genres.each do |genre| %>
   <!-- <% name = Genre.where('id = ?', genre).name %> -->
@@ -18,5 +18,5 @@
 <% end %>
 
 <div class="next">
-  <%= link_to 'Next', new_follow_path %>
+  <%= link_to 'Next', new_follow_path, class:"btn btn-primary" %>
 </div>
