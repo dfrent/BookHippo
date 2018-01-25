@@ -1,9 +1,7 @@
 class Message < ApplicationRecord
-  belongs_to :conversation, optional: true
+  belongs_to :conversation
   belongs_to :user
-  belongs_to :book_club, optional: true
   
-
   validates :body, presence: true
 
   def message_time
