@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # Serve websocket cable requests in-process
   mount ActionCable.server => '/cable'
 
-  
+
   resources :messages
 
 
@@ -39,7 +39,7 @@ Rails.application.routes.draw do
   end
 
   resources :book_clubs do
-    resources :messages
+    resources :chats
   end
 
 

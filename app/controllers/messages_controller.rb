@@ -31,23 +31,11 @@ class MessagesController < ApplicationController
   end
 
   def create
-    @message = Message.new
-    if @message.conversation_id != nil
-      @message = @conversation.messages.new
-      @message.body = params[:body]
-      @message.user_id = current_user.id
-      if @message.save
-        redirect_to conversation_messages_path(@conversation)
-      end
-    elsif @message.book_id != nil
-      @message = Message.new(message_params)
-      @message.user = current_user
-      if @message.save
-        ActionCable.server.broadcast 'messages',
-          message: @message.body,
-          user: @message.user.username
-        head :ok
-      end
+    @message = @conversation.messages.new
+    @message.body = params[:body]
+    @message.user_id = current_user.id
+    if @message.save
+      redirect_to conversation_messages_path(@conversation)
     end
   end
 end
