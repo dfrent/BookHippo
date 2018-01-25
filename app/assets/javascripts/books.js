@@ -176,8 +176,10 @@ document.addEventListener("DOMContentLoaded", function(e){
     var bookId = $("#book_rating").value;
 
     // set the stars if it has a value if not zero will b set
+
     var starsdiv = document.querySelector('#rating');
-    var stars = starsdiv.value;
+    if (starsdiv)
+      var stars = starsdiv.value;
     //var rating = getRandomRating();
 
     $("#rateYo").rateYo("option", "rating", stars);
