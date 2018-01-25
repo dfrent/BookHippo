@@ -7,8 +7,6 @@ class ChatsController < ApplicationController
         chat: @chat.body,
         user: @chat.user.username
       head :ok
-    else
-      redirect_to chatroom_path
     end
   end
 
