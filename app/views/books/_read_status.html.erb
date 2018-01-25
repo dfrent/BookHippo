@@ -1,68 +1,22 @@
-  <% if existing_list != nil %>
-
-
-    <% unless existing_list.read_status != nil %>
-      <%= form_for(current_user.reading_lists.build, remote: true) do |f| %>
-        <div>
-          <%= hidden_field_tag :user_id, current_user.id %>
-          <%= hidden_field_tag :book_id, book.id %>
-          <%= hidden_field_tag :read_status, "want_to_read" %>
-        </div>
-        <%= f.submit "Want to Read", class: 'read-btn' %>
-      <% end %>
-    <% end %>
-
-    <% unless existing_list.read_status == "currently_reading" || existing_list.read_status == "finished_reading" %>
-      <%= form_for(current_user.reading_lists.build, remote: true) do |f| %>
-        <div>
-          <%= hidden_field_tag :user_id, current_user.id %>
-          <%= hidden_field_tag :book_id, book.id %>
-          <%= hidden_field_tag :read_status, "currently_reading" %>
-        </div>
-        <%= f.submit "Currently Reading", class: 'read-btn' %>
-      <% end %>
-    <% end %>
-
-    <% unless existing_list.read_status == "finished_reading" %>
-      <%= form_for(current_user.reading_lists.build, remote: true) do |f| %>
-        <div>
-          <%= hidden_field_tag :user_id, current_user.id %>
-          <%= hidden_field_tag :book_id, book.id %>
-          <%= hidden_field_tag :read_status, "finished_reading" %>
-        </div>
-        <%= f.submit "Finished Reading", class: 'read-btn' %>
-      <% end %>
-    <% end %>
-
-  <% else %>
-
-    <h4 class="read-message">Add me to your library!</h4>
-
-    <%= form_for(current_user.reading_lists.build, remote: true) do |f| %>
-      <div>
-        <%= hidden_field_tag :user_id, current_user.id %>
-        <%= hidden_field_tag :book_id, book.id %>
-        <%= hidden_field_tag :read_status, "want_to_read" %>
-      </div>
-      <%= f.submit "Want to Read", class: 'read-btn' %>
-    <% end %>
-
-    <%= form_for(current_user.reading_lists.build, remote: true) do |f| %>
-      <div>
-        <%= hidden_field_tag :user_id, current_user.id %>
-        <%= hidden_field_tag :book_id, book.id %>
-        <%= hidden_field_tag :read_status, "currently_reading" %>
-      </div>
-      <%= f.submit "Currently Reading", class: 'read-btn' %>
-    <% end %>
-
-    <%= form_for(current_user.reading_lists.build, remote: true) do |f| %>
-      <div>
-        <%= hidden_field_tag :user_id, current_user.id %>
-        <%= hidden_field_tag :book_id, book.id %>
-        <%= hidden_field_tag :read_status, "finished_reading" %>
-      </div>
-      <%= f.submit "Finished Reading", class: 'read-btn' %>
-    <% end %>
-
+<% if existing_list != nil %>
+  <h4 class="read-message">Update your library?</h4>
+  <% unless existing_list.read_status != nil %>
+    <%= render partial: "books/read_status_form", locals: {book: @book, read_status: "want_to_read", read_status_string: "Want to Read"} %>
   <% end %>
+
+  <% unless existing_list.read_status == "currently_reading" || existing_list.read_status == "finished_reading" %>
+    <%= render partial: "books/read_status_form", locals: {book: @book, read_status: "currently_reading", read_status_string: "Currently Reading"} %>
+  <% end %>
+
+  <% unless existing_list.read_status == "finished_reading" %>
+    <%= render partial: "books/read_status_form", locals: {book: @book, read_status: "finished_reading", read_status_string: "Finished Reading"} %>
+  <% end %>
+<% else %>
+
+  <h4 class="read-message">Update your library?</h4>
+
+  <%= render partial: "books/read_status_form", locals: {book: @book, read_status: "want_to_read", read_status_string: "Want to Read"} %>
+  <%= render partial: "books/read_status_form", locals: {book: @book, read_status: "currently_reading", read_status_string: "Currently Reading"} %>
+  <%= render partial: "books/read_status_form", locals: {book: @book, read_status: "finished_reading", read_status_string: "Finished Reading"} %>
+
+<% end %>
