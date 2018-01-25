@@ -4,10 +4,10 @@ class BookClubsController < ApplicationController
 
   def show
     @book_club = BookClub.find(params[:id])
-    @message = Message.new
-    Rails.logger.info(@message.errors.inspect)
+    @chat = Chat.new
+    Rails.logger.info(@chat.errors.inspect)
     if request.xhr?
-    render json: @message.body
+      render json: @chat.body
     end
   end
 
@@ -35,7 +35,7 @@ class BookClubsController < ApplicationController
 
   private
 
-  def message_params
-    params.require(:message).permit(:body, :book_club_id)
+  def chat_params
+    params.require(:chat).permit(:body, :book_club_id)
   end
 end

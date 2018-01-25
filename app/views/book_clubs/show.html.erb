@@ -4,13 +4,13 @@
   <h1><%= @book_club.name %></h1>
 
   <div class="panel panel-default">
-    <% if @book_club.messages.any? %>
-      <div class="panel-body" id="messages">
-        <%= render partial: 'messages/message', collection: @book_club.messages %>
+    <% if @book_club.chats.any? %>
+      <div class="panel-body" id="chats">
+        <%= render partial: 'chats/chat', collection: @book_club.chats %>
       </div>
     <%else%>
-      <div class="panel-body hidden" id="messages"></div>
+      <div class="panel-body hidden" id="chats"></div>
     <%end%>
   </div>
-  <%= render partial: 'messages/message_form', locals: {message: @message, book_club: @book_club}%>
+  <%= render partial: 'chats/chat_form', locals: {chat: @chat, book_club: @book_club}%>
 </div>
