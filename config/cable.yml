@@ -6,5 +6,5 @@ test:
 
 production:
   adapter: redis
-  url: redis://localhost:6379/1
+  url: redis://redistogo:915df4c9a7ec6b90bae83032b5fa2e1f@soldierfish.redistogo.com:10738/
   channel_prefix: book_hippo_production
