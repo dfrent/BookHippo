@@ -6,6 +6,9 @@
           <img src="<%= @book.book_cover %>" alt="<%= @book.title %>">
         </div>
         <div class="other-info">
+          <div class="avg-rating">
+            <%= render partial: "reviews/avg_rating", locals: {book: @book, rating: @test_rating}%>
+          </div>
           <p><strong>Page Count:</strong>
             <%= @book.page_count %>
           </p>
@@ -42,7 +45,7 @@
               <% end %>
                 <%= render partial: "books/read_status", locals: {book: @book, existing_list: @existing_list} %>
               </div>
-              
+
             <% else %>
               <%= render partial: "books/new_user_buttons" %>
             <% end %>
