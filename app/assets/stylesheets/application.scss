@@ -5,6 +5,7 @@
 @import 'relationships.scss';
 @import 'users.scss';
 @import 'search_for.scss';
+@import 'book_clubs.scss';
 
 * {margin: 0;}
 
@@ -12,7 +13,7 @@
 html, body, main { height:100%; }
 
 
-
+/**** NAVBAR ****/
 .navbar {
   padding: 0.5rem;
 }
@@ -23,7 +24,7 @@ html, body, main { height:100%; }
 
 }
 
-
+/**** FOOTER ****/
 footer {
   height: 150px;
   margin-top: 0;
@@ -32,7 +33,7 @@ footer {
   color: white;
   overflow:hidden;
 
-
+/*** PAGE ATTRIBUTES ****/
   @media (min-width: 1200px) {
     .container {
       max-width: 1650px;

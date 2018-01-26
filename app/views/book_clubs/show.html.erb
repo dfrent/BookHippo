@@ -1,0 +1,53 @@
+<div class="container show-wrapper">
+  <!-- <div class="row no-gutters">
+    <div class="col-sm-8 col-xs-12 disconnected" id="chatstatus">
+
+      <h3>Welcome to
+        <%= @book_club.name %>!
+      </h3>
+      <h5>Owner:
+        <%= @book_club.user.username %>
+      </h5>
+      <h5>We're discussing
+        <%= @book_club.book.title %>
+      </h5>
+      <p>
+        <strong>About:</strong> <%= @book_club.description %>
+      </p>
+      <p>
+        Goal: <%= @book_club.goal %>
+      </p>
+
+    </div>
+    <div class="col-sm-4 col-xs-12">
+
+      <div class="book-show-cover">
+        <img src="<%= @book_club.book.book_cover %>" alt="<%= @book_club.book.title %>">
+      </div>
+
+    </div>
+  </div> -->
+  <div class="row no-gutters">
+    <div class="col-xs-12">
+      <div class="panel panel-default">
+        <% if @book_club.chats.any? %>
+          <div class="panel-body" id="chats">
+            <%= render partial: 'chats/chat', collection: @book_club.chats %>
+          </div>
+        <%else%>
+          <div class="panel-body hidden" id="chats"></div>
+        <%end%>
+      </div>
+    </div>
+  </div>
+  <div class="row no-gutters">
+    <div class="col-sm-6 col-xs-12">
+
+      <%= render partial: 'chats/chat_form', locals: {chat: @chat, book_club: @book_club}%>
+
+    </div>
+    <div class="col-sm-6 col-xs-12">
+      <pre id="chatmessages"> </pre>
+    </div>
+  </div>
+</div>
