@@ -14,24 +14,18 @@ document.addEventListener("DOMContentLoaded", function(e){
         data: $(this).serialize(),
         dataType: 'html'
       }).done(function(responseData){
-        buttonID = e.target.id;
-        bookButtons = document.querySelectorAll(`[id='${buttonID}']`);
-        if (e.target.value === "Want to Read") {
-          bookButtons.forEach(function(button){
-            buttonStyle(button)
-          });
-        } else if (e.target.value === "Currently Reading") {
-          bookButtons.forEach(function(button){
-            buttonStyle(button)
-          });
-        } else if (e.target.value === "Finished Reading") {
-          bookButtons.forEach(function(button){
-            buttonStyle(button)
-          });
-          if ($(review_comment) === null) {
-            $(review_wrapper).append(responseData);
+
+        var readCategories = ["Want to Read", "Currently Reading", "Finished Reading"];
+
+        readCategories.forEach(function(category){
+          var buttonID = e.target.id;
+          var bookButtons = document.querySelectorAll(`[id='${buttonID}']`);
+          if (e.target.value === category) {
+            bookButtons.forEach(function(button){
+              buttonStyle(button);
+            });
           };
-        };
+        });
         e.target.style.backgroundColor = 'white';
         e.target.style.fontWeight = '600';
         e.target.style.color = '#272369'
@@ -185,14 +179,15 @@ document.addEventListener("DOMContentLoaded", function(e){
 
   var numStars = $("#rateYo").rateYo("option", "numStars");
   //returns 5
-    var bookId = $("#book_rating").value;
+  var bookId = $("#book_rating").value;
 
-    // set the stars if it has a value if not zero will b set
-    var starsdiv = document.querySelector('#rating');
+  // set the stars if it has a value if not zero will b set
+  var starsdiv = document.querySelector('#rating');
+  if (starsdiv != null) {
     var stars = starsdiv.value;
-    //var rating = getRandomRating();
-
+  };
+  //var rating = getRandomRating();
+  if (stars != undefined) {
     $("#rateYo").rateYo("option", "rating", stars);
-    // setStars()
-
+  };
 });
