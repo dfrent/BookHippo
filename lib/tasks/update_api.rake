@@ -6,38 +6,43 @@ namespace :update_api do
   desc 'Update NY Times API'
   task :ny_times do
     puts "Updating NY Times List book data..."
-    response = HTTParty.get("https://api.nytimes.com/svc/books/v3/lists.json?api-key=#{ENV['NYTIMES_KEY']}&list=mass-market-paperback")
-    response_travel = HTTParty.get("https://api.nytimes.com/svc/books/v3/lists.json?api-key=#{ENV['NYTIMES_KEY']}&list=travel")
-    response_science = HTTParty.get("https://api.nytimes.com/svc/books/v3/lists.json?api-key=#{ENV['NYTIMES_KEY']}&list=science")
-    response_business = HTTParty.get("https://api.nytimes.com/svc/books/v3/lists.json?api-key=#{ENV['NYTIMES_KEY']}&list=business-books")
-    response_animals = HTTParty.get("https://api.nytimes.com/svc/books/v3/lists.json?api-key=#{ENV['NYTIMES_KEY']}&list=animals")
-    # response_education = HTTParty.get("https://api.nytimes.com/svc/books/v3/lists.json?api-key=#{ENV['NYTIMES_KEY']}&list=education")
-    response_nonfiction = HTTParty.get("https://api.nytimes.com/svc/books/v3/lists.json?api-key=#{ENV['NYTIMES_KEY']}&list=hardcover-nonfiction")
+    @response = HTTParty.get("https://api.nytimes.com/svc/books/v3/lists.json?api-key=#{ENV['NYTIMES_KEY']}&list=mass-market-paperback")
+    @response_travel = HTTParty.get("https://api.nytimes.com/svc/books/v3/lists.json?api-key=#{ENV['NYTIMES_KEY']}&list=travel")
+    @response_science = HTTParty.get("https://api.nytimes.com/svc/books/v3/lists.json?api-key=#{ENV['NYTIMES_KEY']}&list=science")
+    @response_business = HTTParty.get("https://api.nytimes.com/svc/books/v3/lists.json?api-key=#{ENV['NYTIMES_KEY']}&list=business-books")
+    @response_animals = HTTParty.get("https://api.nytimes.com/svc/books/v3/lists.json?api-key=#{ENV['NYTIMES_KEY']}&list=animals")
+    sleep 1
+    @response_education = HTTParty.get("https://api.nytimes.com/svc/books/v3/lists.json?api-key=#{ENV['NYTIMES_KEY']}&list=education")
+    @response_nonfiction = HTTParty.get("https://api.nytimes.com/svc/books/v3/lists.json?api-key=#{ENV['NYTIMES_KEY']}&list=hardcover-nonfiction")
 
-    items = []
-    items << response.parsed_response['results']
-    items << response_travel.parsed_response['results']
-    items << response_science.parsed_response['results']
-    items << response_business.parsed_response['results']
-    items << response_animals.parsed_response['results']
-    # items << response_education.parsed_response['results']
-    items << response_nonfiction.parsed_response['results']
+    @items = []
+    @items << @response.parsed_response['results']
+    @items << @response_travel.parsed_response['results']
+    @items << @response_science.parsed_response['results']
+    @items << @response_business.parsed_response['results']
+    @items << @response_animals.parsed_response['results']
+    @items << @response_education.parsed_response['results']
+    @items << @response_nonfiction.parsed_response['results']
     puts 'Starting'
 
-    items.each do |item|
+    @items.each do |item|
+      @item = item
       item.each do |result|
-        isbn = result['book_details'][0]['primary_isbn10']
-        list = result['list_name']
-        if isbn
-          book = Book.find_or_api_call(isbn)
+        @result = result
+        @isbn = result['book_details'][0]['primary_isbn10']
+        @list = result['list_name']
+        if @isbn
+          @book = Book.find_or_api_call(@isbn)
         else
           next
         end
-        book.ny_times_list = list
-        book.save
-        puts book.title + ' found or created.'
+        @book.ny_times_list = @list
+        @book.save
+        puts @book.title + ' found or created.'
       end
     end
+  rescue Exception => e
+    binding.pry
   end
 
   desc 'Update Google API for recommendations'
