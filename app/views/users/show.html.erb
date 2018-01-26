@@ -25,3 +25,31 @@
       <%= render partial: 'follow_form', locals: {user: @user} if logged_in? %>
     </section>
   </section>
+
+  <!-- Creates a div to hold all three columns, populates and names each column, and fills it with the correct books -->
+  <div class="read-class-rows">
+    <% @reading_list_headers.each do |header| %>
+      <div class="read-status-header">
+        <h5><%= header %></h5>
+      </div>
+      <div class="scroll-container menu-wrapper <%= @reading_list_classes[header] %>">
+        <div class="scrollable menu" id="menu-<%= header.parameterize %>">
+          <% @user_reading_lists[header].each do |list| %>
+            <%= render partial: "books/single_book", locals: {book: list.book} %>
+          <% end %>
+        </div>
+        <div class="paddles">
+          <button class="left-paddle paddle clickable js-left-clickable hidden">
+            <span class="clickable">
+              <i class="fa fa-angle-left" style="font-size:48px; color:white"></i>
+            </span>
+          </button>
+          <button class="right-paddle paddle clickable js-right-clickable">
+            <span class="clickable">
+              <i class="fa fa-angle-right" style="font-size:48px; color:white"></i>
+            </span>
+          </button>
+        </div>
+      </div>
+    <% end %>
+  </div>
