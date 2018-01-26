@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function(e){
           };
         });
         e.target.style.backgroundColor = 'white';
-        e.target.style.fontWeight = '600';
+        e.target.style.fontWeight = '700';
         e.target.style.color = '#272369'
       });
     });
@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function(e){
 
   function buttonStyle(button) {
     button.style.backgroundColor = '#272369'
-    button.style.fontWeight = '600';
+    button.style.fontWeight = '700';
     button.style.color = 'white';
   };
 
