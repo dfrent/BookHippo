@@ -1,5 +1,6 @@
 <h4 class="read-message">Update your library?</h4>
 
+  <!-- One partial per button -->
   <%= render partial: "books/read_status_form", locals: {book: book, read_status: "want_to_read", read_status_string: "Want to Read"} %>
   <%= render partial: "books/read_status_form", locals: {book: book, read_status: "currently_reading", read_status_string: "Currently Reading"} %>
   <%= render partial: "books/read_status_form", locals: {book: book, read_status: "finished_reading", read_status_string: "Finished Reading"} %>

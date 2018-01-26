@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function(e){
   // Provides the three string options to find the correct buttons to style
   var readStatusOptions = ["want_to_read", "currently_reading", "finished_reading"];
 
+  // Goes through each read_status class option, and checks to see if any button divs have that class. If they do, it styles the button with the matching class
   readStatusOptions.forEach(function(option) {
     var readButtonBoxes = document.querySelectorAll('.button-div');
 
@@ -16,6 +17,7 @@ document.addEventListener("DOMContentLoaded", function(e){
     });
   });
 
+  // On click AJAX function to update the user's read status of the clicked book. When finished, it styles the selected button to white, and the others back to the default purple.
   read_buttons.forEach(function(button){
     button.closest('form').addEventListener("click", function(e){
       e.preventDefault();
@@ -47,6 +49,7 @@ document.addEventListener("DOMContentLoaded", function(e){
     });
   });
 
+  // Functions to control the styling back and forth of read_status buttons
   function purpleButtonStyle(button) {
     button.style.backgroundColor = '#272369';
     button.style.color = 'white';
