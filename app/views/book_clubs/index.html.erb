@@ -2,5 +2,9 @@
 
 <% @book_clubs.each do |bookclub|  %>
   <h6> <%= bookclub.name %> </h6>
-  <%= link_to(bookclub.name, book_club_path(bookclub[:id])) %>
+  <div class="book-club-name">
+    <%= link_to(bookclub.name, book_club_path(bookclub[:id])) %>
+    <br>
+    <br>
+  </div>
 <% end %>

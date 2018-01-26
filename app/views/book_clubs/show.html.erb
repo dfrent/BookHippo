@@ -2,14 +2,21 @@
   <div class="row no-gutters">
     <div class="col-sm-8 col-xs-12 disconnected" id="chatstatus">
 
-      <h2>Welcome to
-        <%= @book_club.name %>!</h2>
-      <h3>We're discussing
-        <%= @book_club.book.title %>
+      <h3>Welcome to
+        <%= @book_club.name %>!
       </h3>
-      <h3>Admin:
+      <h5>Owner:
         <%= @book_club.user.username %>
-      </h3>
+      </h5>
+      <h5>We're discussing
+        <%= @book_club.book.title %>
+      </h5>
+      <p>
+        <strong>About:</strong> <%= @book_club.description %>
+      </p>
+      <p>
+        Goal: <%= @book_club.goal %>
+      </p>
 
     </div>
     <div class="col-sm-4 col-xs-12">

@@ -6,8 +6,8 @@ class BooksController < ApplicationController
     @books_business = Book.where("ny_times_list = ?", "Business Books")
     @books_animals = Book.where("ny_times_list = ?", "Animals")
     @books_education = Book.where("ny_times_list = ?", "Education")
-    @books_nonfiction = Book.where("ny_times_list = ?", "Paperback Nonfiction")
-    @books = {"Top Selling" => @books_top, "Nonfiction" => @books_nonfiction, "Travel" =>  @books_travel, "Science" => @books_science, "Business" => @books_business, "Animals" => @books_animals, "Education" => @books_education, }
+    @books_nonfiction = Book.where("ny_times_list = ?", "Hardcover Nonfiction")
+    @books = {"Top Selling" => @books_top, "Nonfiction" => @books_nonfiction, "Travel" =>  @books_travel, "Science" => @books_science, "Business" => @books_business, "Animals" => @books_animals }
   end
 
   def show

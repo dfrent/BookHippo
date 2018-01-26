@@ -11,8 +11,8 @@ namespace :update_api do
     response_science = HTTParty.get("https://api.nytimes.com/svc/books/v3/lists.json?api-key=#{ENV['NYTIMES_KEY']}&list=science")
     response_business = HTTParty.get("https://api.nytimes.com/svc/books/v3/lists.json?api-key=#{ENV['NYTIMES_KEY']}&list=business-books")
     response_animals = HTTParty.get("https://api.nytimes.com/svc/books/v3/lists.json?api-key=#{ENV['NYTIMES_KEY']}&list=animals")
-    response_education = HTTParty.get("https://api.nytimes.com/svc/books/v3/lists.json?api-key=#{ENV['NYTIMES_KEY']}&list=education")
-    response_nonfiction = HTTParty.get("https://api.nytimes.com/svc/books/v3/lists.json?api-key=#{ENV['NYTIMES_KEY']}&list=paperback-nonfiction")
+    # response_education = HTTParty.get("https://api.nytimes.com/svc/books/v3/lists.json?api-key=#{ENV['NYTIMES_KEY']}&list=education")
+    response_nonfiction = HTTParty.get("https://api.nytimes.com/svc/books/v3/lists.json?api-key=#{ENV['NYTIMES_KEY']}&list=hardcover-nonfiction")
 
     items = []
     items << response.parsed_response['results']
@@ -20,7 +20,7 @@ namespace :update_api do
     items << response_science.parsed_response['results']
     items << response_business.parsed_response['results']
     items << response_animals.parsed_response['results']
-    items << response_education.parsed_response['results']
+    # items << response_education.parsed_response['results']
     items << response_nonfiction.parsed_response['results']
     puts 'Starting'
 
@@ -28,7 +28,11 @@ namespace :update_api do
       item.each do |result|
         isbn = result['book_details'][0]['primary_isbn10']
         list = result['list_name']
-        book = Book.find_or_api_call(isbn)
+        if isbn
+          book = Book.find_or_api_call(isbn)
+        else
+          next
+        end
         book.ny_times_list = list
         book.save
         puts book.title + ' found or created.'
