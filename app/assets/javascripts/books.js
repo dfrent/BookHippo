@@ -1,14 +1,19 @@
 document.addEventListener("DOMContentLoaded", function(e){
+  // Selects all buttons with that relate to adding books to the library
   var read_buttons = document.querySelectorAll('.read-btn');
+
+  // Provides the three string options to find the correct buttons to style
   var readStatusOptions = ["want_to_read", "currently_reading", "finished_reading"];
 
   readStatusOptions.forEach(function(option) {
-    var readButtonBox = document.querySelector('.button-div');
+    var readButtonBoxes = document.querySelectorAll('.button-div');
 
-    if (readButtonBox.classList.contains(option)) {
-      var matchingButton = document.querySelector(`.read-btn.${option}`);
-      whiteButtonStyle(matchingButton);
-    };
+    readButtonBoxes.forEach(function(box){
+      if (box.classList.contains(option)) {
+        var matchingButton = box.querySelector(`.read-btn.${option}`);
+        whiteButtonStyle(matchingButton);
+      };
+    });
   });
 
   read_buttons.forEach(function(button){
