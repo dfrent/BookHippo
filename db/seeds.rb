@@ -7,6 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Genre.destroy_all
+User.destroy_all
+BookClub.destroy_all
+
 
 Genre.create!(name: "classics")
 Genre.create!(name: "fantasy")
@@ -29,9 +32,15 @@ Genre.create!(name: "travel")
 Genre.create!(name: "culture")
 Genre.create!(name: "misc")
 
-users = User.create(
-  [
-    {username: "Cordell369", email: "cordell@bitmaker.com", password: "abcd1234", password_confirmation: 'abcd1234'},
-    {username: 'kyle', email: 'kyle@bitmaker.com', password: "abcd1234", password_confirmation: 'abcd1234'}
-  ]
-)
+
+User.create!(username: "Cordell", email: "cordell@bitmaker.co", password: "abcd1234", password_confirmation: "abcd1234")
+User.create!(username: "Eric", email: "eric@bitmaker.co", password: "abcd1234", password_confirmation: "abcd1234")
+User.create!(username: "James", email: "james@bitmaker.co", password: "abcd1234", password_confirmation: "abcd1234")
+User.create!(username: "Kyle", email: "kyle@bitmaker.co", password: "abcd1234", password_confirmation: "abcd1234")
+User.create!(username: "HungryHippo", email: "hungry@hippo.com", password: "abcd1234", password_confirmation: "abcd1234")
+
+
+BookClub.create!(name: "Book Ends", book_id: 1, user_id: 1 , description: "More then just ends and odds... Weekly book selection for rotating genres!", goal: "1 book per week")
+BookClub.create!(name: "Just Read It.", book_id: 2, user_id: 2 , description: "Monthly book club for fiction books.", goal: "1 book per month")
+BookClub.create!(name: "Classics! Classics! Classics!", book_id: 3, user_id: 3 , description: "Read all of the best classics!", goal: "1 book per week")
+BookClub.create!(name: "Page Turners", book_id: 4, user_id: 4 , description: "Selection of the finest nonfiction books", goal: "1 book per month")

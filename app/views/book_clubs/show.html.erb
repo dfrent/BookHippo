@@ -1,20 +1,46 @@
-<div class="row col-md-8 col-md-offset-2 disconnected" id="chatstatus">
-  <h2>Welcome to <%= @book_club.name %>!</h2>
-  <h3>We're discussing <%= @book_club.book.title %> </h3>
-  <h3>Admin: <%= @book_club.user.username %> </h3>
+<div class="container show-wrapper">
+  <div class="row no-gutters">
+    <div class="col-sm-8 col-xs-12 disconnected" id="chatstatus">
 
-  <div class="panel panel-default">
-    <% if @book_club.chats.any? %>
-      <div class="panel-body" id="chats">
-        <%= render partial: 'chats/chat', collection: @book_club.chats %>
+      <h2>Welcome to
+        <%= @book_club.name %>!</h2>
+      <h3>We're discussing
+        <%= @book_club.book.title %>
+      </h3>
+      <h3>Admin:
+        <%= @book_club.user.username %>
+      </h3>
+
+    </div>
+    <div class="col-sm-4 col-xs-12">
+
+      <div class="book-show-cover">
+        <img src="<%= @book_club.book.book_cover %>" alt="<%= @book_club.book.title %>">
       </div>
-    <%else%>
-      <div class="panel-body hidden" id="chats"></div>
-    <%end%>
-  </div>
-  <%= render partial: 'chats/chat_form', locals: {chat: @chat, book_club: @book_club}%>
-</div>
 
-<pre id="chatmessages">
- 
-</pre>
+    </div>
+  </div>
+  <div class="row no-gutters">
+    <div class="col-xs-12">
+      <div class="panel panel-default">
+        <% if @book_club.chats.any? %>
+          <div class="panel-body" id="chats">
+            <%= render partial: 'chats/chat', collection: @book_club.chats %>
+          </div>
+        <%else%>
+          <div class="panel-body hidden" id="chats"></div>
+        <%end%>
+      </div>
+    </div>
+  </div>
+  <div class="row no-gutters">
+    <div class="col-sm-6 col-xs-12">
+
+      <%= render partial: 'chats/chat_form', locals: {chat: @chat, book_club: @book_club}%>
+
+    </div>
+    <div class="col-sm-6 col-xs-12">
+      <pre id="chatmessages"> </pre>
+    </div>
+  </div>
+</div>
