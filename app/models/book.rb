@@ -32,6 +32,25 @@ class Book < ApplicationRecord
     end
   end
 
+  def average_rating
+    all_ratings = []
+    ratings.each do |rating|
+      all_ratings << rating.stars
+    end
+
+    total_stars = 2.5
+    all_ratings.each do |rating|
+      total_stars += rating
+    end
+
+    if all_ratings.length != 0
+      average_rating = total_stars / all_ratings.length
+    else
+      average_rating = 2.5
+    end
+    return average_rating
+  end
+
   def self.exists?(isbn)
     book = Book.find_by(isbn: isbn)
     if book
