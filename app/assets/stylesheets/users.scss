@@ -19,3 +19,28 @@ a {
     font-weight: 700;
   }
 }
+
+.read-class-columns {
+    position: relative;
+}
+
+.read-status-column {
+    display: inline-block;
+    width: 25%;
+    float: left;
+    padding: 10px;
+    text-align: center;
+}
+
+.book-card {
+  max-height: 2em;
+}
+
+.book-card-text {
+  font-size: 1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+  max-width: 100%;
+}

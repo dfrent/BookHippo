@@ -29,11 +29,13 @@
   <!-- Creates a div to hold all three columns, populates and names each column, and fills it with the correct books -->
   <div class="read-class-columns">
     <% @reading_list_headers.each do |header| %>
-      <div class="<%= @reading_list_classes[header] %>">
-        <strong><%= header %></strong>
+      <div class="read-status-column <%= @reading_list_classes[header] %>">
+        <div class="read-status-header">
+          <%= header %>
+        </div>
         <% @user_reading_lists[header].each do |list| %>
           <div class="book-card" id='<%= list.book.isbn %>'>
-            <%= list.book.title %>
+            <p class="book-card-text"><%= list.book.title %></p>
           </div>
         <% end %>
       </div>
