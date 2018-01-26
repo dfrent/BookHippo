@@ -3,7 +3,7 @@
 <div class="checkbox-group required">
   <%= form_for @user, url: users_genres_path, method: :post do |f| %>
     <% @genres.each do |genre| %>
-      <input type="checkbox" name="genres[]" value="<%= genre.id %>">
+      <input type="checkbox" name="genres[]" value="<%= genre.id %>" id="genreinput">
       <%= genre.name.capitalize %><br>
     <% end %>
     <input type="submit" value="Submit" id="genre-submit">
