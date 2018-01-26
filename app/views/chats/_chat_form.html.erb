@@ -1,0 +1,14 @@
+<!-- <%= form_for chat, remote: true, authenticity_token: true do |f| %>
+  <%= f.label :your_chat %>:
+  <%= f.text_area :body, class: "form-control", data: {textarea: "chat"} %>
+
+  <%= f.hidden_field :book_club_id, value: book_club.id %>
+  <%= f.submit "send", class: "btn btn-primary", data: {send: "chat"} %>
+<% end %> -->
+
+
+<%= form_tag 'chatbox', id: "chat_form" do   %>
+<%= label_tag :chat_message %>
+<%= text_area_tag :chat_message %>
+<%= submit_tag "send", class: "btn btn-primary" %>
+<% end %>

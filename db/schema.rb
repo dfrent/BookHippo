@@ -10,10 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180116210741) do
+ActiveRecord::Schema.define(version: 20180125162614) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "book_clubs", force: :cascade do |t|
+    t.string "name"
+    t.integer "book_id"
+    t.integer "user_id"
+    t.text "description"
+    t.text "goal"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "book_clubs_users", id: false, force: :cascade do |t|
+    t.bigint "book_club_id", null: false
+    t.bigint "user_id", null: false
+    t.index ["book_club_id"], name: "index_book_clubs_users_on_book_club_id"
+    t.index ["user_id"], name: "index_book_clubs_users_on_user_id"
+  end
 
   create_table "books", force: :cascade do |t|
     t.string "title"
@@ -32,6 +49,17 @@ ActiveRecord::Schema.define(version: 20180116210741) do
     t.string "ny_times_list"
     t.string "google_id"
     t.string "publisher"
+  end
+
+  create_table "chats", force: :cascade do |t|
+    t.text "body"
+    t.bigint "book_club_id"
+    t.bigint "user_id"
+    t.boolean "read", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["book_club_id"], name: "index_chats_on_book_club_id"
+    t.index ["user_id"], name: "index_chats_on_user_id"
   end
 
   create_table "conversations", force: :cascade do |t|
@@ -61,6 +89,7 @@ ActiveRecord::Schema.define(version: 20180116210741) do
     t.boolean "read", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "book_club_id"
     t.index ["conversation_id"], name: "index_messages_on_conversation_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
