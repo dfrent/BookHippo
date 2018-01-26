@@ -41,6 +41,7 @@ class UsersController < ApplicationController
       # # Auto-login on succesful signup
       flash[:alert] = 'Account successfully created!'
       session[:user_id] = @user.id
+      cookies[:user_id] = @user.id
       redirect_to genres_url
     else
       render :new
