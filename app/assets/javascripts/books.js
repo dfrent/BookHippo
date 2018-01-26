@@ -18,21 +18,15 @@ document.addEventListener("DOMContentLoaded", function(e){
         bookButtons = document.querySelectorAll(`[id='${buttonID}']`);
         if (e.target.value === "Want to Read") {
           bookButtons.forEach(function(button){
-            button.style.backgroundColor = '#272369';
-            button.style.fontWeight = '600';
-            button.style.color = 'white';
+            buttonStyle(button)
           });
         } else if (e.target.value === "Currently Reading") {
           bookButtons.forEach(function(button){
-            button.style.backgroundColor = '#272369';
-            button.style.fontWeight = '600';
-            button.style.color = 'white';
+            buttonStyle(button)
           });
         } else if (e.target.value === "Finished Reading") {
           bookButtons.forEach(function(button){
-            button.style.backgroundColor = '#272369'
-            button.style.fontWeight = '600';
-            button.style.color = 'white';
+            buttonStyle(button)
           });
           if ($(review_comment) === null) {
             $(review_wrapper).append(responseData);
@@ -44,6 +38,12 @@ document.addEventListener("DOMContentLoaded", function(e){
       });
     });
   });
+
+  function buttonStyle(button) {
+    button.style.backgroundColor = '#272369'
+    button.style.fontWeight = '600';
+    button.style.color = 'white';
+  };
 
   var newReview = document.querySelector('#new_review');
   // ensures content is present
