@@ -43,6 +43,10 @@ document.addEventListener("DOMContentLoaded", function(e){
             });
           };
         });
+        var ratingStars = document.querySelector('.jq-ry-container');
+        if (e.target.value === "Finished Reading" && ratingStars === null) {
+          $(review_wrapper).append(responseData);
+        };
         e.target.style.backgroundColor = 'white';
         e.target.style.color = '#272369'
       });
