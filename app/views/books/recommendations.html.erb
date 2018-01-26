@@ -13,7 +13,7 @@
     <div class="button-container">
 
       <!-- This performs the same function as on the book show page, in regards to finding the current_user's relation to each book, and naming that book's read_status button div correctly -->
-      <% if current_user.reading_lists.find_by(book_id: book.id).read_status != nil %>
+      <% if current_user.reading_lists.find_by(book_id: book.id) %>
         <div class="button-div <%= current_user.reading_lists.find_by(book_id: book.id).read_status %>" id="<%= book.isbn %>">
       <% else %>
         <div class="button-div">
