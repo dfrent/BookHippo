@@ -1,0 +1,10 @@
+// Place all the styles related to the chats controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.connected{
+  border: 2px solid green;
+}
+
+.disconnected{
+  border: 2px solid tomato;
+}
