@@ -1,9 +1,9 @@
 <h4 class="read-message">Update your library?</h4>
 
 <% if @current_read_status != nil %>
-  <div class="read-status <%= @current_read_status %>">
+  <div class="button-div <%= @current_read_status %>">
 <% else %>
-  <div class="read-status">
+  <div class="button-div">
 <% end %>
 
   <%= render partial: "books/read_status_form", locals: {book: book, read_status: "want_to_read", read_status_string: "Want to Read"} %>

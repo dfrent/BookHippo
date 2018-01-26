@@ -1,5 +1,15 @@
 document.addEventListener("DOMContentLoaded", function(e){
   var read_buttons = document.querySelectorAll('.read-btn');
+  var readStatusOptions = ["want_to_read", "currently_reading", "finished_reading"];
+
+  readStatusOptions.forEach(function(option) {
+    var readButtonBox = document.querySelector('.button-div');
+
+    if (readButtonBox.classList.contains(option)) {
+      var matchingButton = document.querySelector(`.read-btn.${option}`);
+      whiteButtonStyle(matchingButton);
+    };
+  });
 
   read_buttons.forEach(function(button){
     button.closest('form').addEventListener("click", function(e){
@@ -22,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function(e){
           var bookButtons = document.querySelectorAll(`[id='${buttonID}']`);
           if (e.target.value === category) {
             bookButtons.forEach(function(button){
-              buttonStyle(button);
+              purpleButtonStyle(button);
             });
           };
         });
@@ -32,9 +42,14 @@ document.addEventListener("DOMContentLoaded", function(e){
     });
   });
 
-  function buttonStyle(button) {
+  function purpleButtonStyle(button) {
     button.style.backgroundColor = '#272369';
     button.style.color = 'white';
+  };
+
+  function whiteButtonStyle(button) {
+    button.style.backgroundColor = 'white';
+    button.style.color = '#272369';
   };
 
   var newReview = document.querySelector('#new_review');
