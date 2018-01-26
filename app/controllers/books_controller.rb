@@ -10,7 +10,6 @@ class BooksController < ApplicationController
 
   def show
     isbn = params[:id]
-    @test_rating = 4
     @book = Book.find_or_api_call(isbn)
     @reading_list = ReadingList.new
     if logged_in?
@@ -18,6 +17,10 @@ class BooksController < ApplicationController
     end
     @review = Review.new
     @reviews = @book.reviews
+
+    @average_rating = @book.average_rating
+    @rounded_rating   = @average_rating.to_i
+    @rating_remainder = @average_rating.modulo(1)
 
     # Checks if current_user is logged_in, then if they have a reading list with the current book. If they do, it sets that read_status in a variable
     if logged_in?
