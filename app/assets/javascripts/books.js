@@ -1,6 +1,23 @@
 document.addEventListener("DOMContentLoaded", function(e){
+  // Selects all buttons with that relate to adding books to the library
   var read_buttons = document.querySelectorAll('.read-btn');
 
+  // Provides the three string options to find the correct buttons to style
+  var readStatusOptions = ["want_to_read", "currently_reading", "finished_reading"];
+
+  // Goes through each read_status class option, and checks to see if any button divs have that class. If they do, it styles the button with the matching class
+  readStatusOptions.forEach(function(option) {
+    var readButtonBoxes = document.querySelectorAll('.button-div');
+
+    readButtonBoxes.forEach(function(box){
+      if (box.classList.contains(option)) {
+        var matchingButton = box.querySelector(`.read-btn.${option}`);
+        whiteButtonStyle(matchingButton);
+      };
+    });
+  });
+
+  // On click AJAX function to update the user's read status of the clicked book. When finished, it styles the selected button to white, and the others back to the default purple.
   read_buttons.forEach(function(button){
     button.closest('form').addEventListener("click", function(e){
       e.preventDefault();
@@ -15,23 +32,37 @@ document.addEventListener("DOMContentLoaded", function(e){
         dataType: 'html'
       }).done(function(responseData){
 
+        var readCategories = ["Want to Read", "Currently Reading", "Finished Reading"];
 
-      if (e.target.value === "Want to Read") {
-        // reading_message.innerText = "You currently have '" + book_title + "' in your 'want to read' list";
-      } else if (e.target.value === "Currently Reading") {
-        // reading_message.innerText = "You are currently reading '" + book_title + "'. Enjoy it!"
-        read_buttons[0].style.visibility = 'hidden';
-      } else if (e.target.value === "Finished Reading") {
-        // reading_message.innerText = "You finished reading '" + book_title + "'. Awesome!!"
-        read_buttons[0].style.visibility = 'hidden';
-        read_buttons[1].style.visibility = 'hidden';
-        $(review_wrapper).append(responseData);
-      }
-      e.target.style.visibility = 'hidden';
+        readCategories.forEach(function(category){
+          var buttonID = e.target.id;
+          var bookButtons = document.querySelectorAll(`[id='${buttonID}']`);
+          if (e.target.value === category) {
+            bookButtons.forEach(function(button){
+              purpleButtonStyle(button);
+            });
+          };
+        });
+        var ratingStars = document.querySelector('.jq-ry-container');
+        if (e.target.value === "Finished Reading" && ratingStars === null) {
+          $(review_wrapper).append(responseData);
+        };
+        e.target.style.backgroundColor = 'white';
+        e.target.style.color = '#272369'
       });
-
     });
   });
+
+  // Functions to control the styling back and forth of read_status buttons
+  function purpleButtonStyle(button) {
+    button.style.backgroundColor = '#272369';
+    button.style.color = 'white';
+  };
+
+  function whiteButtonStyle(button) {
+    button.style.backgroundColor = 'white';
+    button.style.color = '#272369';
+  };
 
   var newReview = document.querySelector('#new_review');
   // ensures content is present
@@ -173,16 +204,15 @@ document.addEventListener("DOMContentLoaded", function(e){
 
   var numStars = $("#rateYo").rateYo("option", "numStars");
   //returns 5
-    var bookId = $("#book_rating").value;
+  var bookId = $("#book_rating").value;
 
-    // set the stars if it has a value if not zero will b set
-
-    var starsdiv = document.querySelector('#rating');
-    if (starsdiv)
-      var stars = starsdiv.value;
-    //var rating = getRandomRating();
-
+  // set the stars if it has a value if not zero will b set
+  var starsdiv = document.querySelector('#rating');
+  if (starsdiv != null) {
+    var stars = starsdiv.value;
+  };
+  //var rating = getRandomRating();
+  if (stars != undefined) {
     $("#rateYo").rateYo("option", "rating", stars);
-    // setStars()
-
+  };
 });

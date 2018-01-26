@@ -18,6 +18,13 @@ class BooksController < ApplicationController
     @review = Review.new
     @reviews = @book.reviews
 
+    # Checks if current_user is logged_in, then if they have a reading list with the current book. If they do, it sets that read_status in a variable
+    if logged_in?
+      if current_user.reading_lists.find_by(book_id: @book.id)
+        @current_read_status = current_user.reading_lists.find_by(book_id: @book.id).read_status
+      end
+    end
+
     # Checks for presence of rating, and creates one for the user if it doesn't exist
     #Ensures user is logged in to prevent error do not move lines
     if logged_in?

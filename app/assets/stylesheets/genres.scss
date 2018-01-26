@@ -35,3 +35,23 @@ p.book-title {
     overflow:  hidden;
     text-overflow: ellipsis;
 }
+
+#genre-submit {
+  color: #272369;
+  border-color: #272369;
+  &:hover {
+    color: white;
+    background-color: #272369;
+    border-color: #272369;
+  }
+}
+
+#genreinput {
+  color: #272369;
+  border-color: #272369;
+  &:hover {
+    color: white;
+    background-color: #272369;
+    border-color: #272369;
+  }
+}
