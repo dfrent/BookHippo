@@ -32,7 +32,9 @@ App.chats = App.cable.subscriptions.create('ChatsChannel', {
 });
 
 function logMsg(data){
-  chatmessages.append(data.content)
+  // debugger
+  chatmessages.append(data.username+": ")
+  chatmessages.append(data.content+"\n")
   console.log(data.content);
 }
 
@@ -55,7 +57,10 @@ function identifyMe() {
 document.addEventListener('DOMContentLoaded', function() {
   chat_form.addEventListener('submit', function(e) {
       e.preventDefault();
-      App.chats.send({href, cookie, do: "msg", content:  'the same content'})
+      const href = location.href
+      const cookie = document.cookie
+      App.chats.send({href, cookie, do: "msg", content: chat_message.value })
       console.log(e)
+      chat_message.value = ""
    })
 });

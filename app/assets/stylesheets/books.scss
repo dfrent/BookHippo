@@ -1,23 +1,11 @@
 // Place all the styles related to the Books controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
 //
-// img {
-//     // position: relative;
-//     // float: left;
-//     max-width:100%;
-//     max-height:100%;
-//     background-position: 50% 50%;
-//     background-repeat:   no-repeat;
-//     background-size:     cover;
-// }
 
-// .scrollable {
-//   overflow: auto;
-//   white-space: nowrap;
-// }
+/**** BOOK INDEX PAGE ****/
 
+/* Book List Sliders*/
 .list-title {
   padding-left: 1.2rem;
   padding-top: 1%;
@@ -33,17 +21,16 @@
     position: relative;
 }
 
- .scrollable{
+.scrollable{
     overflow: auto;
     white-space: nowrap;
     &::-webkit-scrollbar {
-    display: none;
-    -webkit-overflow-scrolling: touch;
-  }
-
+      display: none;
+      -webkit-overflow-scrolling: touch;
+    }
 }
 
-
+/* Book Cards */
 .book-container, .item {
   display: inline-block;
   width: 160px;
@@ -53,9 +40,6 @@
   overflow: hidden;
   margin: 7px;
   position: relative;
-
-
-
 
   img {
       display: block;
@@ -101,18 +85,7 @@
   }
 }
 
-// .ellipsis {
-//   text-overflow: ellipsis;
-//
-//   /* Required for text-overflow to do anything */
-//   white-space: nowrap;
-//   overflow: hidden;
-// }
-
-.nav-link {
-
-}
-
+/* Book Slider Arrows */
 .paddles {
 }
 .paddle {
@@ -151,6 +124,9 @@
     border: none;
   }
 }
+
+
+
 .hidden {
 	display: none;
 }
@@ -158,6 +134,15 @@
 .clickable {
  cursor:pointer;
 }
+
+// Hide arrows on mobile devices
+@include media-breakpoint-down(sm) {
+  .paddle {
+    display: none;
+  }
+}
+
+/* Buttons */
 
 #search-submit-btn {
   color: #272369;
@@ -169,8 +154,7 @@
   }
 }
 
-// .scroll-container:h  over .hidden { display:block; }
-
+/****BOOK SHOW PAGE ****/
 /* Star Ratings */
 .current-user-stats {
   display: inline-block;
@@ -203,7 +187,7 @@
   color: gold;
 }
 
-/*****Book show page *****/
+
 // @include media-breakpoint-up(lg) {
 .content {
   overflow: auto;

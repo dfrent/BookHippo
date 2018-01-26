@@ -1,12 +1,10 @@
-<h1>Bookclubs</h1>
+<h3>Bookclubs</h3>
 
-<div class="clubcontainer">
-  <%# @book_clubs.each do |club| %>
-
-  <%#book_club = Book_club.where('book_clubs_id = ?', club)  %>
-
-
-  <%# end %>
-
-
-</div>
+<% @book_clubs.each do |bookclub|  %>
+  <h6> <%= bookclub.name %> </h6>
+  <div class="book-club-name">
+    <%= link_to(bookclub.name, book_club_path(bookclub[:id])) %>
+    <br>
+    <br>
+  </div>
+<% end %>

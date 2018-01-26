@@ -1,6 +1,6 @@
 class BookClubsController < ApplicationController
   def index
-
+    @book_clubs = BookClub.all
   end
 
   def show
