@@ -1,16 +1,16 @@
 Rails.application.routes.draw do
 
+  # Serve websocket cable requests in-process
+  mount ActionCable.server => '/cable'
+
+  resources :messages
+
   root 'books#index'
-
   get "search_for" => "search_for#search_for", :as => :search_for
-
   get "new_follow" => "users#new_follow", :as => :new_follow
   get "recommendations" => "books#recommendations"
-
   post "users_genres" => "interests#creation"
-
   get 'login' => 'sessions#new', :as => :login
-
   delete 'logout' => 'sessions#destroy', :as => :logout
 
   resources :reading_lists
@@ -30,6 +30,9 @@ Rails.application.routes.draw do
   resources :conversations do
     resources :messages
   end
+
+  resources :book_clubs
+  resources :chats
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

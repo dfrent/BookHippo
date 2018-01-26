@@ -1,0 +1,16 @@
+// Place all the styles related to the book_clubs controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.connected{
+  border: 2px solid green;
+}
+
+.disconnected{
+  border: 2px solid tomato;
+}
+
+#chatmessages{
+  border: 3px solid black;
+  background-color: yellow;
+
+}
