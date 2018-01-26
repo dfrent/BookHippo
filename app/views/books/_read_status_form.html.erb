@@ -4,5 +4,5 @@
     <%= hidden_field_tag :book_id, book.id %>
     <%= hidden_field_tag :read_status, read_status %>
   </div>
-  <%= f.submit read_status_string, class: "read-btn #{book.isbn}-btn" %>
+  <%= f.submit read_status_string, class: "read-btn", id: "#{book.isbn}-btn" %>
 <% end %>

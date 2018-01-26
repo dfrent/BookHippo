@@ -14,20 +14,34 @@ document.addEventListener("DOMContentLoaded", function(e){
         data: $(this).serialize(),
         dataType: 'html'
       }).done(function(responseData){
+        buttonID = e.target.id;
+        bookButtons = document.querySelectorAll(`[id='${buttonID}']`);
         if (e.target.value === "Want to Read") {
-          // reading_message.innerText = "You currently have '" + book_title + "' in your 'want to read' list";
+          bookButtons.forEach(function(button){
+            button.style.backgroundColor = '#272369';
+            button.style.fontWeight = '600';
+            button.style.color = 'white';
+          });
         } else if (e.target.value === "Currently Reading") {
-          // reading_message.innerText = "You are currently reading '" + book_title + "'. Enjoy it!"
-          read_buttons[0].style.visibility = 'hidden';
+          bookButtons.forEach(function(button){
+            button.style.backgroundColor = '#272369';
+            button.style.fontWeight = '600';
+            button.style.color = 'white';
+          });
         } else if (e.target.value === "Finished Reading") {
-          // reading_message.innerText = "You finished reading '" + book_title + "'. Awesome!!"
-          read_buttons[0].style.visibility = 'hidden';
-          read_buttons[1].style.visibility = 'hidden';
-          $(review_wrapper).append(responseData);
-        }
-        e.target.style.visibility = 'hidden';
+          bookButtons.forEach(function(button){
+            button.style.backgroundColor = '#272369'
+            button.style.fontWeight = '600';
+            button.style.color = 'white';
+          });
+          if ($(review_comment) === null) {
+            $(review_wrapper).append(responseData);
+          };
+        };
+        e.target.style.backgroundColor = 'white';
+        e.target.style.fontWeight = '600';
+        e.target.style.color = '#272369'
       });
-
     });
   });
 

@@ -1,22 +1,5 @@
-<% if existing_list != nil %>
-  <h4 class="read-message">Update your library?</h4>
-  <% unless existing_list.read_status != nil %>
-    <%= render partial: "books/read_status_form", locals: {book: @book, read_status: "want_to_read", read_status_string: "Want to Read"} %>
-  <% end %>
+<h4 class="read-message">Update your library?</h4>
 
-  <% unless existing_list.read_status == "currently_reading" || existing_list.read_status == "finished_reading" %>
-    <%= render partial: "books/read_status_form", locals: {book: @book, read_status: "currently_reading", read_status_string: "Currently Reading"} %>
-  <% end %>
-
-  <% unless existing_list.read_status == "finished_reading" %>
-    <%= render partial: "books/read_status_form", locals: {book: @book, read_status: "finished_reading", read_status_string: "Finished Reading"} %>
-  <% end %>
-<% else %>
-
-  <h4 class="read-message">Update your library?</h4>
-
-  <%= render partial: "books/read_status_form", locals: {book: @book, read_status: "want_to_read", read_status_string: "Want to Read"} %>
-  <%= render partial: "books/read_status_form", locals: {book: @book, read_status: "currently_reading", read_status_string: "Currently Reading"} %>
-  <%= render partial: "books/read_status_form", locals: {book: @book, read_status: "finished_reading", read_status_string: "Finished Reading"} %>
-
-<% end %>
+<%= render partial: "books/read_status_form", locals: {book: book, read_status: "want_to_read", read_status_string: "Want to Read"} %>
+<%= render partial: "books/read_status_form", locals: {book: book, read_status: "currently_reading", read_status_string: "Currently Reading"} %>
+<%= render partial: "books/read_status_form", locals: {book: book, read_status: "finished_reading", read_status_string: "Finished Reading"} %>
