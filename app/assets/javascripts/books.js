@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function(e){
   });
 
   function buttonStyle(button) {
-    button.style.backgroundColor = '#272369'
+    button.style.backgroundColor = '#272369';
     button.style.color = 'white';
   };
 
