@@ -45,13 +45,19 @@ class BookClubsController < ApplicationController
 
   def can_user_access?
     @book_club = BookClub.find(params[:id])
+    @user = @book_club.user
     unless @book_club.users.include?(current_user)
-      flash[:alert] = "Please ask admin for an invitation first."
+      flash[:alert] = "Please ask #{@user.username} for an invitation first."
       redirect_to book_clubs_url
     end
   end
 
   def is_user_owner?
-    flash[:alert] = "Please log in first."
+    @book_club = BookClub.find(params[:id])
+    @user = @book_club.user
+    if current_user != @user
+      flash[:alert] = "Sorry, book club admin only."
+      redirect_to book_clubs_url
+    end
   end
 end
