@@ -8,16 +8,14 @@
       <% @users.each do |user| %>
         <li class="relationship-card">
           <a href="<%= user_path(user) %>" class="username"><%= user.username %></a>
-            <% if user.reading_lists.any? %>
-              <p class="title">Check out a sample from their library:</p>
-              <div class="book-show">
-                <%= render partial: "books/single_book", locals: {book: user.one_of_their_books} %>
-              </div>
-            <% end %>
-          <%=  %>
+          <% if user.reading_lists.any? %>
+            <p class="title">Check out a sample from their library:</p>
+            <div class="book-show">
+              <%= render partial: "books/single_book", locals: {book: user.one_of_their_books} %>
+            </div>
+          <% end %>
         </li>
       <% end %>
     </ul>
-
   <% end %>
 </div>
