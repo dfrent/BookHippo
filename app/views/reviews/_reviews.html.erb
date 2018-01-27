@@ -1,0 +1,12 @@
+<div class="review-container">
+  <h4>Reviews</h4>
+  <ul class="post-list">
+    <% @reviews.each do |post|%>
+        <% unless post == nil %>
+          <span class="post-username"><strong><%= post.username_display %></strong></span>
+          <span class="post-time"><%= post.review_time %></span>
+          <li class="list-review"> <%= post.comment %> </li>
+        <% end %>
+    <% end %>
+  </ul>
+</div>
