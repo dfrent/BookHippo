@@ -1,6 +1,8 @@
 <%= form_for book_club do |f| %>
 
-<%= render partial: "shared/errors", locals: { errors: book_club.errors }  %>
+<% if book_club.errors.any? %>
+  <%= render partial: "shared/errors", locals: { errors: book_club.errors }  %>
+<% end %>
 
   <div class='field'>
     <%= f.label :name %>
@@ -8,7 +10,7 @@
   </div>
 
   <div class='field'>
-    <%= f.label :book_id %>
+    <%= f.label "Enter book registration id here:" %>
     <%= f.number_field :book_id %>
   </div>
 

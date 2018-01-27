@@ -16,16 +16,24 @@ class BookClubsController < ApplicationController
   end
 
   def new
+    @book_club = BookClub.new
   end
 
   def create
-   message = Message.new(message_params)
-   message.user = current_user
-   if message.save
+    @book_club = BookClub.new
 
-   else
-     redirect_to book_club_path(@book_club)
-   end
+    @book_club.user = current_user
+    @book_club.name = params[:book_club][:name]
+    @book_club.book_id = params[:book_club][:book_id]
+    @book_club.description = params[:book_club][:description]
+    @book_club.goal = params[:book_club][:goal]
+
+    if @book_club.save
+      @book_club.users << current_user
+      redirect_to book_club_url(@book_club)
+    else
+      render :new
+    end
   end
 
   def edit
@@ -40,10 +48,7 @@ class BookClubsController < ApplicationController
     @book_club.description = params[:book_club][:description]
     @book_club.goal = params[:book_club][:goal]
 
-
     if @book_club.save
-
-      # # Auto-login on succesful signup
       redirect_to book_club_url(@book_club)
     else
       render :edit
