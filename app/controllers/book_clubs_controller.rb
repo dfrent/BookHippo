@@ -1,4 +1,7 @@
 class BookClubsController < ApplicationController
+  before_action :can_user_access?, only: :show
+  before_action :is_user_owner?, only: :edit
+
   def index
     @book_clubs = BookClub.all
   end
@@ -38,5 +41,17 @@ class BookClubsController < ApplicationController
 
   def chat_params
     params.require(:chat).permit(:body, :book_club_id)
+  end
+
+  def can_user_access?
+    @book_club = BookClub.find(params[:id])
+    unless @book_club.users.include?(current_user)
+      flash[:alert] = "Please ask admin for an invitation first."
+      redirect_to book_clubs_url
+    end
+  end
+
+  def is_user_owner?
+    flash[:alert] = "Please log in first."
   end
 end

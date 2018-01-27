@@ -78,7 +78,6 @@ class User < ApplicationRecord
     users_array.sample(num_of_users)
   end
 
-
   def self.find_user(search)
   where(" username LIKE ? ", "%#{search}%")
   end
