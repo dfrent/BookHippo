@@ -1,0 +1,26 @@
+<%= form_for book_club do |f| %>
+
+<%= render partial: "shared/errors", locals: { errors: book_club.errors }  %>
+
+  <div class='field'>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class='field'>
+    <%= f.label :book_id %>
+    <%= f.number_field :book_id %>
+  </div>
+
+  <div class='field'>
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </div>
+
+  <div class='field'>
+    <%= f.label :goal %>
+    <%= f.text_field :goal %>
+  </div>
+
+  <%= f.submit 'Submit Form' %>
+<% end %>

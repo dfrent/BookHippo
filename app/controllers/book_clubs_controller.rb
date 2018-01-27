@@ -1,6 +1,6 @@
 class BookClubsController < ApplicationController
   before_action :can_user_access?, only: :show
-  before_action :is_user_owner?, only: :edit
+  # before_action :is_user_owner?, only: :edit
 
   def index
     @book_clubs = BookClub.all
@@ -29,9 +29,25 @@ class BookClubsController < ApplicationController
   end
 
   def edit
+    @book_club = BookClub.find(params[:id])
   end
 
   def update
+    @book_club = BookClub.find(params[:id])
+
+    @book_club.name = params[:book_club][:name]
+    @book_club.book_id = params[:book_club][:book_id]
+    @book_club.description = params[:book_club][:description]
+    @book_club.goal = params[:book_club][:goal]
+
+
+    if @book_club.save
+
+      # # Auto-login on succesful signup
+      redirect_to book_club_url(@book_club)
+    else
+      render :edit
+    end
   end
 
   def destroy
