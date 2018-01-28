@@ -70,6 +70,11 @@ class User < ApplicationRecord
     following.include?(other_user)
   end
 
+  # Returns a random book that the user has in their reading list
+  def one_of_their_books
+    self.reading_lists.sample.book
+  end
+
   def self.users_to_follow(num_of_users, current_user)
     users_array = []
     self.all.reject{|user| user == current_user}.each do |user|
