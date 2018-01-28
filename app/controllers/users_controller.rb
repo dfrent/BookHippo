@@ -90,15 +90,15 @@ class UsersController < ApplicationController
   end
 
   def following
-    @title = "Following"
     @user  = User.find(params[:id])
+    @title = "#{@user.username.capitalize} is following..."
     @users = @user.following
     render 'show_follow'
   end
 
   def followers
-    @title = "Followers"
     @user  = User.find(params[:id])
+    @title = "#{@user.username.capitalize}'s Followers"
     @users = @user.followers
     render 'show_follow'
   end

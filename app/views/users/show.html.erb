@@ -1,57 +1,49 @@
+<h3>
+  <%= @user.username.capitalize %>'s Profile
+</h3>
 
+<%= link_to 'Edit Profile', edit_user_path, class: "btn user-show-btn" %>
+<%= link_to('Delete', user_path(current_user), method: :delete, data: {confirm: "Are you sure you want to delete your account? This change can not be undone."}, class: "btn user-show-btn") %>
+<%= link_to "My Conversations", conversations_path, class: "btn user-show-btn" %>
+<%= link_to "Who's following me?", followers_user_path(@user), class: "btn user-show-btn" %>
+<%= link_to "Who am I following?", following_user_path(@user), class: "btn user-show-btn" %>
 
-  <h3>
-    <%= @user.username.capitalize %>'s Profile
-  </h3>
+<br><br>
 
-
-    <%= link_to 'Edit Profile', edit_user_path, class: "btn user-show-btn" %>
-
-
-    <%= link_to('Delete', user_path(current_user), method: :delete, data: {confirm: "Are you sure you want to delete your account? This change can not be undone."}, class: "btn user-show-btn") %>
-
-
-    <%= link_to "My Conversations", conversations_path, class: "btn user-show-btn" %>
-
-    <%= link_to "Start a new book club?", new_book_club_path, class: "btn user-show-btn" %>
-
-
-  <br><br>
-
-  <section class="user-data-<%= @user.id %>">
-    <section class="other-user-stats">
-      <%= render partial: 'shared/stats', locals: {user: @user} %>
-    </section>
-
-    <section class="follow-button">
-      <%= render partial: 'follow_form', locals: {user: @user} if logged_in? %>
-    </section>
+<section class="user-data-<%= @user.id %>">
+  <section class="other-user-stats">
+    <%= render partial: 'shared/stats', locals: {user: @user} %>
   </section>
 
-  <!-- Creates a div to hold all three columns, populates and names each column, and fills it with the correct books -->
-  <div class="read-class-rows">
-    <% @reading_list_headers.each do |header| %>
-      <div class="read-status-header">
-        <h5><%= header %></h5>
+  <section class="follow-button">
+    <%= render partial: 'follow_form', locals: {user: @user} if logged_in? %>
+  </section>
+</section>
+
+<!-- Creates a div to hold all three columns, populates and names each column, and fills it with the correct books -->
+<div class="read-class-rows">
+  <% @reading_list_headers.each do |header| %>
+    <div class="read-status-header">
+      <h5><%= header %></h5>
+    </div>
+    <div class="scroll-container menu-wrapper <%= @reading_list_classes[header] %>">
+      <div class="scrollable menu" id="menu-<%= header.parameterize %>">
+        <% @user_reading_lists[header].each do |list| %>
+          <%= render partial: "books/single_book", locals: {book: list.book} %>
+        <% end %>
       </div>
-      <div class="scroll-container menu-wrapper <%= @reading_list_classes[header] %>">
-        <div class="scrollable menu" id="menu-<%= header.parameterize %>">
-          <% @user_reading_lists[header].each do |list| %>
-            <%= render partial: "books/single_book", locals: {book: list.book} %>
-          <% end %>
-        </div>
-        <div class="paddles">
-          <button class="left-paddle paddle clickable js-left-clickable hidden">
-            <span class="clickable">
-              <i class="fa fa-angle-left" style="font-size:48px; color:white"></i>
-            </span>
-          </button>
-          <button class="right-paddle paddle clickable js-right-clickable">
-            <span class="clickable">
-              <i class="fa fa-angle-right" style="font-size:48px; color:white"></i>
-            </span>
-          </button>
-        </div>
+      <div class="paddles">
+        <button class="left-paddle paddle clickable js-left-clickable hidden">
+          <span class="clickable">
+            <i class="fa fa-angle-left" style="font-size:48px; color:white"></i>
+          </span>
+        </button>
+        <button class="right-paddle paddle clickable js-right-clickable">
+          <span class="clickable">
+            <i class="fa fa-angle-right" style="font-size:48px; color:white"></i>
+          </span>
+        </button>
       </div>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
+</div>
