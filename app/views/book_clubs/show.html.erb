@@ -3,10 +3,16 @@
     <%= link_to "Back", book_clubs_path %>
   </div>
 
-  <div class="btn book-show-btn btn-primary">
-    <%= link_to "Edit this book club", edit_book_club_path(@book_club) %>
-  </div>
-  
+  <% if current_user == @book_club.user %>
+    <div class="btn book-show-btn btn-primary">
+      <%= link_to "Edit this book club", edit_book_club_path(@book_club) %>
+    </div>
+
+    <div class="btn book-show-btn btn-primary">
+      <%= link_to "Add friends to your book club", book_club_invitations_path(@book_club) %>
+    </div>
+  <% end %>
+
   <div class="row no-gutters">
     <div class="col-sm-8 col-xs-12 disconnected" id="chatstatus">
 
