@@ -17,67 +17,6 @@ document.addEventListener("DOMContentLoaded", function(e){
     });
   });
 
-  function reviewOnBlankPage() {
-    // Create the list item with class
-    var div = document.createElement('div');
-    var postList = document.createElement('ul');
-    postList.className = "post-list";
-    var listItem = document.createElement('li');
-    var header = document.createElement('h4');
-    header.innerText = "Reviews"
-    var buttonDiv = $('.button-div');
-    listItem.class = 'list-review';
-    listItem.innerText = responseData.comment;
-    var nameSpan = document.createElement('span');
-    nameSpan.style.fontWeight = "700";
-    var username = document.querySelector('#username');
-    nameSpan.innerText = username.value + " ";
-    var timeSpan = document.createElement('span');
-    var time = document.querySelector('#time');
-    timeSpan.innerText = time.value;
-
-    // Add the is-complete class if there is a value for completed_at
-    buttonDiv.append(header)
-    buttonDiv.append(postList)
-    postList.appendChild(nameSpan)
-    postList.appendChild(timeSpan)
-    postList.appendChild(listItem)
-    // listItem.append(completedInput).append(label).appendTo('.list-review')
-
-    // Clear out the text field
-    $('#new_review').trigger("reset");
-
-    var button = document.querySelector('.review-submit');
-    button.disabled = false;
-  };
-
-  function reviewWithReviewsOnPage() {
-    // Create the list item with class
-    var postList = document.querySelector('.post-list')
-    var listItem = document.createElement('li');
-    listItem.class = 'list-review';
-    listItem.innerText = responseData.comment;
-    var nameSpan = document.createElement('span');
-    nameSpan.style.fontWeight = "700";
-    var username = document.querySelector('#username');
-    nameSpan.innerText = username.value + " ";
-    var timeSpan = document.createElement('span');
-    var time = document.querySelector('#time');
-    timeSpan.innerText = time.value;
-
-    // Add the is-complete class if there is a value for completed_at
-    postList.appendChild(nameSpan)
-    postList.appendChild(timeSpan)
-    postList.appendChild(listItem)
-    // listItem.append(completedInput).append(label).appendTo('.list-review')
-
-    // Clear out the text field
-    $('#new_review').trigger("reset");
-
-    var button = document.querySelector('.review-submit');
-    button.disabled = false;
-  };
-
   // On click AJAX function to update the user's read status of the clicked book. When finished, it styles the selected button to white, and the others back to the default purple.
   read_buttons.forEach(function(button){
     button.closest('form').addEventListener("click", function(e){
@@ -114,7 +53,8 @@ document.addEventListener("DOMContentLoaded", function(e){
         // Selects the review wrapper that should now be present
         var newReview = document.querySelector('#new_review');
         // ensures content is present
-        if (newReview) {
+        if (newReview && newReview.getAttribute('present') != 'true') {
+          newReview.setAttribute('present', true);
           newReview.addEventListener('submit',function(e){
             // 1. Prevent the browser from submitting the form
             e.preventDefault();
@@ -200,6 +140,7 @@ document.addEventListener("DOMContentLoaded", function(e){
   var newReview = document.querySelector('#new_review');
   // ensures content is present
   if (newReview) {
+    newReview.setAttribute('present', true);
     newReview.addEventListener('submit',function(e){
       // 1. Prevent the browser from submitting the form
       e.preventDefault();
