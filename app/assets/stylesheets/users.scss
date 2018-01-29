@@ -37,3 +37,14 @@ form.finished {
     font-weight: 700;
   }
 }
+
+.book-show-empty {
+  display: inline-block;
+  width: 160px;
+  height: 270px;
+  border: none;
+  overflow: hidden;
+  margin: 7px;
+  position: relative;
+  background-color: darkgrey;
+}
