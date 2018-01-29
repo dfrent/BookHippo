@@ -34,7 +34,7 @@ class UsersController < ApplicationController
 
     # Selects all seeded (general public) book clubs, so that the new users begins subscribed to them
     @book_clubs = [BookClub.first, BookClub.second, BookClub.third, BookClub.find(4)]
-
+    @subscription = Subscription.new
     @user.email = params[:user][:email]
     @user.username = params[:user][:username]
     @user.password = params[:user][:password]
@@ -48,9 +48,10 @@ class UsersController < ApplicationController
 
       # Subscribes new user to the general access book clubs
       @book_clubs.each do |club|
-        club.users << @user
+        @subscription.user = @user
+        @subscription.book_club = club
+        @subscription.save
       end
-
       redirect_to genres_url
     else
       render :new

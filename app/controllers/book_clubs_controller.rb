@@ -1,6 +1,6 @@
 class BookClubsController < ApplicationController
   before_action :can_user_access?, only: :show
-  # before_action :is_user_owner?, only: :edit
+  before_action :is_user_owner?, only: :edit
 
   def index
     @book_clubs = BookClub.all
