@@ -73,6 +73,22 @@ class User < ApplicationRecord
     self.reading_lists.sample.book
   end
 
+  def all_friends
+    friends_array = []
+    followers.each do |follower|
+      if !friends_array.include?(follower)
+        friends_array << follower
+      end
+    end
+
+    following.each do |following|
+      if !friends_array.include?(following)
+        friends_array << following
+      end
+    end
+    friends_array
+  end
+
   def self.users_to_follow(num_of_users, current_user)
     users_array = []
     self.all.reject{|user| user == current_user}.each do |user|
