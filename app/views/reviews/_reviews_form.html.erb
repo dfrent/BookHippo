@@ -6,9 +6,11 @@
 
 <p>
   <%= form_for [book, review] do |f| %>
-  <%= f.text_area :comment %>
-  <div class="sumbit-review-btn">
-    <%= f.submit  %>
-  </div>
+    <%= f.text_area :comment %>
+    <%= hidden_field_tag 'time', "#{Time.now.strftime("%m/%d/%y at %l:%M %p")}" %>
+    <%= hidden_field_tag 'username', "#{current_user.username.capitalize}"  %>
+    <div class="sumbit-review-btn">
+      <%= f.submit class: "review-submit" %>
+    </div>
+  <% end %>
 </p>
-<% end %>
