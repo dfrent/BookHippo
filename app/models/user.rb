@@ -37,10 +37,8 @@ class User < ApplicationRecord
   has_many :chats
 
   # Signifies that you can be FOLLOWING many book clubs
-  has_and_belongs_to_many :book_clubs
-
-  # Makes a connection from users to book clubs through the chats that have been sent
-  has_many :messaged_clubs, :through => :chats, :source => :book_club
+  has_many :subscriptions
+  has_many :book_clubs, through: :subscriptions
 
   # This is the ownership association of users to book clubs
   has_many :book_clubs
