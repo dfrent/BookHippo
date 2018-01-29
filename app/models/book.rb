@@ -48,6 +48,11 @@ class Book < ApplicationRecord
     else
       average_rating = 2.5
     end
+
+    if average_rating > 5
+      average_rating = 5
+    end
+
     return average_rating
   end
 
