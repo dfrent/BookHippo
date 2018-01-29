@@ -190,22 +190,24 @@
 
 // @include media-breakpoint-up(lg) {
 .content {
-  overflow: auto;
-  position: relative;
+  // overflow: auto;
+  // position: relative;
 
 }
-.show-wrapper {
-  width: 80%;
-  // margin: 0 auto;
-  padding-top: 3%;
-  // background-color: #f7f2ff;
-  background-color: #f9f2ff;
-  height: inherit;
-  margin: auto;
-  position: absolute;
-  top: 0; left: 0; bottom: 0; right: 0;
-  // overflow: hidden;
 
+body.books.show  {
+  .show-wrapper {
+    width: 75%;
+    // margin: 0 auto;
+    padding-top: 3%;
+    padding-bottom: 5%;
+    background-color: #f9f2ff;
+    margin: auto;
+    // position: absolute;
+    // top: 0; left: 0; bottom: 0; right: 0;
+    // overflow: hidden;
+
+  }
 }
 // }
 

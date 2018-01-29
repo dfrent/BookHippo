@@ -8,10 +8,26 @@
 @import 'book_clubs.scss';
 @import 'reviews.scss';
 
-* {margin: 0;}
+// * {margin: 0;}
 
 
-html, body, main { height:100%; }
+html, body {
+  height: 100%;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  // padding-bottom: 6rem;
+}
 
 
 /**** NAVBAR ****/
@@ -26,13 +42,26 @@ html, body, main { height:100%; }
 }
 
 /**** FOOTER ****/
-footer {
+.footer {
+
+  // margin-top: 0;
+  // clear: both;
+  // position: relative;
+  // z-index: 10;
+  // height: 3em;
   height: 150px;
-  margin-top: 0;
-  // border: 2px solid black;
+  margin-top: -150px;
+
+
+  // position: absolute;
+  // right: 0;
+  // bottom: 0;
+  // left: 0;
+  padding: 1%;
   background-color: #272369;
   color: white;
-  overflow:hidden;
+  text-align: center;
+  overflow: hidden;
 
 /*** PAGE ATTRIBUTES ****/
   @media (min-width: 1200px) {
@@ -40,21 +69,42 @@ footer {
       max-width: 1650px;
     }
   }
-  .container {
-    margin: 0 !important;
+  // .container {
+  //   margin: 0 !important;
+  // }
+  .footer-wrapper {
+    // position: relative;
+    margin: 0 auto !important;
+    width: 100% !important;
+    min-height: 100%;
+    // padding-top: 5px;
+    // margin-top: auto !important;
+    // margin-bottom: auto !important;
   }
-    .footer-wrapper {
-      margin: 0 !important;
-      width: 100% !important;
-    }
+  .row {
+    height: 100% !important;
+  }
 
-    .footer-left, .footer-right {
-      padding: 1% 2%;
+  // .row {
+  //   position: absolute;
+  //   left: 0;
+  //   top: 0;
+  //   height: 100%;
+  // }
+
+  .footer-left, .footer-middle, .footer-right {
+      padding: 0 2%;
       display: inline-block !important;
+      width: 33%;
+      margin-top: auto !important;
+      margin-bottom: auto !important;
+
+
       p {
-        text-align: center;
-        vertical-align: middle;
-        margin-top: 40px;
+        // text-align: center;
+        // vertical-align: middle;
+        margin: auto;
+        font-size: 1.3rem;
       }
       img {
         display: block;
@@ -62,7 +112,7 @@ footer {
         // margin: ;
 
       }
-      @media (max-width: 575.98px) {
+    @media (max-width: 575.98px) {
       img {
         margin: 0 auto;
       }
@@ -75,10 +125,22 @@ footer {
 }
 
 .content {
-  min-height: calc(100vh - 70px);
+  // min-height: calc(100vh - 70px);
+  min-height: 100%;
   padding-left: 3%;
   padding-right: 3%;
   margin: 0 auto;
+  // display: flex;
+  // position: relative;
+}
+
+.content-inside {
+  // position: absolute;
+  // bottom: 0;
+  // margin: 0 auto;
+  // min-height: 100%;
+  padding: 0;
+  padding-bottom: 150px;
 }
 
 body.books.index {
