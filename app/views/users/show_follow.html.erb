@@ -13,6 +13,11 @@
             <div class="book-show">
               <%= render partial: "books/single_book", locals: {book: user.one_of_their_books} %>
             </div>
+          <% else %>
+            <p class="title">It looks like this user's library is empty...</p>
+            <div class="book-show-empty">
+              <p><strong>Image Unavailable</strong></p>
+            </div>
           <% end %>
         </li>
       <% end %>
