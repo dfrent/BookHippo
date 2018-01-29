@@ -31,7 +31,10 @@ Rails.application.routes.draw do
     resources :messages
   end
 
-  resources :book_clubs
+  resources :book_clubs do
+    get "invitations" => "book_clubs#invitations"
+    post "book_club_invitees" => "subscriptions#creation"
+  end
   resources :chats
 
 

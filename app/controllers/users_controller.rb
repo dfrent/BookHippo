@@ -32,6 +32,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new
 
+    # Selects all seeded (general public) book clubs, so that the new users begins subscribed to them
+    @book_clubs = [BookClub.first, BookClub.second, BookClub.third, BookClub.find(4)]
+    @subscription = Subscription.new
     @user.email = params[:user][:email]
     @user.username = params[:user][:username]
     @user.password = params[:user][:password]
@@ -42,6 +45,13 @@ class UsersController < ApplicationController
       flash[:alert] = 'Account successfully created!'
       session[:user_id] = @user.id
       cookies[:user_id] = @user.id
+
+      # Subscribes new user to the general access book clubs
+      @book_clubs.each do |club|
+        @subscription.user = @user
+        @subscription.book_club = club
+        @subscription.save
+      end
       redirect_to genres_url
     else
       render :new

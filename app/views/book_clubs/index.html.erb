@@ -1,5 +1,7 @@
 <h3>Bookclubs</h3>
 
+<%= link_to "Create your own book club!", new_book_club_path, class:"btn btn-primary user-action-button" %>
+
 <% @book_clubs.each do |bookclub|  %>
   <h6> <%= bookclub.name %> </h6>
   <div class="book-club-name">

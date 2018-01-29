@@ -37,13 +37,11 @@ class User < ApplicationRecord
   has_many :chats
 
   # Signifies that you can be FOLLOWING many book clubs
-  has_and_belongs_to_many :book_clubs
-
-  # Makes a connection from users to book clubs through the chats that have been sent
-  has_many :messaged_clubs, :through => :chats, :source => :book_club
+  has_many :subscriptions
+  has_many :book_clubs, through: :subscriptions
 
   # This is the ownership association of users to book clubs
-  has_many :book_clubs
+  has_many :owned_clubs, class_name: "BookClub"
 # ------------------------------------------------------- #
 
   validates :username, :email, :password, :password_confirmation, presence: true
@@ -75,6 +73,22 @@ class User < ApplicationRecord
     self.reading_lists.sample.book
   end
 
+  def all_friends
+    friends_array = []
+    followers.each do |follower|
+      if !friends_array.include?(follower)
+        friends_array << follower
+      end
+    end
+
+    following.each do |following|
+      if !friends_array.include?(following)
+        friends_array << following
+      end
+    end
+    friends_array
+  end
+
   def self.users_to_follow(num_of_users, current_user)
     users_array = []
     self.all.reject{|user| user == current_user}.each do |user|
@@ -82,7 +96,6 @@ class User < ApplicationRecord
     end
     users_array.sample(num_of_users)
   end
-
 
   def self.find_user(search)
   where(" username LIKE ? ", "%#{search}%")

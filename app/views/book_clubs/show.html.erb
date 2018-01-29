@@ -1,4 +1,12 @@
 <div class="container show-wrapper">
+  <%= link_to "Back", book_clubs_path, class:"btn btn-primary user-action-button" %>
+
+  <% if current_user == @book_club.user %>
+    <%= link_to "Edit this book club", edit_book_club_path(@book_club), class:"btn btn-primary user-action-button" %>
+
+    <%= link_to "Add friends to your book club", book_club_invitations_path(@book_club), class:"btn btn-primary user-action-button" %>
+  <% end %>
+
   <div class="row no-gutters">
     <div class="col-sm-8 col-xs-12 disconnected" id="chatstatus">
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180125162614) do
+ActiveRecord::Schema.define(version: 20180129170827) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,13 +23,6 @@ ActiveRecord::Schema.define(version: 20180125162614) do
     t.text "goal"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "book_clubs_users", id: false, force: :cascade do |t|
-    t.bigint "book_club_id", null: false
-    t.bigint "user_id", null: false
-    t.index ["book_club_id"], name: "index_book_clubs_users_on_book_club_id"
-    t.index ["user_id"], name: "index_book_clubs_users_on_user_id"
   end
 
   create_table "books", force: :cascade do |t|
@@ -128,6 +121,13 @@ ActiveRecord::Schema.define(version: 20180125162614) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "date_added"
+  end
+
+  create_table "subscriptions", force: :cascade do |t|
+    t.integer "book_club_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
