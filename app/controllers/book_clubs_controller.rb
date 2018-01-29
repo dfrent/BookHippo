@@ -21,6 +21,7 @@ class BookClubsController < ApplicationController
 
   def create
     @book_club = BookClub.new
+    @subscription = Subscription.new
 
     @book_club.user = current_user
     @book_club.name = params[:book_club][:name]
@@ -29,7 +30,9 @@ class BookClubsController < ApplicationController
     @book_club.goal = params[:book_club][:goal]
 
     if @book_club.save
-      @book_club.users << current_user
+      @subscription.book_club = @book_club
+      @subscription.user = @book_club.user
+      @subscription.save
       redirect_to book_club_url(@book_club)
     else
       render :new
