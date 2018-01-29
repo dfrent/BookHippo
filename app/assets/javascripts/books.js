@@ -64,7 +64,6 @@ document.addEventListener("DOMContentLoaded", function(e){
               data: $(this).serialize(),
               dataType: 'json'
             }).done(function(responseData){
-              console.log(responseData);
               // Create the list item with class
               var div = document.createElement('div');
               var postList = document.createElement('ul');
@@ -96,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function(e){
 
             });
           });
-        }
+        };
       });
     });
   });
@@ -110,6 +109,48 @@ document.addEventListener("DOMContentLoaded", function(e){
   function whiteButtonStyle(button) {
     button.style.backgroundColor = 'white';
     button.style.color = '#272369';
+  };
+
+  // Selects the review wrapper that should now be present
+  var newReview = document.querySelector('#new_review');
+  // ensures content is present
+  if (newReview) {
+    newReview.addEventListener('submit',function(e){
+      // 1. Prevent the browser from submitting the form
+      e.preventDefault();
+      //2. Make an AJAX call
+      $.ajax({
+        url: $(this).attr('action'),
+        method: $(this).attr('method'),
+        data: $(this).serialize(),
+        dataType: 'json'
+      }).done(function(responseData){
+        // Create the list item with class
+        var postList = document.querySelector('.post-list')
+        var listItem = document.createElement('li');
+        listItem.class = 'list-review';
+        listItem.innerText = responseData.comment;
+        var nameSpan = document.createElement('span');
+        nameSpan.style.fontWeight = "700";
+        var username = document.querySelector('#username');
+        nameSpan.innerText = username.value + " ";
+        var timeSpan = document.createElement('span');
+        var time = document.querySelector('#time');
+        timeSpan.innerText = time.value;
+
+        // Add the is-complete class if there is a value for completed_at
+        postList.appendChild(nameSpan)
+        postList.appendChild(timeSpan)
+        postList.appendChild(listItem)
+        // listItem.append(completedInput).append(label).appendTo('.list-review')
+
+        // Clear out the text field
+        $('#new_review').trigger("reset");
+
+        var button = document.querySelector('.review-submit');
+        button.disabled = false;
+      });
+    });
   };
 
   // **********For scroll bar animations
