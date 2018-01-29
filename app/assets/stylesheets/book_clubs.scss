@@ -28,3 +28,16 @@
    font-weight: 700;
  }
 }
+
+.book-club-card {
+    list-style: none;
+    display: inline-block;
+    text-align: center;
+    background-color: #dfdfda;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    width: 30%;
+    height: 40%;
+    min-height: 40%;
+}
