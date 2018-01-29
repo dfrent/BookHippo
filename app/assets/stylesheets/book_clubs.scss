@@ -30,14 +30,26 @@
 }
 
 .book-club-card {
-    list-style: none;
-    display: inline-block;
-    text-align: center;
-    background-color: #dfdfda;
-    padding: 10px;
-    margin: 10px;
-    border-radius: 10px;
-    width: 30%;
-    height: 40%;
-    min-height: 40%;
+  float: left;
+  list-style: none;
+  display: inline-block;
+  text-align: center;
+  background-color: #dfdfda;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  width: 20%;
+  min-width: 20%;
+  height: 200px;
+  text-overflow: ellipsis;
+}
+
+@include media-breakpoint-down(md) {
+  .book-club-card {
+      width: 140px;
+      height: 250px;
+      padding: 5px;
+      margin: 5px;
+      margin-bottom: 8px;
+  }
 }

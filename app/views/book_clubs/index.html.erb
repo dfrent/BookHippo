@@ -4,15 +4,13 @@
   <%= link_to "Create your own book club!", new_book_club_path, class:"btn btn-primary user-action-button" %>
 </div>
 
-<% @book_clubs.each do |book_club|  %>
-  <div class="book-club-card">
-    <h4><%= book_club.name %></h4>
-    <div class="book-container card item">
-      <%= link_to(image_tag(book_club.book[:book_cover], class:"card-img-top", title: book_club.book[:title].titleize), book_club_path(book_club.book)) %>
-      <div class="card-body book-info">
-        <p class="card-title"><%= book_club.book[:title].titleize.strip %></p>
-      </div>
+<div class="book-club-wrapper">
+  <% @book_clubs.each do |book_club|  %>
+    <div class="book-club-card">
+      <h4><%=link_to book_club.name, book_club_path(book_club) %></h4>
+      <h6><%= book_club.description %></h6>
+      <h6>Currently Discussing:</h6>
+      <h6><%= book_club.book.title.titleize %></h6>
     </div>
-    <h6><%= book_club.description %></h6>
-  </div>
-<% end %>
+  <% end %>
+</div>
