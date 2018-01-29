@@ -22,44 +22,44 @@ class UsersTest < ActionDispatch::IntegrationTest
     assert_select ".followers", "0"
   end
 
-  test "user is created"  do
-    user_params = {
-      user: {
-        email: "k@b.com",
-        username: "k",
-        password: "abcd12345",
-        password_confirmation: "abcd12345"
-      }
-    }
-    post "/users", params: user_params
+  # test "user is created"  do
+  #   user_params = {
+  #     user: {
+  #       email: "k@b.com",
+  #       username: "k",
+  #       password: "abcd12345",
+  #       password_confirmation: "abcd12345"
+  #     }
+  #   }
+  #   post "/users", params: user_params
+  #
+  #   actual_email = User.last.email
+  #   actual_username = User.last.username
+  #
+  #   expected_email = user_params[:user][:email]
+  #   expected_username = user_params[:user][:username]
+  #
+  #   assert_equal(expected_email, actual_email)
+  #   assert_equal(expected_username, actual_username)
+  #
+  #   assert_redirected_to genres_url
+  # end
 
-    actual_email = User.last.email
-    actual_username = User.last.username
 
-    expected_email = user_params[:user][:email]
-    expected_username = user_params[:user][:username]
-
-    assert_equal(expected_email, actual_email)
-    assert_equal(expected_username, actual_username)
-
-    assert_redirected_to genres_url
-  end
-
-
-  test "path when user data is not valid" do
-    user_params = {
-      user: {
-        email: "k@b.com",
-        username: "k",
-        password: "abcd",
-        password_confirmation: "abcd"
-      }
-    }
-    post "/users", params: user_params
-
-    assert_equal(0, User.count)
-    assert_equal '/users', path
-  end
+  # test "path when user data is not valid" do
+  #   user_params = {
+  #     user: {
+  #       email: "k@b.com",
+  #       username: "k",
+  #       password: "abcd",
+  #       password_confirmation: "abcd"
+  #     }
+  #   }
+  #   post "/users", params: user_params
+  #
+  #   assert_equal(0, User.count)
+  #   assert_equal '/users', path
+  # end
 
   test "the edit form displays the user's data" do
     user = create(:user)
