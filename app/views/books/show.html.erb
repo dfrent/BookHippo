@@ -13,9 +13,10 @@
           <p><strong>Publisher:</strong>
             <%= @book.publisher %>
           </p>
-
+          <p>
+            <strong>Book ID (for new Book Club registration): </strong> <%= @book.id %>
+          </p>
         </div>
-
       </div>
       <div class="col-sm-9 book-show-info col-xs-12">
         <h2 class="book-title">
@@ -67,11 +68,7 @@
 
     <div class="row no-gutters">
       <div class="col-sm-3 col-xs-12">
-        <div class="book-club-id-info">
-          <p>
-            Book Club Registration ID (enter this when choosing a book for your book club!): <strong><%= @book.id %></strong>
-          </p>
-        </div>
+
       </div>
       <div class="col-sm-9 col-xs-12 book-show-review">
         <input type='hidden' value=<%=@book.isbn%> id="book_rating">
