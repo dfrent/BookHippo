@@ -41,7 +41,7 @@ class User < ApplicationRecord
   has_many :book_clubs, through: :subscriptions
 
   # This is the ownership association of users to book clubs
-  has_many :book_clubs
+  has_many :owned_clubs, class_name: "BookClub"
 # ------------------------------------------------------- #
 
   validates :username, :email, :password, :password_confirmation, presence: true
