@@ -1,11 +1,12 @@
 <div class="btn-container">
   <h1>Choose Some Members to Follow...</h1>
   <%= link_to 'Back', recommendations_path, class:"btn btn-primary" %>
-    <div class="btn finished-form-btn">
-      <form class="finished" action="books" method="get">
-        <input type="submit" name="button" value="Finished" class="btn btn-primary" ></input>
-      </form>
-    </div>
+  <%= link_to 'Finished', books_path, class:"btn btn-primary" %>
+  <div class="btn finished-form-btn">
+    <form class="finished" action="books" method="get">
+      <input type="submit" name="button" value="Finished" class="btn btn-primary" >Finished</input>
+    </form>
+  </div>
 </div>
   <% @users.each do |user| %>
   <div class="user-follow-wrapper">

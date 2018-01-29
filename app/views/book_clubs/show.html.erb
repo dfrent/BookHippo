@@ -1,16 +1,10 @@
 <div class="container show-wrapper">
-  <div class="btn book-show-btn btn-primary">
-    <%= link_to "Back", book_clubs_path %>
-  </div>
+  <%= link_to "Back", book_clubs_path, class:"btn btn-primary user-action-button" %>
 
   <% if current_user == @book_club.user %>
-    <div class="btn book-show-btn btn-primary">
-      <%= link_to "Edit this book club", edit_book_club_path(@book_club) %>
-    </div>
+    <%= link_to "Edit this book club", edit_book_club_path(@book_club), class:"btn btn-primary user-action-button" %>
 
-    <div class="btn book-show-btn btn-primary">
-      <%= link_to "Add friends to your book club", book_club_invitations_path(@book_club) %>
-    </div>
+    <%= link_to "Add friends to your book club", book_club_invitations_path(@book_club), class:"btn btn-primary user-action-button" %>
   <% end %>
 
   <div class="row no-gutters">

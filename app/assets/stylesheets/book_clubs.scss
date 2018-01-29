@@ -13,3 +13,18 @@
   border: 3px solid black;
   background-color: yellow;
 }
+
+.btn.btn-primary {
+ margin-bottom: 10px;
+ background-color: #272369;
+ border-color: #272369;
+ color: white;
+ font-weight: 700;
+ text-decoration: none;
+ &:hover {
+   color: #272369;
+   background-color: white;
+   border-color: #272369;
+   font-weight: 700;
+ }
+}

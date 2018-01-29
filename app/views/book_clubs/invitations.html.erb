@@ -1,1 +1,13 @@
-<h1>Hi there</h1>
+<h1>Who do you want to add to your club?</h1>
+
+<div class="checkbox-group required">
+  <%= form_for @user, url: book_club_book_club_invitees_path, method: :post do |f| %>
+    <% @followers.each do |follower| %>
+      <input type="checkbox" name="invitees[]" value="<%= follower.id %>" id="inviteeinput">
+      <%= follower.username.capitalize %><br>
+    <% end %>
+    <input type="submit" value="Submit" id="invitee-submit">
+  <% end %>
+</div>
+
+<%= console %>

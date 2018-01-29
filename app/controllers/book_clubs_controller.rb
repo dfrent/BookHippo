@@ -55,6 +55,13 @@ class BookClubsController < ApplicationController
     end
   end
 
+  def invitations
+    @user = current_user
+    @book_club = BookClub.find(params[:book_club_id])
+    @followers = current_user.followers
+    @following = current_user.following
+  end
+
   def destroy
   end
 
