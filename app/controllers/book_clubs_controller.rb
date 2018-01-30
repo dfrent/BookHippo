@@ -8,6 +8,7 @@ class BookClubsController < ApplicationController
 
   def show
     @book_club = BookClub.find(params[:id])
+    @book = @book_club.book
     @chat = Chat.new
     Rails.logger.info(@chat.errors.inspect)
     if request.xhr?

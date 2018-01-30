@@ -8,7 +8,7 @@
 
 
 <%= form_tag 'chatbox', id: "chat_form" do   %>
-<%= label_tag :chat_message %>
+<!-- <%= label_tag :chat_message %> -->
 <%= text_area_tag :chat_message %>
-<%= submit_tag "send", class: "btn btn-primary", data: { disable_with: false } %>
+<%= submit_tag "send", class: "btn btn-primary chat-submit", data: { disable_with: false } %>
 <% end %>
