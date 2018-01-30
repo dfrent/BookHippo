@@ -13,4 +13,11 @@ class ReviewTest < ActiveSupport::TestCase
     refute comment.persisted?
   end
 
+  def test_username_display_shows_reviews_users_username
+    review = build(:review)
+    actual = review.username_display
+    expected = review.user.username.capitalize
+
+    assert_equal(actual, expected)
+  end
 end
