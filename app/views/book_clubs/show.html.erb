@@ -20,17 +20,13 @@
         <%= @book_club.book.title %>
       </h5>
       <p>
-        <strong>About:</strong> <%= @book_club.description %>
-      </p>
-      <p>
         Goal: <%= @book_club.goal %>
       </p>
-
     </div>
     <div class="col-sm-4 col-xs-12">
 
-      <div class="book-show-cover">
-        <img src="<%= @book_club.book.book_cover %>" alt="<%= @book_club.book.title %>">
+      <div class="book-show-cover book-club-image">
+        <%= link_to(image_tag(@book[:book_cover], class:"bc-book-cover", title: @book[:title].titleize), book_path(@book[:isbn])) %>
       </div>
 
     </div>
@@ -48,14 +44,21 @@
       </div>
     </div>
   </div>
-  <div class="row no-gutters">
-    <div class="col-sm-6 col-xs-12">
-
-      <%= render partial: 'chats/chat_form', locals: {chat: @chat, book_club: @book_club}%>
+  <div class="row no-gutters chat-row">
+    <div class="col-sm-2">
 
     </div>
-    <div class="col-sm-6 col-xs-12">
-      <pre id="chatmessages"> </pre>
+    <div class="col-sm-8 col-xs-12">
+      <h6>Group Chat</h6>
+      <div class="chat_container">
+        <pre id="chatmessages"> </pre>
+        <div class="chat-form">
+          <%= render partial: 'chats/chat_form', locals: {chat: @chat, book_club: @book_club}%>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-2">
+
     </div>
   </div>
 </div>

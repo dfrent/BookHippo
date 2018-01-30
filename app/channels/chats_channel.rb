@@ -18,7 +18,7 @@ class ChatsChannel < ApplicationCable::Channel
 
   def join_channel(data)
     channel = data["href"].split('/')[-2..-1].join('-')
-    transmit({do: "msg", content: "I am connecting you to #{channel}"})
+    transmit({do: "msg", content: "Welcome to the book club!"})
     stream_from channel
   end
 
