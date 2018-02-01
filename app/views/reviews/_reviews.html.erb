@@ -1,12 +1,15 @@
 <div class="review-container">
   <h4 class="review-header">Reviews</h4>
   <ul class="post-list">
-    <% @reviews.each do |post|%>
-        <% unless post == nil %>
-          <span class="post-username"><strong><%= post.username_display %></strong></span>
-          <span class="post-time"><%= post.review_time %></span>
-          <li class="list-review"> <%= post.comment %> </li>
-        <% end %>
+    <% if @reviews.any? %>
+      <% @reviews.each do |post|%>
+          <% unless post == nil %>
+            <span class="post-username"><strong><%= post.username_display %></strong></span>
+            <span class="post-time"><%= post.review_time %></span>
+            <li class="list-review"> <%= post.comment %> </li>
+          <% end %>
+      <% end %>
+      <!-- TODO Give a message to users as to why there's an empty header -->
     <% end %>
   </ul>
 </div>
