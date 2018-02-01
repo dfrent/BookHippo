@@ -20,7 +20,7 @@ class ReviewsController < ApplicationController
         format.json {render json: @review}
       end
     else
-      render plain: "Hey there"
+      render json: {:errors => @review.errors}
     end
   end
 

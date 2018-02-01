@@ -56,8 +56,6 @@ document.addEventListener("DOMContentLoaded", function(e){
     });
   });
 
-
-
   // Functions to control the styling back and forth of read_status buttons
   function purpleButtonStyle(button) {
     button.style.backgroundColor = '#272369';
@@ -83,7 +81,6 @@ document.addEventListener("DOMContentLoaded", function(e){
   // get some relevant size for the paddle triggering point
   var paddleMargin = 20;
   var itemSize = $('.item').outerWidth(true);
-
 
   // finally, what happens when we are actually scrolling the menu
   $('.menu').on('scroll', function(e) {

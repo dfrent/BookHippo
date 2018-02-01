@@ -14,8 +14,11 @@ document.addEventListener("DOMContentLoaded", function(){
         dataType: 'json'
       }).done(function(responseData){
         console.log(responseData);
-        var header = document.querySelector('.review-header')
-        if (header != undefined) {
+        if (responseData.errors) {
+          // TODO: Insert a div that provides the specific errors provided in the reviews controller
+          var button = document.querySelector('.review-submit');
+          button.disabled = false;
+        } else {
           // Create the list item with class
           var postList = document.querySelector('.post-list')
           var listItem = document.createElement('li');
@@ -33,9 +36,8 @@ document.addEventListener("DOMContentLoaded", function(){
           postList.appendChild(nameSpan);
           postList.appendChild(timeSpan);
           postList.appendChild(listItem);
-        };
-        // listItem.append(completedInput).append(label).appendTo('.list-review')
-
+          // listItem.append(completedInput).append(label).appendTo('.list-review')
+        }
         // Clear out the text field
         $('#new_review').trigger("reset");
 
@@ -46,4 +48,7 @@ document.addEventListener("DOMContentLoaded", function(){
       });
     });
   };
+
 });
+
+// TODO: Review box must show on page load if the finished reading button is clicked (if the @user read_status for the particular book is "finished_reading", an extra class is added to the button on the book show page. This can be used to identify which read-btn is active, and then pop the the review and rating box up.)
