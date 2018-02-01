@@ -1,24 +1,11 @@
-# README
+# BookHippo
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## What is it?
 
-Things you may want to cover:
+BookHippo is a social book tracking and recommendation platform that enhances your reading experience.
 
-* Ruby version
+## Config
 
-* System dependencies
+* Ruby version - 2.5.0
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Run rake tasks **update_api:ny_times** and **update_api:google_rec** to preload books after setting up database
