@@ -1,11 +1,11 @@
 class BooksController < ApplicationController
   def index
-    @books_top = Book.where("ny_times_list = ?", "Mass Market Paperback")
-    @books_travel = Book.where("ny_times_list = ?", "Travel")
-    @books_science = Book.where("ny_times_list = ?", "Science")
-    @books_business = Book.where("ny_times_list = ?", "Business Books")
-    @books_animals = Book.where("ny_times_list = ?", "Animals")
-    @books_education = Book.where("ny_times_list = ?", "Education")
+    @books_top        = Book.where("ny_times_list = ?", "Mass Market Paperback")
+    @books_travel     = Book.where("ny_times_list = ?", "Travel")
+    @books_science    = Book.where("ny_times_list = ?", "Science")
+    @books_business   = Book.where("ny_times_list = ?", "Business Books")
+    @books_animals    = Book.where("ny_times_list = ?", "Animals")
+    @books_education  = Book.where("ny_times_list = ?", "Education")
     @books_nonfiction = Book.where("ny_times_list = ?", "Hardcover Nonfiction")
     @books = {"Top Selling" => @books_top, "Nonfiction" => @books_nonfiction, "Travel" =>  @books_travel, "Science" => @books_science, "Business" => @books_business, "Animals" => @books_animals, "Education" => @books_education }
   end
@@ -19,11 +19,7 @@ class BooksController < ApplicationController
     end
     @review = Review.new
     @reviews = @book.reviews
-
-    # TODO: Figure out how to use these and where
     @average_rating = @book.average_rating
-    # @rounded_rating   = @average_rating.to_i
-    # @rating_remainder = @average_rating.modulo(1)
 
     # Checks if current_user is logged_in, then if they have a reading list with the current book. If they do, it sets that read_status in a variable
     if logged_in?
@@ -41,8 +37,6 @@ class BooksController < ApplicationController
         @rating = Rating.create(book_id: @book.id, user_id: current_user.id, stars: 0)
       end
     end
-    ###
-
   end
 
   def edit
@@ -60,6 +54,5 @@ class BooksController < ApplicationController
     end
     @books = []
     @reading_list = ReadingList.new
-    # @books = Book.where('genre_id = ?', "16")
   end
 end

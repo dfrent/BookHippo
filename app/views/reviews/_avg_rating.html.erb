@@ -1,9 +1,15 @@
 <div class="star-bar">
   <!-- TODO: Post a message here if there are no reviews -->
-  <p><strong>Average Rating:</strong></p>
-  <% for i in (1..@rounded_rating) %>
-    <div class="star">
+  <% if rating == false %>
+    <p><strong>Looks like no one has rated this book yet <br> You could be the first!</strong></p>
+  <% elsif rating == 0 %>
+    <p><strong>Average Rating: 0</strong></p>
+  <% else %>
+    <p><strong>Average Rating:</strong></p>
+    <% for i in (1..rating) %>
+      <div class="star">
 
-    </div>
+      </div>
+    <% end %>
   <% end %>
 </div>
