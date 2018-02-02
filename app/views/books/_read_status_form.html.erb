@@ -4,5 +4,11 @@
     <%= hidden_field_tag :book_id, book.id %>
     <%= hidden_field_tag :read_status, read_status %>
   </div>
-  <%= f.submit read_status_string, class: "read-btn #{read_status}", id: "#{book.isbn}-btn" %>
+
+  <!-- If the current rendering of the partial is for the finished reading button & the current user has finished reading the current book, adds a class to the finished reading button -->
+  <% if read_status == "finished_reading" && @current_read_status && @current_read_status == "finished_reading" %>
+    <%= f.submit read_status_string, class: "read-btn #{read_status} finished-book", name: "#{book.isbn}-btn" %>
+  <% else %>
+    <%= f.submit read_status_string, class: "read-btn #{read_status}", name: "#{book.isbn}-btn" %>
+  <% end %>
 <% end %>

@@ -21,10 +21,28 @@ document.addEventListener("DOMContentLoaded", function(e){
   read_buttons.forEach(function(button){
     button.closest('form').addEventListener("click", function(e){
       e.preventDefault();
-      var reading_message = document.querySelector('.read-message');
-      var book_title = document.querySelector('.book-title').innerText;
-      var review_wrapper = document.querySelector("div.review-wrapper");
+      var reviewFormBox = document.querySelector(".review-form-box");
 
+      // Only displays the review form box if the user is done reading the book
+      if (reviewFormBox) {
+        if (e.target.value === "Want to Read" || e.target.value === "Currently Reading") {
+          reviewFormBox.style.visibility = "hidden";
+        } else if (e.target.value === "Finished Reading") {
+          reviewFormBox.style.visibility = "visible";
+        }
+      }
+
+      var buttonName = e.target.name;
+      var bookButtons = document.getElementsByName(buttonName);
+      // Turn all buttons for the current book purple
+      bookButtons.forEach(function(button){
+        purpleButtonStyle(button);
+      });
+      // Make the clicked button white
+      e.target.style.backgroundColor = 'white';
+      e.target.style.color = '#272369';
+
+      // AJAX call to update the read_status of the user
       $.ajax({
         url: $(this).attr('action'),
         method: $(this).attr('method'),
@@ -32,95 +50,6 @@ document.addEventListener("DOMContentLoaded", function(e){
         dataType: 'html'
       }).done(function(responseData){
 
-        var readCategories = ["Want to Read", "Currently Reading", "Finished Reading"];
-
-        readCategories.forEach(function(category){
-          var buttonID = e.target.id;
-          var bookButtons = document.querySelectorAll(`[id='${buttonID}']`);
-          if (e.target.value === category) {
-            bookButtons.forEach(function(button){
-              purpleButtonStyle(button);
-            });
-          };
-        });
-        var ratingStars = document.querySelector('.jq-ry-container');
-        if (e.target.value === "Finished Reading" && ratingStars === null) {
-          $(review_wrapper).append(responseData);
-        };
-        e.target.style.backgroundColor = 'white';
-        e.target.style.color = '#272369'
-
-        // Selects the review wrapper that should now be present
-        var newReview = document.querySelector('#new_review');
-        // ensures content is present
-        if (newReview && newReview.getAttribute('present') != 'true') {
-          newReview.setAttribute('present', true);
-          newReview.addEventListener('submit',function(e){
-            // 1. Prevent the browser from submitting the form
-            e.preventDefault();
-            //2. Make an AJAX call
-            $.ajax({
-              url: $(this).attr('action'),
-              method: $(this).attr('method'),
-              data: $(this).serialize(),
-              dataType: 'json'
-            }).done(function(responseData){
-              var header = document.querySelector('.review-header')
-              if (header != undefined) {
-                // Create the list item with class
-                var postList = document.querySelector('.post-list')
-                var listItem = document.createElement('li');
-                listItem.class = 'list-review';
-                listItem.innerText = responseData.comment;
-                var nameSpan = document.createElement('span');
-                nameSpan.style.fontWeight = "700";
-                var username = document.querySelector('#username');
-                nameSpan.innerText = username.value + " ";
-                var timeSpan = document.createElement('span');
-                var time = document.querySelector('#time');
-                timeSpan.innerText = time.value;
-
-                // Add the is-complete class if there is a value for completed_at
-                postList.appendChild(nameSpan);
-                postList.appendChild(timeSpan);
-                postList.appendChild(listItem);
-              } else {
-                // Create the list item with class
-                var div = document.createElement('div');
-                var postList = document.createElement('ul');
-                postList.className = "post-list";
-                var listItem = document.createElement('li');
-                var header = document.createElement('h4');
-                header.className = "review-header";
-                header.innerText = "Reviews";
-                var buttonDiv = $('.button-div');
-                listItem.class = 'list-review';
-                listItem.innerText = responseData.comment;
-                var nameSpan = document.createElement('span');
-                nameSpan.style.fontWeight = "700";
-                var username = document.querySelector('#username');
-                nameSpan.innerText = username.value + " ";
-                var timeSpan = document.createElement('span');
-                var time = document.querySelector('#time');
-                timeSpan.innerText = time.value;
-
-                // Add the is-complete class if there is a value for completed_at
-                buttonDiv.append(header)
-                buttonDiv.append(postList)
-                postList.appendChild(nameSpan)
-                postList.appendChild(timeSpan)
-                postList.appendChild(listItem)
-              };
-              // listItem.append(completedInput).append(label).appendTo('.list-review')
-
-              // Clear out the text field
-              $('#new_review').trigger("reset");
-
-              var button = document.querySelector('.review-submit');
-              button.disabled = false;
-            });
-          });
-        };
       });
     });
   });
@@ -136,49 +65,6 @@ document.addEventListener("DOMContentLoaded", function(e){
     button.style.color = '#272369';
   };
 
-  // Selects the review wrapper that should now be present
-  var newReview = document.querySelector('#new_review');
-  // ensures content is present
-  if (newReview) {
-    newReview.setAttribute('present', true);
-    newReview.addEventListener('submit',function(e){
-      // 1. Prevent the browser from submitting the form
-      e.preventDefault();
-      //2. Make an AJAX call
-      $.ajax({
-        url: $(this).attr('action'),
-        method: $(this).attr('method'),
-        data: $(this).serialize(),
-        dataType: 'json'
-      }).done(function(responseData){
-        // Create the list item with class
-        var postList = document.querySelector('.post-list')
-        var listItem = document.createElement('li');
-        listItem.class = 'list-review';
-        listItem.innerText = responseData.comment;
-        var nameSpan = document.createElement('span');
-        nameSpan.style.fontWeight = "700";
-        var username = document.querySelector('#username');
-        nameSpan.innerText = username.value + " ";
-        var timeSpan = document.createElement('span');
-        var time = document.querySelector('#time');
-        timeSpan.innerText = time.value;
-
-        // Add the is-complete class if there is a value for completed_at
-        postList.appendChild(nameSpan)
-        postList.appendChild(timeSpan)
-        postList.appendChild(listItem)
-        // listItem.append(completedInput).append(label).appendTo('.list-review')
-
-        // Clear out the text field
-        $('#new_review').trigger("reset");
-
-        var button = document.querySelector('.review-submit');
-        button.disabled = false;
-      });
-    });
-  };
-
   // **********For scroll bar animations
 
   // duration of scroll animation
@@ -191,7 +77,6 @@ document.addEventListener("DOMContentLoaded", function(e){
   // get some relevant size for the paddle triggering point
   var paddleMargin = 20;
   var itemSize = $('.item').outerWidth(true);
-
 
   // finally, what happens when we are actually scrolling the menu
   $('.menu').on('scroll', function(e) {
