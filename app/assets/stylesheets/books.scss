@@ -125,8 +125,6 @@
   }
 }
 
-
-
 .hidden {
 	display: none;
 }
@@ -289,6 +287,14 @@ body.books.show  {
     border-color: #272369;
     font-weight: 700;
   }
+}
+
+.read-btn {
+  margin-bottom: 0;
+}
+
+#new_reading_list {
+  margin-bottom: 10px;
 }
 
 .description {

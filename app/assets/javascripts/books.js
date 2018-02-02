@@ -21,9 +21,6 @@ document.addEventListener("DOMContentLoaded", function(e){
   read_buttons.forEach(function(button){
     button.closest('form').addEventListener("click", function(e){
       e.preventDefault();
-      var reading_message = document.querySelector('.read-message');
-      var book_title = document.querySelector('.book-title').innerText;
-      var review_wrapper = document.querySelector(".review-wrapper");
       var reviewFormBox = document.querySelector(".review-form-box");
 
       if (reviewFormBox) {
@@ -34,12 +31,11 @@ document.addEventListener("DOMContentLoaded", function(e){
         }
       }
 
-      var buttonID = e.target.id;
-      var bookButtons = document.querySelectorAll(`[id='${buttonID}']`);
+      var buttonName = e.target.name;
+      var bookButtons = document.getElementsByName(buttonName);
       // Turn all buttons for the current book purple
       bookButtons.forEach(function(button){
         purpleButtonStyle(button);
-        /// TODO: Fix purple styling outside of button!
       });
       // Make the clicked button white
       e.target.style.backgroundColor = 'white';
