@@ -34,7 +34,7 @@ class Book < ApplicationRecord
 
   def average_rating
     # First we check to see if the book in question has any ratings yet. If not, this returns 0 and a display will change in the book show view
-    if !reviews.any?
+    if !ratings.any?
       return false
     end
 

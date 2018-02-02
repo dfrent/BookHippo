@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function(){
   // initialising the stars
   $("#rateYo").rateYo({
-   rating: 0
+   rating: 2.5
   });
 
   var numStars = $("#rateYo").rateYo("option", "numStars");

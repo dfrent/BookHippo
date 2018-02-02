@@ -6,7 +6,7 @@
           <img src="<%= @book.book_cover %>" alt="<%= @book.title %>">
         </div>
         <div class="other-info">
-          <%= render partial: "reviews/avg_rating", locals: {book: @book, rating: @average_rating}%>
+          <%= render partial: "reviews/avg_rating", locals: { book: @book, rating: @average_rating }%>
           <p><strong>Page Count:</strong>
             <%= @book.page_count %>
           </p>
