@@ -1,5 +1,10 @@
 <div class="review-container">
-  <h4 class="review-header">Reviews</h4>
+  <!-- Changes the header if the book has no reviews yet -->
+  <% if @reviews.any? %>
+    <h4 class="review-header">Reviews</h4>
+  <% else %>
+    <h4 class="review-header">Whoops! <br> It looks like this book hasn't been reviewed yet...</h4>
+  <% end %>
   <ul class="post-list">
     <% if @reviews.any? %>
       <% @reviews.each do |post|%>
@@ -9,7 +14,6 @@
             <li class="list-review"> <%= post.comment %> </li>
           <% end %>
       <% end %>
-      <!-- TODO Give a message to users as to why there's an empty header -->
     <% end %>
   </ul>
 </div>
