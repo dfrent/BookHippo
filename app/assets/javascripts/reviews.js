@@ -23,11 +23,11 @@ document.addEventListener("DOMContentLoaded", function(){
       }).done(function(responseData){
         console.log(responseData);
         if (responseData.errors) {
-          // TODO: Insert a div that provides the specific errors provided in the reviews controller
+          // Resets the button to an active state
           var button = document.querySelector('.review-submit');
           button.disabled = false;
         } else {
-          // Checks if the review header is for an empty review list
+          // Checks if the review header is for an empty review list & changes it if it exists
           var emptyHeader = document.querySelector('.empty-review');
           if (emptyHeader) {
             emptyHeader.innerText = "Reviews";
