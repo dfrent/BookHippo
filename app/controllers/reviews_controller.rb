@@ -19,6 +19,8 @@ class ReviewsController < ApplicationController
         format.html {redirect_to book_path(@book[:isbn])}
         format.json {render json: @review}
       end
+    else
+      render json: {:errors => @review.errors}
     end
   end
 
