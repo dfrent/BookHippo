@@ -12,8 +12,37 @@
         method: 'post',
         data: { rating: data.rating },
         dataType: 'json',
-      }).done(function(response){
-        // TODO: Update the amount of stars showing for the book's average rating
+      }).done(function(responseData){
+        // Find out the number of ratings
+        var reviewHeader = document.querySelector('.average-rating-stars');
+        var numberOfReviews = parseInt(reviewHeader.id);
+
+        // Find out how many stars there are in the average stars spot
+        var averageStars = document.querySelectorAll('.star');
+        var numberOfStars = averageStars.length;
+
+        // Multiply the stars by the # of ratings
+        var totalStars = numberOfReviews * numberOfStars
+
+        // Add the value of the current user's rating
+        var newTotal = totalStars + responseData;
+
+        // Divide by numberOfReviews + 1
+        var newReviewAmount = numberOfReviews + 1;
+        var newAverage = Math.round(newTotal / newReviewAmount);
+
+        // Remove the star divs that currently exist and replace them with the rounded resultant value
+        averageStars.forEach(function(star){
+          star.parentNode.removeChild(star);
+        });
+
+        for (var star = 0; star < newAverage; star++) {
+          var starBar = document.querySelector('.star-bar');
+          var starDiv = document.createElement('div');
+          starDiv.className = "star";
+          starDiv.style.paddingRight = "4px";
+          starBar.appendChild(starDiv);
+        }
       });
     });
   });
