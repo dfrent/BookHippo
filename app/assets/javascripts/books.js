@@ -23,6 +23,7 @@ document.addEventListener("DOMContentLoaded", function(e){
       e.preventDefault();
       var reviewFormBox = document.querySelector(".review-form-box");
 
+      // Only displays the review form box if the user is done reading the book
       if (reviewFormBox) {
         if (e.target.value === "Want to Read" || e.target.value === "Currently Reading") {
           reviewFormBox.style.visibility = "hidden";
@@ -41,6 +42,7 @@ document.addEventListener("DOMContentLoaded", function(e){
       e.target.style.backgroundColor = 'white';
       e.target.style.color = '#272369';
 
+      // AJAX call to update the read_status of the user
       $.ajax({
         url: $(this).attr('action'),
         method: $(this).attr('method'),
