@@ -11,12 +11,7 @@ skip_before_action :verify_authenticity_token
       @rating = Rating.find_by(user_id: current_user.id, book_id: @book.id)
 
       if @rating == nil
-        # @rating = Rating.new
-        # @rating.book_id = @book.id
-        # @rating.user_id = current_user.id
-        # @rating.stars = params[:rating]
         @rating = Rating.create(book_id: @book.id, user_id: current_user.id, stars: params[:rating])
-        # @rating.save
 
       else
         @rating.stars = params[:rating]

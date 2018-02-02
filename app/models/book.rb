@@ -32,28 +32,24 @@ class Book < ApplicationRecord
     end
   end
 
+  # TODO: Fix this method
   def average_rating
-    all_ratings = []
+    # First we check to see if the book in question has any ratings yet. If not, this returns 0 and a display will change in the book show view
+    if !reviews.any?
+      return false
+    end
+
+    # Then we obtain all of the ratings of the book in an array
+    total_stars = 0
     ratings.each do |rating|
-      all_ratings << rating.stars
+      rounded_rating = rating.stars.round
+      total_stars += rounded_rating
     end
 
-    total_stars = 2.5
-    all_ratings.each do |rating|
-      total_stars += rating
-    end
+    # Get the average of all those values (total/ number of items)
+    avg_stars = total_stars / ratings.length
 
-    if all_ratings.length != 0
-      average_rating = total_stars / all_ratings.length
-    else
-      average_rating = 2.5
-    end
-
-    if average_rating > 5
-      average_rating = 5
-    end
-
-    return average_rating
+    return avg_stars
   end
 
   def self.exists?(isbn)

@@ -20,9 +20,10 @@ class BooksController < ApplicationController
     @review = Review.new
     @reviews = @book.reviews
 
+    # TODO: Figure out how to use these and where
     @average_rating = @book.average_rating
-    @rounded_rating   = @average_rating.to_i
-    @rating_remainder = @average_rating.modulo(1)
+    # @rounded_rating   = @average_rating.to_i
+    # @rating_remainder = @average_rating.modulo(1)
 
     # Checks if current_user is logged_in, then if they have a reading list with the current book. If they do, it sets that read_status in a variable
     if logged_in?
