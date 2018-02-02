@@ -65,14 +65,6 @@ document.addEventListener("DOMContentLoaded", function(e){
     button.style.color = '#272369';
   };
 
-  // Selects the finished reading button, but only if the user is done the book. Makes the reviewFormBox visible.
-  var finishedBookButton = document.querySelector('.finished-book');
-  var reviewFormBox = document.querySelector(".review-form-box");
-
-  if ( finishedBookButton && reviewFormBox ) {
-    reviewFormBox.style.visibility = "visible";
-  }
-
   // **********For scroll bar animations
 
   // duration of scroll animation

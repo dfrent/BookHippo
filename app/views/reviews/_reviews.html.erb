@@ -3,7 +3,7 @@
   <% if @reviews.any? %>
     <h4 class="review-header">Reviews</h4>
   <% else %>
-    <h4 class="review-header">Whoops! <br> It looks like this book hasn't been reviewed yet...</h4>
+    <h4 class="review-header empty-review">Whoops! <br> It looks like this book hasn't been reviewed yet...</h4>
   <% end %>
   <ul class="post-list">
     <% if @reviews.any? %>

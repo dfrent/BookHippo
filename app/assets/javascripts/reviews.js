@@ -1,4 +1,12 @@
 document.addEventListener("DOMContentLoaded", function(){
+  // Selects the finished reading button, but only if the user is done the book. Makes the reviewFormBox visible.
+  var finishedBookButton = document.querySelector('.finished-book');
+  var reviewFormBox = document.querySelector(".review-form-box");
+
+  if ( finishedBookButton && reviewFormBox ) {
+    reviewFormBox.style.visibility = "visible";
+  }
+
   // Selects the review wrapper
   var newReview = document.querySelector('#new_review');
   // ensures content is present
@@ -19,6 +27,11 @@ document.addEventListener("DOMContentLoaded", function(){
           var button = document.querySelector('.review-submit');
           button.disabled = false;
         } else {
+          // Checks if the review header is for an empty review list
+          var emptyHeader = document.querySelector('.empty-review');
+          if (emptyHeader) {
+            emptyHeader.innerText = "Reviews";
+          }
           // Create the list item with class
           var postList = document.querySelector('.post-list')
           var listItem = document.createElement('li');
@@ -48,7 +61,4 @@ document.addEventListener("DOMContentLoaded", function(){
       });
     });
   };
-
 });
-
-// TODO: Review box must show on page load if the finished reading button is clicked (if the @user read_status for the particular book is "finished_reading", an extra class is added to the button on the book show page. This can be used to identify which read-btn is active, and then pop the the review and rating box up.)
