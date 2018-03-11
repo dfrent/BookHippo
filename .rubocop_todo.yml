@@ -1,0 +1,615 @@
+# Offense count: 3
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedHashRocketStyle, EnforcedColonStyle, EnforcedLastArgumentHashStyle.
+# SupportedHashRocketStyles: key, separator, table
+# SupportedColonStyles: key, separator, table
+# SupportedLastArgumentHashStyles: always_inspect, always_ignore, ignore_implicit, ignore_explicit
+Layout/AlignHash:
+  Exclude:
+    - 'test/models/book_test.rb'
+
+# Offense count: 1
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle, IndentationWidth.
+# SupportedStyles: with_first_parameter, with_fixed_indentation
+Layout/AlignParameters:
+  Exclude:
+    - 'app/controllers/chats_controller.rb'
+
+# Offense count: 1
+# Cop supports --auto-correct.
+Layout/ClosingParenthesisIndentation:
+  Exclude:
+    - 'app/controllers/reading_lists_controller.rb'
+
+# Offense count: 9
+# Cop supports --auto-correct.
+Layout/CommentIndentation:
+  Exclude:
+    - 'app/models/user.rb'
+    - 'test/models/book_test.rb'
+    - 'test/models/genre_test.rb'
+    - 'test/models/rating_test.rb'
+    - 'test/models/reading_list_test.rb'
+
+# Offense count: 1
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyleAlignWith, AutoCorrect, Severity.
+# SupportedStylesAlignWith: start_of_line, def
+Layout/DefEndAlignment:
+  Exclude:
+    - 'app/models/user.rb'
+
+# Offense count: 1
+# Cop supports --auto-correct.
+Layout/ElseAlignment:
+  Exclude:
+    - 'app/controllers/reading_lists_controller.rb'
+
+# Offense count: 1
+# Cop supports --auto-correct.
+# Configuration parameters: AllowBorderComment, AllowMarginComment.
+Layout/EmptyComment:
+  Exclude:
+    - 'app/controllers/search_for_controller.rb'
+
+# Offense count: 1
+# Cop supports --auto-correct.
+# Configuration parameters: AllowAdjacentOneLineDefs, NumberOfEmptyLines.
+Layout/EmptyLineBetweenDefs:
+  Exclude:
+    - 'app/models/user.rb'
+
+# Offense count: 33
+# Cop supports --auto-correct.
+Layout/EmptyLines:
+  Exclude:
+    - 'app/controllers/users_controller.rb'
+    - 'app/models/application_record.rb'
+    - 'app/models/user.rb'
+    - 'bin/setup'
+    - 'config/environments/production.rb'
+    - 'config/routes.rb'
+    - 'db/migrate/20180106003505_create_books.rb'
+    - 'db/seeds.rb'
+    - 'spec/controllers/reading_lists_controller_spec.rb'
+    - 'spec/models/book_spec.rb'
+    - 'spec/rails_helper.rb'
+    - 'spec/status_spec.rb'
+    - 'test/integration/users_test.rb'
+
+# Offense count: 1
+# Cop supports --auto-correct.
+Layout/EmptyLinesAroundAccessModifier:
+  Exclude:
+    - 'app/controllers/application_controller.rb'
+
+# Offense count: 19
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle.
+# SupportedStyles: empty_lines, no_empty_lines
+Layout/EmptyLinesAroundBlockBody:
+  Exclude:
+    - 'config/environments/development.rb'
+    - 'config/routes.rb'
+    - 'db/schema.rb'
+    - 'spec/controllers/conversations_controller_spec.rb'
+    - 'spec/controllers/interests_controller_spec.rb'
+    - 'spec/controllers/messages_controller_spec.rb'
+    - 'spec/controllers/ratings_controller_spec.rb'
+    - 'spec/controllers/reading_lists_controller_spec.rb'
+    - 'spec/factories/book.rb'
+    - 'spec/factories/genre.rb'
+    - 'spec/factories/rating.rb'
+    - 'spec/factories/reading_list.rb'
+    - 'spec/factories/review.rb'
+    - 'spec/rails_helper.rb'
+    - 'test/integration/users_test.rb'
+
+# Offense count: 11
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle.
+# SupportedStyles: empty_lines, empty_lines_except_namespace, empty_lines_special, no_empty_lines, beginning_only, ending_only
+Layout/EmptyLinesAroundClassBody:
+  Exclude:
+    - 'app/controllers/ratings_controller.rb'
+    - 'app/controllers/reviews_controller.rb'
+    - 'app/models/application_record.rb'
+    - 'app/models/book.rb'
+    - 'app/models/message.rb'
+    - 'app/models/reading_list.rb'
+    - 'app/models/user.rb'
+    - 'test/integration/users_test.rb'
+    - 'test/models/rating_test.rb'
+    - 'test/models/reading_list_test.rb'
+
+# Offense count: 5
+# Cop supports --auto-correct.
+Layout/EmptyLinesAroundMethodBody:
+  Exclude:
+    - 'app/controllers/ratings_controller.rb'
+    - 'app/controllers/reading_lists_controller.rb'
+
+# Offense count: 1
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyleAlignWith, AutoCorrect, Severity.
+# SupportedStylesAlignWith: keyword, variable, start_of_line
+Layout/EndAlignment:
+  Exclude:
+    - 'app/controllers/reading_lists_controller.rb'
+
+# Offense count: 5
+# Cop supports --auto-correct.
+# Configuration parameters: AllowForAlignment, ForceEqualSignAlignment.
+Layout/ExtraSpacing:
+  Exclude:
+    - 'app/controllers/books_controller.rb'
+    - 'app/models/book.rb'
+    - 'app/models/reading_list.rb'
+    - 'lib/tasks/update_api.rake'
+    - 'spec/factories/user.rb'
+
+# Offense count: 1
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle, IndentationWidth.
+# SupportedStyles: consistent, special_for_inner_method_call, special_for_inner_method_call_in_parentheses
+Layout/FirstParameterIndentation:
+  Exclude:
+    - 'app/controllers/reading_lists_controller.rb'
+
+# Offense count: 6
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle, IndentationWidth.
+# SupportedStyles: special_inside_parentheses, consistent, align_braces
+Layout/IndentHash:
+  Exclude:
+    - 'app/controllers/users_controller.rb'
+    - 'test/integration/users_test.rb'
+
+# Offense count: 10
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle.
+# SupportedStyles: normal, rails
+Layout/IndentationConsistency:
+  Exclude:
+    - 'app/controllers/ratings_controller.rb'
+    - 'app/controllers/reading_lists_controller.rb'
+    - 'spec/models/book_spec.rb'
+
+# Offense count: 8
+# Cop supports --auto-correct.
+# Configuration parameters: Width, IgnoredPatterns.
+Layout/IndentationWidth:
+  Exclude:
+    - 'app/controllers/conversations_controller.rb'
+    - 'app/controllers/ratings_controller.rb'
+    - 'app/controllers/reviews_controller.rb'
+    - 'app/models/user.rb'
+    - 'db/migrate/20180111001322_add_ny_times_list_to_books.rb'
+    - 'spec/models/book_spec.rb'
+
+# Offense count: 1
+# Cop supports --auto-correct.
+Layout/LeadingCommentSpace:
+  Exclude:
+    - 'app/controllers/books_controller.rb'
+
+# Offense count: 1
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle.
+# SupportedStyles: symmetrical, new_line, same_line
+Layout/MultilineHashBraceLayout:
+  Exclude:
+    - 'test/integration/users_test.rb'
+
+# Offense count: 4
+# Cop supports --auto-correct.
+Layout/SpaceAfterColon:
+  Exclude:
+    - 'app/channels/chats_channel.rb'
+    - 'app/models/reading_list.rb'
+    - 'test/integration/users_test.rb'
+
+# Offense count: 3
+# Cop supports --auto-correct.
+Layout/SpaceAfterComma:
+  Exclude:
+    - 'app/controllers/conversations_controller.rb'
+    - 'app/models/conversation.rb'
+
+# Offense count: 2
+# Cop supports --auto-correct.
+# Configuration parameters: AllowForAlignment.
+Layout/SpaceAroundOperators:
+  Exclude:
+    - 'app/controllers/books_controller.rb'
+    - 'lib/tasks/update_api.rake'
+
+# Offense count: 1
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle, EnforcedStyleForEmptyBraces.
+# SupportedStyles: space, no_space
+# SupportedStylesForEmptyBraces: space, no_space
+Layout/SpaceBeforeBlockBraces:
+  Exclude:
+    - 'app/models/user.rb'
+
+# Offense count: 4
+# Cop supports --auto-correct.
+Layout/SpaceBeforeComma:
+  Exclude:
+    - 'db/seeds.rb'
+
+# Offense count: 1
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle.
+# SupportedStyles: require_no_space, require_space
+Layout/SpaceInLambdaLiteral:
+  Exclude:
+    - 'app/models/conversation.rb'
+
+# Offense count: 2
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle, EnforcedStyleForEmptyBrackets.
+# SupportedStyles: space, no_space, compact
+# SupportedStylesForEmptyBrackets: space, no_space
+Layout/SpaceInsideArrayLiteralBrackets:
+  Exclude:
+    - 'config/environments/production.rb'
+
+# Offense count: 8
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle, EnforcedStyleForEmptyBraces, SpaceBeforeBlockParameters.
+# SupportedStyles: space, no_space
+# SupportedStylesForEmptyBraces: space, no_space
+Layout/SpaceInsideBlockBraces:
+  Exclude:
+    - 'app/controllers/reading_lists_controller.rb'
+    - 'app/controllers/reviews_controller.rb'
+    - 'app/models/user.rb'
+
+# Offense count: 14
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle, EnforcedStyleForEmptyBraces.
+# SupportedStyles: space, no_space, compact
+# SupportedStylesForEmptyBraces: space, no_space
+Layout/SpaceInsideHashLiteralBraces:
+  Exclude:
+    - 'app/channels/chats_channel.rb'
+    - 'app/controllers/books_controller.rb'
+    - 'app/controllers/reading_lists_controller.rb'
+    - 'app/controllers/reviews_controller.rb'
+    - 'app/models/reading_list.rb'
+    - 'test/integration/users_test.rb'
+
+# Offense count: 5
+# Cop supports --auto-correct.
+Layout/TrailingWhitespace:
+  Exclude:
+    - 'app/models/application_record.rb'
+    - 'app/models/message.rb'
+    - 'db/migrate/20180111231953_create_interests.rb'
+    - 'test/factories/chats.rb'
+    - 'test/factories/subscriptions.rb'
+
+# Offense count: 1
+Lint/Debugger:
+  Exclude:
+    - 'lib/tasks/update_api.rake'
+
+# Offense count: 1
+Lint/RescueException:
+  Exclude:
+    - 'lib/tasks/update_api.rake'
+
+# Offense count: 2
+Lint/UselessAssignment:
+  Exclude:
+    - 'test/models/book_test.rb'
+    - 'test/models/user_test.rb'
+
+# Offense count: 14
+Metrics/AbcSize:
+  Max: 43
+
+# Offense count: 6
+# Configuration parameters: CountComments, ExcludedMethods.
+Metrics/BlockLength:
+  Max: 111
+
+# Offense count: 1
+# Configuration parameters: CountBlocks.
+Metrics/BlockNesting:
+  Max: 4
+
+# Offense count: 1
+Metrics/CyclomaticComplexity:
+  Max: 9
+
+# Offense count: 12
+# Configuration parameters: CountComments.
+Metrics/MethodLength:
+  Max: 36
+
+# Offense count: 1
+Metrics/PerceivedComplexity:
+  Max: 12
+
+# Offense count: 1
+# Configuration parameters: NamePrefix, NamePrefixBlacklist, NameWhitelist, MethodDefinitionMacros.
+# NamePrefix: is_, has_, have_
+# NamePrefixBlacklist: is_, has_, have_
+# NameWhitelist: is_a?
+# MethodDefinitionMacros: define_method, define_singleton_method
+Naming/PredicateName:
+  Exclude:
+    - 'spec/**/*'
+    - 'app/controllers/book_clubs_controller.rb'
+
+# Offense count: 1
+# Cop supports --auto-correct.
+Style/BlockComments:
+  Exclude:
+    - 'spec/spec_helper.rb'
+
+# Offense count: 3
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle.
+# SupportedStyles: braces, no_braces, context_dependent
+Style/BracesAroundHashParameters:
+  Exclude:
+    - 'app/channels/chats_channel.rb'
+
+# Offense count: 1
+# Cop supports --auto-correct.
+# Configuration parameters: AutoCorrect, EnforcedStyle.
+# SupportedStyles: nested, compact
+Style/ClassAndModuleChildren:
+  Exclude:
+    - 'test/test_helper.rb'
+
+# Offense count: 1
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle, SingleLineConditionsOnly, IncludeTernaryExpressions.
+# SupportedStyles: assign_to_condition, assign_inside_condition
+Style/ConditionalAssignment:
+  Exclude:
+    - 'app/controllers/conversations_controller.rb'
+
+# Offense count: 77
+Style/Documentation:
+  Enabled: false
+
+# Offense count: 14
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle.
+# SupportedStyles: compact, expanded
+Style/EmptyMethod:
+  Exclude:
+    - 'app/controllers/book_clubs_controller.rb'
+    - 'app/controllers/books_controller.rb'
+    - 'app/controllers/genres_controller.rb'
+    - 'app/controllers/ratings_controller.rb'
+    - 'app/controllers/reading_lists_controller.rb'
+    - 'app/controllers/sessions_controller.rb'
+    - 'app/controllers/users_controller.rb'
+
+# Offense count: 7
+# Cop supports --auto-correct.
+Style/ExpandPathArguments:
+  Exclude:
+    - 'bin/bundle'
+    - 'bin/rails'
+    - 'bin/rake'
+    - 'bin/setup'
+    - 'bin/update'
+    - 'spec/rails_helper.rb'
+    - 'test/test_helper.rb'
+
+# Offense count: 158
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle.
+# SupportedStyles: when_needed, always, never
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+# Offense count: 19
+# Configuration parameters: MinBodyLength.
+Style/GuardClause:
+  Exclude:
+    - 'app/controllers/application_controller.rb'
+    - 'app/controllers/book_clubs_controller.rb'
+    - 'app/controllers/books_controller.rb'
+    - 'app/controllers/chats_controller.rb'
+    - 'app/controllers/messages_controller.rb'
+    - 'app/controllers/ratings_controller.rb'
+    - 'app/controllers/search_for_controller.rb'
+    - 'app/models/book.rb'
+    - 'app/models/conversation.rb'
+    - 'app/models/relationship.rb'
+    - 'lib/tasks/update_api.rake'
+
+# Offense count: 13
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle, UseHashRocketsWithSymbolValues, PreferHashRocketsForNonAlnumEndingSymbols.
+# SupportedStyles: ruby19, hash_rockets, no_mixed_keys, ruby19_no_mixed_keys
+Style/HashSyntax:
+  Exclude:
+    - 'app/controllers/reviews_controller.rb'
+    - 'app/models/conversation.rb'
+    - 'app/models/rating.rb'
+    - 'app/models/user.rb'
+    - 'db/migrate/20180106015311_add_table_genres_users.rb'
+    - 'db/migrate/20180116175126_create_messages.rb'
+    - 'db/migrate/20180125162614_create_chats.rb'
+    - 'spec/models/book_spec.rb'
+    - 'spec/models/reading_lists_spec.rb'
+    - 'spec/status_spec.rb'
+
+# Offense count: 1
+Style/IfInsideElse:
+  Exclude:
+    - 'lib/tasks/update_api.rake'
+
+# Offense count: 17
+# Cop supports --auto-correct.
+Style/IfUnlessModifier:
+  Exclude:
+    - 'app/controllers/book_clubs_controller.rb'
+    - 'app/controllers/books_controller.rb'
+    - 'app/controllers/messages_controller.rb'
+    - 'app/controllers/ratings_controller.rb'
+    - 'app/controllers/search_for_controller.rb'
+    - 'app/models/book.rb'
+    - 'app/models/conversation.rb'
+    - 'app/models/relationship.rb'
+    - 'app/models/user.rb'
+    - 'lib/tasks/update_api.rake'
+
+# Offense count: 1
+# Cop supports --auto-correct.
+# Configuration parameters: InverseMethods, InverseBlocks.
+Style/InverseMethods:
+  Exclude:
+    - 'app/models/book.rb'
+
+# Offense count: 1
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle.
+# SupportedStyles: line_count_dependent, lambda, literal
+Style/Lambda:
+  Exclude:
+    - 'app/models/conversation.rb'
+
+# Offense count: 2
+Style/MixinUsage:
+  Exclude:
+    - 'bin/setup'
+    - 'bin/update'
+
+# Offense count: 3
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle.
+# SupportedStyles: both, prefix, postfix
+Style/NegatedIf:
+  Exclude:
+    - 'app/models/book.rb'
+    - 'app/models/user.rb'
+
+# Offense count: 4
+# Cop supports --auto-correct.
+Style/NilComparison:
+  Exclude:
+    - 'app/controllers/ratings_controller.rb'
+    - 'app/controllers/reading_lists_controller.rb'
+    - 'app/controllers/search_for_controller.rb'
+    - 'lib/tasks/update_api.rake'
+
+# Offense count: 1
+# Cop supports --auto-correct.
+# Configuration parameters: Strict.
+Style/NumericLiterals:
+  MinDigits: 15
+
+# Offense count: 1
+# Cop supports --auto-correct.
+Style/OrAssignment:
+  Exclude:
+    - 'app/controllers/books_controller.rb'
+
+# Offense count: 1
+# Cop supports --auto-correct.
+# Configuration parameters: PreferredDelimiters.
+Style/PercentLiteralDelimiters:
+  Exclude:
+    - 'config/spring.rb'
+
+# Offense count: 3
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle.
+# SupportedStyles: short, verbose
+Style/PreferredHashMethods:
+  Exclude:
+    - 'app/controllers/search_for_controller.rb'
+    - 'lib/tasks/update_api.rake'
+
+# Offense count: 1
+# Cop supports --auto-correct.
+Style/RedundantBegin:
+  Exclude:
+    - 'bin/yarn'
+
+# Offense count: 2
+# Cop supports --auto-correct.
+# Configuration parameters: AllowMultipleReturnValues.
+Style/RedundantReturn:
+  Exclude:
+    - 'app/models/book.rb'
+    - 'app/models/review.rb'
+
+# Offense count: 3
+# Cop supports --auto-correct.
+Style/RedundantSelf:
+  Exclude:
+    - 'app/models/user.rb'
+
+# Offense count: 3
+# Cop supports --auto-correct.
+# Configuration parameters: ConvertCodeThatCanStartToReturnNil, Whitelist.
+# Whitelist: present?, blank?, presence, try
+Style/SafeNavigation:
+  Exclude:
+    - 'app/controllers/search_for_controller.rb'
+    - 'app/controllers/sessions_controller.rb'
+    - 'lib/tasks/update_api.rake'
+
+# Offense count: 2
+# Cop supports --auto-correct.
+Style/StderrPuts:
+  Exclude:
+    - 'bin/yarn'
+
+# Offense count: 408
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle, ConsistentQuotesInMultiline.
+# SupportedStyles: single_quotes, double_quotes
+Style/StringLiterals:
+  Enabled: false
+
+# Offense count: 1
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle.
+# SupportedStyles: single_quotes, double_quotes
+Style/StringLiteralsInInterpolation:
+  Exclude:
+    - 'bin/yarn'
+
+# Offense count: 7
+# Cop supports --auto-correct.
+# Configuration parameters: .
+# SupportedStyles: percent, brackets
+Style/SymbolArray:
+  EnforcedStyle: percent
+  MinSize: 6
+
+# Offense count: 1
+# Cop supports --auto-correct.
+# Configuration parameters: IgnoredMethods.
+# IgnoredMethods: respond_to, define_method
+Style/SymbolProc:
+  Exclude:
+    - 'spec/status_spec.rb'
+
+# Offense count: 2
+# Cop supports --auto-correct.
+# Configuration parameters: WordRegex.
+# SupportedStyles: percent, brackets
+Style/WordArray:
+  EnforcedStyle: percent
+  MinSize: 4
+
+# Offense count: 78
+# Configuration parameters: AllowHeredoc, AllowURI, URISchemes, IgnoreCopDirectives, IgnoredPatterns.
+# URISchemes: http, https
+Metrics/LineLength:
+  Max: 387

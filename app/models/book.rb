@@ -1,3 +1,7 @@
+# frozen_string_literal: true
+
+# Books are collections of real world book data
+# pulled from the google books API
 class Book < ApplicationRecord
   has_many :users, through: :reviews
   has_many :users, through: :reading_lists
