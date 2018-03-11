@@ -34,10 +34,12 @@ class BookTest < ActiveSupport::TestCase
   def test_book_needs_a_isbn_is_unique
     book = create(:book, isbn: '123456789')
     # book2 = build(:book)
-    book2 = Book.new(isbn: "123456789", title: "jayz", author: 'Thomas the Tank',
-        average_rating: '3',
-        book_cover: 'poster',
-        description: 'history')
+    book2 = Book.new(isbn: "123456789",
+                     title: "jayz",
+                     author: 'Thomas the Tank',
+                     average_rating: '3',
+                     book_cover:     'poster',
+                     description:    'history')
     refute book2.valid?
   end
 
