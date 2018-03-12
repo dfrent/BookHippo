@@ -22,6 +22,7 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
   def ensure_logged_in
     unless current_user
       flash[:alert] = "Please log in first."
