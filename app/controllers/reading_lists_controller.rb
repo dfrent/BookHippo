@@ -20,7 +20,7 @@ class ReadingListsController < ApplicationController
                                          user_id: params[:user_id],
                                          book_id: params[:book_id],
                                          read_status: params[:read_status]
-                                        )
+      )
     else
       @existing_list.read_status = params[:read_status]
       @existing_list.save
