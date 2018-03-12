@@ -2,7 +2,6 @@ class RatingsController < ApplicationController
 skip_before_action :verify_authenticity_token
 
   def create
-
     @book = Book.find_by_isbn(params[:book_id])
       @rating = Rating.new
 
@@ -22,7 +21,6 @@ skip_before_action :verify_authenticity_token
       if request.xhr?
       render json: @rating.stars
       end
-
   end
 
   def update
@@ -35,10 +33,8 @@ skip_before_action :verify_authenticity_token
   end
 
   def destroy
-
   end
 
   def show
-
   end
 end

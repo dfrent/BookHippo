@@ -11,7 +11,6 @@ class ReadingListsController < ApplicationController
   end
 
   def create
-
     @book = Book.find(params[:book_id])
     @existing_list = ReadingList.find_by(user_id: params[:user_id], book_id: params[:book_id])
 
