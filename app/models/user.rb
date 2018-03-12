@@ -29,7 +29,7 @@ class User < ApplicationRecord
                                     foreign_key: "recipient_id",
                                     dependent:   :destroy
 
-# ------------------------------------------------------- #
+  # ------------------------------------------------------- #
   # This is the model for one-on-one conversation
   has_many :messages
 
@@ -42,7 +42,7 @@ class User < ApplicationRecord
 
   # This is the ownership association of users to book clubs
   has_many :owned_clubs, class_name: "BookClub"
-# ------------------------------------------------------- #
+  # ------------------------------------------------------- #
 
   validates :username, :email, :password, :password_confirmation, presence: true
   validates :username, :email, uniqueness: true

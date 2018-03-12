@@ -2,7 +2,7 @@ require 'test_helper'
 
 class ReadingListTest < ActiveSupport::TestCase
 
-# Validation Testing
+  # Validation Testing
   def test_reading_list
     reading_list = build(:reading_list)
     reading_list.save

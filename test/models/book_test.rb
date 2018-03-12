@@ -5,7 +5,7 @@ class BookTest < ActiveSupport::TestCase
   #   assert true
   # end
 
-# Validation Testing
+  # Validation Testing
   def test_book_needs_a_title
     book = build(:book, title: nil)
     book.save
@@ -30,7 +30,7 @@ class BookTest < ActiveSupport::TestCase
     refute book.persisted?
   end
 
-# Testing isbn uniqueness
+  # Testing isbn uniqueness
   def test_book_needs_a_isbn_is_unique
     book = create(:book, isbn: '123456789')
     # book2 = build(:book)

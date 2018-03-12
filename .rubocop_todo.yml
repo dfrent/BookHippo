@@ -1,13 +1,3 @@
-# Offense count: 9
-# Cop supports --auto-correct.
-Layout/CommentIndentation:
-  Exclude:
-    - 'app/models/user.rb'
-    - 'test/models/book_test.rb'
-    - 'test/models/genre_test.rb'
-    - 'test/models/rating_test.rb'
-    - 'test/models/reading_list_test.rb'
-
 # Offense count: 1
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyleAlignWith, AutoCorrect, Severity.

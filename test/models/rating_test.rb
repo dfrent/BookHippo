@@ -2,7 +2,7 @@ require 'test_helper'
 
 class RatingTest < ActiveSupport::TestCase
 
-# Validation Testing
+  # Validation Testing
   def test_rating_does_not_save_without_stars
     rating = build(:rating, stars: nil)
     rating.save

@@ -5,7 +5,7 @@ class GenreTest < ActiveSupport::TestCase
   #   assert true
   # end
 
-# Validation Testing
+  # Validation Testing
   def test_genre_does_not_save_without_name
     genre = build(:genre, name: nil)
     genre.save
