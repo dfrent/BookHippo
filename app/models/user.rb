@@ -49,10 +49,10 @@ class User < ApplicationRecord
   validates_length_of :password, :minimum => 8
   before_save :downcase_fields
   # validates :username, :format => { with: /(\w|\s)/ , :message => 'no special characters, only letters and numbers' }
-
   def downcase_fields
       self.username.downcase!
   end
+
   # Follows a user.
   def follow(other_user)
     following << other_user
