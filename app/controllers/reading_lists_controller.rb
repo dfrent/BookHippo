@@ -15,11 +15,9 @@ class ReadingListsController < ApplicationController
     @existing_list = ReadingList.find_by(user_id: params[:user_id], book_id: params[:book_id])
 
     if @existing_list.nil?
-      @reading_list = ReadingList.create(
-                                         user_id: params[:user_id],
+      @reading_list = ReadingList.create(user_id: params[:user_id],
                                          book_id: params[:book_id],
-                                         read_status: params[:read_status]
-      )
+                                         read_status: params[:read_status])
     else
       @existing_list.read_status = params[:read_status]
       @existing_list.save
