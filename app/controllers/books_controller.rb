@@ -29,7 +29,7 @@ class BooksController < ApplicationController
     end
 
     # Checks for presence of rating, and creates one for the user if it doesn't exist
-    #Ensures user is logged in to prevent error do not move lines
+    # Ensures user is logged in to prevent error do not move lines
     if logged_in?
       @rating = @book.ratings.find_by(user_id: current_user.id)
 
