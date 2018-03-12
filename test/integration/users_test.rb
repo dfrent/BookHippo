@@ -95,6 +95,5 @@ class UsersTest < ActionDispatch::IntegrationTest
     #   put :update, :id => @post.id, :post => { }
     #   assert_redirected_to post_path(assigns(:post))
     # end
-
   end
 end

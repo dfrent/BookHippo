@@ -4,5 +4,4 @@ FactoryBot.define do
     user
     book
   end
-
 end

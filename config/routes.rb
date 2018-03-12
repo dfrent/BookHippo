@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   # Serve websocket cable requests in-process
   mount ActionCable.server => '/cable'
 
@@ -36,6 +35,4 @@ Rails.application.routes.draw do
     post "book_club_invitees" => "subscriptions#creation"
   end
   resources :chats
-
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

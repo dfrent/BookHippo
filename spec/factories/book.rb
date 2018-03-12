@@ -8,7 +8,6 @@ FactoryBot.define do
     description 'history'
     genre
   end
-
 end
 
 #   factory :random_book do
