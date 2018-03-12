@@ -91,7 +91,7 @@ class User < ApplicationRecord
 
   def self.users_to_follow(num_of_users, current_user)
     users_array = []
-    self.all.reject{|user| user == current_user}.each do |user|
+    self.all.reject { |user| user == current_user }.each do |user|
       users_array << user
     end
     users_array.sample(num_of_users)
