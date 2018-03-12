@@ -52,7 +52,7 @@ class User < ApplicationRecord
 
   def downcase_fields
       self.username.downcase!
-   end
+  end
   # Follows a user.
   def follow(other_user)
     following << other_user
