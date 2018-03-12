@@ -100,5 +100,4 @@ class User < ApplicationRecord
   def self.find_user(search)
   where(" username LIKE ? ", "%#{search}%")
   end
-
 end

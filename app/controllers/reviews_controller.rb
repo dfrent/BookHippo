@@ -49,5 +49,4 @@ class ReviewsController < ApplicationController
     flash[:notice] = "You have successfully deleted your review"
     redirect_to books_url
   end
-
 end

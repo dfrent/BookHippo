@@ -14,5 +14,4 @@ class ReadingList < ApplicationRecord
   def finished_book?
     read_status == "finished_reading"
   end
-
 end

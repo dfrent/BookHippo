@@ -61,5 +61,4 @@ class Book < ApplicationRecord
       return book
     end
   end
-
 end

@@ -1,7 +1,7 @@
 class Message < ApplicationRecord
   belongs_to :conversation
   belongs_to :user
-  
+
   validates :body, presence: true
 
   def message_time
@@ -11,5 +11,4 @@ class Message < ApplicationRecord
   def self.read_message(message)
     message.read = true
   end
-
 end

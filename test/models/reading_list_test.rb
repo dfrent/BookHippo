@@ -1,7 +1,6 @@
 require 'test_helper'
 
 class ReadingListTest < ActiveSupport::TestCase
-
   # Validation Testing
   def test_reading_list
     reading_list = build(:reading_list)
@@ -78,5 +77,4 @@ class ReadingListTest < ActiveSupport::TestCase
 
     assert reading_list.persisted?
   end
-
 end
