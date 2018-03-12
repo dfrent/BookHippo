@@ -1,6 +1,6 @@
 class BookClubsController < ApplicationController
   before_action :can_user_access?, only: :show
-  before_action :is_user_owner?, only: :edit
+  before_action :user_owner?, only: :edit
 
   def index
     @book_clubs = BookClub.all
@@ -84,7 +84,7 @@ class BookClubsController < ApplicationController
     end
   end
 
-  def is_user_owner?
+  def user_owner?
     @book_club = BookClub.find(params[:id])
     @user = @book_club.user
     if current_user != @user

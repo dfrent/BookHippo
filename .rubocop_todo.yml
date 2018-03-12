@@ -71,11 +71,6 @@ Layout/TrailingWhitespace:
     - 'test/factories/chats.rb'
     - 'test/factories/subscriptions.rb'
 
-# Offense count: 1
-Lint/RescueException:
-  Exclude:
-    - 'lib/tasks/update_api.rake'
-
 # Offense count: 2
 Lint/UselessAssignment:
   Exclude:
@@ -91,34 +86,10 @@ Metrics/AbcSize:
 Metrics/BlockLength:
   Max: 111
 
-# Offense count: 1
-# Configuration parameters: CountBlocks.
-Metrics/BlockNesting:
-  Max: 4
-
-# Offense count: 1
-Metrics/CyclomaticComplexity:
-  Max: 9
-
 # Offense count: 12
 # Configuration parameters: CountComments.
 Metrics/MethodLength:
   Max: 36
-
-# Offense count: 1
-Metrics/PerceivedComplexity:
-  Max: 12
-
-# Offense count: 1
-# Configuration parameters: NamePrefix, NamePrefixBlacklist, NameWhitelist, MethodDefinitionMacros.
-# NamePrefix: is_, has_, have_
-# NamePrefixBlacklist: is_, has_, have_
-# NameWhitelist: is_a?
-# MethodDefinitionMacros: define_method, define_singleton_method
-Naming/PredicateName:
-  Exclude:
-    - 'spec/**/*'
-    - 'app/controllers/book_clubs_controller.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.
