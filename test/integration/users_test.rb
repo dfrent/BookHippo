@@ -84,11 +84,12 @@ class UsersTest < ActionDispatch::IntegrationTest
 
     patch "/users/#{user.id}", params:  {
       user:{
-      username: 'eric',
-      email: 'eric@bitmaker',
-      password: 'abcd12345',
-      password_confirmation: 'abcd12345'
-    }}
+        username: 'eric',
+        email: 'eric@bitmaker',
+        password: 'abcd12345',
+        password_confirmation: 'abcd12345'
+      }
+    }
 
     assert_equal('eric', user.reload.username)
     # test "should update post" do

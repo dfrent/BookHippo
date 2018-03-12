@@ -14,15 +14,15 @@ class UsersController < ApplicationController
     @reading_list_headers = ["Want to Read", "Currently Reading", "Finished Reading"]
     # Hashes for the naming of classes and selection of lists
     @reading_list_classes = {
-                           "Want to Read"      => "want_to_read",
-                           "Currently Reading" => "currently_reading",
-                           "Finished Reading"  => "finished_reading"
-                            }
+      "Want to Read"      => "want_to_read",
+      "Currently Reading" => "currently_reading",
+      "Finished Reading"  => "finished_reading"
+    }
     @user_reading_lists   = {
-                           "Want to Read"      => @want_to_reads,
-                           "Currently Reading" => @currently_readings,
-                           "Finished Reading"  => @finished_readings
-                            }
+      "Want to Read"      => @want_to_reads,
+      "Currently Reading" => @currently_readings,
+      "Finished Reading"  => @finished_readings
+    }
   end
 
   def new
