@@ -1,13 +1,5 @@
 # Offense count: 1
 # Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, IndentationWidth.
-# SupportedStyles: with_first_parameter, with_fixed_indentation
-Layout/AlignParameters:
-  Exclude:
-    - 'app/controllers/chats_controller.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
 Layout/ClosingParenthesisIndentation:
   Exclude:
     - 'app/controllers/reading_lists_controller.rb'
