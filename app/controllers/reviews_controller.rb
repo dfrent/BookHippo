@@ -38,8 +38,8 @@ class ReviewsController < ApplicationController
       flash[:success] = "your review was updated for #{@book.title}"
       redirect_to book_url(@book.isbn)
     else
-        flash.now[:alert] = "Sorry, there was a problem updating your review"
-        render "/books/show"
+      flash.now[:alert] = "Sorry, there was a problem updating your review"
+      render "/books/show"
     end
   end
 

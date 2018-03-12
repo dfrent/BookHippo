@@ -19,7 +19,7 @@ class RatingsController < ApplicationController
 
     Rails.logger.info(@rating.errors.inspect)
     if request.xhr?
-    render json: @rating.stars
+      render json: @rating.stars
     end
   end
 

@@ -50,7 +50,7 @@ class User < ApplicationRecord
   before_save :downcase_fields
   # validates :username, :format => { with: /(\w|\s)/ , :message => 'no special characters, only letters and numbers' }
   def downcase_fields
-      self.username.downcase!
+    self.username.downcase!
   end
 
   # Follows a user.
@@ -98,6 +98,6 @@ class User < ApplicationRecord
   end
 
   def self.find_user(search)
-  where(" username LIKE ? ", "%#{search}%")
+    where(" username LIKE ? ", "%#{search}%")
   end
 end

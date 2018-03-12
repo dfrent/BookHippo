@@ -1,15 +1,3 @@
-# Offense count: 8
-# Cop supports --auto-correct.
-# Configuration parameters: Width, IgnoredPatterns.
-Layout/IndentationWidth:
-  Exclude:
-    - 'app/controllers/conversations_controller.rb'
-    - 'app/controllers/ratings_controller.rb'
-    - 'app/controllers/reviews_controller.rb'
-    - 'app/models/user.rb'
-    - 'db/migrate/20180111001322_add_ny_times_list_to_books.rb'
-    - 'spec/models/book_spec.rb'
-
 # Offense count: 1
 # Cop supports --auto-correct.
 Layout/LeadingCommentSpace:
