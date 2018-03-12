@@ -6,7 +6,7 @@ class SearchForController < ApplicationController
       @user = User.find_user(params[:search].downcase)
       Rails.logger.info(@user.inspect)
 
-      goog_response = HTTParty.get("https://www.googleapis.com/books/v1/volumes?q=#{params[:search]}&key=#{ENV['GBOOKS_KEY']}") #
+      goog_response = HTTParty.get("https://www.googleapis.com/books/v1/volumes?q=#{params[:search]}&key=#{ENV['GBOOKS_KEY']}")
 
       @google_items = goog_response.parsed_response['items']
 
