@@ -53,7 +53,7 @@ namespace :update_api do
     genres.each do |genre|
       name = genre.name
       id = genre.id
-      response =  HTTParty.get("https://www.googleapis.com/books/v1/volumes?q=subject=#{name}&key=#{ENV['GBOOKS_KEY']}")
+      response = HTTParty.get("https://www.googleapis.com/books/v1/volumes?q=subject=#{name}&key=#{ENV['GBOOKS_KEY']}")
       items = response.parsed_response["items"]
 
       items.each do |item|
