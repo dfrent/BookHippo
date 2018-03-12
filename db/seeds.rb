@@ -10,7 +10,6 @@ Genre.destroy_all
 User.destroy_all
 BookClub.destroy_all
 
-
 Genre.create!(name: "classics")
 Genre.create!(name: "fantasy")
 Genre.create!(name: "mystery")
@@ -31,7 +30,6 @@ Genre.create!(name: "sports")
 Genre.create!(name: "travel")
 Genre.create!(name: "culture")
 Genre.create!(name: "misc")
-
 
 User.create!(username: "HungryHippo", email: "hungry@hippo.com", password: "abcd1234", password_confirmation: "abcd1234")
 User.create!(username: "Cordell", email: "cordell@bitmaker.co", password: "abcd1234", password_confirmation: "abcd1234")

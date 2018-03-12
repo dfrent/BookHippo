@@ -90,7 +90,6 @@ Rails.application.configure do
   config.web_socket_server_url = "wss://bookhippo.herokuapp.com/cable"
   config.action_cable.allowed_request_origins = ['https://bookhippo.herokuapp.com', 'http://bhippo.herokuapp.com']
 
-
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 end

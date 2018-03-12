@@ -45,7 +45,6 @@ class UsersTest < ActionDispatch::IntegrationTest
   #   assert_redirected_to genres_url
   # end
 
-
   # test "path when user data is not valid" do
   #   user_params = {
   #     user: {
@@ -91,8 +90,6 @@ class UsersTest < ActionDispatch::IntegrationTest
       password_confirmation: 'abcd12345'
     }}
 
-
-
     assert_equal('eric', user.reload.username)
     # test "should update post" do
     #   put :update, :id => @post.id, :post => { }
@@ -100,6 +97,4 @@ class UsersTest < ActionDispatch::IntegrationTest
     # end
 
   end
-
-
 end

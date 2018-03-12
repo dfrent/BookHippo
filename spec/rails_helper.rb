@@ -77,8 +77,6 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
 
-
-
   RSpec.describe "Signing in", js: true do
     # tests that actually execute JavaScript
   end

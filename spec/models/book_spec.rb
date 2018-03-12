@@ -30,9 +30,6 @@ RSpec.describe Book, :type => :model do
   it "is not valid without a published_date"
 end
 
-
-
-
 RSpec.describe Book, :type => :model do
    subject { described_class.new }
   # it "is valid with valid attributes" do

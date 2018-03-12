@@ -12,7 +12,6 @@ RSpec.describe StatusController, type: :controller do
   end
 end
 
-
 RSpec.describe ReadingListsController, type: :controller do
   describe "GET index" do
     it "User must be logged in to view index of reading controller" do
@@ -21,7 +20,6 @@ RSpec.describe ReadingListsController, type: :controller do
     end
   end
 end
-
 
 RSpec.describe Genre, :type => :model do
   context "with 2 or more comments" do
@@ -34,7 +32,6 @@ RSpec.describe Genre, :type => :model do
   end
 end
 
-
 # NY TIMES API's
 feature 'NY Times Top Books' do
   it 'queries FactoryGirl contributors on GitHub' do
@@ -44,7 +41,6 @@ feature 'NY Times Top Books' do
     expect(responserubyhash["status"]).to eq("OK")
   end
 end
-
 
 feature 'NY Times Top Travel' do
   it 'API Response Success' do

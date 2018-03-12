@@ -101,6 +101,4 @@ class User < ApplicationRecord
   where(" username LIKE ? ", "%#{search}%")
   end
 
-
-
 end
