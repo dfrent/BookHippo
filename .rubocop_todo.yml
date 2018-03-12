@@ -72,11 +72,6 @@ Layout/TrailingWhitespace:
     - 'test/factories/subscriptions.rb'
 
 # Offense count: 1
-Lint/Debugger:
-  Exclude:
-    - 'lib/tasks/update_api.rake'
-
-# Offense count: 1
 Lint/RescueException:
   Exclude:
     - 'lib/tasks/update_api.rake'

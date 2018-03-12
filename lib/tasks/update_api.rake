@@ -41,8 +41,6 @@ namespace :update_api do
         puts @book.title + ' found or created.'
       end
     end
-  rescue Exception => e
-    binding.pry
   end
 
   desc 'Update Google API for recommendations'
