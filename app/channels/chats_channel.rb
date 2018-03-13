@@ -2,7 +2,7 @@ class ChatsChannel < ApplicationCable::Channel
   def subscribed
     # binding.pry
     # stream_from 'chats'
-    transmit({do:'identify'})
+    transmit({do: 'identify'})
   end
 
   def receive(data)
@@ -12,7 +12,7 @@ class ChatsChannel < ApplicationCable::Channel
     when "msg"
       msg(data)
     else
-      transmit({msg:"I don't understand", action: data["do"]})
+      transmit({msg: "I don't understand", action: data["do"]})
     end
   end
 

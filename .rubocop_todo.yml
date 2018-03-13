@@ -1,11 +1,3 @@
-# Offense count: 4
-# Cop supports --auto-correct.
-Layout/SpaceAfterColon:
-  Exclude:
-    - 'app/channels/chats_channel.rb'
-    - 'app/models/reading_list.rb'
-    - 'test/integration/users_test.rb'
-
 # Offense count: 3
 # Cop supports --auto-correct.
 Layout/SpaceAfterComma:

@@ -83,7 +83,7 @@ class UsersTest < ActionDispatch::IntegrationTest
     }
 
     patch "/users/#{user.id}", params:  {
-      user:{
+      user: {
         username: 'eric',
         email: 'eric@bitmaker',
         password: 'abcd12345',
