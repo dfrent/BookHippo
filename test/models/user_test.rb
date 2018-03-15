@@ -113,7 +113,7 @@ class UserTest < ActiveSupport::TestCase
 
   def test_users_to_follow_does_not_include_current_user
     user = build(:user)
-    user2 = build(:user, username: "kyle", email: "kyle@bitmaker.com")
+    user2 = build(:user, username: "kyle", email: "kyle@bitmaker.com") # rubocop:disable Lint/UselessAssignment
 
     user_array = User.users_to_follow(2, user)
 

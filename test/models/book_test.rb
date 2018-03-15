@@ -1,10 +1,6 @@
 require 'test_helper'
 
 class BookTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
-
   # Validation Testing
   def test_book_needs_a_title
     book = build(:book, title: nil)
@@ -32,7 +28,7 @@ class BookTest < ActiveSupport::TestCase
 
   # Testing isbn uniqueness
   def test_book_needs_a_isbn_is_unique
-    book = create(:book, isbn: '123456789')
+    book = create(:book, isbn: '123456789') # rubocop:disable Lint/UselessAssignment
     # book2 = build(:book)
     book2 = Book.new(isbn: "123456789",
                      title: "jayz",

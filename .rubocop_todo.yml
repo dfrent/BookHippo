@@ -1,9 +1,3 @@
-# Offense count: 2
-Lint/UselessAssignment:
-  Exclude:
-    - 'test/models/book_test.rb'
-    - 'test/models/user_test.rb'
-
 # Offense count: 14
 Metrics/AbcSize:
   Max: 43
