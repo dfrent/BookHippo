@@ -16,11 +16,11 @@ class ReviewsController < ApplicationController
 
     if @review.save
       respond_to do |format|
-        format.html {redirect_to book_path(@book[:isbn])}
-        format.json {render json: @review}
+        format.html { redirect_to book_path(@book[:isbn]) }
+        format.json { render json: @review }
       end
     else
-      render json: {:errors => @review.errors}
+      render json: { :errors => @review.errors }
     end
   end
 

@@ -35,7 +35,7 @@ class ReadingListsController < ApplicationController
       end
       render partial: "reviews/reviews_form", locals: {book: @book, review: Review.new, rating: @rating}
     else
-      format.html {redirect_to book_path(@book[:isbn])}
+      format.html { redirect_to book_path(@book[:isbn]) }
     end
   end
 
