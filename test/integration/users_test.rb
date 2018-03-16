@@ -5,7 +5,7 @@ class UsersTest < ActionDispatch::IntegrationTest
   #   assert true
   # end
 
-  test "user show page" do
+  test 'user show page' do
     logged_in_user = create(:user)
     post sessions_url, params: {
       email: logged_in_user.email,
@@ -16,10 +16,10 @@ class UsersTest < ActionDispatch::IntegrationTest
     user.follow(logged_in_user)
     get "/users/#{user.id}"
 
-    assert_select "h3", "#{user.username.capitalize}'s Profile"
+    assert_select 'h3', "#{user.username.capitalize}'s Profile"
 
-    assert_select ".following", "1"
-    assert_select ".followers", "0"
+    assert_select '.following', '1'
+    assert_select '.followers', '0'
   end
 
   # test "user is created"  do
@@ -71,11 +71,11 @@ class UsersTest < ActionDispatch::IntegrationTest
 
     # assert_select '#user_username', "#{user.username}"
     assert_select '#user_username' do
-      assert_select "[value=?]", user.username
+      assert_select '[value=?]', user.username
     end
   end
 
-  test "user can update their information and save to the changes" do
+  test 'user can update their information and save to the changes' do
     user = create(:user)
     post sessions_url, params: {
       email: user.email,

@@ -5,7 +5,7 @@ require File.dirname(__FILE__) + '/../../config/environment'
 namespace :update_api do
   desc 'Update NY Times API'
   task :ny_times do
-    puts "Updating NY Times List book data..."
+    puts 'Updating NY Times List book data...'
     @response = HTTParty.get("https://api.nytimes.com/svc/books/v3/lists.json?api-key=#{ENV['NYTIMES_KEY']}&list=mass-market-paperback")
     @response_travel = HTTParty.get("https://api.nytimes.com/svc/books/v3/lists.json?api-key=#{ENV['NYTIMES_KEY']}&list=travel")
     @response_science = HTTParty.get("https://api.nytimes.com/svc/books/v3/lists.json?api-key=#{ENV['NYTIMES_KEY']}&list=science")
@@ -45,23 +45,23 @@ namespace :update_api do
 
   desc 'Update Google API for recommendations'
   task :google_rec do
-    puts "Updating genre recommendations from Google Books API"
+    puts 'Updating genre recommendations from Google Books API'
     genres = Genre.all
 
     genres.each do |genre|
       name = genre.name
       id = genre.id
       response = HTTParty.get("https://www.googleapis.com/books/v1/volumes?q=subject=#{name}&key=#{ENV['GBOOKS_KEY']}")
-      items = response.parsed_response["items"]
+      items = response.parsed_response['items']
 
       items.each do |item|
-        identifiers = item["volumeInfo"]["industryIdentifiers"]
+        identifiers = item['volumeInfo']['industryIdentifiers']
         isbn = nil
 
         if identifiers
           identifiers.each do |identifier|
-            if identifier.has_value?("ISBN_10")
-              isbn = identifier["identifier"]
+            if identifier.has_value?('ISBN_10')
+              isbn = identifier['identifier']
             end
           end
         end
@@ -72,13 +72,22 @@ namespace :update_api do
           if Book.exists?(isbn)
             next
           else
-            info = item["volumeInfo"]
-            authors = info["authors"]
+            info = item['volumeInfo']
+            authors = info['authors']
             if authors
-              authors_string = authors.join(", ")
+              authors_string = authors.join(', ')
             end
-            # google_id = response.parsed_response["items"][item]["id"]
-            book = Book.create(isbn: isbn, title: info["title"], author: authors_string, description: info["description"], book_cover: info["imageLinks"]["thumbnail"], small_thumbnail: info["imageLinks"]["smallThumbnail"], genre_id: id, page_count: info["pageCount"], average_rating: info["averageRating"], published_date: info["publishedDate"], publisher: info["publisher"])
+            # google_id = response.parsed_response['items'][item]['id']
+            book = Book.create(isbn: isbn,
+                               title: info['title'],
+                               author: authors_string,
+                               description: info['description'],
+                               book_cover: info['imageLinks']['thumbnail'],
+                               small_thumbnail: info['imageLinks']['smallThumbnail'],
+                               genre_id: id, page_count: info['pageCount'],
+                               average_rating: info['averageRating'],
+                               published_date: info['publishedDate'],
+                               publisher: info['publisher'])
             puts book.title + ' created.'
           end
         end

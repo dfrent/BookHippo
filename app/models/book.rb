@@ -22,25 +22,25 @@ class Book < ApplicationRecord
 
   def self.api_call(isbn)
     book_response = HTTParty.get("https://www.googleapis.com/books/v1/volumes?q=isbn=#{isbn}&key=#{ENV['GBOOKS_KEY']}")
-    book = book_response.parsed_response["items"][0]
+    book = book_response.parsed_response['items'][0]
     return book if book_response
   end
 
   def self.new_book_data(isbn)
     book = Book.api_call(isbn)
-    book_volume_info = book["volumeInfo"]
-    authors = book["authors"] if book
-    authors_string = authors.join(", ") if authors
-    google_id = book["id"]
+    book_volume_info = book['volumeInfo']
+    authors = book['authors'] if book
+    authors_string = authors.join(', ') if authors
+    google_id = book['id']
     book_data = { title: book_volume_info['title'],
                   author: authors_string,
                   description: book_volume_info['description'],
                   genre_id: 20,
                   google_id: google_id,
-                  page_count: book_volume_info["pageCount"],
-                  average_rating: book_volume_info["averageRating"],
-                  published_date: book_volume_info["publishedDate"],
-                  publisher: book_volume_info["publisher"] }
+                  page_count: book_volume_info['pageCount'],
+                  average_rating: book_volume_info['averageRating'],
+                  published_date: book_volume_info['publishedDate'],
+                  publisher: book_volume_info['publisher'] }
     return book_data
   end
 
@@ -50,7 +50,7 @@ class Book < ApplicationRecord
     book = Book.new_book_data(isbn) if book.nil?
     return book if !book.nil?
     if book.nil?
-      return "Book not found"
+      return 'Book not found'
     end
   end
 

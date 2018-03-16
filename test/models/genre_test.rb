@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class GenreTest < ActiveSupport::TestCase
-  # test "the truth" do
+  # test 'the truth' do
   #   assert true
   # end
 
@@ -22,7 +22,7 @@ class GenreTest < ActiveSupport::TestCase
     genre = build(:genre)
     genre.save
 
-    genre2 = build(:genre, name: "horror")
+    genre2 = build(:genre, name: 'horror')
     genre2.save
 
     assert genre2.persisted?
@@ -32,7 +32,7 @@ class GenreTest < ActiveSupport::TestCase
     genre = build(:genre)
     genre.save
 
-    genre2 = build(:genre, name: "drama")
+    genre2 = build(:genre, name: 'drama')
     genre2.save
 
     refute genre2.persisted?

@@ -30,8 +30,8 @@ class BookTest < ActiveSupport::TestCase
   def test_book_needs_a_isbn_is_unique
     book = create(:book, isbn: '123456789') # rubocop:disable Lint/UselessAssignment
     # book2 = build(:book)
-    book2 = Book.new(isbn: "123456789",
-                     title: "jayz",
+    book2 = Book.new(isbn: '123456789',
+                     title: 'jayz',
                      author: 'Thomas the Tank',
                      average_rating: '3',
                      book_cover:     'poster',
@@ -45,26 +45,26 @@ class BookTest < ActiveSupport::TestCase
   end
 
   def test_book_has_a_title
-    book = Book.create(title: "Cat in the Hat")
-    assert_equal("Cat in the Hat", book.title)
+    book = Book.create(title: 'Cat in the Hat')
+    assert_equal('Cat in the Hat', book.title)
   end
 
   def test_book_can_update_title
-    book = Book.create(title: "Cat in the Hat")
-    book.title = "Sherlock Holmes"
+    book = Book.create(title: 'Cat in the Hat')
+    book.title = 'Sherlock Holmes'
     book.save
-    assert_equal("Sherlock Holmes", book.title)
+    assert_equal('Sherlock Holmes', book.title)
   end
 
   def test_book_can_be_destroyed
-    book = Book.create(title: "The Shining")
+    book = Book.create(title: 'The Shining')
     book.destroy
     refute book.persisted?
   end
 
   def test_find_or_api_call_returns_book_with_correct_isbn
-    book = Book.find_or_api_call("0826215491")
-    expected = "0826215491"
+    book = Book.find_or_api_call('0826215491')
+    expected = '0826215491'
     actual = book.isbn
 
     assert_equal(actual, expected)
@@ -79,7 +79,7 @@ class BookTest < ActiveSupport::TestCase
   end
 
   def test_book_exists_returns_false_if_book_does_not_exist
-    book_presence = Book.exists?("123456789")
+    book_presence = Book.exists?('123456789')
 
     refute book_presence
   end

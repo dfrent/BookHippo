@@ -25,12 +25,12 @@ class ApplicationController < ActionController::Base
 
   def ensure_logged_in
     unless current_user
-      flash[:alert] = "Please log in first."
+      flash[:alert] = 'Please log in first.'
       redirect_to login_url
     end
   end
 
   def set_time_zone
-    Time.use_zone("EST") { yield }
+    Time.use_zone('EST') { yield }
   end
 end

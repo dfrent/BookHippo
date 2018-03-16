@@ -18,14 +18,14 @@ class SearchForController < ApplicationController
             next
           end
 
-          identifiers = result["volumeInfo"]["industryIdentifiers"]
+          identifiers = result['volumeInfo']['industryIdentifiers']
           isbn = nil
 
           if identifiers
             identifiers.each do |identifier|
-              if identifier.has_value?("ISBN_10")
-                isbn = identifier["identifier"]
-              elsif identifier.has_value?("OTHER")
+              if identifier.has_value?('ISBN_10')
+                isbn = identifier['identifier']
+              elsif identifier.has_value?('OTHER')
                 isbn = nil
               end
             end
@@ -35,7 +35,7 @@ class SearchForController < ApplicationController
 
           authors = result['volumeInfo']['authors']
           if authors
-            authors_string = authors.join(", ")
+            authors_string = authors.join(', ')
           end
 
           @books << { title: result['volumeInfo']['title'], author: authors_string, description: result['volumeInfo']['description'], isbn: isbn, book_image: book_img }

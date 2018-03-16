@@ -15,13 +15,13 @@ class RatingTest < ActiveSupport::TestCase
   end
 
   def test_rating_does_not_save_when_star_is_not_integer
-    rating = build(:rating, stars: "hey")
+    rating = build(:rating, stars: 'hey')
     rating.save
     refute rating.persisted?
   end
 
   def test_rating_saves_when_star_is_integer
-    rating = build(:rating, stars: "3")
+    rating = build(:rating, stars: '3')
     rating.save
     assert rating.persisted?
   end

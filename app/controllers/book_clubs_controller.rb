@@ -88,7 +88,7 @@ class BookClubsController < ApplicationController
     @book_club = BookClub.find(params[:id])
     @user = @book_club.user
     if current_user != @user
-      flash[:alert] = "Sorry, book club admin only."
+      flash[:alert] = 'Sorry, book club admin only.'
       redirect_to book_clubs_url
     end
   end
