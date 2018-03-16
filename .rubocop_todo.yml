@@ -269,3 +269,7 @@ Style/WordArray:
 # URISchemes: http, https
 Metrics/LineLength:
   Max: 387
+
+# Offense count: 14
+Metrics/AbcSize:
+  Max: 43
