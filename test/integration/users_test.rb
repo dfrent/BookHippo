@@ -5,7 +5,7 @@ class UsersTest < ActionDispatch::IntegrationTest
   #   assert true
   # end
 
-  test "user show page" do
+  test 'user show page' do
     logged_in_user = create(:user)
     post sessions_url, params: {
       email: logged_in_user.email,
@@ -16,10 +16,10 @@ class UsersTest < ActionDispatch::IntegrationTest
     user.follow(logged_in_user)
     get "/users/#{user.id}"
 
-    assert_select "h3", "#{user.username.capitalize}'s Profile"
+    assert_select 'h3', "#{user.username.capitalize}'s Profile"
 
-    assert_select ".following", "1"
-    assert_select ".followers", "0"
+    assert_select '.following', '1'
+    assert_select '.followers', '0'
   end
 
   # test "user is created"  do
@@ -44,7 +44,6 @@ class UsersTest < ActionDispatch::IntegrationTest
   #
   #   assert_redirected_to genres_url
   # end
-
 
   # test "path when user data is not valid" do
   #   user_params = {
@@ -72,11 +71,11 @@ class UsersTest < ActionDispatch::IntegrationTest
 
     # assert_select '#user_username', "#{user.username}"
     assert_select '#user_username' do
-      assert_select "[value=?]", user.username
+      assert_select '[value=?]', user.username
     end
   end
 
-  test "user can update their information and save to the changes" do
+  test 'user can update their information and save to the changes' do
     user = create(:user)
     post sessions_url, params: {
       email: user.email,
@@ -84,22 +83,18 @@ class UsersTest < ActionDispatch::IntegrationTest
     }
 
     patch "/users/#{user.id}", params:  {
-      user:{
-      username: 'eric',
-      email: 'eric@bitmaker',
-      password: 'abcd12345',
-      password_confirmation: 'abcd12345'
-    }}
-
-
+      user: {
+        username: 'eric',
+        email: 'eric@bitmaker',
+        password: 'abcd12345',
+        password_confirmation: 'abcd12345'
+      }
+    }
 
     assert_equal('eric', user.reload.username)
     # test "should update post" do
     #   put :update, :id => @post.id, :post => { }
     #   assert_redirected_to post_path(assigns(:post))
     # end
-
   end
-
-
 end

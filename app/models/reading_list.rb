@@ -4,7 +4,7 @@ class ReadingList < ApplicationRecord
   belongs_to :user
   belongs_to :book
 
-  validates :read_status, inclusion:{in:  ["want_to_read", "currently_reading", "finished_reading"]}
+  validates :read_status, inclusion: { in: ['want_to_read', 'currently_reading', 'finished_reading'] }
   validates :read_status, presence: true
 
   def done_reading
@@ -12,7 +12,6 @@ class ReadingList < ApplicationRecord
   end
 
   def finished_book?
-    read_status == "finished_reading"
+    read_status == 'finished_reading'
   end
-
 end

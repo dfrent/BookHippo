@@ -1,13 +1,13 @@
 class BooksController < ApplicationController
   def index
-    @books_top        = Book.where("ny_times_list = ?", "Mass Market Paperback")
-    @books_travel     = Book.where("ny_times_list = ?", "Travel")
-    @books_science    = Book.where("ny_times_list = ?", "Science")
-    @books_business   = Book.where("ny_times_list = ?", "Business Books")
-    @books_animals    = Book.where("ny_times_list = ?", "Animals")
-    @books_education  = Book.where("ny_times_list = ?", "Education")
-    @books_nonfiction = Book.where("ny_times_list = ?", "Hardcover Nonfiction")
-    @books = {"Top Selling" => @books_top, "Nonfiction" => @books_nonfiction, "Travel" =>  @books_travel, "Science" => @books_science, "Business" => @books_business, "Animals" => @books_animals, "Education" => @books_education }
+    @books_top        = Book.where('ny_times_list = ?', 'Mass Market Paperback')
+    @books_travel     = Book.where('ny_times_list = ?', 'Travel')
+    @books_science    = Book.where('ny_times_list = ?', 'Science')
+    @books_business   = Book.where('ny_times_list = ?', 'Business Books')
+    @books_animals    = Book.where('ny_times_list = ?', 'Animals')
+    @books_education  = Book.where('ny_times_list = ?', 'Education')
+    @books_nonfiction = Book.where('ny_times_list = ?', 'Hardcover Nonfiction')
+    @books = { 'Top Selling' => @books_top, 'Nonfiction' => @books_nonfiction, 'Travel' => @books_travel, 'Science' => @books_science, 'Business' => @books_business, 'Animals' => @books_animals, 'Education' => @books_education }
   end
 
   def show
@@ -29,7 +29,7 @@ class BooksController < ApplicationController
     end
 
     # Checks for presence of rating, and creates one for the user if it doesn't exist
-    #Ensures user is logged in to prevent error do not move lines
+    # Ensures user is logged in to prevent error do not move lines
     if logged_in?
       @rating = @book.ratings.find_by(user_id: current_user.id)
 

@@ -7,22 +7,22 @@ class UsersController < ApplicationController
   def show
     @user                 = User.find(params[:id])
     # 3 variables to store the separate types of user reading lists
-    @want_to_reads        = @user.reading_lists.where(read_status: "want_to_read")
-    @currently_readings   = @user.reading_lists.where(read_status: "currently_reading")
-    @finished_readings    = @user.reading_lists.where(read_status: "finished_reading")
+    @want_to_reads        = @user.reading_lists.where(read_status: 'want_to_read')
+    @currently_readings   = @user.reading_lists.where(read_status: 'currently_reading')
+    @finished_readings    = @user.reading_lists.where(read_status: 'finished_reading')
     # Array of headers, for use in styling, class naming, and list selection
-    @reading_list_headers = ["Want to Read", "Currently Reading", "Finished Reading"]
+    @reading_list_headers = ['Want to Read', 'Currently Reading', 'Finished Reading']
     # Hashes for the naming of classes and selection of lists
     @reading_list_classes = {
-                           "Want to Read"      => "want_to_read",
-                           "Currently Reading" => "currently_reading",
-                           "Finished Reading"  => "finished_reading"
-                            }
+      'Want to Read'      => 'want_to_read',
+      'Currently Reading' => 'currently_reading',
+      'Finished Reading'  => 'finished_reading'
+    }
     @user_reading_lists   = {
-                           "Want to Read"      => @want_to_reads,
-                           "Currently Reading" => @currently_readings,
-                           "Finished Reading"  => @finished_readings
-                            }
+      'Want to Read'      => @want_to_reads,
+      'Currently Reading' => @currently_readings,
+      'Finished Reading'  => @finished_readings
+    }
   end
 
   def new
@@ -70,7 +70,6 @@ class UsersController < ApplicationController
     @user.password = params[:user][:password]
     @user.password_confirmation = params[:user][:password_confirmation]
 
-
     if @user.save
 
       # # Auto-login on succesful signup
@@ -86,7 +85,7 @@ class UsersController < ApplicationController
     @user = current_user
     @user.destroy
     session[:user_id] = nil
-    flash[:notice] = "You have successfully deleted your account"
+    flash[:notice] = 'You have successfully deleted your account'
     redirect_to books_url
   end
 

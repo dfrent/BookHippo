@@ -11,45 +11,31 @@ class ReadingListsController < ApplicationController
   end
 
   def create
-
     @book = Book.find(params[:book_id])
     @existing_list = ReadingList.find_by(user_id: params[:user_id], book_id: params[:book_id])
 
     if @existing_list.nil?
-      @reading_list = ReadingList.create(
-                                         user_id: params[:user_id],
+      @reading_list = ReadingList.create(user_id: params[:user_id],
                                          book_id: params[:book_id],
-                                         read_status: params[:read_status]
-                                        )
+                                         read_status: params[:read_status])
     else
       @existing_list.read_status = params[:read_status]
       @existing_list.save
     end
-      if request.xhr?
+    if request.xhr?
 
-        @reviews = Review.where(book_id: params[:book_id])
+      @reviews = Review.where(book_id: params[:book_id])
 
-        @rating = Rating.where(book_id: params[:book_id], user_id: current_user)
-        puts "...........................................#{@rating.inspect}"
+      @rating = Rating.where(book_id: params[:book_id], user_id: current_user)
+      puts "...........................................#{@rating.inspect}"
 
       if @rating == nil
         @rating = Rating.new
         @rating.stars = 0
       end
-        render partial: "reviews/reviews_form", locals: {book: @book, review: Review.new, rating: @rating}
-      # else
-      #   @rating = Rating.new
-      #   @rating.stars = 0
-      #   Rails.logger.info(@rating.errors.inspect)
-      #   render partial: "reviews/reviews_form", locals: {book: @book, review: Review.new, rating: @rating}
-      # end
-
-      # respond_to do |format|
-      #   format.html {render partial: "reviews/reviews_form", locals: {book: @book, review: Review.new} }
-      #   format.js
-      # end
+      render partial: 'reviews/reviews_form', locals: { book: @book, review: Review.new, rating: @rating }
     else
-      format.html {redirect_to book_path(@book[:isbn])}
+      format.html { redirect_to book_path(@book[:isbn]) }
     end
   end
 

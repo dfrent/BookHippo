@@ -3,10 +3,10 @@ require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 # Prevent database truncation if the environment is production
-abort("The Rails environment is running in production mode!") if Rails.env.production?
+abort('The Rails environment is running in production mode!') if Rails.env.production?
 require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
-require "capybara/rspec"
+require 'capybara/rspec'
 require 'support/factory_bot'
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
@@ -28,7 +28,6 @@ require 'support/factory_bot'
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
-
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
@@ -77,9 +76,7 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
 
-
-
-  RSpec.describe "Signing in", js: true do
+  RSpec.describe 'Signing in', js: true do
     # tests that actually execute JavaScript
   end
 
@@ -87,5 +84,4 @@ RSpec.configure do |config|
     Capybara::Selenium::Driver.new(app, browser: :chrome)
   end
   Capybara.javascript_driver = :selenium_chrome
-
 end

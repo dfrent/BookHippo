@@ -16,11 +16,11 @@ class ReviewsController < ApplicationController
 
     if @review.save
       respond_to do |format|
-        format.html {redirect_to book_path(@book[:isbn])}
-        format.json {render json: @review}
+        format.html { redirect_to book_path(@book[:isbn]) }
+        format.json { render json: @review }
       end
     else
-      render json: {:errors => @review.errors}
+      render json: { :errors => @review.errors }
     end
   end
 
@@ -38,16 +38,15 @@ class ReviewsController < ApplicationController
       flash[:success] = "your review was updated for #{@book.title}"
       redirect_to book_url(@book.isbn)
     else
-        flash.now[:alert] = "Sorry, there was a problem updating your review"
-        render "/books/show"
+      flash.now[:alert] = 'Sorry, there was a problem updating your review'
+      render '/books/show'
     end
   end
 
   def destroy
     @review = Review.find(params[:id])
     @review.destroy
-    flash[:notice] = "You have successfully deleted your review"
+    flash[:notice] = 'You have successfully deleted your review'
     redirect_to books_url
   end
-
 end

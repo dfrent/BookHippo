@@ -8,7 +8,6 @@ class CreateBooks < ActiveRecord::Migration[5.1]
       t.integer :number_of_pages
       t.string :book_cover
 
-
       t.timestamps
     end
   end

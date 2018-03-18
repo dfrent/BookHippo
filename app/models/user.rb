@@ -5,12 +5,12 @@ class User < ApplicationRecord
   has_many :books, through: :genres
   has_many :books, through: :reading_lists
 
-  has_many :active_relationships, class_name:  "Relationship",
-                                  foreign_key: "follower_id",
+  has_many :active_relationships, class_name:  'Relationship',
+                                  foreign_key: 'follower_id',
                                   dependent:   :destroy
 
-  has_many :passive_relationships, class_name:  "Relationship",
-                                   foreign_key: "followed_id",
+  has_many :passive_relationships, class_name:  'Relationship',
+                                   foreign_key: 'followed_id',
                                    dependent:   :destroy
 
   has_many :following, through: :active_relationships, source: :followed
@@ -21,15 +21,15 @@ class User < ApplicationRecord
   has_many :reading_lists
   has_many :ratings
 
-  has_many :sent_conversations, class_name:  "Conversation",
-                                foreign_key: "sender_id",
+  has_many :sent_conversations, class_name:  'Conversation',
+                                foreign_key: 'sender_id',
                                 dependent:   :destroy
 
-  has_many :received_conversations, class_name:  "Conversation",
-                                    foreign_key: "recipient_id",
+  has_many :received_conversations, class_name:  'Conversation',
+                                    foreign_key: 'recipient_id',
                                     dependent:   :destroy
 
-# ------------------------------------------------------- #
+  # ------------------------------------------------------- #
   # This is the model for one-on-one conversation
   has_many :messages
 
@@ -41,18 +41,18 @@ class User < ApplicationRecord
   has_many :book_clubs, through: :subscriptions
 
   # This is the ownership association of users to book clubs
-  has_many :owned_clubs, class_name: "BookClub"
-# ------------------------------------------------------- #
+  has_many :owned_clubs, class_name: 'BookClub'
+  # ------------------------------------------------------- #
 
   validates :username, :email, :password, :password_confirmation, presence: true
   validates :username, :email, uniqueness: true
   validates_length_of :password, :minimum => 8
   before_save :downcase_fields
   # validates :username, :format => { with: /(\w|\s)/ , :message => 'no special characters, only letters and numbers' }
-
   def downcase_fields
-      self.username.downcase!
-   end
+    self.username.downcase!
+  end
+
   # Follows a user.
   def follow(other_user)
     following << other_user
@@ -91,16 +91,13 @@ class User < ApplicationRecord
 
   def self.users_to_follow(num_of_users, current_user)
     users_array = []
-    self.all.reject{|user| user == current_user}.each do |user|
+    self.all.reject { |user| user == current_user }.each do |user|
       users_array << user
     end
     users_array.sample(num_of_users)
   end
 
   def self.find_user(search)
-  where(" username LIKE ? ", "%#{search}%")
+    where(' username LIKE ? ', "%#{search}%")
   end
-
-
-
 end

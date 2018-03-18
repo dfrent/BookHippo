@@ -1,19 +1,22 @@
 class MessagesController < ApplicationController
   before_action do
     @conversation = Conversation.find(params[:conversation_id])
+    @messages     = @conversation.messages
   end
   skip_before_action :verify_authenticity_token
 
-  def index
-    @messages = @conversation.messages
+  def filled_message_page
     if @messages.length > 10
       @over_ten = true
       @messages = @messages[-10..-1]
     end
+    @messages
+  end
 
+  def index
+    filled_message_page
     if params[:m]
       @over_ten = false
-      @messages = @conversation.messages
     end
 
     if @messages.last

@@ -4,8 +4,8 @@ class ChatsController < ApplicationController
     @chat.user = current_user
     if @chat.save
       ActionCable.server.broadcast 'chats',
-        chat: @chat.body,
-        user: @chat.user.username
+                                   chat: @chat.body,
+                                   user: @chat.user.username
       head :ok
     end
   end
