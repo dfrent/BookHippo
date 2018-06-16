@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Load Rails
 # ENV['RAILS_ENV'] = ARGV[0] || 'production'
 require File.dirname(__FILE__) + '/../../config/environment'
@@ -58,15 +60,11 @@ namespace :update_api do
         identifiers = item['volumeInfo']['industryIdentifiers']
         isbn = nil
 
-        if identifiers
-          identifiers.each do |identifier|
-            if identifier.has_value?('ISBN_10')
-              isbn = identifier['identifier']
-            end
-          end
+        identifiers&.each do |identifier|
+          isbn = identifier['identifier'] if identifier.value?('ISBN_10')
         end
 
-        if isbn == nil
+        if isbn.nil?
           next
         else
           if Book.exists?(isbn)
@@ -74,9 +72,7 @@ namespace :update_api do
           else
             info = item['volumeInfo']
             authors = info['authors']
-            if authors
-              authors_string = authors.join(', ')
-            end
+            authors_string = authors.join(', ') if authors
             # google_id = response.parsed_response['items'][item]['id']
             book = Book.create(isbn: isbn,
                                title: info['title'],
