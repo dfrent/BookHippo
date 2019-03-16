@@ -4,53 +4,19 @@
 # ENV['RAILS_ENV'] = ARGV[0] || 'production'
 require File.dirname(__FILE__) + '/../../config/environment'
 
-def fetch_ny_times_list(list_name)
-  url = "https://api.nytimes.com/svc/books/v3/lists.json?api-key=#{ENV['NYTIMES_KEY']}&list=#{list_name}"
-  HTTParty.get(url)
-end
-
-def build_ny_times_list
-  categories = %w[mass-market-paperback travel science business-books animals education hardcover-nonfiction]
-  categories.each_with_object({}) do |category, response|
-    response[category.underscore.to_sym] = fetch_ny_times_list(category)
-  end
-end
-
 namespace :update_api do
-  desc 'Update NY Times API'
+  desc 'Update books pulled from NY TIMES API'
   task :ny_times do
-    puts 'Updating NY Times List book data...'
-    build_ny_times_list
-
-    @items = []
-    @items << @response.parsed_response['results']
-    @items << @response_travel.parsed_response['results']
-    @items << @response_science.parsed_response['results']
-    @items << @response_business.parsed_response['results']
-    @items << @response_animals.parsed_response['results']
-    @items << @response_education.parsed_response['results']
-    @items << @response_nonfiction.parsed_response['results']
-    puts 'Starting'
-
-    @items.each do |item|
-      @item = item
-      item.each do |result|
-        @result = result
-        @isbn = result['book_details'][0]['primary_isbn10']
-        @list = result['list_name']
-        if @isbn
-          @book = Book.find_or_api_call(@isbn)
-        else
-          next
-        end
-        @book.ny_times_list = @list
-        @book.save
-        puts @book.title + ' found or created.'
-      end
+    puts 'Updating...'
+    build_ny_times_list.each do |book_info|
+      isbn = book_info['book_details'][0]['primary_isbn10']
+      next unless isbn
+      Book.find_or_api_call(isbn).update_attribute(:ny_times_list, book_info['list_name'])
+      puts "#{book_info['book_details'][0]['title']} succesfully updated"
     end
   end
 
-  desc 'Update Google API for recommendations'
+  desc 'Update Google API for genre recommendations'
   task :google_rec do
     puts 'Updating genre recommendations from Google Books API'
     genres = Genre.all
@@ -93,6 +59,23 @@ namespace :update_api do
           end
         end
       end
+    end
+  end
+end
+
+private
+
+def fetch_ny_times_list(list_name)
+  url = "https://api.nytimes.com/svc/books/v3/lists.json?api-key=#{ENV['NYTIMES_KEY']}&list=#{list_name}"
+  HTTParty.get(url)
+end
+
+def build_ny_times_list
+  categories = %w[mass-market-paperback travel science business-books animals education hardcover-nonfiction]
+  categories.each_with_object([]) do |category, response|
+    results = fetch_ny_times_list(category).parsed_response['results']
+    results.each do |result|
+      response << result
     end
   end
 end

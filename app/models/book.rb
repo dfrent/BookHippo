@@ -47,7 +47,7 @@ class Book < ApplicationRecord
   def self.find_or_api_call(isbn)
     book = Book.book_selector(isbn)
     return book if !book.nil?
-    book = Book.new_book_data(isbn) if book.nil?
+    book = Book.create(Book.new_book_data(isbn)) if book.nil?
     return book if !book.nil?
     if book.nil?
       return 'Book not found'
