@@ -1,13 +1,10 @@
 inherit_from: .rubocop_todo.yml
 
 AllCops:
-  Include:
-    - Rakefile
-    - config.ru
-    - lib/**/*.rake
   Exclude:
     - db/schema.rb
     - Gemfile
+    - bin/*
 
 Metrics/BlockNesting:
   Max: 5
@@ -20,11 +17,3 @@ Metrics/CyclomaticComplexity:
 Metrics/PerceivedComplexity:
   Max: 12
   # default is 7
-Metrics/LineLength:
-  Max: 120
-
-Metrics/MethodLength:
-  Max: 14
-
-Metrics/AbcSize:
-  Max: 16
