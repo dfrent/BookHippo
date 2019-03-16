@@ -4,18 +4,23 @@
 # ENV['RAILS_ENV'] = ARGV[0] || 'production'
 require File.dirname(__FILE__) + '/../../config/environment'
 
+def fetch_ny_times_list(list_name)
+  url = "https://api.nytimes.com/svc/books/v3/lists.json?api-key=#{ENV['NYTIMES_KEY']}&list=#{list_name}"
+  HTTParty.get(url)
+end
+
+def build_ny_times_list
+  categories = %w[mass-market-paperback travel science business-books animals education hardcover-nonfiction]
+  categories.each_with_object({}) do |category, response|
+    response[category.underscore.to_sym] = fetch_ny_times_list(category)
+  end
+end
+
 namespace :update_api do
   desc 'Update NY Times API'
   task :ny_times do
     puts 'Updating NY Times List book data...'
-    @response = HTTParty.get("https://api.nytimes.com/svc/books/v3/lists.json?api-key=#{ENV['NYTIMES_KEY']}&list=mass-market-paperback")
-    @response_travel = HTTParty.get("https://api.nytimes.com/svc/books/v3/lists.json?api-key=#{ENV['NYTIMES_KEY']}&list=travel")
-    @response_science = HTTParty.get("https://api.nytimes.com/svc/books/v3/lists.json?api-key=#{ENV['NYTIMES_KEY']}&list=science")
-    @response_business = HTTParty.get("https://api.nytimes.com/svc/books/v3/lists.json?api-key=#{ENV['NYTIMES_KEY']}&list=business-books")
-    @response_animals = HTTParty.get("https://api.nytimes.com/svc/books/v3/lists.json?api-key=#{ENV['NYTIMES_KEY']}&list=animals")
-    sleep 1
-    @response_education = HTTParty.get("https://api.nytimes.com/svc/books/v3/lists.json?api-key=#{ENV['NYTIMES_KEY']}&list=education")
-    @response_nonfiction = HTTParty.get("https://api.nytimes.com/svc/books/v3/lists.json?api-key=#{ENV['NYTIMES_KEY']}&list=hardcover-nonfiction")
+    build_ny_times_list
 
     @items = []
     @items << @response.parsed_response['results']
