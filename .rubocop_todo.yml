@@ -1,1 +1,220 @@
+# Offense count: 10
+Metrics/AbcSize:
+  Max: 43
 
+# Offense count: 1
+# Configuration parameters: CountComments, ExcludedMethods.
+Metrics/BlockLength:
+  Max: 30
+
+# Offense count: 12
+# Configuration parameters: AllowHeredoc, AllowURI, URISchemes, IgnoreCopDirectives, IgnoredPatterns.
+# URISchemes: http, https
+Metrics/LineLength:
+  Max: 228
+
+# Offense count: 7
+# Configuration parameters: CountComments.
+Metrics/MethodLength:
+  Max: 36
+
+# Offense count: 3
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle.
+# SupportedStyles: braces, no_braces, context_dependent
+Style/BracesAroundHashParameters:
+  Exclude:
+    - 'app/channels/chats_channel.rb'
+
+# Offense count: 1
+# Cop supports --auto-correct.
+# Configuration parameters: AutoCorrect, EnforcedStyle.
+# SupportedStyles: nested, compact
+Style/ClassAndModuleChildren:
+  Exclude:
+    - 'test/test_helper.rb'
+
+# Offense count: 1
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle, SingleLineConditionsOnly, IncludeTernaryExpressions.
+# SupportedStyles: assign_to_condition, assign_inside_condition
+Style/ConditionalAssignment:
+  Exclude:
+    - 'app/controllers/conversations_controller.rb'
+
+# Offense count: 77
+Style/Documentation:
+  Enabled: false
+
+# Offense count: 14
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle.
+# SupportedStyles: compact, expanded
+Style/EmptyMethod:
+  Exclude:
+    - 'app/controllers/book_clubs_controller.rb'
+    - 'app/controllers/books_controller.rb'
+    - 'app/controllers/genres_controller.rb'
+    - 'app/controllers/ratings_controller.rb'
+    - 'app/controllers/reading_lists_controller.rb'
+    - 'app/controllers/sessions_controller.rb'
+    - 'app/controllers/users_controller.rb'
+
+# Offense count: 2
+# Cop supports --auto-correct.
+Style/ExpandPathArguments:
+  Exclude:
+    - 'spec/rails_helper.rb'
+    - 'test/test_helper.rb'
+
+# Offense count: 149
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle.
+# SupportedStyles: when_needed, always, never
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+# Offense count: 15
+# Configuration parameters: MinBodyLength.
+Style/GuardClause:
+  Exclude:
+    - 'app/controllers/application_controller.rb'
+    - 'app/controllers/book_clubs_controller.rb'
+    - 'app/controllers/books_controller.rb'
+    - 'app/controllers/chats_controller.rb'
+    - 'app/controllers/messages_controller.rb'
+    - 'app/controllers/ratings_controller.rb'
+    - 'app/controllers/search_for_controller.rb'
+    - 'app/models/book.rb'
+    - 'app/models/conversation.rb'
+    - 'app/models/relationship.rb'
+
+# Offense count: 13
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle, UseHashRocketsWithSymbolValues, PreferHashRocketsForNonAlnumEndingSymbols.
+# SupportedStyles: ruby19, hash_rockets, no_mixed_keys, ruby19_no_mixed_keys
+Style/HashSyntax:
+  Exclude:
+    - 'app/controllers/reviews_controller.rb'
+    - 'app/models/conversation.rb'
+    - 'app/models/rating.rb'
+    - 'app/models/user.rb'
+    - 'db/migrate/20180106015311_add_table_genres_users.rb'
+    - 'db/migrate/20180116175126_create_messages.rb'
+    - 'db/migrate/20180125162614_create_chats.rb'
+    - 'spec/models/book_spec.rb'
+    - 'spec/models/reading_lists_spec.rb'
+    - 'spec/status_spec.rb'
+
+# Offense count: 16
+# Cop supports --auto-correct.
+Style/IfUnlessModifier:
+  Exclude:
+    - 'app/controllers/book_clubs_controller.rb'
+    - 'app/controllers/books_controller.rb'
+    - 'app/controllers/messages_controller.rb'
+    - 'app/controllers/ratings_controller.rb'
+    - 'app/controllers/search_for_controller.rb'
+    - 'app/models/book.rb'
+    - 'app/models/conversation.rb'
+    - 'app/models/relationship.rb'
+    - 'app/models/user.rb'
+
+# Offense count: 1
+# Cop supports --auto-correct.
+# Configuration parameters: InverseMethods, InverseBlocks.
+Style/InverseMethods:
+  Exclude:
+    - 'app/models/book.rb'
+
+# Offense count: 1
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle.
+# SupportedStyles: line_count_dependent, lambda, literal
+Style/Lambda:
+  Exclude:
+    - 'app/models/conversation.rb'
+
+# Offense count: 5
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle.
+# SupportedStyles: both, prefix, postfix
+Style/NegatedIf:
+  Exclude:
+    - 'app/models/book.rb'
+    - 'app/models/user.rb'
+
+# Offense count: 3
+# Cop supports --auto-correct.
+Style/NilComparison:
+  Exclude:
+    - 'app/controllers/ratings_controller.rb'
+    - 'app/controllers/reading_lists_controller.rb'
+    - 'app/controllers/search_for_controller.rb'
+
+# Offense count: 1
+# Cop supports --auto-correct.
+Style/OrAssignment:
+  Exclude:
+    - 'app/controllers/books_controller.rb'
+
+# Offense count: 1
+# Cop supports --auto-correct.
+# Configuration parameters: PreferredDelimiters.
+Style/PercentLiteralDelimiters:
+  Exclude:
+    - 'config/spring.rb'
+
+# Offense count: 2
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle.
+# SupportedStyles: short, verbose
+Style/PreferredHashMethods:
+  Exclude:
+    - 'app/controllers/search_for_controller.rb'
+
+# Offense count: 3
+# Cop supports --auto-correct.
+# Configuration parameters: AllowMultipleReturnValues.
+Style/RedundantReturn:
+  Exclude:
+    - 'app/models/book.rb'
+    - 'app/models/review.rb'
+
+# Offense count: 3
+# Cop supports --auto-correct.
+Style/RedundantSelf:
+  Exclude:
+    - 'app/models/user.rb'
+
+# Offense count: 2
+# Cop supports --auto-correct.
+# Configuration parameters: ConvertCodeThatCanStartToReturnNil, Whitelist.
+# Whitelist: present?, blank?, presence, try, try!
+Style/SafeNavigation:
+  Exclude:
+    - 'app/controllers/search_for_controller.rb'
+    - 'app/controllers/sessions_controller.rb'
+
+# Offense count: 7
+# Cop supports --auto-correct.
+# Configuration parameters: MinSize.
+# SupportedStyles: percent, brackets
+Style/SymbolArray:
+  EnforcedStyle: brackets
+
+# Offense count: 1
+# Cop supports --auto-correct.
+# Configuration parameters: IgnoredMethods.
+# IgnoredMethods: respond_to, define_method
+Style/SymbolProc:
+  Exclude:
+    - 'spec/status_spec.rb'
+
+# Offense count: 1
+# Cop supports --auto-correct.
+# Configuration parameters: WordRegex.
+# SupportedStyles: percent, brackets
+Style/WordArray:
+  EnforcedStyle: percent
+  MinSize: 4
