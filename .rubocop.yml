@@ -22,3 +22,9 @@ Metrics/PerceivedComplexity:
   # default is 7
 Metrics/LineLength:
   Max: 120
+
+Metrics/MethodLength:
+  Max: 14
+
+Metrics/AbcSize:
+  Max: 16

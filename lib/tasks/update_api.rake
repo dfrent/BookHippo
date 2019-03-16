@@ -22,42 +22,14 @@ namespace :update_api do
     genres = Genre.all
 
     genres.each do |genre|
-      name = genre.name
-      id = genre.id
-      response = HTTParty.get("https://www.googleapis.com/books/v1/volumes?q=subject=#{name}&key=#{ENV['GBOOKS_KEY']}")
-      items = response.parsed_response['items']
+      fetch_google_books_list(genre.name).each do |item|
+        book_information = item['volumeInfo']
+        isbn = find_isbn10_value(book_information['industryIdentifiers'])
+        next if isbn.nil? || Book.exists?(isbn)
 
-      items.each do |item|
-        identifiers = item['volumeInfo']['industryIdentifiers']
-        isbn = nil
-
-        identifiers&.each do |identifier|
-          isbn = identifier['identifier'] if identifier.value?('ISBN_10')
-        end
-
-        if isbn.nil?
-          next
-        else
-          if Book.exists?(isbn)
-            next
-          else
-            info = item['volumeInfo']
-            authors = info['authors']
-            authors_string = authors.join(', ') if authors
-            # google_id = response.parsed_response['items'][item]['id']
-            book = Book.create(isbn: isbn,
-                               title: info['title'],
-                               author: authors_string,
-                               description: info['description'],
-                               book_cover: info['imageLinks']['thumbnail'],
-                               small_thumbnail: info['imageLinks']['smallThumbnail'],
-                               genre_id: id, page_count: info['pageCount'],
-                               average_rating: info['averageRating'],
-                               published_date: info['publishedDate'],
-                               publisher: info['publisher'])
-            puts book.title + ' created.'
-          end
-        end
+        book = book_from_google_genres(isbn, book_information, genre)
+        puts "#{book.title} has been created"
+        puts "#{book.title} has attached images" unless assign_book_images(book, book_information).nil?
       end
     end
   end
@@ -65,9 +37,9 @@ end
 
 private
 
+# NY Times Private Methods
 def fetch_ny_times_list(list_name)
-  url = "https://api.nytimes.com/svc/books/v3/lists.json?api-key=#{ENV['NYTIMES_KEY']}&list=#{list_name}"
-  HTTParty.get(url)
+  HTTParty.get("https://api.nytimes.com/svc/books/v3/lists.json?api-key=#{ENV['NYTIMES_KEY']}&list=#{list_name}")
 end
 
 def build_ny_times_list
@@ -78,4 +50,36 @@ def build_ny_times_list
       response << result
     end
   end
+end
+
+# Google Books Private Methods
+def fetch_google_books_list(name)
+  response = HTTParty.get("https://www.googleapis.com/books/v1/volumes?q=subject=#{name}&key=#{ENV['GBOOKS_KEY']}")
+  response.parsed_response['items']
+end
+
+def find_isbn10_value(isbns)
+  isbns&.each do |identifier|
+    return identifier['identifier'] if identifier['type'] == 'ISBN_10'
+  end
+  nil
+end
+
+def book_from_google_genres(isbn, book_information, genre)
+  authors = book_information['authors'].join(', ') if authors
+  Book.create(isbn: isbn,
+              title: book_information['title'],
+              author: authors,
+              description: book_information['description'],
+              genre_id: genre.id,
+              page_count: book_information['pageCount'],
+              average_rating: book_information['averageRating'],
+              published_date: book_information['publishedDate'],
+              publisher: book_information['publisher'])
+end
+
+def assign_book_images(book, book_information)
+  return unless book_information['imageLinks']
+  book.update_attributes(book_cover: book_information['imageLinks']['thumbnail'],
+                         small_thumbnail: book_information['imageLinks']['smallThumbnail'])
 end
