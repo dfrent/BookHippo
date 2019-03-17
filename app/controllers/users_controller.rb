@@ -15,7 +15,6 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      # # Auto-login on succesful signup
       flash[:alert] = 'Account successfully created!'
       set_session
       redirect_to genres_url
@@ -31,8 +30,6 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     if @user.update_attributes(user_params)
-
-      # # Auto-login on succesful signup
       flash[:notice] = 'Account successfully updated!'
       set_session
       redirect_to user_url(@user)
