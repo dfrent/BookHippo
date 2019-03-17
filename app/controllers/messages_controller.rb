@@ -1,7 +1,7 @@
 class MessagesController < ApplicationController
   before_action do
     @conversation = Conversation.find(params[:conversation_id])
-    @messages     = @conversation.messages
+    @messages = @conversation.messages
   end
   skip_before_action :verify_authenticity_token
 
@@ -37,10 +37,8 @@ class MessagesController < ApplicationController
   private
 
   def filled_message_page
-    if @messages.length > 10
-      @over_ten = true
-      @messages = @messages[-10..-1]
-    end
-    @messages
+    return @messages if @messages.length < 10
+    @over_ten = true
+    @messages = @messages[-10..-1]
   end
 end
