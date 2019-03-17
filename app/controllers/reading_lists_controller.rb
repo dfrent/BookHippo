@@ -3,7 +3,7 @@ class ReadingListsController < ApplicationController
 
   def create
     @book = Book.find(params[:book_id])
-    @existing_list = find_or_create_list
+    find_or_create_list
 
     if request.xhr?
 
