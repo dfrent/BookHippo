@@ -2,13 +2,13 @@ class ReviewsController < ApplicationController
   before_action :ensure_logged_in
 
   def create
-    @review = Review.new
     @book = Book.find(params[:book_id])
-    @review.comment = params[:review][:comment]
-    @review.date_added = params[:review][:date_added]
-    @review.book = @book
-    @review.user_id = current_user.id
-
+    @review = Review.new(
+      comment: params[:review][:comment],
+      date_added: params[:review][:date_added],
+      book: @book,
+      user: current_user
+    )
     if @review.save
       respond_to do |format|
         format.html { redirect_to book_path(@book[:isbn]) }
@@ -21,7 +21,7 @@ class ReviewsController < ApplicationController
 
   def update
     @book = Book.find(params[:book_id])
-    @review = Book.find(params[:book_id])
+    @review = Review.find(params[:book_id])
     @review.comment = params[:review][:comment]
 
     if @review.save
