@@ -3,9 +3,6 @@ class GenresController < ApplicationController
 
   def index
     @genres = Genre.all
-    @user   = current_user
-  end
-
-  def show
+    @user = current_user
   end
 end

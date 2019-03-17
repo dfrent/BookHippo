@@ -1,11 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :ensure_logged_in
 
-  def new
-    @review = Review.new
-    @book = Book.find(params[:book_id])
-  end
-
   def create
     @review = Review.new
     @book = Book.find(params[:book_id])
@@ -24,11 +19,6 @@ class ReviewsController < ApplicationController
     end
   end
 
-  def edit
-    @review = Book.find(params[:book_id])
-    @review = current_user.comments
-  end
-
   def update
     @book = Book.find(params[:book_id])
     @review = Book.find(params[:book_id])
@@ -41,12 +31,5 @@ class ReviewsController < ApplicationController
       flash.now[:alert] = 'Sorry, there was a problem updating your review'
       render '/books/show'
     end
-  end
-
-  def destroy
-    @review = Review.find(params[:id])
-    @review.destroy
-    flash[:notice] = 'You have successfully deleted your review'
-    redirect_to books_url
   end
 end

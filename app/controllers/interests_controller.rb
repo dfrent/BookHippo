@@ -1,11 +1,11 @@
 class InterestsController < ApplicationController
   def creation
-    @user = current_user
+    user = current_user
     params[:genres].each do |genre|
-      interest = Interest.new
-      interest.user_id = @user.id
-      interest.genre_id = genre.to_i
-      interest.save
+      Interest.create(
+        user: user,
+        genre_id: genre.to_i
+      )
     end
     redirect_to recommendations_url
   end
