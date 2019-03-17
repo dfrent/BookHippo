@@ -3,16 +3,8 @@ class ReadingListsController < ApplicationController
 
   def create
     @book = Book.find(params[:book_id])
-    @existing_list = ReadingList.find_by(user_id: params[:user_id], book_id: params[:book_id])
+    @existing_list = find_or_create_list
 
-    if @existing_list.nil?
-      @reading_list = ReadingList.create(user_id: params[:user_id],
-                                         book_id: params[:book_id],
-                                         read_status: params[:read_status])
-    else
-      @existing_list.read_status = params[:read_status]
-      @existing_list.save
-    end
     if request.xhr?
 
       @reviews = Review.where(book_id: params[:book_id])
@@ -27,6 +19,20 @@ class ReadingListsController < ApplicationController
       render partial: 'reviews/reviews_form', locals: { book: @book, review: Review.new, rating: @rating }
     else
       format.html { redirect_to book_path(@book[:isbn]) }
+    end
+  end
+
+  private
+
+  def find_or_create_list
+    list = ReadingList.find_by(user_id: params[:user_id], book_id: params[:book_id])
+    if list
+      list.update_attribute(:read_status, params[:read_status])
+      list
+    else
+      ReadingList.create(user_id: params[:user_id],
+                         book_id: params[:book_id],
+                         read_status: params[:read_status])
     end
   end
 end
