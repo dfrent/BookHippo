@@ -5,14 +5,6 @@ class MessagesController < ApplicationController
   end
   skip_before_action :verify_authenticity_token
 
-  def filled_message_page
-    if @messages.length > 10
-      @over_ten = true
-      @messages = @messages[-10..-1]
-    end
-    @messages
-  end
-
   def index
     filled_message_page
     if params[:m]
@@ -40,5 +32,15 @@ class MessagesController < ApplicationController
     if @message.save
       redirect_to conversation_messages_path(@conversation)
     end
+  end
+
+  private
+
+  def filled_message_page
+    if @messages.length > 10
+      @over_ten = true
+      @messages = @messages[-10..-1]
+    end
+    @messages
   end
 end

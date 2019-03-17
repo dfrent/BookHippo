@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
-  resources :messages
-
   root 'books#index'
+
   get 'search_for' => 'search_for#search_for', :as => :search_for
   get 'new_follow' => 'users#new_follow', :as => :new_follow
   get 'recommendations' => 'books#recommendations'
@@ -24,6 +23,6 @@ Rails.application.routes.draw do
   resources :relationships, only: %i[create destroy]
 
   resources :conversations do
-    resources :messages
+    resources :messages, only: %i[index new create]
   end
 end
