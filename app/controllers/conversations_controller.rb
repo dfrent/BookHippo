@@ -8,11 +8,12 @@ class ConversationsController < ApplicationController
   end
 
   def create
-    if Conversation.between(params[:sender_id], params[:recipient_id]).present?
-      @conversation = Conversation.between(params[:sender_id], params[:recipient_id]).first
-    else
-      @conversation = Conversation.create!(conversation_params)
-    end
+    preexisting_conversation = Conversation.find_by(sender: params[:sender_id], recipient: params[:recipient_id])
+    @conversation = if preexisting_conversation.present?
+                      preexisting_conversation
+                    else
+                      Conversation.create!(conversation_params)
+                    end
     redirect_to conversation_messages_path(@conversation, share: params[:share])
   end
 
