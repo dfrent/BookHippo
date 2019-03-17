@@ -144,8 +144,6 @@ GEM
     pry (0.11.3)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
-    pry-rails (0.3.6)
-      pry (>= 0.10.4)
     public_suffix (3.0.1)
     puma (3.11.0)
     rack (2.0.3)
@@ -266,7 +264,6 @@ DEPENDENCIES
   minitest-rails
   minitest-reporters
   pg (~> 0.18)
-  pry-rails
   puma (~> 3.7)
   rails (~> 5.1.4)
   rails-controller-testing
@@ -286,4 +283,4 @@ RUBY VERSION
    ruby 2.5.0p0
 
 BUNDLED WITH
-   1.16.1
+   1.16.2
