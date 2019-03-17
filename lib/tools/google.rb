@@ -3,6 +3,7 @@ module Tools
     attr_accessor :isbn, :book, :volume_info, :images
 
     GOOGLE_ENDPOINT = 'https://www.googleapis.com/books/v1/volumes?q='.freeze
+    GBOOKS_KEY = ENV['GBOOKS_KEY']
 
     def initialize(isbn = nil)
       @isbn = isbn
@@ -34,18 +35,23 @@ module Tools
       end
     end
 
+    def book_search(query)
+      response = HTTParty.get("#{GOOGLE_ENDPOINT}#{query}&key=#{GBOOKS_KEY}")
+      response.parsed_response['items']
+    end
+
     private
 
     # Lookup
 
     def book_from_isbn
       return unless @isbn
-      response = HTTParty.get("#{GOOGLE_ENDPOINT}isbn=#{@isbn}&key=#{ENV['GBOOKS_KEY']}")
+      response = HTTParty.get("#{GOOGLE_ENDPOINT}isbn=#{@isbn}&key=#{GBOOKS_KEY}")
       response.parsed_response['items'][0]
     end
 
     def books_in_genre(genre_name)
-      response = HTTParty.get("#{GOOGLE_ENDPOINT}subject=#{genre_name}&key=#{ENV['GBOOKS_KEY']}")
+      response = HTTParty.get("#{GOOGLE_ENDPOINT}subject=#{genre_name}&key=#{GBOOKS_KEY}")
       response.parsed_response['items']
     end
 
