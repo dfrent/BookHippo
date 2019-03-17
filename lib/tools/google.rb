@@ -25,6 +25,16 @@ module Tools
       end
     end
 
+    def assign_images_to_all_books
+      Book.all.map do |book|
+        @isbn = book.isbn
+        @book = book
+        fetch_book_data
+        assign_book_images
+        @book.save if @book.valid?
+      end
+    end
+
     private
 
     # Lookup
@@ -45,7 +55,7 @@ module Tools
       @images = @volume_info['imageLinks']
     end
 
-    # Model Creation
+    # Model Creation/ Updates
 
     def create_book(genre_id = 20)
       fetch_book_data

@@ -11,7 +11,8 @@ namespace :update_api do
     build_ny_times_list.each do |book_info|
       isbn = book_info['book_details'][0]['primary_isbn10']
       next unless isbn
-      book = Book.find_or_api_call(isbn)
+      google = Tools::Google.new(isbn)
+      book = google.find_or_api_call
       next unless book
       book.update_attribute(:ny_times_list, book_info['list_name'])
       puts "#{book_info['book_details'][0]['title']} succesfully updated"
@@ -23,6 +24,13 @@ namespace :update_api do
     puts 'Updating genre recommendations from Google Books API'
     google = Tools::Google.new
     google.update_books_by_genre
+  end
+
+  desc 'Add images to books in the database'
+  task :assign_images do
+    puts 'Adding images from Google Books API'
+    google = Tools::Google.new
+    google.assign_images_to_all_books
   end
 end
 
