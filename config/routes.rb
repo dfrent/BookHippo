@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'recommendations' => 'books#recommendations'
   resources :books, only: %i[index show] do
     resources :reviews, only: %i[new create edit update destroy]
-    resources :ratings, only: %i[update show create]
+    resources :ratings, only: %i[update create]
   end
 
   # CONVERSATIONS
