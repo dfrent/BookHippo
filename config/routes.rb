@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   # CONVERSATIONS
   resources :conversations, only: %i[index create] do
-    resources :messages, only: %i[index new create]
+    resources :messages, only: %i[index create]
   end
 
   # GENRES

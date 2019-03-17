@@ -1,34 +1,30 @@
 class MessagesController < ApplicationController
+  MAX_MESSAGES_PER_PAGE = 10
+
   before_action do
     @conversation = Conversation.find(params[:conversation_id])
-    @messages     = @conversation.messages
+    @messages = @conversation.messages
   end
   skip_before_action :verify_authenticity_token
 
   def index
     filled_message_page
-    if params[:m]
-      @over_ten = false
-    end
+    @over_ten = false if params[:m]
+    @message = @conversation.messages.new
 
-    if @messages.last
-      if @messages.last.user_id != current_user.id
-        @messages.each do |message|
-          message.update_column(:read, true)
-        end
+    return unless @messages
+    if @messages.last.user_id != current_user.id
+      @messages.map do |message|
+        message.update_column(:read, true)
       end
     end
-    @message = @conversation.messages.new
-  end
-
-  def new
-    @message = @conversation.messages.new
   end
 
   def create
-    @message = @conversation.messages.new
-    @message.body = params[:body]
-    @message.user_id = current_user.id
+    @message = @conversation.messages.new(
+      body: params[:body],
+      user: current_user
+    )
     if @message.save
       redirect_to conversation_messages_path(@conversation)
     end
@@ -37,10 +33,8 @@ class MessagesController < ApplicationController
   private
 
   def filled_message_page
-    if @messages.length > 10
-      @over_ten = true
-      @messages = @messages[-10..-1]
-    end
-    @messages
+    return @messages if @messages.length <= MAX_MESSAGES_PER_PAGE
+    @over_ten = true
+    @messages = @messages[-MAX_MESSAGES_PER_PAGE..-1]
   end
 end

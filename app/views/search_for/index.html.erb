@@ -1,17 +1,13 @@
 <div class="search-wrapper">
+  <% if @users || @books %>
+    <% if @users.any? %>
+      <%= render partial: "user_search", locals: {users: @users} %>
+    <% end %>
 
-
-<% if @google_items %>
-
-  <% if @user.any? %>
-    <%= render partial: "user_search", locals: {user: @user} %>
+    <% if @books.any? %>
+      <%= render partial: "book_search", locals: {books: @books} %>
+    <% end %>
+  <% else %>
+    <%= render partial: "no_results"%>
   <% end %>
-
-  <% if @books.any? %>
-    <%= render partial: "book_search", locals: {books: @books} %>
-  <% end %>
-<% else %>
-  <%= render partial: "no_results"%>
-<% end %>
-
 </div>

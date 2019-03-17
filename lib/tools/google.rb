@@ -3,6 +3,7 @@ module Tools
     attr_accessor :isbn, :book, :volume_info, :images
 
     GOOGLE_ENDPOINT = 'https://www.googleapis.com/books/v1/volumes?q='.freeze
+    GBOOKS_KEY = ENV['GBOOKS_KEY']
 
     def initialize(isbn = nil)
       @isbn = isbn
@@ -34,18 +35,30 @@ module Tools
       end
     end
 
+    def book_search(query)
+      response = HTTParty.get("#{GOOGLE_ENDPOINT}#{query}&key=#{GBOOKS_KEY}")
+      response.parsed_response['items']
+    end
+
+    def isbn_10_from_api(identifiers)
+      identifiers&.each do |identifier|
+        @isbn = identifier['identifier'] if identifier['type'] == 'ISBN_10'
+      end
+      @isbn
+    end
+
     private
 
     # Lookup
 
     def book_from_isbn
       return unless @isbn
-      response = HTTParty.get("#{GOOGLE_ENDPOINT}isbn=#{@isbn}&key=#{ENV['GBOOKS_KEY']}")
+      response = HTTParty.get("#{GOOGLE_ENDPOINT}isbn=#{@isbn}&key=#{GBOOKS_KEY}")
       response.parsed_response['items'][0]
     end
 
     def books_in_genre(genre_name)
-      response = HTTParty.get("#{GOOGLE_ENDPOINT}subject=#{genre_name}&key=#{ENV['GBOOKS_KEY']}")
+      response = HTTParty.get("#{GOOGLE_ENDPOINT}subject=#{genre_name}&key=#{GBOOKS_KEY}")
       response.parsed_response['items']
     end
 
@@ -64,13 +77,7 @@ module Tools
                               average_rating: @volume_info['averageRating'],
                               published_date: @volume_info['publishedDate'],
                               publisher: @volume_info['publisher'])
-      @book
-    end
-
-    def isbn_10_from_api(identifiers)
-      identifiers&.each do |identifier|
-        @isbn = identifier['identifier'] if identifier['type'] == 'ISBN_10'
-      end
+      @book if book.valid?
     end
 
     def account_for_multiple_authors
