@@ -1,28 +1,11 @@
 class UsersController < ApplicationController
   before_action :ensure_logged_in, except: %i[new create]
 
-  def index
-  end
+  READING_PROGRESS_STATUSES = %w[want_to_read currently_reading finished_reading].freeze
 
   def show
-    @user                 = User.find(params[:id])
-    # 3 variables to store the separate types of user reading lists
-    @want_to_reads        = @user.reading_lists.where(read_status: 'want_to_read')
-    @currently_readings   = @user.reading_lists.where(read_status: 'currently_reading')
-    @finished_readings    = @user.reading_lists.where(read_status: 'finished_reading')
-    # Array of headers, for use in styling, class naming, and list selection
-    @reading_list_headers = ['Want to Read', 'Currently Reading', 'Finished Reading']
-    # Hashes for the naming of classes and selection of lists
-    @reading_list_classes = {
-      'Want to Read'      => 'want_to_read',
-      'Currently Reading' => 'currently_reading',
-      'Finished Reading'  => 'finished_reading'
-    }
-    @user_reading_lists   = {
-      'Want to Read'      => @want_to_reads,
-      'Currently Reading' => @currently_readings,
-      'Finished Reading'  => @finished_readings
-    }
+    @user = User.find(params[:id])
+    @user_reading_lists = reading_lists_by_status
   end
 
   def new
@@ -95,5 +78,13 @@ class UsersController < ApplicationController
   def new_follow
     @user = current_user
     @users = User.users_to_follow(10, @user)
+  end
+
+  private
+
+  def reading_lists_by_status
+    READING_PROGRESS_STATUSES.each_with_object({}) do |status, lists|
+      lists[status] = @user.reading_lists.where(read_status: status)
+    end
   end
 end
