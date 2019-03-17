@@ -13,12 +13,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(
-      email: user_params[:email],
-      username: user_params[:username],
-      password: user_params[:password],
-      password_confirmation: user_params[:password_confirmation]
-    )
+    @user = User.new(user_params)
     if @user.save
       # # Auto-login on succesful signup
       flash[:alert] = 'Account successfully created!'
@@ -35,20 +30,14 @@ class UsersController < ApplicationController
 
   def update
     @user = current_user
-
-    @user.email = user_params[:email]
-    @user.username = user_params[:username]
-    @user.password = user_params[:password]
-    @user.password_confirmation = user_params[:password_confirmation]
-
-    if @user.save
+    if @user.update_attributes(user_params)
 
       # # Auto-login on succesful signup
-      flash[:notice] = 'Account successfully created!'
-      session[:user_id] = @user.id
-      redirect_to user_url(current_user)
+      flash[:notice] = 'Account successfully updated!'
+      set_session
+      redirect_to user_url(@user)
     else
-      render :new
+      render :edit
     end
   end
 
@@ -82,7 +71,13 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params[:user]
+    user = params[:user]
+    {
+      email: user[:email],
+      username: user[:username],
+      password: user[:password],
+      password_confirmation: user[:password_confirmation]
+    }
   end
 
   def set_session
