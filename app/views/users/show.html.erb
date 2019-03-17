@@ -22,15 +22,15 @@
 
 <!-- Creates a div to hold all three columns, populates and names each column, and fills it with the correct books -->
 <div class="read-class-rows">
-  <% @reading_list_headers.each do |header| %>
-    <% if @user_reading_lists[header].any? %>
+  <% @user_reading_lists.each do |key, list| %>
+    <% if list.any? %>
       <div class="read-status-header">
-        <h5><%= header %></h5>
+        <h5><%= key.titleize %></h5>
       </div>
-      <div class="scroll-container menu-wrapper <%= @reading_list_classes[header] %>">
-        <div class="scrollable menu" id="menu-<%= header.parameterize %>">
-          <% @user_reading_lists[header].each do |list| %>
-            <%= render partial: "books/single_book", locals: {book: list.book} %>
+      <div class="scroll-container menu-wrapper <%= key.titleize %>">
+        <div class="scrollable menu" id="menu-<%= key.titleize.parameterize %>">
+          <% list.each do |item| %>
+            <%= render partial: "books/single_book", locals: {book: item.book} %>
           <% end %>
         </div>
         <div class="paddles">

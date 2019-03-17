@@ -4,15 +4,12 @@ class User < ApplicationRecord
   has_many :books, through: :reviews
   has_many :books, through: :genres
   has_many :books, through: :reading_lists
-
   has_many :active_relationships, class_name:  'Relationship',
                                   foreign_key: 'follower_id',
                                   dependent:   :destroy
-
   has_many :passive_relationships, class_name:  'Relationship',
                                    foreign_key: 'followed_id',
                                    dependent:   :destroy
-
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
   has_many :interests
@@ -20,26 +17,21 @@ class User < ApplicationRecord
   has_many :reviews
   has_many :reading_lists
   has_many :ratings
-
   has_many :sent_conversations, class_name:  'Conversation',
                                 foreign_key: 'sender_id',
                                 dependent:   :destroy
-
   has_many :received_conversations, class_name:  'Conversation',
                                     foreign_key: 'recipient_id',
                                     dependent:   :destroy
-
-  # ------------------------------------------------------- #
-  # This is the model for one-on-one conversation
   has_many :messages
 
   validates :username, :email, :password, :password_confirmation, presence: true
   validates :username, :email, uniqueness: true
   validates_length_of :password, :minimum => 8
   before_save :downcase_fields
-  # validates :username, :format => { with: /(\w|\s)/ , :message => 'no special characters, only letters and numbers' }
+
   def downcase_fields
-    self.username.downcase!
+    username.downcase!
   end
 
   # Follows a user.
@@ -59,31 +51,14 @@ class User < ApplicationRecord
 
   # Returns a random book that the user has in their reading list
   def one_of_their_books
-    self.reading_lists.sample.book
-  end
-
-  def all_friends
-    friends_array = []
-    followers.each do |follower|
-      if !friends_array.include?(follower)
-        friends_array << follower
-      end
-    end
-
-    following.each do |following|
-      if !friends_array.include?(following)
-        friends_array << following
-      end
-    end
-    friends_array
+    reading_lists.sample.book
   end
 
   def self.users_to_follow(num_of_users, current_user)
-    users_array = []
-    self.all.reject { |user| user == current_user }.each do |user|
-      users_array << user
-    end
-    users_array.sample(num_of_users)
+    users_except_self = all.reject { |user| user == current_user }
+    users_except_self.each_with_object([]) do |user, users|
+      users << user
+    end.sample(num_of_users)
   end
 
   def self.find_user(search)
