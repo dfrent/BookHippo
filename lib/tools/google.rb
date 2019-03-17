@@ -29,8 +29,7 @@ module Tools
       Book.all.map do |book|
         @isbn = book.isbn
         @book = book
-        fetch_book_data
-        assign_book_images
+        prep_book_for_update
         @book.save if @book.valid?
       end
     end
@@ -49,17 +48,10 @@ module Tools
       response.parsed_response['items']
     end
 
-    def fetch_book_data
-      book_data = book_from_isbn
-      @volume_info = book_data['volumeInfo']
-      @images = @volume_info['imageLinks']
-    end
-
     # Model Creation/ Updates
 
     def create_book(genre_id = 20)
-      fetch_book_data
-      assign_book_images
+      return unless prep_book_for_update
       @book.update_attributes(title: @volume_info['title'],
                               author: account_for_multiple_authors,
                               description: @volume_info['description'] || '',
@@ -73,12 +65,6 @@ module Tools
       @book = Book.new
     end
 
-    def assign_book_images
-      return if @images.nil?
-      @book[:book_cover] = @images['thumbnail']
-      @book[:small_thumbnail] = @images['smallThumbnail']
-    end
-
     def isbn_10_from_api(identifiers)
       identifiers&.each do |identifier|
         @isbn = identifier['identifier'] if identifier['type'] == 'ISBN_10'
@@ -86,9 +72,20 @@ module Tools
     end
 
     def account_for_multiple_authors
+      return unless @volume_info['authors']
       authors = @volume_info['authors']
       return '' unless authors
       authors.length > 1 ? authors : authors.join(', ')
+    end
+
+    def prep_book_for_update
+      return false unless @isbn
+      book_data = book_from_isbn
+      @volume_info = book_data['volumeInfo']
+      @images = @volume_info['imageLinks']
+      return if @images.nil?
+      @book[:book_cover] = @images['thumbnail']
+      @book[:small_thumbnail] = @images['smallThumbnail']
     end
   end
 end
