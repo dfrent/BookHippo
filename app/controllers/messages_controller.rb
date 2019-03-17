@@ -1,4 +1,6 @@
 class MessagesController < ApplicationController
+  MAX_MESSAGES_PER_PAGE = 10
+
   before_action do
     @conversation = Conversation.find(params[:conversation_id])
     @messages = @conversation.messages
@@ -37,8 +39,8 @@ class MessagesController < ApplicationController
   private
 
   def filled_message_page
-    return @messages if @messages.length < 10
+    return @messages if @messages.length <= MAX_MESSAGES_PER_PAGE
     @over_ten = true
-    @messages = @messages[-10..-1]
+    @messages = @messages[-MAX_MESSAGES_PER_PAGE..-1]
   end
 end
