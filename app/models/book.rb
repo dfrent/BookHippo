@@ -15,15 +15,10 @@ class Book < ApplicationRecord
   validates :isbn, uniqueness: true
   validates :isbn, :author, :title, :book_cover, :description, presence: true
 
-  def self.book_selector(isbn)
-    book = Book.find_by(isbn: isbn)
-    return book if book
-  end
-
   def self.api_call(isbn)
     book_response = HTTParty.get("https://www.googleapis.com/books/v1/volumes?q=isbn=#{isbn}&key=#{ENV['GBOOKS_KEY']}")
     book = book_response.parsed_response['items'][0]
-    return book if book_response
+    return book if book
   end
 
   def self.new_book_data(isbn)
@@ -45,12 +40,13 @@ class Book < ApplicationRecord
   end
 
   def self.find_or_api_call(isbn)
-    book = Book.book_selector(isbn)
-    return book if !book.nil?
-    book = Book.create(Book.new_book_data(isbn)) if book.nil?
-    return book if !book.nil?
+    book = Book.find_by(isbn: isbn)
+    return book if book
+    book = Book.new(Book.new_book_data(isbn))
+    book.save if book.valid?
+    return book if book.valid?
     if book.nil?
-      return 'Book not found'
+      return 'Book not found or invalid'
     end
   end
 

@@ -11,7 +11,9 @@ namespace :update_api do
     build_ny_times_list.each do |book_info|
       isbn = book_info['book_details'][0]['primary_isbn10']
       next unless isbn
-      Book.find_or_api_call(isbn).update_attribute(:ny_times_list, book_info['list_name'])
+      book = Book.find_or_api_call(isbn)
+      next unless book
+      book.update_attribute(:ny_times_list, book_info['list_name'])
       puts "#{book_info['book_details'][0]['title']} succesfully updated"
     end
   end
@@ -28,6 +30,7 @@ namespace :update_api do
         next if isbn.nil? || Book.exists?(isbn)
 
         book = book_from_google_genres(isbn, book_information, genre)
+        next if book.nil?
         puts "#{book.title} has been created"
         puts "#{book.title} has attached images" unless assign_book_images(book, book_information).nil?
       end
@@ -46,6 +49,7 @@ def build_ny_times_list
   categories = %w[mass-market-paperback travel science business-books animals education hardcover-nonfiction]
   categories.each_with_object([]) do |category, response|
     results = fetch_ny_times_list(category).parsed_response['results']
+    next if results.nil?
     results.each do |result|
       response << result
     end
@@ -66,20 +70,25 @@ def find_isbn10_value(isbns)
 end
 
 def book_from_google_genres(isbn, book_information, genre)
-  authors = book_information['authors'].join(', ') if authors
-  Book.create(isbn: isbn,
-              title: book_information['title'],
-              author: authors,
-              description: book_information['description'],
-              genre_id: genre.id,
-              page_count: book_information['pageCount'],
-              average_rating: book_information['averageRating'],
-              published_date: book_information['publishedDate'],
-              publisher: book_information['publisher'])
+  authors = book_information['authors'].join(', ') if book_information['authors']
+  book = Book.new(isbn: isbn,
+                  title: book_information['title'],
+                  author: authors,
+                  description: book_information['description'],
+                  genre_id: genre.id,
+                  page_count: book_information['pageCount'],
+                  average_rating: book_information['averageRating'],
+                  published_date: book_information['publishedDate'],
+                  publisher: book_information['publisher'])
+  return unless assign_book_images(book, book_information) && book.valid?
+  book.save!
+  book
 end
 
 def assign_book_images(book, book_information)
   return unless book_information['imageLinks']
+  puts "Images successfully added to #{book.title}"
   book.update_attributes(book_cover: book_information['imageLinks']['thumbnail'],
                          small_thumbnail: book_information['imageLinks']['smallThumbnail'])
+  book
 end
