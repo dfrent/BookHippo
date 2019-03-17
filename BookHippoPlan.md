@@ -22,8 +22,8 @@ BookHippo is a social book tracking and recommendation platform that enhances yo
 
 
 ### Second Iteration - Extended Features - Jan 16
+* Users can create book clubs with one current book
 * Book clubs can be followed by any user
-* Book Clubs can be made with one current book
 * Users can add comments to the book club conversation
 * Book club owners can send invitations to other users
 * User must be presented a newsfeed based on who they're following
