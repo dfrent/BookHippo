@@ -39,6 +39,7 @@ module Tools
     # Lookup
 
     def book_from_isbn
+      return unless @isbn
       response = HTTParty.get("#{GOOGLE_ENDPOINT}isbn=#{@isbn}&key=#{ENV['GBOOKS_KEY']}")
       response.parsed_response['items'][0]
     end
