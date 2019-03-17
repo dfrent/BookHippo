@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   # BOOKS
   get 'recommendations' => 'books#recommendations'
   resources :books, only: %i[index show] do
-    resources :reviews, only: %i[new create edit update destroy]
-    resources :ratings, only: %i[update create]
+    resources :reviews, only: %i[create update]
+    resources :ratings, only: %i[create update]
   end
 
   # CONVERSATIONS
