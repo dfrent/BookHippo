@@ -9,28 +9,22 @@ class MessagesController < ApplicationController
 
   def index
     filled_message_page
-    if params[:m]
-      @over_ten = false
-    end
+    @over_ten = false if params[:m]
+    @message = @conversation.messages.new
 
-    if @messages.last
-      if @messages.last.user_id != current_user.id
-        @messages.each do |message|
-          message.update_column(:read, true)
-        end
+    return unless @messages
+    if @messages.last.user_id != current_user.id
+      @messages.map do |message|
+        message.update_column(:read, true)
       end
     end
-    @message = @conversation.messages.new
-  end
-
-  def new
-    @message = @conversation.messages.new
   end
 
   def create
-    @message = @conversation.messages.new
-    @message.body = params[:body]
-    @message.user_id = current_user.id
+    @message = @conversation.messages.new(
+      body: params[:body],
+      user: current_user
+    )
     if @message.save
       redirect_to conversation_messages_path(@conversation)
     end
