@@ -15,13 +15,13 @@ class Book < ApplicationRecord
   validates :isbn, uniqueness: true
   validates :isbn, :author, :title, :book_cover, :description, presence: true
 
-  def self.api_call(isbn)
+  def self.book_from_google_api(isbn)
     response = HTTParty.get("https://www.googleapis.com/books/v1/volumes?q=isbn=#{isbn}&key=#{ENV['GBOOKS_KEY']}")
     response.parsed_response['items']
   end
 
   def self.new_book_data(isbn)
-    book = Book.api_call(isbn)
+    book = Book.book_from_google_api(isbn)
     book_volume_info = book['volumeInfo']
     authors = book['authors'] if book
     authors_string = authors.join(', ') if authors
