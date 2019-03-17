@@ -16,9 +16,8 @@ class Book < ApplicationRecord
   validates :isbn, :author, :title, :book_cover, :description, presence: true
 
   def self.api_call(isbn)
-    book_response = HTTParty.get("https://www.googleapis.com/books/v1/volumes?q=isbn=#{isbn}&key=#{ENV['GBOOKS_KEY']}")
-    book = book_response.parsed_response['items'][0]
-    return book if book
+    response = HTTParty.get("https://www.googleapis.com/books/v1/volumes?q=isbn=#{isbn}&key=#{ENV['GBOOKS_KEY']}")
+    response.parsed_response['items']
   end
 
   def self.new_book_data(isbn)
