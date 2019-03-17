@@ -1,15 +1,6 @@
 class ReadingListsController < ApplicationController
   before_action :ensure_logged_in
 
-  def index
-  end
-
-  def show
-  end
-
-  def new
-  end
-
   def create
     @book = Book.find(params[:book_id])
     @existing_list = ReadingList.find_by(user_id: params[:user_id], book_id: params[:book_id])
@@ -37,14 +28,5 @@ class ReadingListsController < ApplicationController
     else
       format.html { redirect_to book_path(@book[:isbn]) }
     end
-  end
-
-  def edit
-  end
-
-  def update
-  end
-
-  def destroy
   end
 end

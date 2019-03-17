@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   post 'users_genres' => 'interests#creation'
 
   # READING LISTS
-  resources :reading_lists
+  resources :reading_lists, only: %i[create]
 
   # SEARCH
   get 'search_for' => 'search_for#search_for', :as => :search_for
