@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy', :as => :logout
 
   resources :reading_lists
-  resources :genres, only: %i[index show]
+  resources :genres, only: %i[index]
   resources :users do
     member do
       get :following, :followers

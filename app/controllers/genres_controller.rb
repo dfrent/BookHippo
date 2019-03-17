@@ -5,7 +5,4 @@ class GenresController < ApplicationController
     @genres = Genre.all
     @user = current_user
   end
-
-  def show
-  end
 end
