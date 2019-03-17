@@ -4,19 +4,20 @@
 # ENV['RAILS_ENV'] = ARGV[0] || 'production'
 require File.dirname(__FILE__) + '/../../config/environment'
 
-namespace :update_api do
+namespace :update do
+  desc 'Run all tasks'
+  task :all do
+    Rake::Task['update:ny_times'].invoke
+    Rake::Task['update:google_rec'].invoke
+    Rake::Task['update:images'].invoke
+    puts 'Your app should be running now!'
+  end
+
   desc 'Update books pulled from NY TIMES API'
   task :ny_times do
-    puts 'Updating...'
-    build_ny_times_list.each do |book_info|
-      isbn = book_info['book_details'][0]['primary_isbn10']
-      next unless isbn
-      google = Tools::Google.new(isbn)
-      book = google.find_or_api_call
-      next unless book
-      book.update_attribute(:ny_times_list, book_info['list_name'])
-      puts "#{book_info['book_details'][0]['title']} succesfully updated"
-    end
+    puts 'Updating NY Times books'
+    ny_times = Tools::NyTimes.new
+    ny_times.populate_ny_times_books
   end
 
   desc 'Update Google API for genre recommendations'
@@ -27,27 +28,9 @@ namespace :update_api do
   end
 
   desc 'Add images to books in the database'
-  task :assign_images do
+  task :images do
     puts 'Adding images from Google Books API'
     google = Tools::Google.new
     google.assign_images_to_all_books
-  end
-end
-
-private
-
-# NY Times Private Methods
-def fetch_ny_times_list(list_name)
-  HTTParty.get("https://api.nytimes.com/svc/books/v3/lists.json?api-key=#{ENV['NYTIMES_KEY']}&list=#{list_name}")
-end
-
-def build_ny_times_list
-  categories = %w[mass-market-paperback travel science business-books animals education hardcover-nonfiction]
-  categories.each_with_object([]) do |category, response|
-    results = fetch_ny_times_list(category).parsed_response['results']
-    next if results.nil?
-    results.each do |result|
-      response << result
-    end
   end
 end

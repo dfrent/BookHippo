@@ -6,7 +6,6 @@ module Tools
 
     def initialize(isbn = nil)
       @isbn = isbn
-      @book = Book.new
     end
 
     def find_or_api_call
@@ -29,6 +28,7 @@ module Tools
       Book.all.map do |book|
         @isbn = book.isbn
         @book = book
+        next if book.book_cover || book.small_thumbnail
         prep_book_for_update
         @book.save if @book.valid?
       end
@@ -52,6 +52,7 @@ module Tools
     # Model Creation/ Updates
 
     def create_book(genre_id = 20)
+      @book = Book.new
       return unless prep_book_for_update
       @book.update_attributes(title: @volume_info['title'],
                               author: account_for_multiple_authors,
@@ -63,7 +64,7 @@ module Tools
                               average_rating: @volume_info['averageRating'],
                               published_date: @volume_info['publishedDate'],
                               publisher: @volume_info['publisher'])
-      @book = Book.new
+      @book
     end
 
     def isbn_10_from_api(identifiers)
