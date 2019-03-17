@@ -15,19 +15,11 @@ class BooksController < ApplicationController
     set_logged_in_show_variables
   end
 
-  def edit
-  end
-
-  def update
-  end
-
   def recommendations
     @user = current_user
-    if logged_in?
-      @genres = @user.genres.ids
-    else
-      redirect_to root_url
-    end
+    redirect_to root_url unless logged_in?
+
+    @genres = @user.genres.ids
     @books = []
     @reading_list = ReadingList.new
   end

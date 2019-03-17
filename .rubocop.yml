@@ -17,3 +17,6 @@ Metrics/CyclomaticComplexity:
 Metrics/PerceivedComplexity:
   Max: 12
   # default is 7
+
+Style/SymbolArray:
+  EnforcedStyle: percent
