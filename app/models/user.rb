@@ -31,7 +31,7 @@ class User < ApplicationRecord
   before_save :downcase_fields
 
   def downcase_fields
-    self.username.downcase!
+    username.downcase!
   end
 
   # Follows a user.
@@ -51,7 +51,7 @@ class User < ApplicationRecord
 
   # Returns a random book that the user has in their reading list
   def one_of_their_books
-    self.reading_lists.sample.book
+    reading_lists.sample.book
   end
 
   def self.users_to_follow(num_of_users, current_user)
