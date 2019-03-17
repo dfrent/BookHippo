@@ -10,18 +10,15 @@ class SearchForController < ApplicationController
 
     ###########
 
-    @books = []
+    @books = @google_items[0..19].each_with_object([]) do |item, items|
+      isbn = google.isbn_10_from_api(item['volumeInfo']['industryIdentifiers'])
+      next unless isbn
 
-    @google_items[0..19].each do |result|
-      isbn = google.isbn_10_from_api(result['volumeInfo']['industryIdentifiers'])
-      if isbn
-        google.isbn = isbn
-        book = google.find_or_api_call
-        next if book.nil?
-      else
-        next
-      end
-      @books << book
+      google.isbn = isbn
+      book = google.find_or_api_call
+      next if book.nil?
+
+      items << book
     end
     render :index
   end
