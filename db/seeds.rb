@@ -37,7 +37,7 @@ User.create!(username: 'Eric', email: 'eric@bitmaker.co', password: 'abcd1234', 
 User.create!(username: 'James', email: 'james@bitmaker.co', password: 'abcd1234', password_confirmation: 'abcd1234')
 User.create!(username: 'Kyle', email: 'kyle@bitmaker.co', password: 'abcd1234', password_confirmation: 'abcd1234')
 
-Rake::Task['update_api:ny_times'].invoke
+Rake::Task['update:all'].invoke
 
 BookClub.create!(name: 'Book Ends', book: Book.first, user: User.first, description: 'More than just ends and odds... Weekly book selection for rotating genres!', goal: '1 book per week')
 BookClub.create!(name: 'Just Read It.', book: Book.second, user: User.second, description: 'Monthly book club for fiction books.', goal: '1 book per month')

@@ -12,7 +12,8 @@ class BooksController < ApplicationController
 
   def show
     isbn = params[:id]
-    @book = Book.find_or_api_call(isbn)
+    google = Tools::Google.new(isbn)
+    @book = google.find_or_api_call
     @reading_list = ReadingList.new
     if logged_in?
       @existing_list = ReadingList.find_by(user_id: current_user.id, book_id: @book.id)
