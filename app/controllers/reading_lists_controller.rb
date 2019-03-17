@@ -6,16 +6,9 @@ class ReadingListsController < ApplicationController
     find_or_create_list
 
     if request.xhr?
-
       @reviews = Review.where(book_id: params[:book_id])
+      @rating = Rating.find_by(book_id: params[:book_id], user_id: current_user) || Rating.new(stars: 0)
 
-      @rating = Rating.where(book_id: params[:book_id], user_id: current_user)
-      puts "...........................................#{@rating.inspect}"
-
-      if @rating == nil
-        @rating = Rating.new
-        @rating.stars = 0
-      end
       render partial: 'reviews/reviews_form', locals: { book: @book, review: Review.new, rating: @rating }
     else
       format.html { redirect_to book_path(@book[:isbn]) }
