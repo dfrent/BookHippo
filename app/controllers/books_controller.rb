@@ -9,29 +9,10 @@ class BooksController < ApplicationController
     google = Tools::Google.new(isbn)
     @book = google.find_or_api_call
     @reading_list = ReadingList.new
-    if logged_in?
-      @existing_list = ReadingList.find_by(user_id: current_user.id, book_id: @book.id)
-    end
     @review = Review.new
     @reviews = @book.reviews
     @average_rating = @book.average_rating
-
-    # Checks if current_user is logged_in, then if they have a reading list with the current book. If they do, it sets that read_status in a variable
-    if logged_in?
-      if current_user.reading_lists.find_by(book_id: @book.id)
-        @current_read_status = current_user.reading_lists.find_by(book_id: @book.id).read_status
-      end
-    end
-
-    # Checks for presence of rating, and creates one for the user if it doesn't exist
-    # Ensures user is logged in to prevent error do not move lines
-    if logged_in?
-      @rating = @book.ratings.find_by(user_id: current_user.id)
-
-      unless @rating
-        @rating = Rating.create(book_id: @book.id, user_id: current_user.id, stars: 0)
-      end
-    end
+    set_logged_in_show_variables
   end
 
   def edit
@@ -57,5 +38,14 @@ class BooksController < ApplicationController
     GENRES.each_with_object({}) do |genre, books|
       books[genre] = Book.where(ny_times_list: genre)
     end
+  end
+
+  def set_logged_in_show_variables
+    return unless logged_in?
+    @existing_list = ReadingList.find_by(user_id: current_user.id, book_id: @book.id)
+    reading_list_status = current_user.reading_lists.find_by(book_id: @book.id)
+    @current_read_status = reading_list_status.read_status if reading_list_status
+    book_rating = @book.ratings.find_by(user_id: current_user.id)
+    @rating = book_rating || Rating.create(book_id: @book.id, user_id: current_user.id, stars: 0)
   end
 end
