@@ -3,8 +3,8 @@
 
 <% if @google_items %>
 
-  <% if @user.any? %>
-    <%= render partial: "user_search", locals: {user: @user} %>
+  <% if @users.any? %>
+    <%= render partial: "user_search", locals: {users: @users} %>
   <% end %>
 
   <% if @books.any? %>
