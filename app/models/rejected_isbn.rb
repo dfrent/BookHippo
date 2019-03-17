@@ -1,2 +1,3 @@
 class RejectedIsbn < ApplicationRecord
+  
 end
