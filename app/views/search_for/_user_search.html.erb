@@ -1,7 +1,5 @@
 <div class="user-search-results">
-
   <h3>Users</h3>
-
   <% users.each do |user| %>
     <%= link_to "#{user[:username].titleize}", user_path(user[:id]), class: "user-btn btn" %>
   <% end %>
