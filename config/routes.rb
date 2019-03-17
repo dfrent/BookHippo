@@ -32,7 +32,7 @@ Rails.application.routes.draw do
 
   # USERS
   get 'new_follow' => 'users#new_follow', :as => :new_follow
-  resources :users do
+  resources :users, except: %i[index] do
     member do
       get :following, :followers
     end
