@@ -13,17 +13,16 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new
-    @user.email = params[:user][:email]
-    @user.username = params[:user][:username]
-    @user.password = params[:user][:password]
-    @user.password_confirmation = params[:user][:password_confirmation]
-
+    @user = User.new(
+      email: user_params[:email],
+      username: user_params[:username],
+      password: user_params[:password],
+      password_confirmation: user_params[:password_confirmation]
+    )
     if @user.save
       # # Auto-login on succesful signup
       flash[:alert] = 'Account successfully created!'
-      session[:user_id] = @user.id
-      cookies[:user_id] = @user.id
+      set_session
       redirect_to genres_url
     else
       render :new
@@ -37,10 +36,10 @@ class UsersController < ApplicationController
   def update
     @user = current_user
 
-    @user.email = params[:user][:email]
-    @user.username = params[:user][:username]
-    @user.password = params[:user][:password]
-    @user.password_confirmation = params[:user][:password_confirmation]
+    @user.email = user_params[:email]
+    @user.username = user_params[:username]
+    @user.password = user_params[:password]
+    @user.password_confirmation = user_params[:password_confirmation]
 
     if @user.save
 
@@ -81,6 +80,15 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def user_params
+    params[:user]
+  end
+
+  def set_session
+    session[:user_id] = @user.id
+    cookies[:user_id] = @user.id
+  end
 
   def reading_lists_by_status
     READING_PROGRESS_STATUSES.each_with_object({}) do |status, lists|
