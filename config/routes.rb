@@ -13,18 +13,18 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy', :as => :logout
 
   resources :reading_lists
-  resources :genres, only: [:index, :show]
+  resources :genres, only: %i[index show]
   resources :users do
     member do
       get :following, :followers
     end
   end
-  resources :books, only: [:index, :show, :edit, :update] do
-    resources :reviews, only: [:new, :create, :edit, :update, :destroy]
-    resources :ratings, only: [:update, :show, :create]
+  resources :books, only: %i[index show] do
+    resources :reviews, only: %i[new create edit update destroy]
+    resources :ratings, only: %i[update show create]
   end
-  resources :sessions, only: [:create]
-  resources :relationships, only: [:create, :destroy]
+  resources :sessions, only: %i[create]
+  resources :relationships, only: %i[create destroy]
 
   resources :conversations do
     resources :messages

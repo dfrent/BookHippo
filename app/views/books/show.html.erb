@@ -75,9 +75,11 @@
           <% else %>
             <div><input type="hidden" ,="," value='0' id="rating"></div>
           <%end%>
-          <div class="review-form-box">
-            <%= render partial: "reviews/reviews_form", locals: {book: @book, review: @review, rating: @rating}%>
-          </div>
+          <% if logged_in? %>
+            <div class="review-form-box">
+              <%= render partial: "reviews/reviews_form", locals: {book: @book, review: @review, rating: @rating}%>
+            </div>
+          <% end %>
         </div>
 
 
