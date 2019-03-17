@@ -1,7 +1,8 @@
 class SearchForController < ApplicationController
   def search_for
     redirect_to root_url unless params[:search]
-    @user = User.find_user(params[:search].downcase)
+    @user = User.where(' username LIKE ? ', "%#{params[:search].downcase}%")
+    byebug
     goog_response = HTTParty.get("https://www.googleapis.com/books/v1/volumes?q=#{params[:search]}&key=#{ENV['GBOOKS_KEY']}")
     @google_items = goog_response.parsed_response['items']
     if @google_items
