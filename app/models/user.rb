@@ -33,17 +33,6 @@ class User < ApplicationRecord
   # This is the model for one-on-one conversation
   has_many :messages
 
-  # This is the model for book club chat conversation
-  has_many :chats
-
-  # Signifies that you can be FOLLOWING many book clubs
-  has_many :subscriptions
-  has_many :book_clubs, through: :subscriptions
-
-  # This is the ownership association of users to book clubs
-  has_many :owned_clubs, class_name: 'BookClub'
-  # ------------------------------------------------------- #
-
   validates :username, :email, :password, :password_confirmation, presence: true
   validates :username, :email, uniqueness: true
   validates_length_of :password, :minimum => 8
