@@ -1,8 +1,8 @@
 module Tools
   class Google
-    attr_accessor :isbn, :book
+    attr_accessor :isbn, :book, :volume_info, :images
 
-    def initialize(isbn)
+    def initialize(isbn = nil)
       @isbn = isbn
       @book = Book.new
     end
@@ -10,41 +10,73 @@ module Tools
     def find_or_api_call
       book = Book.find_by(isbn: @isbn)
       return book if book
-      @book.update_attributes(new_book_data)
-      return @book.errors.messages unless @book.valid?
-      book.save
-      book
+      create_book
+    end
+
+    def update_books_by_genre
+      Genre.all.each do |genre|
+        books_in_genre(genre.name).each do |item|
+          isbn_10_from_api(item['volumeInfo']['industryIdentifiers'])
+          next if @isbn.nil? || Book.exists?(@isbn)
+          create_book(genre.id)
+        end
+      end
     end
 
     private
+
+    # Lookup
 
     def book_from_isbn
       response = HTTParty.get("https://www.googleapis.com/books/v1/volumes?q=isbn=#{@isbn}&key=#{ENV['GBOOKS_KEY']}")
       response.parsed_response['items'][0]
     end
 
-    def new_book_data
-      book = book_from_isbn
-      book_volume_info = book['volumeInfo']
-      assign_book_images(book_volume_info['imageLinks'])
-      authors = book_volume_info['authors']
-      authors = authors.length > 1 ? authors : authors.join(', ')
-      @book.update_attributes(title: book_volume_info['title'],
-                              author: authors,
-                              description: book_volume_info['description'],
-                              genre_id: 20,
-                              isbn: @isbn,
-                              google_id: book['id'],
-                              page_count: book_volume_info['pageCount'],
-                              average_rating: book_volume_info['averageRating'],
-                              published_date: book_volume_info['publishedDate'],
-                              publisher: book_volume_info['publisher'])
+    def books_in_genre(genre_name)
+      response = HTTParty.get("https://www.googleapis.com/books/v1/volumes?q=subject=#{genre_name}&key=#{ENV['GBOOKS_KEY']}")
+      response.parsed_response['items']
     end
 
-    def assign_book_images(image_links)
-      return if image_links.nil?
-      @book[:book_cover] = image_links['thumbnail']
-      @book[:small_thumbnail] = image_links['smallThumbnail']
+    def fetch_book_data
+      book_data = book_from_isbn
+      @volume_info = book_data['volumeInfo']
+      @images = @volume_info['imageLinks']
+    end
+
+    # Model Creation
+
+    def create_book(genre_id = 20)
+      fetch_book_data
+      assign_book_images
+      @book.update_attributes(title: @volume_info['title'],
+                              author: account_for_multiple_authors,
+                              description: @volume_info['description'] || '',
+                              genre_id: genre_id,
+                              isbn: @isbn,
+                              google_id: book['id'],
+                              page_count: @volume_info['pageCount'],
+                              average_rating: @volume_info['averageRating'],
+                              published_date: @volume_info['publishedDate'],
+                              publisher: @volume_info['publisher'])
+      @book = Book.new
+    end
+
+    def assign_book_images
+      return if @images.nil?
+      @book[:book_cover] = @images['thumbnail']
+      @book[:small_thumbnail] = @images['smallThumbnail']
+    end
+
+    def isbn_10_from_api(identifiers)
+      identifiers&.each do |identifier|
+        @isbn = identifier['identifier'] if identifier['type'] == 'ISBN_10'
+      end
+    end
+
+    def account_for_multiple_authors
+      authors = @volume_info['authors']
+      return '' unless authors
+      authors.length > 1 ? authors : authors.join(', ')
     end
   end
 end
