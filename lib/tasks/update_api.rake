@@ -84,11 +84,3 @@ def book_from_google_genres(isbn, book_information, genre)
   book.save!
   book
 end
-
-def assign_book_images(book, book_information)
-  return unless book_information['imageLinks']
-  puts "Images successfully added to #{book.title}"
-  book.update_attributes(book_cover: book_information['imageLinks']['thumbnail'],
-                         small_thumbnail: book_information['imageLinks']['smallThumbnail'])
-  book
-end

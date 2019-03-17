@@ -1,16 +1,17 @@
 module Tools
   class Google
-    attr_accessor :isbn
+    attr_accessor :isbn, :book
 
     def initialize(isbn)
       @isbn = isbn
+      @book = Book.new
     end
 
     def find_or_api_call
       book = Book.find_by(isbn: @isbn)
       return book if book
-      book = Book.new(new_book_data)
-      return unless book.valid?
+      @book.update_attributes(new_book_data)
+      return @book.errors.messages unless @book.valid?
       book.save
       book
     end
@@ -25,16 +26,25 @@ module Tools
     def new_book_data
       book = book_from_isbn
       book_volume_info = book['volumeInfo']
-      authors = book['authors'].length > 1 ? book['authors'] : book['authors'].join(', ')
-      { title: book_volume_info['title'],
-        author: authors,
-        description: book_volume_info['description'],
-        genre_id: 20,
-        google_id: book['id'],
-        page_count: book_volume_info['pageCount'],
-        average_rating: book_volume_info['averageRating'],
-        published_date: book_volume_info['publishedDate'],
-        publisher: book_volume_info['publisher'] }
+      assign_book_images(book_volume_info['imageLinks'])
+      authors = book_volume_info['authors']
+      authors = authors.length > 1 ? authors : authors.join(', ')
+      @book.update_attributes(title: book_volume_info['title'],
+                              author: authors,
+                              description: book_volume_info['description'],
+                              genre_id: 20,
+                              isbn: @isbn,
+                              google_id: book['id'],
+                              page_count: book_volume_info['pageCount'],
+                              average_rating: book_volume_info['averageRating'],
+                              published_date: book_volume_info['publishedDate'],
+                              publisher: book_volume_info['publisher'])
+    end
+
+    def assign_book_images(image_links)
+      return if image_links.nil?
+      @book[:book_cover] = image_links['thumbnail']
+      @book[:small_thumbnail] = image_links['smallThumbnail']
     end
   end
 end
