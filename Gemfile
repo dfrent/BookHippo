@@ -24,7 +24,6 @@ group :development, :test do
   gem 'awesome_print'
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'capybara', '~> 2.13'
-  gem 'pry-rails'
   gem 'rubocop', '~> 0.53.0', require: false
   gem 'selenium-webdriver'
 end
