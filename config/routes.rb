@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  # Serve websocket cable requests in-process
-  mount ActionCable.server => '/cable'
-
   resources :messages
 
   root 'books#index'
@@ -29,10 +26,4 @@ Rails.application.routes.draw do
   resources :conversations do
     resources :messages
   end
-
-  resources :book_clubs do
-    get 'invitations' => 'book_clubs#invitations'
-    post 'book_club_invitees' => 'subscriptions#creation'
-  end
-  resources :chats
 end
