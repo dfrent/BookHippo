@@ -40,6 +40,13 @@ module Tools
       response.parsed_response['items']
     end
 
+    def isbn_10_from_api(identifiers)
+      identifiers&.each do |identifier|
+        @isbn = identifier['identifier'] if identifier['type'] == 'ISBN_10'
+      end
+      @isbn
+    end
+
     private
 
     # Lookup
@@ -70,13 +77,7 @@ module Tools
                               average_rating: @volume_info['averageRating'],
                               published_date: @volume_info['publishedDate'],
                               publisher: @volume_info['publisher'])
-      @book
-    end
-
-    def isbn_10_from_api(identifiers)
-      identifiers&.each do |identifier|
-        @isbn = identifier['identifier'] if identifier['type'] == 'ISBN_10'
-      end
+      @book if book.valid?
     end
 
     def account_for_multiple_authors
