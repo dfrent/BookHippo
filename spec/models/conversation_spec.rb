@@ -2,6 +2,10 @@ require 'rails_helper'
 
 RSpec.describe Conversation, :type => :model do
   # ATTRIBUTES
+  it 'is valid with valid attributes' do
+    expect(build(:conversation)).to be_valid
+  end
+
   it 'is not valid without a sender' do
     expect(build(:conversation, sender: nil)).not_to be_valid
   end
