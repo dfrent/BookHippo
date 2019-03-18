@@ -36,7 +36,6 @@ RSpec.describe Book, :type => :model do
     expect(build(:book, genre: nil)).not_to be_valid
   end
 
-
   # RELATIONSHIPS
   it 'belongs to a genre' do
     expect(create(:book).genre).to be_present
