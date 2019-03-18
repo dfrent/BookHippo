@@ -2,10 +2,10 @@ class ReviewsController < ApplicationController
   before_action :ensure_logged_in
 
   def create
-    @book = Book.find(params[:book_id])
+    @book = Book.find(book_id)
     @review = Review.new(
-      comment: params[:review][:comment],
-      date_added: params[:review][:date_added],
+      comment: review[:comment],
+      date_added: review[:date_added],
       book: @book,
       user: current_user
     )
@@ -20,9 +20,9 @@ class ReviewsController < ApplicationController
   end
 
   def update
-    @book = Book.find(params[:book_id])
-    @review = Review.find(params[:book_id])
-    @review.comment = params[:review][:comment]
+    @book = Book.find(book_id)
+    @review = Review.find(book_id)
+    @review.comment = review[:comment]
 
     if @review.save
       flash[:success] = "your review was updated for #{@book.title}"
@@ -31,5 +31,13 @@ class ReviewsController < ApplicationController
       flash.now[:alert] = 'Sorry, there was a problem updating your review'
       render '/books/show'
     end
+  end
+
+  def book_id
+    params[:book_id]
+  end
+
+  def review
+    params[:review]
   end
 end
