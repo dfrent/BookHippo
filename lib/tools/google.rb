@@ -77,7 +77,12 @@ module Tools
                               average_rating: @volume_info['averageRating'],
                               published_date: @volume_info['publishedDate'],
                               publisher: @volume_info['publisher'])
-      @book if book.valid?
+      if book.valid?
+        @book
+      else
+        RejectedIsbn.record_invalid_isbn(@isbn)
+        return
+      end
     end
 
     def account_for_multiple_authors
@@ -89,6 +94,7 @@ module Tools
 
     def prep_book_for_update
       return false unless @isbn
+      return false if RejectedIsbn.isbn_is_rejected(@isbn)
       book_data = book_from_isbn
       @volume_info = book_data['volumeInfo']
       @images = @volume_info['imageLinks']
