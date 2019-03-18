@@ -41,4 +41,24 @@ RSpec.describe Book, :type => :model do
   it 'belongs to a genre' do
     expect(create(:book).genre).to be_present
   end
+
+  # METHODS
+  it 'returns an average rating' do
+    book = create(:book)
+    3.times do
+      create(:rating, book: book)
+    end
+
+    average_rating = book.ratings.inject(0) do |total, rating|
+      rating.stars.round + total
+    end / 3
+
+    expect(book.average_rating).to equal(average_rating)
+  end
+
+  it 'returns false for average rating if there are none' do
+    book = create(:book)
+
+    expect(book.average_rating).to equal(false)
+  end
 end
