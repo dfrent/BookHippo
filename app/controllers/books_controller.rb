@@ -34,10 +34,12 @@ class BooksController < ApplicationController
 
   def set_logged_in_show_variables
     return unless logged_in?
-    @existing_list = ReadingList.find_by(user_id: current_user.id, book_id: @book.id)
-    reading_list_status = current_user.reading_lists.find_by(book_id: @book.id)
+    current_user_id = current_user.id
+    book_id = @book.id
+    @existing_list = ReadingList.find_by(user_id: current_user_id, book_id: book_id)
+    reading_list_status = current_user.reading_lists.find_by(book_id: book_id)
     @current_read_status = reading_list_status.read_status if reading_list_status
-    book_rating = @book.ratings.find_by(user_id: current_user.id)
-    @rating = book_rating || Rating.create(book_id: @book.id, user_id: current_user.id, stars: 0)
+    book_rating = @book.ratings.find_by(user_id: current_user_id)
+    @rating = book_rating || Rating.create(book_id: book_id, user_id: current_user_id, stars: 0)
   end
 end

@@ -6,6 +6,9 @@ AllCops:
     - Gemfile
     - bin/*
 
+Metrics/AbcSize:
+  Max: 20
+
 Metrics/BlockNesting:
   Max: 5
   # default is 4
