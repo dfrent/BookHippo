@@ -61,4 +61,16 @@ RSpec.describe Book, :type => :model do
 
     expect(book.average_rating).to equal(false)
   end
+
+  # CLASS METHODS
+  describe 'exists?' do
+    it 'returns true if a book is found' do
+      book = create(:book)
+      expect(Book.exists?(book.isbn)).to equal(true)
+    end
+
+    it 'returns false if no book is found' do
+      expect(Book.exists?('1234567890')).to equal(false)
+    end
+  end
 end

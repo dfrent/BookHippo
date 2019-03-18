@@ -26,8 +26,6 @@ class Book < ApplicationRecord
   end
 
   def self.exists?(isbn)
-    book = Book.find_by(isbn: isbn)
-    return true if book
-    false
+    !Book.find_by(isbn: isbn).nil?
   end
 end
