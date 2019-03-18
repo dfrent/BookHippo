@@ -6,8 +6,7 @@ class ReadingListsController < ApplicationController
     find_or_create_list
 
     if request.xhr?
-      @reviews = Review.where(book_id: book_id)
-      @rating = Rating.find_by(book_id: book_id, user_id: current_user) || Rating.new(stars: 0)
+      set_review_variables(book_id, current_user)
 
       render partial: 'reviews/reviews_form', locals: { book: @book, review: Review.new, rating: @rating }
     else
@@ -31,5 +30,10 @@ class ReadingListsController < ApplicationController
 
   def book_id
     params[:book_id]
+  end
+
+  def set_review_variables(book_id, current_user)
+    @reviews = Review.where(book_id: book_id)
+    @rating = Rating.find_by(book_id: book_id, user_id: current_user) || Rating.new(stars: 0)
   end
 end
