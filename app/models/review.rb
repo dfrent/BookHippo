@@ -9,6 +9,6 @@ class Review < ApplicationRecord
   end
 
   def username_display
-    return user.username.capitalize
+    user.username.capitalize
   end
 end
