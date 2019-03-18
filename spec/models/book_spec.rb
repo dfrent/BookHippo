@@ -32,9 +32,13 @@ RSpec.describe Book, :type => :model do
     expect(duplicate_book).not_to be_valid
   end
 
+  it 'is not valid without a genre' do
+    expect(build(:book, genre: nil)).not_to be_valid
+  end
+
 
   # RELATIONSHIPS
-  it 'is not valid without a genre'
+  it 'belongs to a genre'
   it 'can have many users through reviews'
   it 'can have many users through ratings'
   it 'can have many reviews'
