@@ -11,15 +11,15 @@ Metrics/AbcSize:
 
 Metrics/BlockNesting:
   Max: 5
-  # default is 4
 
 Metrics/CyclomaticComplexity:
   Max: 9
-  # default is 6
+
+Metrics/MethodLength:
+  Max: 15
 
 Metrics/PerceivedComplexity:
   Max: 12
-  # default is 7
 
 Style/SymbolArray:
   EnforcedStyle: percent
