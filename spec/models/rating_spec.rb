@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Book, :type => :model do
+RSpec.describe Rating, :type => :model do
   # ATTRIBUTES
   it 'is valid with valid attributes' do
     expect(build(:rating)).to be_valid
