@@ -9,12 +9,3 @@ FactoryBot.define do
     genre
   end
 end
-
-#   factory :random_book do
-#     isbn {Faker::Number.(10)}
-#     title {Faker::Name.title}
-#     author {Faker::Name.author}
-#     average_rating {Faker::Number.between(1, 5)
-#     active true
-#   end
-# end
