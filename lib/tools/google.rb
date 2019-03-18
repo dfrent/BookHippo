@@ -77,12 +77,9 @@ module Tools
                               average_rating: @volume_info['averageRating'],
                               published_date: @volume_info['publishedDate'],
                               publisher: @volume_info['publisher'])
-      if book.valid?
-        @book
-      else
-        RejectedIsbn.record_invalid_isbn(@isbn)
-        return
-      end
+      return @book if book.valid?
+      RejectedIsbn.record_invalid_isbn(@isbn)
+      nil
     end
 
     def account_for_multiple_authors
