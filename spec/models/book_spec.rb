@@ -38,10 +38,7 @@ RSpec.describe Book, :type => :model do
 
 
   # RELATIONSHIPS
-  it 'belongs to a genre'
-  it 'can have many users through reviews'
-  it 'can have many users through ratings'
-  it 'can have many reviews'
-  it 'can have many reading lists'
-  it 'can have many ratings'
+  it 'belongs to a genre' do
+    expect(create(:book).genre).to be_present
+  end
 end
