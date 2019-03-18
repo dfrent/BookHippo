@@ -2,7 +2,10 @@ require 'rails_helper'
 
 RSpec.describe Book, :type => :model do
   # ATTRIBUTES
-  it 'is valid with valid attributes'
+  it 'is valid with valid attributes' do
+    expect(build(:book)).to be_valid
+  end
+
   it 'is not valid without an isbn'
   it 'is not valid without an author'
   it 'is not valid without a title'
