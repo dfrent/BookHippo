@@ -37,6 +37,7 @@ RSpec.describe User, :type => :model do
     it 'can follow a user' do
       user = create(:user)
       other_user = create(:user)
+      user.follow(other_user)
 
       expect(user.following).to include(other_user)
     end
