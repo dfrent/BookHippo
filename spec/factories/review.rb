@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :review do
-    comment 'Super Like'
+    comment { Faker::Lorem.sentence }
     user
     book
   end

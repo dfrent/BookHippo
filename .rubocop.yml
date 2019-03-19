@@ -5,6 +5,7 @@ AllCops:
     - db/schema.rb
     - Gemfile
     - bin/*
+    - spec/*/**
 
 Metrics/BlockNesting:
   Max: 5

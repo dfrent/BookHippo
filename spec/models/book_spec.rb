@@ -1,39 +1,75 @@
 require 'rails_helper'
 
-# RSpec.describe Book, :type => :model do
-#   context "with 2 or more comments" do
-#     it "orders them in reverse chronologically" do
-#       post = Book.create!
-#       comment1 = post.comments.create!(:body => "first comment")
-#       comment2 = post.comments.create!(:body => "second comment")
-#       expect(post.reload.comments).to eq([comment2, comment1])
-#     end
-#   end
-# end
-# #
-# #
-
 RSpec.describe Book, :type => :model do
+  # ATTRIBUTES
   it 'is valid with valid attributes' do
-    expect(Book.new).to be_valid
+    expect(build(:book)).to be_valid
   end
-  it 'is not valid without a isbn'
-  it 'is not valid without a title'
-  it 'is not valid without a author'
-  it 'is not valid without a description'
-  it 'is not valid without a book_cover'
-  it 'is not valid without a small_thumbnail'
-  it 'is not valid without a genre_id'
-  it 'is not valid without a google_id'
-  it 'is not valid without a page_count'
-  it 'is not valid without a average_rating'
-  it 'is not valid without a published_date'
-end
 
-RSpec.describe Book, :type => :model do
-  subject { described_class.new }
-  it 'is not valid without a isbn' do
-    subject.isbn = nil
-    expect(subject).to_not be_valid
+  it 'is not valid without an isbn' do
+    expect(build(:book, isbn: nil)).not_to be_valid
+  end
+
+  it 'is not valid without an author' do
+    expect(build(:book, author: nil)).not_to be_valid
+  end
+
+  it 'is not valid without a title' do
+    expect(build(:book, title: nil)).not_to be_valid
+  end
+
+  it 'is not valid without a book cover' do
+    expect(build(:book, book_cover: nil)).not_to be_valid
+  end
+
+  it 'is not valid without a description' do
+    expect(build(:book, description: nil)).not_to be_valid
+  end
+
+  it 'is not valid if isbn is taken' do
+    book = create(:book)
+    duplicate_book = build(:book, isbn: book.isbn)
+    expect(duplicate_book).not_to be_valid
+  end
+
+  it 'is not valid without a genre' do
+    expect(build(:book, genre: nil)).not_to be_valid
+  end
+
+  # RELATIONSHIPS
+  it 'belongs to a genre' do
+    expect(create(:book).genre).to be_present
+  end
+
+  # METHODS
+  it 'returns an average rating' do
+    book = create(:book)
+    3.times do
+      create(:rating, book: book)
+    end
+
+    average_rating = book.ratings.inject(0) do |total, rating|
+      rating.stars.round + total
+    end / 3
+
+    expect(book.average_rating).to equal(average_rating)
+  end
+
+  it 'returns false for average rating if there are none' do
+    book = create(:book)
+
+    expect(book.average_rating).to equal(false)
+  end
+
+  # CLASS METHODS
+  describe 'exists?' do
+    it 'returns true if a book is found' do
+      book = create(:book)
+      expect(Book.exists?(book.isbn)).to equal(true)
+    end
+
+    it 'returns false if no book is found' do
+      expect(Book.exists?('1234567890')).to equal(false)
+    end
   end
 end

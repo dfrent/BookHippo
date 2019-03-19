@@ -20,14 +20,6 @@ gem 'redis', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 
-group :development, :test do
-  gem 'awesome_print'
-  gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  gem 'capybara', '~> 2.13'
-  gem 'rubocop', '~> 0.53.0', require: false
-  gem 'selenium-webdriver'
-end
-
 group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
@@ -35,26 +27,19 @@ group :development do
   gem 'web-console', '>= 3.3.0'
 end
 
-group :test do
-  # gem 'factory-bot-rails'
-  # gem 'faker'
-  gem 'guard', '~> 2.14.0'
-  gem 'guard-minitest'
-  gem 'minitest-rails'
-  gem 'minitest-reporters'
-  gem 'rails-controller-testing'
-  gem 'simplecov', require: false
-  gem 'timecop'
-end
-
 group :development, :test do
+  gem 'awesome_print'
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'capybara', '~> 2.13'
+  gem 'database_cleaner'
   gem 'factory_bot_rails'
+  gem 'faker'
+  gem 'rails-controller-testing'
+  gem "rspec-rails"
+  gem 'rubocop', '~> 0.53.0', require: false
+  gem 'selenium-webdriver'
+  gem 'simplecov', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
-
-group :development, :test do
-  gem 'database_cleaner'
-  # gem "rspec-rails"
-end

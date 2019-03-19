@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
   GENRES = ['Mass Market Paperback', 'Travel', 'Science', 'Business Books', 'Animals', 'Education', 'Hardcover Nonfiction'].freeze
+
   def index
     @books = books_sorted_by_genre
   end
