@@ -16,20 +16,18 @@ module Tools
     end
 
     def update_books_by_genre
-      Genre.all.each do |genre|
-        books_in_genre(genre.name).each do |item|
-          isbn_10_from_api(item['volumeInfo']['industryIdentifiers'])
-          next if @isbn.nil? || Book.exists?(@isbn)
-          create_book(genre.id)
-        end
+      books_for_all_genres.each do |item|
+        isbn_10_from_api(item['volumeInfo']['industryIdentifiers'])
+        next if @isbn.nil? || Book.exists?(@isbn)
+        create_book(genre.id)
       end
     end
 
     def assign_images_to_all_books
       Book.all.map do |book|
+        next if book.book_cover || book.small_thumbnail
         @isbn = book.isbn
         @book = book
-        next if book.book_cover || book.small_thumbnail
         prep_book_for_update
         @book.save if @book.valid?
       end
@@ -60,6 +58,12 @@ module Tools
     def books_in_genre(genre_name)
       response = HTTParty.get("#{GOOGLE_ENDPOINT}subject=#{genre_name}&key=#{GBOOKS_KEY}")
       response.parsed_response['items']
+    end
+
+    def books_for_all_genres
+      Genre.all.map do |genre|
+        books_in_genre(genre.name)
+      end
     end
 
     # Model Creation/ Updates
