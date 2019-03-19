@@ -46,7 +46,7 @@ RSpec.describe ReadingList, :type => :model do
   # METHODS
   describe 'done_reading' do
     it 'sets the date completed to Time.now' do
-      reading_list = create(:reading_list)
+      reading_list = create(:reading_list, read_status: 'want_to_read')
       expect(reading_list.date_completed).to equal(nil)
       reading_list.done_reading
       expect(reading_list.date_completed).to be_present

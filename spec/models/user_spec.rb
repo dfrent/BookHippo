@@ -41,25 +41,74 @@ RSpec.describe User, :type => :model do
 
       expect(user.following).to include(other_user)
     end
+
+    it 'cannot follow yourself' do
+      user = create(:user)
+
+      expect { user.follow(user) }.to raise_error(ActiveRecord::RecordInvalid)
+    end
   end
 
   describe 'unfollow' do
-    it 'can unfollow a user'
+    it 'can unfollow a user' do
+      user = create(:user)
+      other_user = create(:user)
+      user.follow(other_user)
+      expect(user.following).to include(other_user)
+
+      user.unfollow(other_user)
+      expect(user.following).not_to include(other_user)
+    end
   end
 
   describe 'following?' do
-    it 'returns true if user is following passed user'
-    it 'returns false if user is not following passed user'
+    it 'returns true if user is following passed user' do
+      user = create(:user)
+      other_user = create(:user)
+      user.follow(other_user)
+
+      expect(user.following?(other_user)).to equal(true)
+    end
+
+    it 'returns false if user is not following passed user' do
+      user = create(:user)
+      other_user = create(:user)
+
+      expect(user.following?(other_user)).to equal(false)
+    end
   end
 
   describe 'one of their books' do
-    it 'returns a book the user has in their list'
+    it 'returns a book the user has in their list' do
+      reading_list = create(:reading_list)
+      user = reading_list.user
+      book = reading_list.book
+
+      expect(user.one_of_their_books).to eq(book)
+    end
   end
 
   # CLASS METHODS
   describe 'users to follow' do
-    it 'returns an array of users'
-    it 'does not contain user'
-    it 'returns no more than num_of_users users'
+    it 'returns an array of users' do
+      user = create(:user)
+      other_user = create(:user)
+
+      expect(User.users_to_follow(10, user)).to include(other_user)
+    end
+
+    it 'does not contain passed user' do
+      user = create(:user)
+
+      expect(User.users_to_follow(10, user)).not_to include(user)
+    end
+
+    it 'returns no more than num_of_users users' do
+      12.times do
+        create(:user)
+      end
+
+      expect(User.users_to_follow(10, User.first).length).to equal(10)
+    end
   end
 end
