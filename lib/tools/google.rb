@@ -71,19 +71,25 @@ module Tools
     def create_book(genre_id = 20)
       @book = Book.new
       return unless prep_book_for_update
-      @book.update_attributes(title: @volume_info['title'],
-                              author: account_for_multiple_authors,
-                              description: @volume_info['description'] || '',
-                              genre_id: genre_id,
-                              isbn: @isbn,
-                              google_id: book['id'],
-                              page_count: @volume_info['pageCount'],
-                              average_rating: @volume_info['averageRating'],
-                              published_date: @volume_info['publishedDate'],
-                              publisher: @volume_info['publisher'])
-      return @book if book.valid?
+      @book.update_attributes(book_attributes(@volume_info, genre_id, @book))
+      return @book if @book.valid?
       RejectedIsbn.record_invalid_isbn(@isbn)
       nil
+    end
+
+    def book_attributes(volume_info, genre_id, book)
+      {
+        title: volume_info['title'],
+        author: account_for_multiple_authors,
+        description: volume_info['description'] || '',
+        genre_id: genre_id,
+        isbn: isbn,
+        google_id: book['id'],
+        page_count: volume_info['pageCount'],
+        average_rating: volume_info['averageRating'],
+        published_date: volume_info['publishedDate'],
+        publisher: volume_info['publisher']
+      }
     end
 
     def account_for_multiple_authors
