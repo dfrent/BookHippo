@@ -99,14 +99,18 @@ module Tools
       authors.length > 1 ? authors : authors.join(', ')
     end
 
-    def prep_book_for_update
+    def prep_book_for_update(book)
       return false if !@isbn || RejectedIsbn.isbn_is_rejected(@isbn)
       book_data = book_from_isbn
-      @volume_info = book_data['volumeInfo']
-      @images = @volume_info['imageLinks']
-      return false if @images.nil?
-      @book[:book_cover] = @images['thumbnail']
-      @book[:small_thumbnail] = @images['smallThumbnail']
+      images = book_data['volumeInfo']['imageLinks']
+      assign_images(images, book)
+      book_data['volumeInfo']
+    end
+
+    def assign_images(image_links, book)
+      return false if image_links.nil?
+      book[:book_cover] = image_links['thumbnail']
+      book[:small_thumbnail] = image_links['smallThumbnail']
     end
   end
 end
