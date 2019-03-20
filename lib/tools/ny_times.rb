@@ -6,8 +6,7 @@ module Tools
       bestsellers.each do |book_info|
         isbn = book_info['book_details'][0]['primary_isbn10']
         next unless isbn
-        google = Tools::Google.new(isbn)
-        book = google.find_or_api_call
+        book = Tools::Google.new(isbn).find_or_api_call
         next unless book
         book.update_attribute(:ny_times_list, book_info['list_name'])
       end
