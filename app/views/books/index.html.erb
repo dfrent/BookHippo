@@ -3,7 +3,7 @@
 <% @books.each do |key, value| %>
   <h5 class="scroll-header"><%= key %></h5>
   <div class="scroll-container menu-wrapper">
-    <div class="scrollable menu" id= "menu-<%= key.parameterize %>" >
+    <div class="scrollable menu" id="menu-<%= key.parameterize %>" >
       <% value.each do |book| %>
         <%= render partial: "books/single_book", locals: {book: book} %>
       <% end %>
