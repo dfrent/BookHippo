@@ -5,10 +5,8 @@
   <%= link_to 'Continue', new_follow_path, class:"btn btn-primary" %>
 </div>
 <% @genres.each do |genre| %>
-  <!-- <% name = Genre.where('id = ?', genre).name %> -->
-  <%#= name %>
-  <% books = Book.where('genre_id = ?', genre)  %>
-  <% books.each do |book| %>
+  <% @books = Book.where('genre_id = ?', genre)  %>
+  <% @books.each do |book| %>
   <div class="book-wrapper">
     <%= render partial: "single_book_recommendations", locals: {book: book} %>
     <div class="button-container">
@@ -32,3 +30,4 @@
   <%= link_to 'Back', genres_path, class:"btn btn-primary" %>
   <%= link_to 'Continue', new_follow_path, class:"btn btn-primary" %>
 </div>
+<%= console %>
