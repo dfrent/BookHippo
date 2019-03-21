@@ -1,26 +1,23 @@
 /**** BOOK INDEX PAGE ****/
-/* Book List Sliders*/
+/* Book List Sliders */
 .scroll-header {
   padding: 15px;
+  font-size: 28px;
 }
 
-.scroll-container{
-  overflow: hidden;
+.scroll-container {
   background-color: $scroll-gray;
-  padding: 2% 0;
-  padding-left: 1%;
-  padding-right: 1%;
-  margin-bottom: 1%;
   position: relative;
+  padding: 8px 4px;
 }
 
 .scrollable{
-    overflow: auto;
-    white-space: nowrap;
-    &::-webkit-scrollbar {
-      display: none;
-      -webkit-overflow-scrolling: touch;
-    }
+  overflow: auto;
+  white-space: nowrap;
+  &::-webkit-scrollbar {
+    display: none;
+    -webkit-overflow-scrolling: touch;
+  }
 }
 
 /* Book Cards */
