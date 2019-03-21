@@ -16,14 +16,11 @@
   </head>
 
   <body class="<%= controller_name %> <%= action_name %>">
-    <header class="site-header">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between">
-        <a class="navbar-brand" href="/">
-          <%= image_tag("bookhippo_logo.png", width:'200px') %>
-        </a>
-        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between">
+      <%= image_tag("bookhippo_logo.png", width:'200px') %>
+      <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <% if current_user %>
@@ -42,13 +39,12 @@
               </li>
             <% end %>
           </ul>
-          <%= form_tag( search_for_path, :method => "get", id: "search-form", class: "form-inline my-2 my-lg-0") do %>
+        <%= form_tag( search_for_path, :method => "get", id: "search-form", class: "form-inline my-2 my-lg-0") do %>
           <%= text_field_tag :search, params[:search], placeholder: "Search books, people", class: "form-control mr-sm-2" %>
           <%= submit_tag "Search", id:"search-submit-btn", class: "btn btn-outline-success my-2 my-sm-0", :name => nil %>
         <% end %>
       </div>
     </nav>
-  </header>
 
     <div class="content show-wrapper">
       <div class="content-inside">
