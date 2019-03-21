@@ -74,12 +74,12 @@
 }
 .paddle {
   border: none;
-  background-color: lightgray;
+  background-color: $light-gray;
 	position: absolute;
 	top: 0;
 	bottom: 0;
 	width: 3em;
-  text-shadow: 1px 1px 2px black;
+  text-shadow: 1px 1px 2px $black;
   &:focus {
     outline: 0;
   }
@@ -124,7 +124,7 @@
   color: $bookhippo-purple;
   border-color: $bookhippo-purple;
   &:hover {
-    color: white;
+    color: $white;
     background-color: $bookhippo-purple;
     border-color: $bookhippo-purple;
   }
@@ -193,8 +193,6 @@ body.books.show  {
     margin: auto;
     padding-top: 9%;
     min-width: 80%;
-
-
     left: -100%;
     right: -100%;
     top: -120%;
@@ -239,11 +237,11 @@ body.books.show  {
   margin-bottom: 10px;
   background-color: $bookhippo-purple;
   border-color: $bookhippo-purple;
-  color: white;
+  color: $white;
   font-weight: 700;
   &:hover {
     color: $bookhippo-purple;
-    background-color: white;
+    background-color: $white;
     border-color: $bookhippo-purple;
     font-weight: 700;
   }
@@ -260,7 +258,6 @@ body.books.show  {
 .description {
   padding-right: 1%;
   margin-bottom: 20px;
-  // white-space: nowrap;
   min-height: 200px;
   max-height: 300px;
   overflow-x: hidden;
@@ -306,11 +303,11 @@ body.books.show  {
  margin-bottom: 10px;
  background-color: $bookhippo-purple;
  border-color: $bookhippo-purple;
- color: white;
+ color: $white;
  font-weight: 700;
  &:hover {
    color: $bookhippo-purple;
-   background-color: white;
+   background-color: $white;
    border-color: $bookhippo-purple;
    font-weight: 700;
  }

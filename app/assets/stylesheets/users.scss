@@ -6,11 +6,11 @@ a {
   margin-bottom: 10px;
   background-color: $bookhippo-purple;
   border-color: $bookhippo-purple;
-  color: white;
+  color: $white;
   font-weight: 700;
   &:hover {
     color: $bookhippo-purple;
-    background-color: white;
+    background-color: $white;
     border-color: $bookhippo-purple;
     font-weight: 700;
   }
@@ -24,11 +24,11 @@ form.finished {
   margin-bottom: 10px;
   background-color: $bookhippo-purple;
   border-color: $bookhippo-purple;
-  color: white;
+  color: $white;
   font-weight: 700;
   &:hover {
     color: $bookhippo-purple;
-    background-color: white;
+    background-color: $white;
     border-color: $bookhippo-purple;
     font-weight: 700;
   }
@@ -42,5 +42,5 @@ form.finished {
   overflow: hidden;
   margin: 7px;
   position: relative;
-  background-color: darkgrey;
+  background-color: $dark-gray;
 }

@@ -2,7 +2,7 @@ input.btn.btn-primary {
   margin-bottom: 10px;
   background-color: $bookhippo-purple;
   border-color: $bookhippo-purple;
-  color: white;
+  color: $white;
 }
 
 .user-follow-wrapper {
@@ -19,7 +19,7 @@ input.btn.btn-primary {
   list-style: none;
   display: inline-block;
   text-align: center;
-  background-color: #dfdfda;
+  background-color: $relationship-card-gray;
   padding: 10px;
   margin: 10px;
   border-radius: 10px;

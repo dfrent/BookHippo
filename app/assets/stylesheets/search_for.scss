@@ -25,10 +25,10 @@
   margin-bottom: 10px;
   background-color: $bookhippo-purple;
   border-color: $bookhippo-purple;
-  color: white;
+  color: $white;
   &:hover {
     color: $bookhippo-purple;
-    background-color: white;
+    background-color: $white;
     border-color: $bookhippo-purple;
     font-weight: 700;
   }
