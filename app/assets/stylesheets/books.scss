@@ -168,7 +168,7 @@ body.books.show  {
     width: 75%;
     padding-top: 3%;
     padding-bottom: 5%;
-    background-color: #f9f2ff;
+    background-color: $soft-purple;
     margin: auto;
   }
 }
@@ -279,13 +279,13 @@ body.books.show  {
 .star {
   display: inline-block;
   z-index: 0;
-  color: #f79e00;
+  color: $star-gold;
 }
 
 .part-star {
   display: inline;
   overflow: hidden;
-  color: #f79e00;
+  color: $star-gold;
 }
 
 .star-bar {
