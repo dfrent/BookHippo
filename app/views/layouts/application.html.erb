@@ -16,9 +16,7 @@
   </head>
 
   <body class="<%= controller_name %> <%= action_name %>">
-
     <header class="site-header">
-
       <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between">
         <a class="navbar-brand" href="/">
           <%= image_tag("bookhippo_logo.png", width:'200px') %>
@@ -26,7 +24,6 @@
         <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
           <span class="navbar-toggler-icon"></span>
         </button>
-
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <% if current_user %>
@@ -51,9 +48,6 @@
         <% end %>
       </div>
     </nav>
-    <!-- <h1 class="logo">BookHippo</h1> -->
-
-    <!-- <% unless @user && @user == current_user %> <section class="current-user-stats"> <%#= render partial: 'shared/stats', locals: {user: current_user} %> </section> <% end %> -->
   </header>
 
     <div class="content show-wrapper">
@@ -78,6 +72,7 @@
         <%= yield %>
       </div>
     </div>
+
     <footer class="footer">
       <div class="col-sm-1 col-xs-1">
         <%= image_tag("bookhippo-footer.png", width:'200px') %>
