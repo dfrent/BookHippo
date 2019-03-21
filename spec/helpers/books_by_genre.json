@@ -1,0 +1,1482 @@
+{
+	"1": [{
+		"kind": "books#volume",
+		"id": "3vRYDwAAQBAJ",
+		"etag": "gL2BN/MN27A",
+		"selfLink": "https://www.googleapis.com/books/v1/volumes/3vRYDwAAQBAJ",
+		"volumeInfo": {
+			"title": "Classics",
+			"subtitle": "Why It Matters",
+			"authors": ["Neville Morley"],
+			"publisher": "John Wiley & Sons",
+			"publishedDate": "2018-04-27",
+			"description": "For generations, the study of Greek and Latin was used to train the elites of the western world. Knowledge of classical culture, it was believed, produced more cultivated, creative individuals; Greece and Rome were seen as pinnacles of civilization, and the origins of western superiority over the rest of the world. Few today are willing to defend this elitist, sometimes racist, vision of the importance of classics, and it is no longer considered essential education for politicians and professionals. Shouldn’t classics then be obsolete? Far from it. As Neville Morley shows, the ancients are as influential today as they ever have been, and we ignore them at our peril. Not only do they have much to teach us about the past, but they can offer important lessons for the complex cultural, social and political worlds of the present. Introducing Polity’s Why It Matters series: In these short and lively books, world-leading thinkers make the case for the importance of their subjects and aim to inspire a new generation of students.",
+			"industryIdentifiers": [{
+				"type": "ISBN_13",
+				"identifier": "9781509517961"
+			}, {
+				"type": "ISBN_10",
+				"identifier": "1509517960"
+			}],
+			"readingModes": {
+				"text": true,
+				"image": true
+			},
+			"pageCount": 140,
+			"printType": "BOOK",
+			"categories": ["History"],
+			"maturityRating": "NOT_MATURE",
+			"allowAnonLogging": false,
+			"contentVersion": "0.1.1.0.preview.3",
+			"panelizationSummary": {
+				"containsEpubBubbles": false,
+				"containsImageBubbles": false
+			},
+			"imageLinks": {
+				"smallThumbnail": "http://books.google.com/books/content?id=3vRYDwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+				"thumbnail": "http://books.google.com/books/content?id=3vRYDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+			},
+			"language": "en",
+			"previewLink": "http://books.google.ca/books?id=3vRYDwAAQBAJ&pg=PT68&dq=subject%3Dclassics&hl=&cd=1&source=gbs_api",
+			"infoLink": "https://play.google.com/store/books/details?id=3vRYDwAAQBAJ&source=gbs_api",
+			"canonicalVolumeLink": "https://market.android.com/details?id=book-3vRYDwAAQBAJ"
+		},
+		"saleInfo": {
+			"country": "CA",
+			"saleability": "FOR_SALE",
+			"isEbook": true,
+			"listPrice": {
+				"amount": 10.99,
+				"currencyCode": "CAD"
+			},
+			"retailPrice": {
+				"amount": 9.78,
+				"currencyCode": "CAD"
+			},
+			"buyLink": "https://play.google.com/store/books/details?id=3vRYDwAAQBAJ&rdid=book-3vRYDwAAQBAJ&rdot=1&source=gbs_api",
+			"offers": [{
+				"finskyOfferType": 1,
+				"listPrice": {
+					"amountInMicros": 10990000.0,
+					"currencyCode": "CAD"
+				},
+				"retailPrice": {
+					"amountInMicros": 9780000.0,
+					"currencyCode": "CAD"
+				},
+				"giftable": true
+			}]
+		},
+		"accessInfo": {
+			"country": "CA",
+			"viewability": "PARTIAL",
+			"embeddable": true,
+			"publicDomain": false,
+			"textToSpeechPermission": "ALLOWED",
+			"epub": {
+				"isAvailable": true,
+				"acsTokenLink": "http://books.google.ca/books/download/Classics-sample-epub.acsm?id=3vRYDwAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+			},
+			"pdf": {
+				"isAvailable": true,
+				"acsTokenLink": "http://books.google.ca/books/download/Classics-sample-pdf.acsm?id=3vRYDwAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+			},
+			"webReaderLink": "http://play.google.com/books/reader?id=3vRYDwAAQBAJ&hl=&printsec=frontcover&source=gbs_api",
+			"accessViewStatus": "SAMPLE",
+			"quoteSharingAllowed": false
+		},
+		"searchInfo": {
+			"textSnippet": "This is one argument for why classics continues to matter; but it&#39;s an open <br>\nquestion whether it&#39;s enough to silence the ... As an academic <b>subject</b>, <b>classics</b> <br>\nmay not equip students for a specific profession, but it doesn&#39;t rule out anything <br>\nthat&nbsp;..."
+		}
+	}, {
+		"kind": "books#volume",
+		"id": "y-c7DwAAQBAJ",
+		"etag": "RQCJ+6MlNgs",
+		"selfLink": "https://www.googleapis.com/books/v1/volumes/y-c7DwAAQBAJ",
+		"volumeInfo": {
+			"title": "Constituting Feminist Subjects",
+			"authors": ["Kathi Weeks"],
+			"publisher": "Verso Books",
+			"publishedDate": "2018-08-14",
+			"description": "A groundbreaking attempt to theorise the feminist subject One of the most important tasks for contemporary feminist theory is to develop a concept of the subject able to meet the challenges facing feminist politics. Although theorists in the 1980s raised the problem of feminist subjectivity, Kathi Weeks contends that the limited nature of that discussion now blocks the further development of feminist theory. While the problems of an already constituted essentialist subject have become patent, what remains as an ongoing project, Weeks contends, is a theory of the constitution of subjects capable of explaining the processes of social construction. This book presents one such account. Drawing on a number of different theoretical frameworks, including feminist standpoint theory, socialist feminism, and poststructuralist thought, as well as theories of peformativity and self-valorization, the author proposes a nonessential feminist subject—a theory of constituting subjects.",
+			"industryIdentifiers": [{
+				"type": "ISBN_13",
+				"identifier": "9781786636058"
+			}, {
+				"type": "ISBN_10",
+				"identifier": "1786636050"
+			}],
+			"readingModes": {
+				"text": true,
+				"image": false
+			},
+			"pageCount": 208,
+			"printType": "BOOK",
+			"categories": ["Social Science"],
+			"maturityRating": "NOT_MATURE",
+			"allowAnonLogging": false,
+			"contentVersion": "1.2.2.0.preview.2",
+			"panelizationSummary": {
+				"containsEpubBubbles": false,
+				"containsImageBubbles": false
+			},
+			"imageLinks": {
+				"smallThumbnail": "http://books.google.com/books/content?id=y-c7DwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+				"thumbnail": "http://books.google.com/books/content?id=y-c7DwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+			},
+			"language": "en",
+			"previewLink": "http://books.google.ca/books?id=y-c7DwAAQBAJ&printsec=frontcover&dq=subject%3Dclassics&hl=&cd=2&source=gbs_api",
+			"infoLink": "http://books.google.ca/books?id=y-c7DwAAQBAJ&dq=subject%3Dclassics&hl=&source=gbs_api",
+			"canonicalVolumeLink": "https://books.google.com/books/about/Constituting_Feminist_Subjects.html?hl=&id=y-c7DwAAQBAJ"
+		},
+		"saleInfo": {
+			"country": "CA",
+			"saleability": "NOT_FOR_SALE",
+			"isEbook": false
+		},
+		"accessInfo": {
+			"country": "CA",
+			"viewability": "PARTIAL",
+			"embeddable": true,
+			"publicDomain": false,
+			"textToSpeechPermission": "ALLOWED",
+			"epub": {
+				"isAvailable": true,
+				"acsTokenLink": "http://books.google.ca/books/download/Constituting_Feminist_Subjects-sample-epub.acsm?id=y-c7DwAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+			},
+			"pdf": {
+				"isAvailable": false
+			},
+			"webReaderLink": "http://play.google.com/books/reader?id=y-c7DwAAQBAJ&hl=&printsec=frontcover&source=gbs_api",
+			"accessViewStatus": "SAMPLE",
+			"quoteSharingAllowed": false
+		},
+		"searchInfo": {
+			"textSnippet": "This book presents one such account."
+		}
+	}, {
+		"kind": "books#volume",
+		"id": "JkKYcLpiEnkC",
+		"etag": "0T8EzzCzZ8I",
+		"selfLink": "https://www.googleapis.com/books/v1/volumes/JkKYcLpiEnkC",
+		"volumeInfo": {
+			"title": "Rethinking Roman History",
+			"authors": ["J. P. Toner"],
+			"publisher": "The Oleander Press",
+			"publishedDate": "2002",
+			"industryIdentifiers": [{
+				"type": "ISBN_10",
+				"identifier": "090667249X"
+			}, {
+				"type": "ISBN_13",
+				"identifier": "9780906672495"
+			}],
+			"readingModes": {
+				"text": true,
+				"image": true
+			},
+			"pageCount": 138,
+			"printType": "BOOK",
+			"categories": ["Historiography"],
+			"maturityRating": "NOT_MATURE",
+			"allowAnonLogging": false,
+			"contentVersion": "1.4.2.0.preview.3",
+			"imageLinks": {
+				"smallThumbnail": "http://books.google.com/books/content?id=JkKYcLpiEnkC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+				"thumbnail": "http://books.google.com/books/content?id=JkKYcLpiEnkC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+			},
+			"language": "en",
+			"previewLink": "http://books.google.ca/books?id=JkKYcLpiEnkC&pg=PA10&dq=subject%3Dclassics&hl=&cd=3&source=gbs_api",
+			"infoLink": "http://books.google.ca/books?id=JkKYcLpiEnkC&dq=subject%3Dclassics&hl=&source=gbs_api",
+			"canonicalVolumeLink": "https://books.google.com/books/about/Rethinking_Roman_History.html?hl=&id=JkKYcLpiEnkC"
+		},
+		"saleInfo": {
+			"country": "CA",
+			"saleability": "NOT_FOR_SALE",
+			"isEbook": false
+		},
+		"accessInfo": {
+			"country": "CA",
+			"viewability": "PARTIAL",
+			"embeddable": true,
+			"publicDomain": false,
+			"textToSpeechPermission": "ALLOWED",
+			"epub": {
+				"isAvailable": true,
+				"acsTokenLink": "http://books.google.ca/books/download/Rethinking_Roman_History-sample-epub.acsm?id=JkKYcLpiEnkC&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+			},
+			"pdf": {
+				"isAvailable": true,
+				"acsTokenLink": "http://books.google.ca/books/download/Rethinking_Roman_History-sample-pdf.acsm?id=JkKYcLpiEnkC&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+			},
+			"webReaderLink": "http://play.google.com/books/reader?id=JkKYcLpiEnkC&hl=&printsec=frontcover&source=gbs_api",
+			"accessViewStatus": "SAMPLE",
+			"quoteSharingAllowed": false
+		},
+		"searchInfo": {
+			"textSnippet": "The same is true in the UK where only 24% are women and of them only 13% full <br>\nprofessors.3 These factors have held the <b>subject</b> back from reaching a wider <br>\naudience in the way that History or English have. <b>Classics</b> has become a place <br>\nfor&nbsp;..."
+		}
+	}, {
+		"kind": "books#volume",
+		"id": "SE8FAAAAQAAJ",
+		"etag": "4idTPBWx23g",
+		"selfLink": "https://www.googleapis.com/books/v1/volumes/SE8FAAAAQAAJ",
+		"volumeInfo": {
+			"title": "THE EDUCATIONAL TIMES",
+			"authors": ["College of Preceptors"],
+			"publishedDate": "1866",
+			"industryIdentifiers": [{
+				"type": "OTHER",
+				"identifier": "OXFORD:555032488"
+			}],
+			"readingModes": {
+				"text": false,
+				"image": true
+			},
+			"printType": "BOOK",
+			"maturityRating": "NOT_MATURE",
+			"allowAnonLogging": false,
+			"contentVersion": "1.2.2.0.full.1",
+			"panelizationSummary": {
+				"containsEpubBubbles": false,
+				"containsImageBubbles": false
+			},
+			"imageLinks": {
+				"smallThumbnail": "http://books.google.com/books/content?id=SE8FAAAAQAAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+				"thumbnail": "http://books.google.com/books/content?id=SE8FAAAAQAAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+			},
+			"language": "en",
+			"previewLink": "http://books.google.ca/books?id=SE8FAAAAQAAJ&pg=PA96&dq=subject%3Dclassics&hl=&cd=4&source=gbs_api",
+			"infoLink": "https://play.google.com/store/books/details?id=SE8FAAAAQAAJ&source=gbs_api",
+			"canonicalVolumeLink": "https://market.android.com/details?id=book-SE8FAAAAQAAJ"
+		},
+		"saleInfo": {
+			"country": "CA",
+			"saleability": "FREE",
+			"isEbook": true,
+			"buyLink": "https://play.google.com/store/books/details?id=SE8FAAAAQAAJ&rdid=book-SE8FAAAAQAAJ&rdot=1&source=gbs_api"
+		},
+		"accessInfo": {
+			"country": "CA",
+			"viewability": "ALL_PAGES",
+			"embeddable": true,
+			"publicDomain": true,
+			"textToSpeechPermission": "ALLOWED",
+			"epub": {
+				"isAvailable": false
+			},
+			"pdf": {
+				"isAvailable": true,
+				"downloadLink": "http://books.google.ca/books/download/THE_EDUCATIONAL_TIMES.pdf?id=SE8FAAAAQAAJ&hl=&output=pdf&sig=ACfU3U2PtV9rIcJa8-sgLRq8eHxnjmEKyw&source=gbs_api"
+			},
+			"webReaderLink": "http://play.google.com/books/reader?id=SE8FAAAAQAAJ&hl=&printsec=frontcover&source=gbs_api",
+			"accessViewStatus": "FULL_PUBLIC_DOMAIN",
+			"quoteSharingAllowed": false
+		},
+		"searchInfo": {
+			"textSnippet": "<b>Classics</b>, Mathematics, and English <b>subjects</b>. Age 23. Salary GO/. An M.A. <br>\nAberdeen. 2384. Writing (l&#39;lain and Ornamental), English, Arithmetic, Mensuration<br>\n, Land-surveyin? (Practical), Mapping, Drawing, Algebra (junior), and French. <br>\nAge 27."
+		}
+	}, {
+		"kind": "books#volume",
+		"id": "pbMqAAAAQBAJ",
+		"etag": "yhHKxwyo1qI",
+		"selfLink": "https://www.googleapis.com/books/v1/volumes/pbMqAAAAQBAJ",
+		"volumeInfo": {
+			"title": "Classics of International Relations",
+			"subtitle": "Essays in Criticism and Appreciation",
+			"authors": ["Henrik Bliddal", "Casper Sylvest", "Peter Wilson"],
+			"publisher": "Routledge",
+			"publishedDate": "2013-07-24",
+			"description": "Classics of International Relations introduces, contextualises and assesses 24 of the most important works on international relations of the last 100 years. Providing an indispensable guide for all students of IR theory, from advanced undergraduates to academic specialists, it asks why are these works considered classics? Is their status deserved? Will it endure? It takes as its starting point Norman Angell’s best-selling The Great Illusion (1909) and concludes with Daniel Deudney’s award winning Bounding Power (2006). The volume does not ignore established classics such as Morgenthau’s Politics Among Nations and Waltz’s Theory of International Politics, but seeks to expand the ‘IR canon’ beyond its core realist and liberal texts. It thus considers emerging classics such as Linklater’s critical sociology of moral boundaries, Men and Citizens in the Theory of International Relations, and Enloe’s pioneering gender analysis, Bananas, Beaches and Bases. It also innovatively considers certain ‘alternative format’ classics such as Kubrick’s satire on the nuclear arms race, Dr Strangelove, and Errol Morris’s powerful documentary on war and US foreign policy, The Fog of War. With an international cast of contributors, many of them leading authorities on their subject, Classics of International Relations will become a standard reference for all those wishing to make sense of a rapidly developing and diversifying field. Classics of International Relations is designed to become a standard reference text for advanced undergraduates, post-graduates and lecturers in the field of IR.",
+			"industryIdentifiers": [{
+				"type": "ISBN_13",
+				"identifier": "9781135018665"
+			}, {
+				"type": "ISBN_10",
+				"identifier": "1135018669"
+			}],
+			"readingModes": {
+				"text": false,
+				"image": true
+			},
+			"pageCount": 276,
+			"printType": "BOOK",
+			"categories": ["Political Science"],
+			"averageRating": 5.0,
+			"ratingsCount": 1,
+			"maturityRating": "NOT_MATURE",
+			"allowAnonLogging": false,
+			"contentVersion": "1.1.0.0.preview.1",
+			"panelizationSummary": {
+				"containsEpubBubbles": false,
+				"containsImageBubbles": false
+			},
+			"imageLinks": {
+				"smallThumbnail": "http://books.google.com/books/content?id=pbMqAAAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+				"thumbnail": "http://books.google.com/books/content?id=pbMqAAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+			},
+			"language": "en",
+			"previewLink": "http://books.google.ca/books?id=pbMqAAAAQBAJ&pg=PR1&dq=subject%3Dclassics&hl=&cd=5&source=gbs_api",
+			"infoLink": "https://play.google.com/store/books/details?id=pbMqAAAAQBAJ&source=gbs_api",
+			"canonicalVolumeLink": "https://market.android.com/details?id=book-pbMqAAAAQBAJ"
+		},
+		"saleInfo": {
+			"country": "CA",
+			"saleability": "FOR_SALE",
+			"isEbook": true,
+			"listPrice": {
+				"amount": 84.0,
+				"currencyCode": "CAD"
+			},
+			"retailPrice": {
+				"amount": 67.2,
+				"currencyCode": "CAD"
+			},
+			"buyLink": "https://play.google.com/store/books/details?id=pbMqAAAAQBAJ&rdid=book-pbMqAAAAQBAJ&rdot=1&source=gbs_api",
+			"offers": [{
+				"finskyOfferType": 1,
+				"listPrice": {
+					"amountInMicros": 84000000.0,
+					"currencyCode": "CAD"
+				},
+				"retailPrice": {
+					"amountInMicros": 67200000.0,
+					"currencyCode": "CAD"
+				},
+				"giftable": true
+			}]
+		},
+		"accessInfo": {
+			"country": "CA",
+			"viewability": "PARTIAL",
+			"embeddable": true,
+			"publicDomain": false,
+			"textToSpeechPermission": "ALLOWED",
+			"epub": {
+				"isAvailable": false
+			},
+			"pdf": {
+				"isAvailable": true,
+				"acsTokenLink": "http://books.google.ca/books/download/Classics_of_International_Relations-sample-pdf.acsm?id=pbMqAAAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+			},
+			"webReaderLink": "http://play.google.com/books/reader?id=pbMqAAAAQBAJ&hl=&printsec=frontcover&source=gbs_api",
+			"accessViewStatus": "SAMPLE",
+			"quoteSharingAllowed": false
+		},
+		"searchInfo": {
+			"textSnippet": "Classics of International Relations introduces, contextualizes and assesses 24 of <br>\nthe most important works on ... leading authorities on their <b>subject</b>, <b>Classics</b> of <br>\nInternational Relations will become a standard reference for all those wishing to&nbsp;..."
+		}
+	}, {
+		"kind": "books#volume",
+		"id": "TAo5leVaqrwC",
+		"etag": "Ea7ve1W6azQ",
+		"selfLink": "https://www.googleapis.com/books/v1/volumes/TAo5leVaqrwC",
+		"volumeInfo": {
+			"title": "Government and Expertise",
+			"subtitle": "Specialists, Administrators and Professionals, 1860-1919",
+			"authors": ["Roy MacLeod"],
+			"publisher": "Cambridge University Press",
+			"publishedDate": "2003-02-13",
+			"description": "This book offers selected perspectives on an important facet of new research into the administrative revolution: the idea of 'expertise', the role of 'experts' and of administrators and professionals in creating the technique of Victorian government.",
+			"industryIdentifiers": [{
+				"type": "ISBN_10",
+				"identifier": "052153450X"
+			}, {
+				"type": "ISBN_13",
+				"identifier": "9780521534505"
+			}],
+			"readingModes": {
+				"text": false,
+				"image": true
+			},
+			"pageCount": 376,
+			"printType": "BOOK",
+			"categories": ["History"],
+			"maturityRating": "NOT_MATURE",
+			"allowAnonLogging": false,
+			"contentVersion": "1.0.0.0.preview.1",
+			"imageLinks": {
+				"smallThumbnail": "http://books.google.com/books/content?id=TAo5leVaqrwC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+				"thumbnail": "http://books.google.com/books/content?id=TAo5leVaqrwC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+			},
+			"language": "en",
+			"previewLink": "http://books.google.ca/books?id=TAo5leVaqrwC&pg=PA189&dq=subject%3Dclassics&hl=&cd=6&source=gbs_api",
+			"infoLink": "http://books.google.ca/books?id=TAo5leVaqrwC&dq=subject%3Dclassics&hl=&source=gbs_api",
+			"canonicalVolumeLink": "https://books.google.com/books/about/Government_and_Expertise.html?hl=&id=TAo5leVaqrwC"
+		},
+		"saleInfo": {
+			"country": "CA",
+			"saleability": "NOT_FOR_SALE",
+			"isEbook": false
+		},
+		"accessInfo": {
+			"country": "CA",
+			"viewability": "PARTIAL",
+			"embeddable": true,
+			"publicDomain": false,
+			"textToSpeechPermission": "ALLOWED",
+			"epub": {
+				"isAvailable": false
+			},
+			"pdf": {
+				"isAvailable": false
+			},
+			"webReaderLink": "http://play.google.com/books/reader?id=TAo5leVaqrwC&hl=&printsec=frontcover&source=gbs_api",
+			"accessViewStatus": "SAMPLE",
+			"quoteSharingAllowed": false
+		},
+		"searchInfo": {
+			"textSnippet": "The Class I examination was finely tuned by the definition and point weighting of <br>\nsubjects and provisions against &#39;smatterers&#39; to favour certain universities - Oxford <br>\nand Cambridge - and certain <b>subjects</b> - <b>classics</b> and mathematics as taught at&nbsp;..."
+		}
+	}, {
+		"kind": "books#volume",
+		"id": "xvVFAQAAMAAJ",
+		"etag": "Nfii3cNZTW8",
+		"selfLink": "https://www.googleapis.com/books/v1/volumes/xvVFAQAAMAAJ",
+		"volumeInfo": {
+			"title": "The World's Great Classics Comprising a General Index, a Subject Index, and Index of Authors, and a Chronologicaal Index",
+			"publishedDate": "1902",
+			"industryIdentifiers": [{
+				"type": "OTHER",
+				"identifier": "UIUC:30112108227577"
+			}],
+			"readingModes": {
+				"text": false,
+				"image": false
+			},
+			"pageCount": 500,
+			"printType": "BOOK",
+			"maturityRating": "NOT_MATURE",
+			"allowAnonLogging": false,
+			"contentVersion": "preview-1.0.0",
+			"imageLinks": {
+				"smallThumbnail": "http://books.google.com/books/content?id=xvVFAQAAMAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+				"thumbnail": "http://books.google.com/books/content?id=xvVFAQAAMAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+			},
+			"language": "en",
+			"previewLink": "http://books.google.ca/books?id=xvVFAQAAMAAJ&pg=PA105&dq=subject%3Dclassics&hl=&cd=7&source=gbs_api",
+			"infoLink": "http://books.google.ca/books?id=xvVFAQAAMAAJ&dq=subject%3Dclassics&hl=&source=gbs_api",
+			"canonicalVolumeLink": "https://books.google.com/books/about/The_World_s_Great_Classics_Comprising_a.html?hl=&id=xvVFAQAAMAAJ"
+		},
+		"saleInfo": {
+			"country": "CA",
+			"saleability": "NOT_FOR_SALE",
+			"isEbook": false
+		},
+		"accessInfo": {
+			"country": "CA",
+			"viewability": "NO_PAGES",
+			"embeddable": false,
+			"publicDomain": false,
+			"textToSpeechPermission": "ALLOWED",
+			"epub": {
+				"isAvailable": false
+			},
+			"pdf": {
+				"isAvailable": false
+			},
+			"webReaderLink": "http://play.google.com/books/reader?id=xvVFAQAAMAAJ&hl=&printsec=frontcover&source=gbs_api",
+			"accessViewStatus": "NONE",
+			"quoteSharingAllowed": false
+		}
+	}, {
+		"kind": "books#volume",
+		"id": "Ov49AQAAMAAJ",
+		"etag": "82tZfhMzowM",
+		"selfLink": "https://www.googleapis.com/books/v1/volumes/Ov49AQAAMAAJ",
+		"volumeInfo": {
+			"title": "The Cambridge Review",
+			"publishedDate": "1888",
+			"industryIdentifiers": [{
+				"type": "OTHER",
+				"identifier": "UCAL:C2608780"
+			}],
+			"readingModes": {
+				"text": false,
+				"image": true
+			},
+			"printType": "BOOK",
+			"maturityRating": "NOT_MATURE",
+			"allowAnonLogging": false,
+			"contentVersion": "0.3.3.0.full.1",
+			"panelizationSummary": {
+				"containsEpubBubbles": false,
+				"containsImageBubbles": false
+			},
+			"imageLinks": {
+				"smallThumbnail": "http://books.google.com/books/content?id=Ov49AQAAMAAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+				"thumbnail": "http://books.google.com/books/content?id=Ov49AQAAMAAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+			},
+			"language": "en",
+			"previewLink": "http://books.google.ca/books?id=Ov49AQAAMAAJ&pg=PA252&dq=subject%3Dclassics&hl=&cd=8&source=gbs_api",
+			"infoLink": "https://play.google.com/store/books/details?id=Ov49AQAAMAAJ&source=gbs_api",
+			"canonicalVolumeLink": "https://market.android.com/details?id=book-Ov49AQAAMAAJ"
+		},
+		"saleInfo": {
+			"country": "CA",
+			"saleability": "FREE",
+			"isEbook": true,
+			"buyLink": "https://play.google.com/store/books/details?id=Ov49AQAAMAAJ&rdid=book-Ov49AQAAMAAJ&rdot=1&source=gbs_api"
+		},
+		"accessInfo": {
+			"country": "CA",
+			"viewability": "ALL_PAGES",
+			"embeddable": true,
+			"publicDomain": true,
+			"textToSpeechPermission": "ALLOWED",
+			"epub": {
+				"isAvailable": false
+			},
+			"pdf": {
+				"isAvailable": false
+			},
+			"webReaderLink": "http://play.google.com/books/reader?id=Ov49AQAAMAAJ&hl=&printsec=frontcover&source=gbs_api",
+			"accessViewStatus": "FULL_PUBLIC_DOMAIN",
+			"quoteSharingAllowed": false
+		},
+		"searchInfo": {
+			"textSnippet": "Subjects : (1) Oriental Languages, (2) Medimval and Modern Languages. TaiNI&#39;<br>\nrY HALL.—One Minor Scholarship of .280, one of £60 and four of £80, tenable for <br>\none year. The Examination willcommence on March 15. <b>Subjects</b> : <b>Classics</b> and&nbsp;..."
+		}
+	}, {
+		"kind": "books#volume",
+		"id": "63LjCgAAQBAJ",
+		"etag": "1J2BjefAZIk",
+		"selfLink": "https://www.googleapis.com/books/v1/volumes/63LjCgAAQBAJ",
+		"volumeInfo": {
+			"title": "Statutes and Ordinances of the University of Cambridge 2015",
+			"industryIdentifiers": [{
+				"type": "ISBN_13",
+				"identifier": "9781107531468"
+			}, {
+				"type": "ISBN_10",
+				"identifier": "1107531462"
+			}],
+			"readingModes": {
+				"text": false,
+				"image": true
+			},
+			"printType": "BOOK",
+			"maturityRating": "NOT_MATURE",
+			"allowAnonLogging": false,
+			"contentVersion": "preview-1.0.0",
+			"imageLinks": {
+				"smallThumbnail": "http://books.google.com/books/content?id=63LjCgAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+				"thumbnail": "http://books.google.com/books/content?id=63LjCgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+			},
+			"language": "en",
+			"previewLink": "http://books.google.ca/books?id=63LjCgAAQBAJ&pg=PA484&dq=subject%3Dclassics&hl=&cd=9&source=gbs_api",
+			"infoLink": "http://books.google.ca/books?id=63LjCgAAQBAJ&dq=subject%3Dclassics&hl=&source=gbs_api",
+			"canonicalVolumeLink": "https://books.google.com/books/about/Statutes_and_Ordinances_of_the_Universit.html?hl=&id=63LjCgAAQBAJ"
+		},
+		"saleInfo": {
+			"country": "CA",
+			"saleability": "NOT_FOR_SALE",
+			"isEbook": false
+		},
+		"accessInfo": {
+			"country": "CA",
+			"viewability": "PARTIAL",
+			"embeddable": true,
+			"publicDomain": false,
+			"textToSpeechPermission": "ALLOWED",
+			"epub": {
+				"isAvailable": false
+			},
+			"pdf": {
+				"isAvailable": false
+			},
+			"webReaderLink": "http://play.google.com/books/reader?id=63LjCgAAQBAJ&hl=&printsec=frontcover&source=gbs_api",
+			"accessViewStatus": "SAMPLE",
+			"quoteSharingAllowed": false
+		},
+		"searchInfo": {
+			"textSnippet": "... exclusive of tables, footnotes, bibliography, and appendices, on a subject <br>\napproved by the Degree Committee for the ... and place the work in the wider <br>\nperspective of the <b>subject</b>. <b>CLASSICS</b> 1. The scheme of examination for the one-<br>\nyear&nbsp;..."
+		}
+	}, {
+		"kind": "books#volume",
+		"id": "SVFiDwAAQBAJ",
+		"etag": "Xis1CKF18/A",
+		"selfLink": "https://www.googleapis.com/books/v1/volumes/SVFiDwAAQBAJ",
+		"volumeInfo": {
+			"title": "Forward with Classics",
+			"subtitle": "Classical Languages in Schools and Communities",
+			"authors": ["Arlene Holmes-Henderson", "Steven Hunt", "Mai Musié"],
+			"publisher": "Bloomsbury Publishing",
+			"publishedDate": "2018-08-09",
+			"description": "Despite their removal from England's National Curriculum in 1988, and claims of elitism, Latin and Greek are increasingly re-entering the 'mainstream' educational arena. Since 2012, there have been more students in state-maintained schools in England studying classical subjects than in independent schools, and the number of schools offering Classics continues to rise in the state-maintained sector. The teaching and learning of Latin and Greek is not, however, confined to the classroom: community-based learning for adults and children is facilitated in newly established regional Classics hubs in evenings and at weekends, in universities as part of outreach, and even in parks and in prisons. This book investigates the motivations of teachers and learners behind the rise of Classics in the classroom and in communities, and explores ways in which knowledge of classical languages is considered valuable for diverse learners in the 21st century. The role of classical languages within the English educational policy landscape is examined, as new possibilities exist for introducing Latin and Greek into school curricula. The state of Classics education internationally is also investigated, with case studies presenting the status quo in policy and practice from Australasia, North America, the rest of Europe and worldwide. The priorities for the future of Classics education in these diverse locations are compared and contrasted by the editors, who conjecture what strategies are conducive to success.",
+			"industryIdentifiers": [{
+				"type": "ISBN_13",
+				"identifier": "9781474295970"
+			}, {
+				"type": "ISBN_10",
+				"identifier": "1474295975"
+			}],
+			"readingModes": {
+				"text": false,
+				"image": true
+			},
+			"pageCount": 296,
+			"printType": "BOOK",
+			"categories": ["Education"],
+			"maturityRating": "NOT_MATURE",
+			"allowAnonLogging": false,
+			"contentVersion": "0.1.0.0.preview.1",
+			"panelizationSummary": {
+				"containsEpubBubbles": false,
+				"containsImageBubbles": false
+			},
+			"imageLinks": {
+				"smallThumbnail": "http://books.google.com/books/content?id=SVFiDwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+				"thumbnail": "http://books.google.com/books/content?id=SVFiDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+			},
+			"language": "en",
+			"previewLink": "http://books.google.ca/books?id=SVFiDwAAQBAJ&pg=PA164&dq=subject%3Dclassics&hl=&cd=10&source=gbs_api",
+			"infoLink": "https://play.google.com/store/books/details?id=SVFiDwAAQBAJ&source=gbs_api",
+			"canonicalVolumeLink": "https://market.android.com/details?id=book-SVFiDwAAQBAJ"
+		},
+		"saleInfo": {
+			"country": "CA",
+			"saleability": "FOR_SALE",
+			"isEbook": true,
+			"listPrice": {
+				"amount": 50.35,
+				"currencyCode": "CAD"
+			},
+			"retailPrice": {
+				"amount": 40.28,
+				"currencyCode": "CAD"
+			},
+			"buyLink": "https://play.google.com/store/books/details?id=SVFiDwAAQBAJ&rdid=book-SVFiDwAAQBAJ&rdot=1&source=gbs_api",
+			"offers": [{
+				"finskyOfferType": 1,
+				"listPrice": {
+					"amountInMicros": 50350000.0,
+					"currencyCode": "CAD"
+				},
+				"retailPrice": {
+					"amountInMicros": 40280000.0,
+					"currencyCode": "CAD"
+				},
+				"giftable": true
+			}]
+		},
+		"accessInfo": {
+			"country": "CA",
+			"viewability": "PARTIAL",
+			"embeddable": true,
+			"publicDomain": false,
+			"textToSpeechPermission": "ALLOWED",
+			"epub": {
+				"isAvailable": false
+			},
+			"pdf": {
+				"isAvailable": true,
+				"acsTokenLink": "http://books.google.ca/books/download/Forward_with_Classics-sample-pdf.acsm?id=SVFiDwAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+			},
+			"webReaderLink": "http://play.google.com/books/reader?id=SVFiDwAAQBAJ&hl=&printsec=frontcover&source=gbs_api",
+			"accessViewStatus": "SAMPLE",
+			"quoteSharingAllowed": false
+		},
+		"searchInfo": {
+			"textSnippet": "Based on my experience in my own school, I would suggest that teachers of <br>\n<b>Classics</b> therefore must stress the practical applications of <b>Classics</b> from the start <br>\nof students&#39; study of the <b>subject</b>: how English words are made up of Latin ones, <br>\nhow&nbsp;..."
+		}
+	}],
+
+	"2": [{
+		"kind": "books#volume",
+		"id": "5cKGFzBZqC4C",
+		"etag": "c5yYHWA1gDw",
+		"selfLink": "https://www.googleapis.com/books/v1/volumes/5cKGFzBZqC4C",
+		"volumeInfo": {
+			"title": "Subject to Biography",
+			"subtitle": "Psychoanalysis, Feminism, and Writing Women's Lives",
+			"authors": ["Elisabeth Young-Bruehl"],
+			"publisher": "Harvard University Press",
+			"publishedDate": "1998",
+			"description": "In this provocative new book, Elisabeth Young-Bruehl illuminates the psychological and intellectual demands writing biography makes on the biographer and explores the complex and frequently conflicted relationship between feminism and psychoanalysis. A practicing psychoanalyst, a distinguished scholar, and the widely praised biographer of Anna Freud and Hannah Arendt, Young-Bruehl here reflects on the relations between self-knowledge, autobiography, biography, and cultural history. She considers what remains valuable in Sigmund Freud's work, and what areas--theory of character, for instance--must be rethought to be useful for current psychoanalytic work, for feminist studies, and for social theory. Psychoanalytic theory used for biography, she argues, can yield insights for psychoanalysis itself, particularly in the understanding of creativity. Subject to Biography offers not simply the products of an astute mind, but an entrée into the thinking process; it welcomes the reader into the writer's workshop.",
+			"industryIdentifiers": [{
+				"type": "ISBN_10",
+				"identifier": "0674853717"
+			}, {
+				"type": "ISBN_13",
+				"identifier": "9780674853713"
+			}],
+			"readingModes": {
+				"text": true,
+				"image": true
+			},
+			"pageCount": 282,
+			"printType": "BOOK",
+			"categories": ["Literary Criticism"],
+			"maturityRating": "NOT_MATURE",
+			"allowAnonLogging": false,
+			"contentVersion": "0.0.2.0.preview.3",
+			"imageLinks": {
+				"smallThumbnail": "http://books.google.com/books/content?id=5cKGFzBZqC4C&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+				"thumbnail": "http://books.google.com/books/content?id=5cKGFzBZqC4C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+			},
+			"language": "en",
+			"previewLink": "http://books.google.ca/books?id=5cKGFzBZqC4C&pg=PA3&dq=subject%3Dfantasy&hl=&cd=1&source=gbs_api",
+			"infoLink": "http://books.google.ca/books?id=5cKGFzBZqC4C&dq=subject%3Dfantasy&hl=&source=gbs_api",
+			"canonicalVolumeLink": "https://books.google.com/books/about/Subject_to_Biography.html?hl=&id=5cKGFzBZqC4C"
+		},
+		"saleInfo": {
+			"country": "CA",
+			"saleability": "NOT_FOR_SALE",
+			"isEbook": false
+		},
+		"accessInfo": {
+			"country": "CA",
+			"viewability": "PARTIAL",
+			"embeddable": true,
+			"publicDomain": false,
+			"textToSpeechPermission": "ALLOWED",
+			"epub": {
+				"isAvailable": true,
+				"acsTokenLink": "http://books.google.ca/books/download/Subject_to_Biography-sample-epub.acsm?id=5cKGFzBZqC4C&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+			},
+			"pdf": {
+				"isAvailable": false
+			},
+			"webReaderLink": "http://play.google.com/books/reader?id=5cKGFzBZqC4C&hl=&printsec=frontcover&source=gbs_api",
+			"accessViewStatus": "SAMPLE",
+			"quoteSharingAllowed": false
+		},
+		"searchInfo": {
+			"textSnippet": "Coming to a third point, I suggested that a biographer can enact with her or his <br>\n<b>subject</b> a version of this <b>fantasy</b> complex. Researching and writing the biography, <br>\nyou have in your mind &quot;the <b>subject</b>&quot; who lived an independent life — and left all&nbsp;..."
+		}
+	}, {
+		"kind": "books#volume",
+		"id": "hyfM4R8zbtkC",
+		"etag": "3EhanHTFS+Y",
+		"selfLink": "https://www.googleapis.com/books/v1/volumes/hyfM4R8zbtkC",
+		"volumeInfo": {
+			"title": "Interface Fantasy: A Lacanian Cyborg Ontology",
+			"authors": ["Nusselder, André"],
+			"publisher": "MIT Press",
+			"publishedDate": "2009-09-11",
+			"description": "Cyberspace is first and foremost a mental space. Therefore we need to take a psychological approach to understand our experiences in it. In Interface Fantasy, André Nusselder uses the core psychoanalytic notion of fantasy to examine our relationship to computers and digital technology. Lacanian psychoanalysis considers fantasy to be an indispensable \"screen\" for our interaction with the outside world; Nusselder argues that, at the mental level, computer screens and other human-computer interfaces incorporate this function of fantasy: they mediate the real and the virtual. Interface Fantasy illuminates our attachment to new media: why we love our devices; why we are fascinated by the images on their screens; and how it is possible that virtual images can provide physical pleasure. Nusselder puts such phenomena as avatars, role playing, cybersex, computer psychotherapy, and Internet addiction in the context of established psychoanalytic theory. The virtual identities we assume in virtual worlds, exemplified best by avatars consisting of both realistic and symbolic self-representations, illustrate the three orders that Lacan uses to analyze human reality: the imaginary, the symbolic, and the real. Nusselder analyzes our most intimate involvement with information technology--the almost invisible, affective aspects of technology that have the greatest impact on our lives. Interface Fantasy lays the foundation for a new way of thinking that acknowledges the pivotal role of the screen in the current world of information. And it gives an intelligible overview of basic Lacanian principles (including fantasy, language, the virtual, the real, embodiment, and enjoyment) that shows their enormous relevance for understanding the current state of media technology.",
+			"industryIdentifiers": [{
+				"type": "ISBN_13",
+				"identifier": "9780262266499"
+			}, {
+				"type": "ISBN_10",
+				"identifier": "0262266490"
+			}],
+			"readingModes": {
+				"text": true,
+				"image": true
+			},
+			"pageCount": 184,
+			"printType": "BOOK",
+			"categories": ["Philosophy"],
+			"maturityRating": "NOT_MATURE",
+			"allowAnonLogging": false,
+			"contentVersion": "0.0.1.0.preview.3",
+			"imageLinks": {
+				"smallThumbnail": "http://books.google.com/books/content?id=hyfM4R8zbtkC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+				"thumbnail": "http://books.google.com/books/content?id=hyfM4R8zbtkC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+			},
+			"language": "en",
+			"previewLink": "http://books.google.ca/books?id=hyfM4R8zbtkC&pg=PA128&dq=subject%3Dfantasy&hl=&cd=2&source=gbs_api",
+			"infoLink": "https://play.google.com/store/books/details?id=hyfM4R8zbtkC&source=gbs_api",
+			"canonicalVolumeLink": "https://market.android.com/details?id=book-hyfM4R8zbtkC"
+		},
+		"saleInfo": {
+			"country": "CA",
+			"saleability": "FOR_SALE",
+			"isEbook": true,
+			"listPrice": {
+				"amount": 18.99,
+				"currencyCode": "CAD"
+			},
+			"retailPrice": {
+				"amount": 9.99,
+				"currencyCode": "CAD"
+			},
+			"buyLink": "https://play.google.com/store/books/details?id=hyfM4R8zbtkC&rdid=book-hyfM4R8zbtkC&rdot=1&source=gbs_api",
+			"offers": [{
+				"finskyOfferType": 1,
+				"listPrice": {
+					"amountInMicros": 18990000.0,
+					"currencyCode": "CAD"
+				},
+				"retailPrice": {
+					"amountInMicros": 9990000.0,
+					"currencyCode": "CAD"
+				},
+				"giftable": true
+			}]
+		},
+		"accessInfo": {
+			"country": "CA",
+			"viewability": "PARTIAL",
+			"embeddable": true,
+			"publicDomain": false,
+			"textToSpeechPermission": "ALLOWED",
+			"epub": {
+				"isAvailable": true,
+				"acsTokenLink": "http://books.google.ca/books/download/Interface_Fantasy_A_Lacanian_Cyborg_Onto-sample-epub.acsm?id=hyfM4R8zbtkC&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+			},
+			"pdf": {
+				"isAvailable": true,
+				"acsTokenLink": "http://books.google.ca/books/download/Interface_Fantasy_A_Lacanian_Cyborg_Onto-sample-pdf.acsm?id=hyfM4R8zbtkC&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+			},
+			"webReaderLink": "http://play.google.com/books/reader?id=hyfM4R8zbtkC&hl=&printsec=frontcover&source=gbs_api",
+			"accessViewStatus": "SAMPLE",
+			"quoteSharingAllowed": false
+		},
+		"searchInfo": {
+			"textSnippet": "The (technological) <b>fantasy</b> object is not necessarily an object that individuated, <br>\noedipal <b>subjects</b> erect as a phallus in order to show their potency, and that acts <br>\nas a destructive force toward everything that does not comply with their will."
+		}
+	}, {
+		"kind": "books#volume",
+		"id": "J4m28TkBSl4C",
+		"etag": "deVSciSzNzY",
+		"selfLink": "https://www.googleapis.com/books/v1/volumes/J4m28TkBSl4C",
+		"volumeInfo": {
+			"title": "Reading Seminars I and II",
+			"subtitle": "Lacan's Return to Freud",
+			"authors": ["Richard Feldstein", "Bruce Fink", "Maire Jaanus"],
+			"publisher": "SUNY Press",
+			"description": "In this collection of essays, Lacan's early work is first discussed systematically by focusing on his two earliest seminars: Freud's Papers on Technique and The Ego in Freud's Theory and in the Technique of Psychoanalysis. These essays, by some of the finest analysts and writers in the Lacanian psychoanalytic world in Paris today, carefully lay out the background and development of Lacan's thought. In Part I, Jacques-Alain Miller spells out the philosophical and psychiatric origins of Lacan's work in great detail. In Parts II, III, and IV, Colette Soler, Eric Laurent, and others explain in the clearest of fashions the highly influential conceptualization Lacan introduces with the terms \"symbolic,\" \"imaginary,\" and \"real.\" Part V provides the first sustained account in English to date of Lacan's reformulation of psychoanalytic diagnostic categories--neurosis, perversion, psychosis, and their subcategories--their theoretical foundations, and clinical applications (ample case material is provided here.) Parts VI and VII of this collection take us well beyond Seminars I and II, relating Lacan's early work to his later views of the 1960s and 1970s. Slavoj Zizek explores the complex philosophical relations between Hegel and Lacan regarding the subject and the cause. And Lacan's article, \"On Freud's 'Trieb' and the Psychoanalyst's Desire\"--that appears here for the first time in English and is brilliantly unpacked by Jacques-Alain Miller in his \"Commentary on Lacan's Text\"--takes a giant step forward to 1965 where we see a crucial reversal in Lacan's perspective: desire is suddenly devalued, the defensive, inhibiting nature of desire coming to the fore. \"What then becomes essential is the drive as an activity related to the lost object that produces jouissance.\"",
+			"industryIdentifiers": [{
+				"type": "ISBN_13",
+				"identifier": "9781438402529"
+			}, {
+				"type": "ISBN_10",
+				"identifier": "143840252X"
+			}],
+			"readingModes": {
+				"text": false,
+				"image": true
+			},
+			"pageCount": 444,
+			"printType": "BOOK",
+			"categories": ["Psychology"],
+			"maturityRating": "NOT_MATURE",
+			"allowAnonLogging": true,
+			"contentVersion": "1.3.1.0.preview.1",
+			"panelizationSummary": {
+				"containsEpubBubbles": false,
+				"containsImageBubbles": false
+			},
+			"imageLinks": {
+				"smallThumbnail": "http://books.google.com/books/content?id=J4m28TkBSl4C&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+				"thumbnail": "http://books.google.com/books/content?id=J4m28TkBSl4C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+			},
+			"language": "en",
+			"previewLink": "http://books.google.ca/books?id=J4m28TkBSl4C&pg=PA267&dq=subject%3Dfantasy&hl=&cd=3&source=gbs_api",
+			"infoLink": "https://play.google.com/store/books/details?id=J4m28TkBSl4C&source=gbs_api",
+			"canonicalVolumeLink": "https://market.android.com/details?id=book-J4m28TkBSl4C"
+		},
+		"saleInfo": {
+			"country": "CA",
+			"saleability": "FOR_SALE",
+			"isEbook": true,
+			"listPrice": {
+				"amount": 38.95,
+				"currencyCode": "CAD"
+			},
+			"retailPrice": {
+				"amount": 31.16,
+				"currencyCode": "CAD"
+			},
+			"buyLink": "https://play.google.com/store/books/details?id=J4m28TkBSl4C&rdid=book-J4m28TkBSl4C&rdot=1&source=gbs_api",
+			"offers": [{
+				"finskyOfferType": 1,
+				"listPrice": {
+					"amountInMicros": 38950000.0,
+					"currencyCode": "CAD"
+				},
+				"retailPrice": {
+					"amountInMicros": 31160000.0,
+					"currencyCode": "CAD"
+				},
+				"giftable": true
+			}]
+		},
+		"accessInfo": {
+			"country": "CA",
+			"viewability": "PARTIAL",
+			"embeddable": true,
+			"publicDomain": false,
+			"textToSpeechPermission": "ALLOWED",
+			"epub": {
+				"isAvailable": false
+			},
+			"pdf": {
+				"isAvailable": true,
+				"acsTokenLink": "http://books.google.ca/books/download/Reading_Seminars_I_and_II-sample-pdf.acsm?id=J4m28TkBSl4C&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+			},
+			"webReaderLink": "http://play.google.com/books/reader?id=J4m28TkBSl4C&hl=&printsec=frontcover&source=gbs_api",
+			"accessViewStatus": "SAMPLE",
+			"quoteSharingAllowed": false
+		},
+		"searchInfo": {
+			"textSnippet": "The Other can&#39;t answer so the <b>subject</b> interprets: he invents the answer to the <br>\nquestion “What does the Other want?” Where do we find the answer the <b>subject</b> <br>\nconstructs? In the fundamental <b>fantasy</b>. The fundamental <b>fantasy</b> is an invention <br>\nthat&nbsp;..."
+		}
+	}, {
+		"kind": "books#volume",
+		"id": "ngDvEXDJnlMC",
+		"etag": "YW9fh0moA5o",
+		"selfLink": "https://www.googleapis.com/books/v1/volumes/ngDvEXDJnlMC",
+		"volumeInfo": {
+			"title": "Cinema at the Crossroads",
+			"subtitle": "Nation and the Subject in East Asian Cinema",
+			"authors": ["Hyon Joo Yoo"],
+			"publisher": "Lexington Books",
+			"publishedDate": "2012",
+			"description": "What does it mean to rethink postcolonial studies through East Asian cinema and experience? Yoo pursues this question by bringing an East Asian postcolonial framework, the notion of film as a manifestation of national culture, and the methodology of psychoanalysis to bear on a failed hegemonic subject.",
+			"industryIdentifiers": [{
+				"type": "ISBN_13",
+				"identifier": "9780739167823"
+			}, {
+				"type": "ISBN_10",
+				"identifier": "0739167820"
+			}],
+			"readingModes": {
+				"text": false,
+				"image": true
+			},
+			"pageCount": 154,
+			"printType": "BOOK",
+			"categories": ["Art"],
+			"maturityRating": "NOT_MATURE",
+			"allowAnonLogging": false,
+			"contentVersion": "preview-1.0.0",
+			"imageLinks": {
+				"smallThumbnail": "http://books.google.com/books/content?id=ngDvEXDJnlMC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+				"thumbnail": "http://books.google.com/books/content?id=ngDvEXDJnlMC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+			},
+			"language": "en",
+			"previewLink": "http://books.google.ca/books?id=ngDvEXDJnlMC&pg=PA115&dq=subject%3Dfantasy&hl=&cd=4&source=gbs_api",
+			"infoLink": "http://books.google.ca/books?id=ngDvEXDJnlMC&dq=subject%3Dfantasy&hl=&source=gbs_api",
+			"canonicalVolumeLink": "https://books.google.com/books/about/Cinema_at_the_Crossroads.html?hl=&id=ngDvEXDJnlMC"
+		},
+		"saleInfo": {
+			"country": "CA",
+			"saleability": "NOT_FOR_SALE",
+			"isEbook": false
+		},
+		"accessInfo": {
+			"country": "CA",
+			"viewability": "PARTIAL",
+			"embeddable": true,
+			"publicDomain": false,
+			"textToSpeechPermission": "ALLOWED",
+			"epub": {
+				"isAvailable": false
+			},
+			"pdf": {
+				"isAvailable": false
+			},
+			"webReaderLink": "http://play.google.com/books/reader?id=ngDvEXDJnlMC&hl=&printsec=frontcover&source=gbs_api",
+			"accessViewStatus": "SAMPLE",
+			"quoteSharingAllowed": false
+		},
+		"searchInfo": {
+			"textSnippet": "In the process of becoming the modern colonial subject, the subject experiences <br>\nannihilation of the pre-modern Father which destroys the <b>subject&#39;s fantasy</b> <br>\nformation that secures the subject&#39;s place in the patriarchal order. But any event <br>\nthat&nbsp;..."
+		}
+	}, {
+		"kind": "books#volume",
+		"id": "_e9-oHH5uysC",
+		"etag": "7adKEMJUXAE",
+		"selfLink": "https://www.googleapis.com/books/v1/volumes/_e9-oHH5uysC",
+		"volumeInfo": {
+			"title": "Fantasy and Political Violence",
+			"subtitle": "The Meaning of Anticommunism in Chile",
+			"authors": ["Margarita Palacios"],
+			"publisher": "Springer-Verlag",
+			"publishedDate": "2009-08-13",
+			"industryIdentifiers": [{
+				"type": "ISBN_10",
+				"identifier": "353116869X"
+			}, {
+				"type": "ISBN_13",
+				"identifier": "9783531168692"
+			}],
+			"readingModes": {
+				"text": false,
+				"image": true
+			},
+			"pageCount": 133,
+			"printType": "BOOK",
+			"categories": ["Social Science"],
+			"averageRating": 3.0,
+			"ratingsCount": 1,
+			"maturityRating": "NOT_MATURE",
+			"allowAnonLogging": false,
+			"contentVersion": "0.0.2.0.preview.1",
+			"panelizationSummary": {
+				"containsEpubBubbles": false,
+				"containsImageBubbles": false
+			},
+			"imageLinks": {
+				"smallThumbnail": "http://books.google.com/books/content?id=_e9-oHH5uysC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+				"thumbnail": "http://books.google.com/books/content?id=_e9-oHH5uysC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+			},
+			"language": "en",
+			"previewLink": "http://books.google.ca/books?id=_e9-oHH5uysC&pg=PA83&dq=subject%3Dfantasy&hl=&cd=5&source=gbs_api",
+			"infoLink": "http://books.google.ca/books?id=_e9-oHH5uysC&dq=subject%3Dfantasy&hl=&source=gbs_api",
+			"canonicalVolumeLink": "https://books.google.com/books/about/Fantasy_and_Political_Violence.html?hl=&id=_e9-oHH5uysC"
+		},
+		"saleInfo": {
+			"country": "CA",
+			"saleability": "NOT_FOR_SALE",
+			"isEbook": false
+		},
+		"accessInfo": {
+			"country": "CA",
+			"viewability": "PARTIAL",
+			"embeddable": true,
+			"publicDomain": false,
+			"textToSpeechPermission": "ALLOWED",
+			"epub": {
+				"isAvailable": false
+			},
+			"pdf": {
+				"isAvailable": true,
+				"acsTokenLink": "http://books.google.ca/books/download/Fantasy_and_Political_Violence-sample-pdf.acsm?id=_e9-oHH5uysC&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+			},
+			"webReaderLink": "http://play.google.com/books/reader?id=_e9-oHH5uysC&hl=&printsec=frontcover&source=gbs_api",
+			"accessViewStatus": "SAMPLE",
+			"quoteSharingAllowed": false
+		},
+		"searchInfo": {
+			"textSnippet": "Unlike the case of a purely Foucauldian post-structuralist perspective, however, <br>\nthe psychoanalytical <b>subject</b> never belongs to the other, but keeps its <br>\nunconscious as the space of resistance. 3 <b>Fantasy</b> By taking quite a different <br>\nperspective&nbsp;..."
+		}
+	}, {
+		"kind": "books#volume",
+		"id": "Cr77KRy3QSkC",
+		"etag": "AkyEozDm5QQ",
+		"selfLink": "https://www.googleapis.com/books/v1/volumes/Cr77KRy3QSkC",
+		"volumeInfo": {
+			"title": "Psychological Perspectives on Lesbian, Gay, and Bisexual Experiences",
+			"authors": ["Linda Garnets", "Douglas Kimmel"],
+			"publisher": "Columbia University Press",
+			"publishedDate": "2003-05-14",
+			"description": "Designed for both the undergraduate and graduate classroom, this selection of important articles provides a comprehensive overview of current thought about the psychological issues affecting lesbians, bisexuals, and gay men. The editors have revised and updated the introduction and included a new set of articles for the second edition, most of which have been published since the release of the first edition of Psychological Perspectives. The book is divided into eight sections that deal with the meaning of sexual orientation; the psychological dimensions of prejudice, discrimination, and violence; identity development; diversity; relationships and families; adolescence, midlife, and aging; mental health; and the status of practice, research, and public policy bearing on homosexuality and bisexuality in American psychology.",
+			"industryIdentifiers": [{
+				"type": "ISBN_13",
+				"identifier": "9780231504942"
+			}, {
+				"type": "ISBN_10",
+				"identifier": "0231504942"
+			}],
+			"readingModes": {
+				"text": true,
+				"image": true
+			},
+			"pageCount": 832,
+			"printType": "BOOK",
+			"categories": ["Psychology"],
+			"maturityRating": "NOT_MATURE",
+			"allowAnonLogging": false,
+			"contentVersion": "2.5.4.0.preview.3",
+			"panelizationSummary": {
+				"containsEpubBubbles": false,
+				"containsImageBubbles": false
+			},
+			"imageLinks": {
+				"smallThumbnail": "http://books.google.com/books/content?id=Cr77KRy3QSkC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+				"thumbnail": "http://books.google.com/books/content?id=Cr77KRy3QSkC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+			},
+			"language": "en",
+			"previewLink": "http://books.google.ca/books?id=Cr77KRy3QSkC&pg=PA682&dq=subject%3Dfantasy&hl=&cd=6&source=gbs_api",
+			"infoLink": "https://play.google.com/store/books/details?id=Cr77KRy3QSkC&source=gbs_api",
+			"canonicalVolumeLink": "https://market.android.com/details?id=book-Cr77KRy3QSkC"
+		},
+		"saleInfo": {
+			"country": "CA",
+			"saleability": "FOR_SALE",
+			"isEbook": true,
+			"listPrice": {
+				"amount": 64.99,
+				"currencyCode": "CAD"
+			},
+			"retailPrice": {
+				"amount": 51.99,
+				"currencyCode": "CAD"
+			},
+			"buyLink": "https://play.google.com/store/books/details?id=Cr77KRy3QSkC&rdid=book-Cr77KRy3QSkC&rdot=1&source=gbs_api",
+			"offers": [{
+				"finskyOfferType": 1,
+				"listPrice": {
+					"amountInMicros": 64990000.0,
+					"currencyCode": "CAD"
+				},
+				"retailPrice": {
+					"amountInMicros": 51990000.0,
+					"currencyCode": "CAD"
+				},
+				"giftable": true
+			}]
+		},
+		"accessInfo": {
+			"country": "CA",
+			"viewability": "PARTIAL",
+			"embeddable": true,
+			"publicDomain": false,
+			"textToSpeechPermission": "ALLOWED",
+			"epub": {
+				"isAvailable": true,
+				"acsTokenLink": "http://books.google.ca/books/download/Psychological_Perspectives_on_Lesbian_Ga-sample-epub.acsm?id=Cr77KRy3QSkC&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+			},
+			"pdf": {
+				"isAvailable": true,
+				"acsTokenLink": "http://books.google.ca/books/download/Psychological_Perspectives_on_Lesbian_Ga-sample-pdf.acsm?id=Cr77KRy3QSkC&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+			},
+			"webReaderLink": "http://play.google.com/books/reader?id=Cr77KRy3QSkC&hl=&printsec=frontcover&source=gbs_api",
+			"accessViewStatus": "SAMPLE",
+			"quoteSharingAllowed": false
+		},
+		"searchInfo": {
+			"textSnippet": "His assessment was based on the subject&#39;s actual behavior as well as the <br>\ncontent of the <b>subject&#39;s fantasy</b> life. Subsequent efforts to quantify sexual <br>\norientation have incorporated gender-based, social, and affectional variables (<br>\nColeman 1987)."
+		}
+	}, {
+		"kind": "books#volume",
+		"id": "JyOsA-5eaM0C",
+		"etag": "bCDd+lhfFdc",
+		"selfLink": "https://www.googleapis.com/books/v1/volumes/JyOsA-5eaM0C",
+		"volumeInfo": {
+			"title": "Signifiers and Acts",
+			"subtitle": "Freedom in Lacan's Theory of the Subject",
+			"authors": ["Ed Pluth"],
+			"publisher": "SUNY Press",
+			"publishedDate": "2012-02-01",
+			"description": "Situates Lacan’s theory of the subject within contemporary philosophical debates over freedom and agency.",
+			"industryIdentifiers": [{
+				"type": "ISBN_13",
+				"identifier": "9780791479377"
+			}, {
+				"type": "ISBN_10",
+				"identifier": "0791479374"
+			}],
+			"readingModes": {
+				"text": true,
+				"image": true
+			},
+			"pageCount": 206,
+			"printType": "BOOK",
+			"categories": ["Literary Criticism"],
+			"maturityRating": "NOT_MATURE",
+			"allowAnonLogging": false,
+			"contentVersion": "2.3.3.0.preview.3",
+			"panelizationSummary": {
+				"containsEpubBubbles": false,
+				"containsImageBubbles": false
+			},
+			"imageLinks": {
+				"smallThumbnail": "http://books.google.com/books/content?id=JyOsA-5eaM0C&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+				"thumbnail": "http://books.google.com/books/content?id=JyOsA-5eaM0C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+			},
+			"language": "en",
+			"previewLink": "http://books.google.ca/books?id=JyOsA-5eaM0C&pg=PA81&dq=subject%3Dfantasy&hl=&cd=7&source=gbs_api",
+			"infoLink": "https://play.google.com/store/books/details?id=JyOsA-5eaM0C&source=gbs_api",
+			"canonicalVolumeLink": "https://market.android.com/details?id=book-JyOsA-5eaM0C"
+		},
+		"saleInfo": {
+			"country": "CA",
+			"saleability": "FOR_SALE",
+			"isEbook": true,
+			"listPrice": {
+				"amount": 28.41,
+				"currencyCode": "CAD"
+			},
+			"retailPrice": {
+				"amount": 16.89,
+				"currencyCode": "CAD"
+			},
+			"buyLink": "https://play.google.com/store/books/details?id=JyOsA-5eaM0C&rdid=book-JyOsA-5eaM0C&rdot=1&source=gbs_api",
+			"offers": [{
+				"finskyOfferType": 1,
+				"listPrice": {
+					"amountInMicros": 28410000.0,
+					"currencyCode": "CAD"
+				},
+				"retailPrice": {
+					"amountInMicros": 16890000.0,
+					"currencyCode": "CAD"
+				},
+				"giftable": true
+			}]
+		},
+		"accessInfo": {
+			"country": "CA",
+			"viewability": "PARTIAL",
+			"embeddable": true,
+			"publicDomain": false,
+			"textToSpeechPermission": "ALLOWED",
+			"epub": {
+				"isAvailable": true,
+				"acsTokenLink": "http://books.google.ca/books/download/Signifiers_and_Acts-sample-epub.acsm?id=JyOsA-5eaM0C&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+			},
+			"pdf": {
+				"isAvailable": true,
+				"acsTokenLink": "http://books.google.ca/books/download/Signifiers_and_Acts-sample-pdf.acsm?id=JyOsA-5eaM0C&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+			},
+			"webReaderLink": "http://play.google.com/books/reader?id=JyOsA-5eaM0C&hl=&printsec=frontcover&source=gbs_api",
+			"accessViewStatus": "SAMPLE",
+			"quoteSharingAllowed": false
+		},
+		"searchInfo": {
+			"textSnippet": "The. Fundamental. <b>Fantasy</b>. There is no <b>subject</b> of desire. There is a <b>subject</b> of <br>\n<b>fantasy</b>. (Résponses, 9). The. definition of the <b>subject</b> Lacan gives in his <br>\nfourteenth seminar takes into account both the fact that a <b>subject</b> is produced by <br>\nan&nbsp;..."
+		}
+	}, {
+		"kind": "books#volume",
+		"id": "JW9jaQeIDVoC",
+		"etag": "uDcGZMVutJY",
+		"selfLink": "https://www.googleapis.com/books/v1/volumes/JW9jaQeIDVoC",
+		"volumeInfo": {
+			"title": "The Real Gaze",
+			"subtitle": "Film Theory after Lacan",
+			"authors": ["Todd McGowan"],
+			"publisher": "SUNY Press",
+			"publishedDate": "2008-01-03",
+			"description": "Examines the gaze in Lacanian film theory.",
+			"industryIdentifiers": [{
+				"type": "ISBN_10",
+				"identifier": "0791470407"
+			}, {
+				"type": "ISBN_13",
+				"identifier": "9780791470404"
+			}],
+			"readingModes": {
+				"text": true,
+				"image": true
+			},
+			"pageCount": 254,
+			"printType": "BOOK",
+			"categories": ["Performing Arts"],
+			"maturityRating": "NOT_MATURE",
+			"allowAnonLogging": true,
+			"contentVersion": "0.0.2.0.preview.3",
+			"imageLinks": {
+				"smallThumbnail": "http://books.google.com/books/content?id=JW9jaQeIDVoC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+				"thumbnail": "http://books.google.com/books/content?id=JW9jaQeIDVoC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+			},
+			"language": "en",
+			"previewLink": "http://books.google.ca/books?id=JW9jaQeIDVoC&pg=PA35&dq=subject%3Dfantasy&hl=&cd=8&source=gbs_api",
+			"infoLink": "http://books.google.ca/books?id=JW9jaQeIDVoC&dq=subject%3Dfantasy&hl=&source=gbs_api",
+			"canonicalVolumeLink": "https://books.google.com/books/about/The_Real_Gaze.html?hl=&id=JW9jaQeIDVoC"
+		},
+		"saleInfo": {
+			"country": "CA",
+			"saleability": "NOT_FOR_SALE",
+			"isEbook": false
+		},
+		"accessInfo": {
+			"country": "CA",
+			"viewability": "PARTIAL",
+			"embeddable": true,
+			"publicDomain": false,
+			"textToSpeechPermission": "ALLOWED",
+			"epub": {
+				"isAvailable": true,
+				"acsTokenLink": "http://books.google.ca/books/download/The_Real_Gaze-sample-epub.acsm?id=JW9jaQeIDVoC&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+			},
+			"pdf": {
+				"isAvailable": true,
+				"acsTokenLink": "http://books.google.ca/books/download/The_Real_Gaze-sample-pdf.acsm?id=JW9jaQeIDVoC&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+			},
+			"webReaderLink": "http://play.google.com/books/reader?id=JW9jaQeIDVoC&hl=&printsec=frontcover&source=gbs_api",
+			"accessViewStatus": "SAMPLE",
+			"quoteSharingAllowed": false
+		},
+		"searchInfo": {
+			"textSnippet": "In order to grasp the political possibilities and consequences of film&#39;s tendency <br>\ntoward the depiction of <b>fantasy</b>, we must first examine the ... It provides an <br>\nimaginary enjoyment that often persuades <b>subjects</b> to accept their actual <br>\nimmiseration."
+		}
+	}, {
+		"kind": "books#volume",
+		"id": "zMnbAgAAQBAJ",
+		"etag": "Q1DQ38rNA4Q",
+		"selfLink": "https://www.googleapis.com/books/v1/volumes/zMnbAgAAQBAJ",
+		"volumeInfo": {
+			"title": "Wrestling with the Angel",
+			"subtitle": "Experiments in Symbolic Life",
+			"authors": ["Tracy McNulty"],
+			"publisher": "Columbia University Press",
+			"publishedDate": "2014-06-10",
+			"description": "Wrestling with the Angel is a meditation on contemporary political, legal, and social theory from a psychoanalytic perspective. It argues for the enabling function of formal and symbolic constraints in sustaining desire as a source of creativity, innovation, and social change. The book begins by calling for a richer understanding of the psychoanalytic concept of the symbolic and the resources it might offer for an examination of the social link and the political sphere. The symbolic is a crucial dimension of social coexistence but cannot be reduced to the social norms, rules, and practices with which it is so often collapsed. As a dimension of human life that is introduced by language—and thus inescapably \"other\" with respect to the laws of nature—the symbolic is an undeniable fact of human existence. Yet the same cannot be said of the forms and practices that represent and sustain it. In designating these laws, structures, and practices as \"fictions,\" Jacques Lacan makes clear that the symbolic is a dimension of social life that has to be created and maintained and that can also be displaced, eradicated, or rendered dysfunctional. The symbolic fictions that structure and support the social tie are therefore historicizable, emerging at specific times and in particular contexts and losing their efficacy when circumstances change. They are also fragile and ephemeral, needing to be renewed and reinvented if they are not to become outmoded or ridiculous. Therefore the aim of this study is not to call for a return to traditional symbolic laws but to reflect on the relationship between the symbolic in its most elementary or structural form and the function of constraints and limits. McNulty analyzes examples of \"experimental\" (as opposed to \"normative\") articulations of the symbolic and their creative use of formal limits and constraints not as mere prohibitions or rules but as \"enabling constraints\" that favor the exercise of freedom. The first part examines practices that conceive of subjective freedom as enabled by the struggle with constraints or limits, from the transference that structures the \"minimal social link\" of psychoanalysis to constrained relationships between two or more people in the context of political and social movements. Examples discussed range from the spiritual practices and social legacies of Moses, Jesus, and Teresa of Avila to the political philosophy of Hannah Arendt and Jacques Rancière. The second part is devoted to legal and political debates surrounding the function of the written law. It isolates the law's function as a symbolic limit or constraint as distinct from its content and representational character. The analysis draws on Mosaic law traditions, the political theology of Paul, and twentieth-century treatments of written law in the work of Carl Schmitt, Walter Benjamin, Sigmund Freud, Pierre Legendre, and Alain Badiou. In conclusion, the study considers the relationship between will and constraint in Kant's aesthetic philosophy and in the experimental literary works of the collective Oulipo.",
+			"industryIdentifiers": [{
+				"type": "ISBN_13",
+				"identifier": "9780231537605"
+			}, {
+				"type": "ISBN_10",
+				"identifier": "0231537603"
+			}],
+			"readingModes": {
+				"text": true,
+				"image": true
+			},
+			"pageCount": 336,
+			"printType": "BOOK",
+			"categories": ["Political Science"],
+			"maturityRating": "NOT_MATURE",
+			"allowAnonLogging": false,
+			"contentVersion": "2.4.5.0.preview.3",
+			"panelizationSummary": {
+				"containsEpubBubbles": false,
+				"containsImageBubbles": false
+			},
+			"imageLinks": {
+				"smallThumbnail": "http://books.google.com/books/content?id=zMnbAgAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+				"thumbnail": "http://books.google.com/books/content?id=zMnbAgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+			},
+			"language": "en",
+			"previewLink": "http://books.google.ca/books?id=zMnbAgAAQBAJ&pg=PA73&dq=subject%3Dfantasy&hl=&cd=9&source=gbs_api",
+			"infoLink": "https://play.google.com/store/books/details?id=zMnbAgAAQBAJ&source=gbs_api",
+			"canonicalVolumeLink": "https://market.android.com/details?id=book-zMnbAgAAQBAJ"
+		},
+		"saleInfo": {
+			"country": "CA",
+			"saleability": "FOR_SALE",
+			"isEbook": true,
+			"listPrice": {
+				"amount": 44.99,
+				"currencyCode": "CAD"
+			},
+			"retailPrice": {
+				"amount": 32.99,
+				"currencyCode": "CAD"
+			},
+			"buyLink": "https://play.google.com/store/books/details?id=zMnbAgAAQBAJ&rdid=book-zMnbAgAAQBAJ&rdot=1&source=gbs_api",
+			"offers": [{
+				"finskyOfferType": 1,
+				"listPrice": {
+					"amountInMicros": 44990000.0,
+					"currencyCode": "CAD"
+				},
+				"retailPrice": {
+					"amountInMicros": 32990000.0,
+					"currencyCode": "CAD"
+				},
+				"giftable": true
+			}]
+		},
+		"accessInfo": {
+			"country": "CA",
+			"viewability": "PARTIAL",
+			"embeddable": true,
+			"publicDomain": false,
+			"textToSpeechPermission": "ALLOWED",
+			"epub": {
+				"isAvailable": true,
+				"acsTokenLink": "http://books.google.ca/books/download/Wrestling_with_the_Angel-sample-epub.acsm?id=zMnbAgAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+			},
+			"pdf": {
+				"isAvailable": true,
+				"acsTokenLink": "http://books.google.ca/books/download/Wrestling_with_the_Angel-sample-pdf.acsm?id=zMnbAgAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+			},
+			"webReaderLink": "http://play.google.com/books/reader?id=zMnbAgAAQBAJ&hl=&printsec=frontcover&source=gbs_api",
+			"accessViewStatus": "SAMPLE",
+			"quoteSharingAllowed": false
+		},
+		"searchInfo": {
+			"textSnippet": "THE “SUBJECT SUPPOSED TO KNOW,” OR THE CONSTRAINT OF THE <br>\nADDRESS The concept of the “subject ... the cost of sustaining the seduction <br>\nfantasy, by positioning himself in the place of the imaginary Other of the <b>subject&#39;s</b> <br>\n<b>fantasy</b>,&nbsp;..."
+		}
+	}, {
+		"kind": "books#volume",
+		"id": "-EFaqH3kKIAC",
+		"etag": "a16taSKy49E",
+		"selfLink": "https://www.googleapis.com/books/v1/volumes/-EFaqH3kKIAC",
+		"volumeInfo": {
+			"title": "The Symbolic, the Sublime, and Slavoj Zizek's Theory of Film",
+			"authors": ["M. Flisfeder"],
+			"publisher": "Springer",
+			"publishedDate": "2016-01-20",
+			"description": "Returning to questions about ideology and subjectivity, Flisfeder argues that Slavoj Žižek's theory of film aims to re-politicize film studies and film theory, bringing cinema into the fold of twenty-first century politics.",
+			"industryIdentifiers": [{
+				"type": "ISBN_13",
+				"identifier": "9781137110749"
+			}, {
+				"type": "ISBN_10",
+				"identifier": "1137110740"
+			}],
+			"readingModes": {
+				"text": true,
+				"image": true
+			},
+			"pageCount": 195,
+			"printType": "BOOK",
+			"categories": ["Performing Arts"],
+			"maturityRating": "NOT_MATURE",
+			"allowAnonLogging": false,
+			"contentVersion": "1.3.4.0.preview.3",
+			"panelizationSummary": {
+				"containsEpubBubbles": false,
+				"containsImageBubbles": false
+			},
+			"imageLinks": {
+				"smallThumbnail": "http://books.google.com/books/content?id=-EFaqH3kKIAC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+				"thumbnail": "http://books.google.com/books/content?id=-EFaqH3kKIAC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+			},
+			"language": "en",
+			"previewLink": "http://books.google.ca/books?id=-EFaqH3kKIAC&pg=PT106&dq=subject%3Dfantasy&hl=&cd=10&source=gbs_api",
+			"infoLink": "https://play.google.com/store/books/details?id=-EFaqH3kKIAC&source=gbs_api",
+			"canonicalVolumeLink": "https://market.android.com/details?id=book--EFaqH3kKIAC"
+		},
+		"saleInfo": {
+			"country": "CA",
+			"saleability": "FOR_SALE_AND_RENTAL",
+			"isEbook": true,
+			"listPrice": {
+				"amount": 38.04,
+				"currencyCode": "CAD"
+			},
+			"retailPrice": {
+				"amount": 30.43,
+				"currencyCode": "CAD"
+			},
+			"buyLink": "https://play.google.com/store/books/details?id=-EFaqH3kKIAC&rdid=book--EFaqH3kKIAC&rdot=1&source=gbs_api",
+			"offers": [{
+				"finskyOfferType": 1,
+				"listPrice": {
+					"amountInMicros": 38040000.0,
+					"currencyCode": "CAD"
+				},
+				"retailPrice": {
+					"amountInMicros": 30430000.0,
+					"currencyCode": "CAD"
+				},
+				"giftable": true
+			}, {
+				"finskyOfferType": 3,
+				"listPrice": {
+					"amountInMicros": 13310000.0,
+					"currencyCode": "CAD"
+				},
+				"retailPrice": {
+					"amountInMicros": 11980000.0,
+					"currencyCode": "CAD"
+				},
+				"rentalDuration": {
+					"unit": "DAY",
+					"count": 90.0
+				}
+			}]
+		},
+		"accessInfo": {
+			"country": "CA",
+			"viewability": "PARTIAL",
+			"embeddable": true,
+			"publicDomain": false,
+			"textToSpeechPermission": "ALLOWED_FOR_ACCESSIBILITY",
+			"epub": {
+				"isAvailable": true,
+				"acsTokenLink": "http://books.google.ca/books/download/The_Symbolic_the_Sublime_and_Slavoj_Zize-sample-epub.acsm?id=-EFaqH3kKIAC&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+			},
+			"pdf": {
+				"isAvailable": true,
+				"acsTokenLink": "http://books.google.ca/books/download/The_Symbolic_the_Sublime_and_Slavoj_Zize-sample-pdf.acsm?id=-EFaqH3kKIAC&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+			},
+			"webReaderLink": "http://play.google.com/books/reader?id=-EFaqH3kKIAC&hl=&printsec=frontcover&source=gbs_api",
+			"accessViewStatus": "SAMPLE",
+			"quoteSharingAllowed": false
+		},
+		"searchInfo": {
+			"textSnippet": "As Lacanputs it, “Freud&#39;s methodis Cartesian—inthe sense that hesets outfrom <br>\nthe basisofthe <b>subject</b> ofcertainty. With thisaim,the ... Itis not the conscious <b>subject</b> <br>\nthatthinks (not, “I think therefore I am”);itis, rather, the unconscious <b>fantasy</b>&nbsp;..."
+		}
+	}]
+}
