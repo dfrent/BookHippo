@@ -21,24 +21,15 @@
 }
 
 /* Book Cards */
-.book-container, .item {
+.book-container{
   display: inline-block;
   width: 160px;
   height: 270px;
-  border: none;
-  overflow: hidden;
   margin: 7px;
-  position: relative;
 
   img {
     display: block;
-    margin: auto;
     height: 91%;
-    min-width: 100%;
-    left: -100%;
-    right: -100%;
-    top: -120%;
-    bottom: -100%;
   }
 
 }
