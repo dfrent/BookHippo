@@ -36,16 +36,14 @@
   position: relative;
 
   img {
-      display: block;
-      margin: auto;
-      height: 91%;
-      min-width: 100%;
-
-
-      left: -100%;
-      right: -100%;
-      top: -120%;
-      bottom: -100%;
+    display: block;
+    margin: auto;
+    height: 91%;
+    min-width: 100%;
+    left: -100%;
+    right: -100%;
+    top: -120%;
+    bottom: -100%;
   }
 
 }
@@ -87,7 +85,7 @@
   }
 }
 .left-paddle {
-  background: linear-gradient(to left, rgba(130,130,130,0), rgba(160,160,160,1));
+  background: linear-gradient(to left, $scroll-clear-gray, $scroll-solid-gray);
 	left: 0;
   outline: 0;
   &:active {
@@ -96,7 +94,7 @@
   }
 }
 .right-paddle {
-  background: linear-gradient(to right, rgba(130,130,130,0), rgba(160,160,160,1));
+  background: linear-gradient(to right, $scroll-clear-gray, $scroll-solid-gray);
 	right: 0;
   outline: 0;
   &:active {
