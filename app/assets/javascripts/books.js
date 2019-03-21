@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function(e){
       });
       // Make the clicked button white
       e.target.style.backgroundColor = 'white';
-      e.target.style.color = '$bookhippo-purple';
+      e.target.style.color = '#272369';
 
       // AJAX call to update the read_status of the user
       $.ajax({
@@ -56,13 +56,13 @@ document.addEventListener("DOMContentLoaded", function(e){
 
   // Functions to control the styling back and forth of read_status buttons
   function purpleButtonStyle(button) {
-    button.style.backgroundColor = '$bookhippo-purple';
+    button.style.backgroundColor = '#272369';
     button.style.color = 'white';
   };
 
   function whiteButtonStyle(button) {
     button.style.backgroundColor = 'white';
-    button.style.color = '$bookhippo-purple';
+    button.style.color = '#272369';
   };
 
   // **********For scroll bar animations

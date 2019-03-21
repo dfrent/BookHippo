@@ -7,21 +7,12 @@
       <p>Publisher: <%= @book.publisher %></p>
     </div>
     <div class="col-sm-9 book-show-info col-xs-12">
-      <h2 class="book-title">
-        <%= @book.title %>
-      </h2>
-      <h6 class="show-author">
-        <%= @book.author %>
-      </h6>
-      <div class="description">
-        <p><strong>Description:</strong>
-          <%= @book.description %>
-        </p>
-      </div>
+      <h2 class="book-title"><%= @book.title %></h2>
+      <h4 class="show-author"><%= @book.author %></h4>
+      <p class="description">Description: <%= @book.description %></p>
 
       <div class="user-action-buttons">
-
-          <%= link_to "Share this book?", conversations_path(share: @book.isbn), class:"btn btn-primary share-btn user-action-button" %>
+        <%= link_to "Share this book?", conversations_path(share: @book.isbn), class:"btn user-action-button" %>
         <div class="button-container-show">
           <% if logged_in? %>
 
