@@ -8,11 +8,8 @@ document.addEventListener("DOMContentLoaded", function(e){
   // Selects all buttons with that relate to adding books to the library
   var read_buttons = document.querySelectorAll('[data-status]');
 
-  // Provides the three string options to find the correct buttons to style
-  var readStatusOptions = ["want_to_read", "currently_reading", "finished_reading"];
-
   // Goes through each read_status class option, and checks to see if any button divs have that class. If they do, it styles the button with the matching class
-  readStatusOptions.forEach(function(option) {
+  Object.keys(READ_STATUS_OPTIONS).forEach(function(option) {
     var readButtonBoxes = document.querySelectorAll('.button-div');
 
     readButtonBoxes.forEach(function(box){
