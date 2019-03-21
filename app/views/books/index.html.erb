@@ -1,7 +1,7 @@
 <%= image_tag("book-hippo-hero4.jpg", width:'100%', alt:"book hippo")  %>
 
 <% @books.each do |key, value| %>
-  <h5 class="list-title"><%= key %></h5>
+  <h5 class="scroll-header"><%= key %></h5>
   <div class="scroll-container menu-wrapper">
     <div class="scrollable menu" id= "menu-<%= key.parameterize %>" >
       <% value.each do |book| %>
