@@ -4,6 +4,7 @@ class SearchForController < ApplicationController
     query = params[:search].downcase
 
     @users = User.where(' username LIKE ? ', "%#{query}%")
+    google = Tools::Google.new
     google_items = google.book_search(query)
     return unless google_items
 
@@ -13,16 +14,11 @@ class SearchForController < ApplicationController
 
   private
 
-  def google
-    Tools::Google.new
-  end
-
   def validate_book_search(books)
     books[0..19].each_with_object([]) do |item, items|
-      isbn = google.isbn_10_from_api(item['volumeInfo']['industryIdentifiers'])
-      next unless isbn
-
-      google.isbn = isbn
+      google = Tools::Google.new
+      google.isbn_10_from_isbns(item['volumeInfo']['industryIdentifiers'])
+      next unless google.isbn
       book = google.find_or_api_call
       next if book.nil?
 

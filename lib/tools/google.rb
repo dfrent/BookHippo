@@ -44,6 +44,13 @@ module Tools
       response.parsed_response['items']
     end
 
+    def isbn_10_from_isbns(identifiers)
+      identifiers&.each do |identifier|
+        @isbn = identifier['identifier'] if identifier['type'] == 'ISBN_10'
+      end
+      @isbn
+    end
+
     private
 
     # General Methods
@@ -112,14 +119,6 @@ module Tools
     def books_in_genre(genre_name)
       response = HTTParty.get("#{GOOGLE_ENDPOINT}subject=#{genre_name}&key=#{GBOOKS_KEY}")
       response.parsed_response['items']
-    end
-
-    def isbn_10_from_isbns(identifiers)
-      isbn = nil
-      identifiers&.each do |identifier|
-        isbn = identifier['identifier'] if identifier['type'] == 'ISBN_10'
-      end
-      isbn
     end
   end
 end
