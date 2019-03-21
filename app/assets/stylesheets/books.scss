@@ -84,9 +84,10 @@
 }
 
 /* Buttons */
-#search-submit-btn {
+.submit-button {
   color: $bookhippo-purple;
   border-color: $bookhippo-purple;
+
   &:hover {
     color: $white;
     background-color: $bookhippo-purple;
