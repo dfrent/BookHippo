@@ -8,17 +8,8 @@
 @import 'search_for.scss';
 @import 'reviews.scss';
 
-/**** FOOTER ****/
-.footer {
-  position: absolute;
-  width: 100%;
-  background-color: $bookhippo-purple;
-  color: $white;
-}
-
-.bottom {
-  height: 5rem;
-}
+// COMPONENT SCSS
+@import 'components/_footer.scss';
 
 .content {
   min-height: 100%;
