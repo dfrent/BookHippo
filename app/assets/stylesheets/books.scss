@@ -49,35 +49,31 @@
 	bottom: 0;
 	width: 3em;
   text-shadow: 1px 1px 2px $black;
+  outline: 0;
+  cursor: pointer;
+
+  &:active {
+    background-color: none;
+    border: none;
+    outline: 0;
+  }
   &:focus {
     outline: 0;
   }
-}
-.left-paddle {
-  background: linear-gradient(to left, $scroll-clear-gray, $scroll-solid-gray);
-	left: 0;
-  outline: 0;
-  &:active {
-    background-color: none;
-    border: none;
+
+  &--right {
+    background: linear-gradient(to right, $scroll-clear-gray, $scroll-solid-gray);
+  	right: 0;
   }
-}
-.right-paddle {
-  background: linear-gradient(to right, $scroll-clear-gray, $scroll-solid-gray);
-	right: 0;
-  outline: 0;
-  &:active {
-    background-color: none;
-    border: none;
+
+  &--left {
+    background: linear-gradient(to left, $scroll-clear-gray, $scroll-solid-gray);
+    left: 0;
   }
 }
 
 .hidden {
 	display: none;
-}
-
-.clickable {
- cursor:pointer;
 }
 
 // Hide arrows on mobile devices
@@ -88,7 +84,6 @@
 }
 
 /* Buttons */
-
 #search-submit-btn {
   color: $bookhippo-purple;
   border-color: $bookhippo-purple;

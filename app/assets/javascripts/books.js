@@ -70,8 +70,8 @@ document.addEventListener("DOMContentLoaded", function(e){
   // duration of scroll animation
   var scrollDuration = 300;
   // paddles
-  var leftPaddles = document.querySelectorAll('.left-paddle');
-  var rightPaddles = document.querySelectorAll('.right-paddle');
+  var leftPaddles = document.querySelectorAll('.paddle--left');
+  var rightPaddles = document.querySelectorAll('.paddle--right');
   var clickables = document.querySelectorAll('.clickable');
 
   // get some relevant size for the paddle triggering point
@@ -118,8 +118,8 @@ document.addEventListener("DOMContentLoaded", function(e){
 
     var menuEndOffset = menuInvisibleSize - paddleMargin;
 
-    var leftPaddle = $(e.target).parent().find('.left-paddle')
-    var rightPaddle = $(e.target).parent().find('.right-paddle')
+    var leftPaddle = $(e.target).parent().find('.paddle--left')
+    var rightPaddle = $(e.target).parent().find('.paddle--right')
     // show & hide the paddles
     // depending on scroll position
     if (menuPosition <= paddleMargin) {
