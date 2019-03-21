@@ -14,33 +14,6 @@
   width: 100%;
   background-color: $bookhippo-purple;
   color: $white;
-
-/*** PAGE ATTRIBUTES ****/
-  .row {
-    height: 100% !important;
-  }
-
-  .footer-left, .footer-middle, .footer-right {
-    padding: 0 2%;
-    display: inline-block !important;
-    width: 33%;
-    margin-top: auto !important;
-    margin-bottom: auto !important;
-
-
-    p {
-      margin: auto;
-      font-size: 1.3rem;
-    }
-    img {
-      display: block;
-    }
-    @media (max-width: 575.98px) {
-      img {
-        margin: 0 auto;
-      }
-    }
-  }
 }
 
 .bottom {
