@@ -1,11 +1,11 @@
 <h4>Rate This Book</h4>
 
-<%= render partial: "reviews/rating", locals: {book: @book, rating: @rating}%>
+<%= render partial: "reviews/rating", locals: {book: book, rating: rating}%>
 
 <h4>Add A Review</h4>
 
 <p>
-  <%= form_for [@book, @review] do |f| %>
+  <%= form_for [book, review] do |f| %>
     <%= f.text_area :comment %>
     <%= hidden_field_tag 'time', "#{Time.now.strftime("%m/%d/%y at %l:%M %p")}" %>
     <%= hidden_field_tag 'username', "#{current_user.username.capitalize}"  %>

@@ -1,6 +1,12 @@
+const READ_STATUS_OPTIONS = {
+  'want_to_read': 'Want to Read',
+  'currently_reading': 'Currently Reading',
+  'finished_reading': 'Finished Reading'
+}
+
 document.addEventListener("DOMContentLoaded", function(e){
   // Selects all buttons with that relate to adding books to the library
-  var read_buttons = document.querySelectorAll('.read-btn');
+  var read_buttons = document.querySelectorAll('[data-status]');
 
   // Provides the three string options to find the correct buttons to style
   var readStatusOptions = ["want_to_read", "currently_reading", "finished_reading"];
@@ -137,8 +143,6 @@ document.addEventListener("DOMContentLoaded", function(e){
 
   // scroll to left
   $('.js-right-clickable').on('click', function(e) {
-    // console.log('Clicked right.');
-    // console.log($(e.target).parents('.menu-wrapper'));
     var itemsLength = $(e.target).parents('.menu-wrapper').find('.book-container').length;
     var getMenuSize = function() {
       return itemsLength * itemSize;
@@ -149,11 +153,6 @@ document.addEventListener("DOMContentLoaded", function(e){
     }
     var menuWrapperSize = getMenuWrapperSize();
     var menuInvisibleSize = menuSize - menuWrapperSize;
-    // console.log(itemsLength);
-    // console.log(itemSize);
-    // console.log(menuSize)
-    // console.log(menuWrapperSize)
-    // console.log(menuInvisibleSize)
     $(e.target).parents('.menu-wrapper').find('.menu').animate({
       scrollLeft: menuInvisibleSize + 100
     }, scrollDuration);
@@ -161,7 +160,6 @@ document.addEventListener("DOMContentLoaded", function(e){
 
   // scroll to right
   $('.js-left-clickable').on('click', function(e) {
-    // console.log('Clicked left.');
     $(e.target).parents('.menu-wrapper').find('.menu').animate({
       scrollLeft: '0'
     }, scrollDuration);
