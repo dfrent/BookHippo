@@ -35,24 +35,11 @@
 }
 
 .book-info {
-  display: block;
   padding: 2%;
-  margin-top: 0;
-  width: 100%;
-
-  .card-title {
-    margin: auto;
-    text-align: center;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    font-weight:  700;
-
-  }
-
-  p {
-    font-size: .7rem;
-  }
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: .7rem;
 }
 
 /* Book Slider Arrows */
