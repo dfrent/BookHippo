@@ -1,83 +1,74 @@
-
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-3 col-xs-12">
-        <div class="book-show-cover">
-          <img src="<%= @book.book_cover %>" alt="<%= @book.title %>">
-        </div>
-        <div class="other-info">
-          <%= render partial: "reviews/avg_rating", locals: { book: @book, rating: @average_rating }%>
-          <p><strong>Page Count:</strong>
-            <%= @book.page_count %>
-          </p>
-          <p><strong>Publisher:</strong>
-            <%= @book.publisher %>
-          </p>
-        </div>
-      </div>
-      <div class="col-sm-9 book-show-info col-xs-12">
-        <h2 class="book-title">
-          <%= @book.title %>
-        </h2>
-        <h6 class="show-author">
-          <%= @book.author %>
-        </h6>
-        <div class="description">
-          <p><strong>Description:</strong>
-            <%= @book.description %>
-          </p>
-        </div>
-
-        <div class="user-action-buttons">
-
-            <%= link_to "Share this book?", conversations_path(share: @book.isbn), class:"btn btn-primary share-btn user-action-button" %>
-          <div class="button-container-show">
-            <% if logged_in? %>
-
-              <!-- Checks if the user has a book in their read_status library. If so, gives the div the appropriate class to style the button on load -->
-              <% if @current_read_status != nil %>
-                <div class="button-div <%= @current_read_status %>">
-              <% else %>
-                <div class="button-div">
-              <% end %>
-                <%= render partial: "books/read_status", locals: {book: @book, existing_list: @existing_list} %>
-              </div>
-
-            <% else %>
-              <%= render partial: "books/new_user_buttons" %>
-            <% end %>
-          </div>
-        </div>
-      </div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3 col-xs-12 book-information">
+      <img class='book-information__cover' src="<%= @book.book_cover %>" alt="<%= @book.title %>">
+      <%= render partial: "reviews/avg_rating", locals: { book: @book, rating: @average_rating } %>
+      <p>Page Count: <%= @book.page_count %></p>
+      <p>Publisher: <%= @book.publisher %></p>
     </div>
-
-    <div class="row">
-      <div class="col-sm-3 col-xs-12">
+    <div class="col-sm-9 book-show-info col-xs-12">
+      <h2 class="book-title">
+        <%= @book.title %>
+      </h2>
+      <h6 class="show-author">
+        <%= @book.author %>
+      </h6>
+      <div class="description">
+        <p><strong>Description:</strong>
+          <%= @book.description %>
+        </p>
       </div>
-      <div class="col-sm-9 col-xs-12 review-display-wrapper">
-        <%= render partial: "reviews/reviews" %>
-      </div>
-    </div>
 
-    <div class="row">
-      <div class="col-sm-3 col-xs-12">
+      <div class="user-action-buttons">
 
-      </div>
-      <div class="col-sm-9 col-xs-12 book-show-review">
-        <input type='hidden' value="<%=@book.isbn%>" id="book_rating">
-
-        <div class="review-wrapper">
-          <% if @rating != nil %>
-            <div><input type="hidden" ,="," value='<%=@rating.stars%>' id="rating"></div>
-          <% else %>
-            <div><input type="hidden" ,="," value='0' id="rating"></div>
-          <%end%>
+          <%= link_to "Share this book?", conversations_path(share: @book.isbn), class:"btn btn-primary share-btn user-action-button" %>
+        <div class="button-container-show">
           <% if logged_in? %>
-            <div class="review-form-box">
-              <%= render partial: "reviews/reviews_form", locals: {book: @book, review: @review, rating: @rating}%>
+
+            <!-- Checks if the user has a book in their read_status library. If so, gives the div the appropriate class to style the button on load -->
+            <% if @current_read_status != nil %>
+              <div class="button-div <%= @current_read_status %>">
+            <% else %>
+              <div class="button-div">
+            <% end %>
+              <%= render partial: "books/read_status", locals: {book: @book, existing_list: @existing_list} %>
             </div>
+
+          <% else %>
+            <%= render partial: "books/new_user_buttons" %>
           <% end %>
         </div>
       </div>
     </div>
   </div>
+
+  <div class="row">
+    <div class="col-sm-3 col-xs-12">
+    </div>
+    <div class="col-sm-9 col-xs-12 review-display-wrapper">
+      <%= render partial: "reviews/reviews" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-3 col-xs-12">
+
+    </div>
+    <div class="col-sm-9 col-xs-12 book-show-review">
+      <input type='hidden' value="<%=@book.isbn%>" id="book_rating">
+
+      <div class="review-wrapper">
+        <% if @rating != nil %>
+          <div><input type="hidden" ,="," value='<%=@rating.stars%>' id="rating"></div>
+        <% else %>
+          <div><input type="hidden" ,="," value='0' id="rating"></div>
+        <%end%>
+        <% if logged_in? %>
+          <div class="review-form-box">
+            <%= render partial: "reviews/reviews_form", locals: {book: @book, review: @review, rating: @rating}%>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

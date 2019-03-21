@@ -47,27 +47,24 @@
       </div>
     </nav>
 
-    <div class="content show-wrapper">
-      <div class="content-inside">
-        <% if flash[:notice] %>
-          <div class="alert alert-success">
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-            <%= flash[:notice] %>
-          </div>
-        <% elsif flash[:error] %>
-          <div class="alert alert-error">
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-              <%= flash[:error] %>
-          </div>
-        <% elsif flash[:alert] %>
-          <div class="alert alert-success">
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-              <%= flash[:alert] %>
-          </div>
-        <% end %>
-
-        <%= yield %>
-      </div>
+    <div class="content book-display">
+      <% if flash[:notice] %>
+        <div class="alert alert-success">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <%= flash[:notice] %>
+        </div>
+      <% elsif flash[:error] %>
+        <div class="alert alert-error">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <%= flash[:error] %>
+        </div>
+      <% elsif flash[:alert] %>
+        <div class="alert alert-success">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <%= flash[:alert] %>
+        </div>
+      <% end %>
+      <%= yield %>
     </div>
 
     <footer class="footer">
