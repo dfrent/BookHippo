@@ -11,22 +11,11 @@
 /**** FOOTER ****/
 .footer {
   position: absolute;
-  width: 100%
+  width: 100%;
   background-color: $bookhippo-purple;
   color: $white;
 
 /*** PAGE ATTRIBUTES ****/
-  @media (min-width: 1200px) {
-    .container {
-      max-width: 1650px;
-    }
-  }
-
-  .footer-wrapper {
-    margin: 0 auto !important;
-    width: 100% !important;
-    min-height: 100%;
-  }
   .row {
     height: 100% !important;
   }
