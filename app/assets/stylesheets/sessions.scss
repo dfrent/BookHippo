@@ -1,21 +1,10 @@
-// Place all the styles related to the sessions controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
 .flash-notice {
-    visibility: hidden;
+  visibility: hidden;
 }
 
-// .alert.alert-success {
-//     // background-color: crimson;
-//     // color: white;
-//     // opacity:  0.85;
-//     // text-shadow:  1px .2px black;
-// }
-
 .form-error-partial {
-    background-color:  crimson;
-    color:  white;
-    opacity:  0.85;
-    text-shadow:  1px .2px black;
+  background-color:  crimson;
+  color:  white;
+  opacity:  0.85;
+  text-shadow:  1px .2px black;
 }
