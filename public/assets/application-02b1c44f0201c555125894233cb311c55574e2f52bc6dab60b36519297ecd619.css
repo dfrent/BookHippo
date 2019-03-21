@@ -10868,14 +10868,14 @@ a.text-dark:focus, a.text-dark:hover {
 
 /* line 161, /Users/ericmarrone/Desktop/bitmaker/bookHippo/app/assets/stylesheets/books.scss */
 #search-submit-btn {
-  color: #272369;
-  border-color: #272369;
+  color: $bookhippo-purple;
+  border-color: $bookhippo-purple;
 }
 /* line 164, /Users/ericmarrone/Desktop/bitmaker/bookHippo/app/assets/stylesheets/books.scss */
 #search-submit-btn:hover {
   color: white;
-  background-color: #272369;
-  border-color: #272369;
+  background-color: $bookhippo-purple;
+  border-color: $bookhippo-purple;
 }
 
 /* Star Ratings */
@@ -10933,7 +10933,7 @@ a.text-dark:focus, a.text-dark:hover {
 /* line 220, /Users/ericmarrone/Desktop/bitmaker/bookHippo/app/assets/stylesheets/books.scss */
 .book-show-info h2, .book-show-review h2 {
   font-size: 2.1rem !important;
-  color: #272369;
+  color: $bookhippo-purple;
 }
 
 /* line 226, /Users/ericmarrone/Desktop/bitmaker/bookHippo/app/assets/stylesheets/books.scss */
@@ -10994,15 +10994,15 @@ a.text-dark:focus, a.text-dark:hover {
 /* line 281, /Users/ericmarrone/Desktop/bitmaker/bookHippo/app/assets/stylesheets/books.scss */
 .share-btn, .read-btn, .sumbit-review-btn > input[type="submit"] {
   margin-bottom: 10px;
-  background-color: #272369;
-  border-color: #272369;
+  background-color: $bookhippo-purple;
+  border-color: $bookhippo-purple;
   color: white;
 }
 /* line 286, /Users/ericmarrone/Desktop/bitmaker/bookHippo/app/assets/stylesheets/books.scss */
 .share-btn:hover, .read-btn:hover, .sumbit-review-btn > input[type="submit"]:hover {
-  color: #272369;
+  color: $bookhippo-purple;
   background-color: white;
-  border-color: #272369;
+  border-color: $bookhippo-purple;
   font-weight: 700;
 }
 
@@ -11013,15 +11013,15 @@ a.text-dark:focus, a.text-dark:hover {
 
 /* line 298, /Users/ericmarrone/Desktop/bitmaker/bookHippo/app/assets/stylesheets/books.scss */
 .new-user-button {
-  background-color: #272369;
-  border-color: #272369;
+  background-color: $bookhippo-purple;
+  border-color: $bookhippo-purple;
   color: white;
 }
 /* line 302, /Users/ericmarrone/Desktop/bitmaker/bookHippo/app/assets/stylesheets/books.scss */
 .new-user-button:hover {
-  color: #272369;
+  color: $bookhippo-purple;
   background-color: white;
-  border-color: #272369;
+  border-color: $bookhippo-purple;
   font-weight: 700;
 }
 
@@ -11071,7 +11071,7 @@ html, body, main, .show-wrapper {
 footer {
   height: 200px;
   margin-top: 0;
-  background-color: #272369;
+  background-color: $bookhippo-purple;
   color: white;
   overflow: hidden;
 }

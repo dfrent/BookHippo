@@ -123,12 +123,12 @@
 /* Buttons */
 
 #search-submit-btn {
-  color: #272369;
-  border-color: #272369;
+  color: $bookhippo-purple;
+  border-color: $bookhippo-purple;
   &:hover {
     color: white;
-    background-color: #272369;
-    border-color: #272369;
+    background-color: $bookhippo-purple;
+    border-color: $bookhippo-purple;
   }
 }
 
@@ -181,7 +181,7 @@ body.books.show  {
   padding-left: 2% !important;
   h2 {
     font-size: 2.1rem !important;
-    color: #272369;
+    color: $bookhippo-purple;
   }
 }
 
@@ -239,14 +239,14 @@ body.books.show  {
 
 .share-btn, .read-btn, .new-user-button, .sumbit-review-btn >  input[type="submit"] {
   margin-bottom: 10px;
-  background-color: #272369;
-  border-color: #272369;
+  background-color: $bookhippo-purple;
+  border-color: $bookhippo-purple;
   color: white;
   font-weight: 700;
   &:hover {
-    color: #272369;
+    color: $bookhippo-purple;
     background-color: white;
-    border-color: #272369;
+    border-color: $bookhippo-purple;
     font-weight: 700;
   }
 }
@@ -306,14 +306,14 @@ body.books.show  {
 
 .btn.btn-primary {
  margin-bottom: 10px;
- background-color: #272369;
- border-color: #272369;
+ background-color: $bookhippo-purple;
+ border-color: $bookhippo-purple;
  color: white;
  font-weight: 700;
  &:hover {
-   color: #272369;
+   color: $bookhippo-purple;
    background-color: white;
-   border-color: #272369;
+   border-color: $bookhippo-purple;
    font-weight: 700;
  }
 }

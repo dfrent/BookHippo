@@ -1,3 +1,4 @@
+@import 'variables/_colors.scss';
 @import 'bootstrap-custom';
 @import 'books.scss';
 @import 'sessions.scss';
@@ -5,7 +6,6 @@
 @import 'relationships.scss';
 @import 'users.scss';
 @import 'search_for.scss';
-@import 'book_clubs.scss';
 @import 'reviews.scss';
 
 html, body {
@@ -43,7 +43,7 @@ body {
   height: 150px;
   margin-top: -150px;
   padding: 1%;
-  background-color: #272369;
+  background-color: $bookhippo-purple;
   color: white;
   text-align: center;
   overflow: hidden;

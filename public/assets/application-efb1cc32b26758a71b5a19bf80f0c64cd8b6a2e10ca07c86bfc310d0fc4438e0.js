@@ -734,20 +734,20 @@ document.addEventListener("DOMContentLoaded", function(e){
           $(review_wrapper).append(responseData);
         };
         e.target.style.backgroundColor = 'white';
-        e.target.style.color = '#272369'
+        e.target.style.color = '$bookhippo-purple'
       });
     });
   });
 
   // Functions to control the styling back and forth of read_status buttons
   function purpleButtonStyle(button) {
-    button.style.backgroundColor = '#272369';
+    button.style.backgroundColor = '$bookhippo-purple';
     button.style.color = 'white';
   };
 
   function whiteButtonStyle(button) {
     button.style.backgroundColor = 'white';
-    button.style.color = '#272369';
+    button.style.color = '$bookhippo-purple';
   };
 
   var newReview = document.querySelector('#new_review');
