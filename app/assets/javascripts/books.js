@@ -76,13 +76,13 @@ document.addEventListener("DOMContentLoaded", function(e){
 
   // get some relevant size for the paddle triggering point
   var paddleMargin = 20;
-  var itemSize = $('.item').outerWidth(true);
+  var itemSize = $('.book-container').outerWidth(true);
 
   // finally, what happens when we are actually scrolling the menu
   $('.menu').on('scroll', function(e) {
     // debugger
     // get items dimensions
-    var itemsLength = $(e.target).find('.item').length;
+    var itemsLength = $(e.target).find('.book-container').length;
 
     // get total width of all menu items
     var getMenuSize = function() {
@@ -139,7 +139,7 @@ document.addEventListener("DOMContentLoaded", function(e){
   $('.js-right-clickable').on('click', function(e) {
     // console.log('Clicked right.');
     // console.log($(e.target).parents('.menu-wrapper'));
-    var itemsLength = $(e.target).parents('.menu-wrapper').find('.item').length;
+    var itemsLength = $(e.target).parents('.menu-wrapper').find('.book-container').length;
     var getMenuSize = function() {
       return itemsLength * itemSize;
     };
