@@ -9,54 +9,34 @@ module Tools
       @isbn = isbn
     end
 
+    # Public Methods
+
     def update_books_by_genre
-      books_for_all_genres.each do |books_list|
-        books_list.each do |genre_id, books|
-          books.each do |book|
-            next unless book && book['volumeInfo']
-            isbns = book['volumeInfo']['industryIdentifiers']
-            next unless isbns
-            isbn = isbn_10_from_isbns(isbns)
-            next if isbn.nil? || Book.exists?(isbn)
-            create_book(genre_id, isbn)
-          end
+      books_for_all_genres.each do |genre_id, books_list|
+        books_list.each do |book|
+          next unless book && book['volumeInfo']
+          isbns = book['volumeInfo']['industryIdentifiers']
+          next unless isbns
+          isbn = isbn_10_from_isbns(isbns)
+          next if isbn.nil? || Book.exists?(isbn)
+          create_book(genre_id)
         end
       end
-    end
-
-    def books_for_all_genres
-      Genre.all.map do |genre|
-        books_in_genre(genre.name, genre.id)
-      end
-    end
-
-    def books_in_genre(genre_name, genre_id)
-      response = HTTParty.get("#{GOOGLE_ENDPOINT}subject=#{genre_name}&key=#{GBOOKS_KEY}")
-      {
-        "#{genre_id}": response.parsed_response['items']
-      }
-    end
-
-    def assign_images_to_all_books
-      Book.all.map do |book|
-        next if book.book_cover || book.small_thumbnail
-        prep_book_for_update(book, book.isbn)
-        book.save if book.valid?
-      end
-    end
-
-    def isbn_10_from_isbns(identifiers)
-      isbn = nil
-      identifiers&.each do |identifier|
-        isbn = identifier['identifier'] if identifier['type'] == 'ISBN_10'
-      end
-      isbn
     end
 
     def find_or_api_call
       book = Book.find_by(isbn: @isbn)
       return book if book
-      create_book(@isbn)
+      create_book
+    end
+
+    def assign_images_to_all_books
+      Book.all.map do |book|
+        next if book.book_cover || book.small_thumbnail
+        @isbn = book.isbn
+        prep_book_for_update(book)
+        book.save if book.valid?
+      end
     end
 
     def book_search(query)
@@ -64,16 +44,15 @@ module Tools
       response.parsed_response['items']
     end
 
-    # Lookup
+    private
 
+    # General Methods
     def book_from_isbn(isbn)
       response = HTTParty.get("#{GOOGLE_ENDPOINT}isbn=#{isbn}&key=#{GBOOKS_KEY}")
       response.parsed_response['items'][0]
     end
 
-    # Model Creation/ Updates
-
-    def create_book(genre_id = 20, isbn = nil)
+    def create_book(genre_id = 20)
       book = Book.new
       volume_info = prep_book_for_update(book)
       return unless volume_info
@@ -108,9 +87,9 @@ module Tools
       authors.length > 1 ? authors : authors.join(', ')
     end
 
-    def prep_book_for_update(book, isbn = nil)
-      return false if RejectedIsbn.isbn_is_rejected(isbn)
-      book_data = book_from_isbn(isbn)
+    def prep_book_for_update(book)
+      return nil if RejectedIsbn.isbn_is_rejected(@isbn) || @isbn.nil?
+      book_data = book_from_isbn(@isbn)
       images = book_data['volumeInfo']['imageLinks']
       assign_images(images, book)
       book_data['volumeInfo']
@@ -120,6 +99,27 @@ module Tools
       return false if image_links.nil?
       book[:book_cover] = image_links['thumbnail']
       book[:small_thumbnail] = image_links['smallThumbnail']
+    end
+
+    # Genre-based Methods
+    def books_for_all_genres
+      Genre.all.each_with_object({}) do |genre, genres|
+        genres[genre.id] = books_in_genre(genre.name)
+        genres
+      end
+    end
+
+    def books_in_genre(genre_name)
+      response = HTTParty.get("#{GOOGLE_ENDPOINT}subject=#{genre_name}&key=#{GBOOKS_KEY}")
+      response.parsed_response['items']
+    end
+
+    def isbn_10_from_isbns(identifiers)
+      isbn = nil
+      identifiers&.each do |identifier|
+        isbn = identifier['identifier'] if identifier['type'] == 'ISBN_10'
+      end
+      isbn
     end
   end
 end
