@@ -10,22 +10,3 @@
 
 // COMPONENT SCSS
 @import 'components/_footer.scss';
-
-.content {
-  min-height: 100%;
-  padding-left: 3%;
-  padding-right: 3%;
-  margin: 0 auto;
-}
-
-.content-inside {
-  padding: 0;
-  padding-bottom: 150px;
-}
-
-body.books.index {
-  .content {
-    padding-left: 0;
-    padding-right: 0;
-  }
-}
