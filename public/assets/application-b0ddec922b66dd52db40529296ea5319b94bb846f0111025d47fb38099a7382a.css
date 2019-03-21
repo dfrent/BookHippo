@@ -10756,7 +10756,7 @@ a.text-dark:focus, a.text-dark:hover {
 /* line 14, /Users/ericmarrone/Desktop/bitmaker/bookHippo/app/assets/stylesheets/books.scss */
 .scroll-container {
   overflow: hidden;
-  background-color: #e0dfdb;
+  background-color: $scroll-gray;
   padding: 2% 0;
   padding-left: 1%;
   padding-right: 1%;
