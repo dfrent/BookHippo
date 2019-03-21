@@ -10,14 +10,10 @@
 
 /**** FOOTER ****/
 .footer {
-  clear: both;
-  height: 150px;
-  margin-top: -150px;
-  padding: 1%;
+  position: absolute;
+  width: 100%
   background-color: $bookhippo-purple;
   color: $white;
-  text-align: center;
-  overflow: hidden;
 
 /*** PAGE ATTRIBUTES ****/
   @media (min-width: 1200px) {
