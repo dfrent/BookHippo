@@ -3,6 +3,7 @@ class BooksController < ApplicationController
 
   def index
     @books = books_sorted_by_genre
+    json_response(@books)
   end
 
   def show
@@ -40,5 +41,12 @@ class BooksController < ApplicationController
     @current_read_status = reading_list_status.read_status if reading_list_status
     book_rating = @book.ratings.find_by(user_id: current_user.id)
     @rating = book_rating || Rating.create(book_id: @book.id, user_id: current_user.id, stars: 0)
+  end
+
+  def json_response(variables)
+    respond_to do |f|
+      f.html
+      f.json { render json: variables }
+    end
   end
 end
