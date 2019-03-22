@@ -1,14 +1,12 @@
-<div class="star-bar">
+<div>
   <% if rating == false %>
-    <p><strong>Looks like no one has rated this book yet. <br> You could be the first!</strong></p>
+    <p>Unrated</p>
   <% elsif rating == 0 %>
-    <p class="average-rating-stars"><strong>Average Rating: 0</strong></p>
+    <p class='average-rating-stars'>Average Rating: 0</p>
   <% else %>
-    <p class="average-rating-stars" id="<%= book.ratings.length %>"><strong>Average Rating:</strong></p>
+    <p class='average-rating-stars' id='<%= book.ratings.length %>'>Average Rating:</p>
     <% for i in (1..rating) %>
-      <div class="star">
-
-      </div>
+      <div class='star'></div>
     <% end %>
   <% end %>
 </div>

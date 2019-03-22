@@ -4,14 +4,14 @@ a {
 
 .user-show-btn {
   margin-bottom: 10px;
-  background-color: #272369;
-  border-color: #272369;
-  color: white;
+  background-color: $bookhippo-purple;
+  border-color: $bookhippo-purple;
+  color: $white;
   font-weight: 700;
   &:hover {
-    color: #272369;
-    background-color: white;
-    border-color: #272369;
+    color: $bookhippo-purple;
+    background-color: $white;
+    border-color: $bookhippo-purple;
     font-weight: 700;
   }
 }
@@ -22,14 +22,14 @@ form.finished {
 
 .btn-primary {
   margin-bottom: 10px;
-  background-color: #272369;
-  border-color: #272369;
-  color: white;
+  background-color: $bookhippo-purple;
+  border-color: $bookhippo-purple;
+  color: $white;
   font-weight: 700;
   &:hover {
-    color: #272369;
-    background-color: white;
-    border-color: #272369;
+    color: $bookhippo-purple;
+    background-color: $white;
+    border-color: $bookhippo-purple;
     font-weight: 700;
   }
 }
@@ -42,5 +42,5 @@ form.finished {
   overflow: hidden;
   margin: 7px;
   position: relative;
-  background-color: darkgrey;
+  background-color: $dark-gray;
 }

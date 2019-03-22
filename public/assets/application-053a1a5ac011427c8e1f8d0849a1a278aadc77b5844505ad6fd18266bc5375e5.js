@@ -758,7 +758,7 @@ document.addEventListener("DOMContentLoaded", function(e){
           $(review_wrapper).append(responseData);
         };
         e.target.style.backgroundColor = 'white';
-        e.target.style.color = '#272369'
+        e.target.style.color = '$bookhippo-purple'
 
         // Selects the review wrapper that should now be present
         var newReview = document.querySelector('#new_review');
@@ -837,13 +837,13 @@ document.addEventListener("DOMContentLoaded", function(e){
 
   // Functions to control the styling back and forth of read_status buttons
   function purpleButtonStyle(button) {
-    button.style.backgroundColor = '#272369';
+    button.style.backgroundColor = '$bookhippo-purple';
     button.style.color = 'white';
   };
 
   function whiteButtonStyle(button) {
     button.style.backgroundColor = 'white';
-    button.style.color = '#272369';
+    button.style.color = '$bookhippo-purple';
   };
 
   // Selects the review wrapper that should now be present

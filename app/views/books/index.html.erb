@@ -1,21 +1,21 @@
 <%= image_tag("book-hippo-hero4.jpg", width:'100%', alt:"book hippo")  %>
 
 <% @books.each do |key, value| %>
-  <h5 class="list-title"><%= key %></h5>
+  <h5 class="scroll-header"><%= key %></h5>
   <div class="scroll-container menu-wrapper">
-    <div class="scrollable menu" id= "menu-<%= key.parameterize %>" >
+    <div class="scrollable menu" id="menu-<%= key.parameterize %>" >
       <% value.each do |book| %>
         <%= render partial: "books/single_book", locals: {book: book} %>
       <% end %>
     </div>
 
     <div class="paddles">
-      <button class="left-paddle paddle clickable js-left-clickable hidden">
+      <button class="paddle paddle--left clickable js-left-clickable hidden">
         <span class="clickable">
           <i class="fa fa-angle-left" style="font-size:48px; color:white"></i>
         </span>
       </button>
-      <button class="right-paddle paddle clickable js-right-clickable">
+      <button class="paddle paddle--right clickable js-right-clickable">
         <span class="clickable">
           <i class="fa fa-angle-right" style="font-size:48px; color:white"></i>
         </span>
@@ -23,6 +23,3 @@
     </div>
   </div>
 <% end %>
-<div class="bottom">
-
-</div>

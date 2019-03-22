@@ -1,116 +1,75 @@
 /**** BOOK INDEX PAGE ****/
-
-/* Book List Sliders*/
-.list-title {
-  padding-left: 1.2rem;
-  padding-top: 1%;
+/* Book List Sliders */
+.scroll-header {
+  padding: 15px;
+  font-size: 28px;
 }
 
-.scroll-container{
-    overflow: hidden;
-    background-color: #e0dfdb;
-    padding: 2% 0;
-    padding-left: 1%;
-    padding-right: 1%;
-    margin-bottom: 1%;
-    position: relative;
+.scroll-container {
+  background-color: $scroll-gray;
+  position: relative;
+  padding: 8px 4px;
 }
 
 .scrollable{
-    overflow: auto;
-    white-space: nowrap;
-    &::-webkit-scrollbar {
-      display: none;
-      -webkit-overflow-scrolling: touch;
-    }
+  overflow: auto;
+  white-space: nowrap;
+  &::-webkit-scrollbar {
+    display: none;
+    -webkit-overflow-scrolling: touch;
+  }
 }
 
 /* Book Cards */
-.book-container, .item {
+.book-container{
   display: inline-block;
   width: 160px;
   height: 270px;
-  border: none;
-  overflow: hidden;
   margin: 7px;
-  position: relative;
 
   img {
-      display: block;
-      margin: auto;
-      height: 91%;
-      min-width: 100%;
-
-
-      left: -100%;
-      right: -100%;
-      top: -120%;
-      bottom: -100%;
+    display: block;
+    height: 91%;
   }
-
 }
 
 .book-info {
-  display: block;
   padding: 2%;
-  margin-top: 0;
-  width: 100%;
-
-  .card-title {
-    margin: auto;
-    text-align: center;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    font-weight:  700;
-
-  }
-
-  p {
-    font-size: .7rem;
-  }
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: .7rem;
 }
 
 /* Book Slider Arrows */
-.paddles {
-}
 .paddle {
-  border: none;
-  background-color: lightgray;
+  background-color: $light-gray;
 	position: absolute;
 	top: 0;
 	bottom: 0;
 	width: 3em;
-  text-shadow: 1px 1px 2px black;
+  text-shadow: 1px 1px 2px $black;
+  outline: 0;
+  cursor: pointer;
+
+  &:active {
+    background-color: none;
+    border: none;
+    outline: 0;
+  }
   &:focus {
     outline: 0;
   }
-}
-.left-paddle {
-  background: linear-gradient(to left, rgba(130,130,130,0), rgba(160,160,160,1));
-	left: 0;
-  outline: 0;
-  &:active {
-    background-color: none;
-    border: none;
-  }
-}
-.right-paddle {
-  background: linear-gradient(to right, rgba(130,130,130,0), rgba(160,160,160,1));
-	right: 0;
-  outline: 0;
-  &:active {
-    background-color: none;
-    border: none;
-  }
-}
 
-.hidden {
-	display: none;
-}
+  &--right {
+    background: linear-gradient(to right, $scroll-clear-gray, $scroll-solid-gray);
+  	right: 0;
+  }
 
-.clickable {
- cursor:pointer;
+  &--left {
+    background: linear-gradient(to left, $scroll-clear-gray, $scroll-solid-gray);
+    left: 0;
+  }
 }
 
 // Hide arrows on mobile devices
@@ -121,14 +80,14 @@
 }
 
 /* Buttons */
+.submit-button {
+  color: $bookhippo-purple;
+  border-color: $bookhippo-purple;
 
-#search-submit-btn {
-  color: #272369;
-  border-color: #272369;
   &:hover {
-    color: white;
-    background-color: #272369;
-    border-color: #272369;
+    color: $white;
+    background-color: $bookhippo-purple;
+    border-color: $bookhippo-purple;
   }
 }
 
@@ -165,58 +124,25 @@
   color: gold;
 }
 
-body.books.show  {
-  .show-wrapper {
-    width: 75%;
-    padding-top: 3%;
-    padding-bottom: 5%;
-    background-color: #f9f2ff;
-    margin: auto;
-  }
+.book-display {
+  width: 80%;
+  padding: 20px;
+  background-color: $soft-purple;
+  margin: auto;
 }
 
-.book-show-info, .book-show-review {
-  margin: 1% 0;
-  padding-left: 0;
-  padding-left: 2% !important;
-  h2 {
-    font-size: 2.1rem !important;
-    color: #272369;
-  }
-}
-
-.book-show-cover {
-  display: block;
-  width: 85%;
-  margin: 0 auto;
-  overflow: hidden;
-  img {
-    display: block;
-    margin: auto;
-    padding-top: 9%;
-    min-width: 80%;
-
-
-    left: -100%;
-    right: -100%;
-    top: -120%;
-    bottom: -100%;
-  }
-}
-
-@include media-breakpoint-down(md) {
-  p {
-    font-size: 0.7rem;
-  }
-}
-
-.read-btn {
-  display: inline-block;
+.book-title {
+  font-size: 32px;
+  color: $bookhippo-purple;
 }
 
 .show-author {
   font-weight: 600;
-  margin-bottom: 0.6rem;
+  margin-bottom: 6px;
+}
+
+.book-information {
+  text-align: center;
 }
 
 .button-container-show {
@@ -229,49 +155,31 @@ body.books.show  {
   }
 }
 
-.other-info {
-  padding: 1.0rem 1.0rem;
-  p {
-    font-size: 0.8rem;
-    margin-bottom: 0.5rem;
-  }
+.description {
+  margin-bottom: 20px;
+  margin-right: 25px;
+  min-height: 200px;
+  max-height: 300px;
+  overflow-y: scroll;
 }
 
-.share-btn, .read-btn, .new-user-button, .sumbit-review-btn >  input[type="submit"] {
+.btn, .read-btn, .new-user-button, .sumbit-review-btn > input[type="submit"] {
   margin-bottom: 10px;
-  background-color: #272369;
-  border-color: #272369;
-  color: white;
+  background-color: $bookhippo-purple;
+  border-color: $bookhippo-purple;
+  color: $white;
   font-weight: 700;
   &:hover {
-    color: #272369;
-    background-color: white;
-    border-color: #272369;
+    color: $bookhippo-purple;
+    background-color: $white;
+    border-color: $bookhippo-purple;
     font-weight: 700;
   }
-}
-
-.read-btn {
-  margin-bottom: 0;
 }
 
 #new_reading_list {
   margin-bottom: 10px;
 }
-
-.description {
-  padding-right: 1%;
-  margin-bottom: 20px;
-  // white-space: nowrap;
-  min-height: 200px;
-  max-height: 300px;
-  overflow-x: hidden;
-  overflow-y: scroll;
-  p {
-    font-size: 0.9rem;
-  }
-}
-
 
 .star:before {
   content: "\2605";
@@ -281,19 +189,13 @@ body.books.show  {
 .star {
   display: inline-block;
   z-index: 0;
-  color: #f79e00;
+  color: $star-gold;
 }
 
 .part-star {
   display: inline;
   overflow: hidden;
-  color: #f79e00;
-}
-
-.star-bar {
-  z-index: 2;
-  width: 200px;
-  display: inline-block;
+  color: $star-gold;
 }
 
 
@@ -301,21 +203,6 @@ body.books.show  {
   .paddle {
     display: none;
   }
-
- }
-
-.btn.btn-primary {
- margin-bottom: 10px;
- background-color: #272369;
- border-color: #272369;
- color: white;
- font-weight: 700;
- &:hover {
-   color: #272369;
-   background-color: white;
-   border-color: #272369;
-   font-weight: 700;
- }
 }
 
 .review-form-box {

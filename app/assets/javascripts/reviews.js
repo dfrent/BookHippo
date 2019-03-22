@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function(){
   var finishedBookButton = document.querySelector('.finished-book');
   var reviewFormBox = document.querySelector(".review-form-box");
 
-  if ( finishedBookButton && reviewFormBox ) {
+  if (finishedBookButton && reviewFormBox) {
     reviewFormBox.style.visibility = "visible";
   }
 

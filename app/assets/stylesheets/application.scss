@@ -1,3 +1,4 @@
+@import 'variables/_colors.scss';
 @import 'bootstrap-custom';
 @import 'books.scss';
 @import 'sessions.scss';
@@ -5,107 +6,33 @@
 @import 'relationships.scss';
 @import 'users.scss';
 @import 'search_for.scss';
-@import 'book_clubs.scss';
 @import 'reviews.scss';
 
-html, body {
-  height: 100%;
-  margin: 0;
-  box-sizing: border-box;
+// COMPONENT SCSS
+@import 'components/_footer.scss';
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+  font-family: 'Oswald', sans-serif;
 }
 
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
-}
-
-body {
-  position: relative;
-  margin: 0;
-}
-
-/**** NAVBAR ****/
-.navbar {
-  padding: 0.5rem;
-}
-
-.navbar-brand {
-  margin: 0;
-  padding: 0;
-
-}
-
-/**** FOOTER ****/
-.footer {
-
-  clear: both;
-  height: 150px;
-  margin-top: -150px;
-  padding: 1%;
-  background-color: #272369;
-  color: white;
-  text-align: center;
-  overflow: hidden;
-
-/*** PAGE ATTRIBUTES ****/
-  @media (min-width: 1200px) {
-    .container {
-      max-width: 1650px;
-    }
-  }
-
-  .footer-wrapper {
-    margin: 0 auto !important;
-    width: 100% !important;
-    min-height: 100%;
-  }
-  .row {
-    height: 100% !important;
-  }
-
-  .footer-left, .footer-middle, .footer-right {
-    padding: 0 2%;
-    display: inline-block !important;
-    width: 33%;
-    margin-top: auto !important;
-    margin-bottom: auto !important;
-
-
-    p {
-      margin: auto;
-      font-size: 1.3rem;
-    }
-    img {
-      display: block;
-    }
-    @media (max-width: 575.98px) {
-      img {
-        margin: 0 auto;
-      }
-    }
-  }
-}
-
-.bottom {
-  height: 5rem;
-}
-
-.content {
-  min-height: 100%;
-  padding-left: 3%;
-  padding-right: 3%;
-  margin: 0 auto;
-}
-
-.content-inside {
-  padding: 0;
-  padding-bottom: 150px;
-}
-
-body.books.index {
-  .content {
-    padding-left: 0;
-    padding-right: 0;
-  }
+.hidden {
+	display: none;
 }

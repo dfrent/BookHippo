@@ -23,13 +23,13 @@
 
 .user-btn {
   margin-bottom: 10px;
-  background-color: #272369;
-  border-color: #272369;
-  color: white;
+  background-color: $bookhippo-purple;
+  border-color: $bookhippo-purple;
+  color: $white;
   &:hover {
-    color: #272369;
-    background-color: white;
-    border-color: #272369;
+    color: $bookhippo-purple;
+    background-color: $white;
+    border-color: $bookhippo-purple;
     font-weight: 700;
   }
 }

@@ -28,21 +28,21 @@ p.book-title {
 }
 
 #genre-submit {
-  color: #272369;
-  border-color: #272369;
+  color: $bookhippo-purple;
+  border-color: $bookhippo-purple;
   &:hover {
-    color: white;
-    background-color: #272369;
-    border-color: #272369;
+    color: $white;
+    background-color: $bookhippo-purple;
+    border-color: $bookhippo-purple;
   }
 }
 
 #genreinput {
-  color: #272369;
-  border-color: #272369;
+  color: $bookhippo-purple;
+  border-color: $bookhippo-purple;
   &:hover {
-    color: white;
-    background-color: #272369;
-    border-color: #272369;
+    color: $white;
+    background-color: $bookhippo-purple;
+    border-color: $bookhippo-purple;
   }
 }

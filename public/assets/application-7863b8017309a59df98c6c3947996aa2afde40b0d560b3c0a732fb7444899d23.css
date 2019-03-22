@@ -10754,7 +10754,7 @@ a.text-dark:focus, a.text-dark:hover {
 /* line 26, /Users/ericmarrone/Desktop/bitmaker/bookHippo/app/assets/stylesheets/books.scss */
 .scroll-container {
   overflow: hidden;
-  background-color: #e0dfdb;
+  background-color: $scroll-gray;
   padding: 2% 0;
   padding-left: 1%;
   padding-right: 1%;
@@ -10868,14 +10868,14 @@ a.text-dark:focus, a.text-dark:hover {
 
 /* line 161, /Users/ericmarrone/Desktop/bitmaker/bookHippo/app/assets/stylesheets/books.scss */
 #search-submit-btn {
-  color: #272369;
-  border-color: #272369;
+  color: $bookhippo-purple;
+  border-color: $bookhippo-purple;
 }
 /* line 164, /Users/ericmarrone/Desktop/bitmaker/bookHippo/app/assets/stylesheets/books.scss */
 #search-submit-btn:hover {
   color: white;
-  background-color: #272369;
-  border-color: #272369;
+  background-color: $bookhippo-purple;
+  border-color: $bookhippo-purple;
 }
 
 /* Star Ratings */

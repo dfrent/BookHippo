@@ -12,21 +12,16 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
   </head>
 
   <body class="<%= controller_name %> <%= action_name %>">
-
-    <header class="site-header">
-
-      <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between">
-        <a class="navbar-brand" href="/">
-          <%= image_tag("bookhippo_logo.png", width:'200px') %>
-        </a>
-        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
+    <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between">
+      <%= link_to(image_tag("bookhippo_logo.png", width:'200px'), root_path) %>
+      <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <% if current_user %>
@@ -45,50 +40,36 @@
               </li>
             <% end %>
           </ul>
-          <%= form_tag( search_for_path, :method => "get", id: "search-form", class: "form-inline my-2 my-lg-0") do %>
+        <%= form_tag( search_for_path, :method => "get", id: "search-form", class: "form-inline my-2 my-lg-0") do %>
           <%= text_field_tag :search, params[:search], placeholder: "Search books, people", class: "form-control mr-sm-2" %>
-          <%= submit_tag "Search", id:"search-submit-btn", class: "btn btn-outline-success my-2 my-sm-0", :name => nil %>
+          <%= submit_tag "Search", id:"search-submit-btn", class: "btn btn-outline-success my-2 my-sm-0 submit-button", :name => nil %>
         <% end %>
       </div>
     </nav>
-    <!-- <h1 class="logo">BookHippo</h1> -->
 
-    <!-- <% unless @user && @user == current_user %> <section class="current-user-stats"> <%#= render partial: 'shared/stats', locals: {user: current_user} %> </section> <% end %> -->
-  </header>
-
-    <div class="content show-wrapper">
-      <div class="content-inside">
-        <% if flash[:notice] %>
-          <div class="alert alert-success">
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-            <%= flash[:notice] %>
-          </div>
-        <% elsif flash[:error] %>
-          <div class="alert alert-error">
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-              <%= flash[:error] %>
-          </div>
-        <% elsif flash[:alert] %>
-          <div class="alert alert-success">
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-              <%= flash[:alert] %>
-          </div>
-        <% end %>
-
-        <%= yield %>
-      </div>
-    </div>
-    <footer class="footer">
-      <div class="container footer-wrapper">
-        <div class="row no-gutters">
-          <div class="col-sm-4 col-xs-12 footer-left">
-            <%= image_tag("bookhippo-footer.png", width:'200px') %>
-          </div>
-          <div class="col-sm-4 col-xs-12 footer-middle"></div>
-          <div class="col-sm-4 col-xs-12 footer-right">
-            <p>Made by Cordell, Eric, James &amp; Kyle</p>
-          </div>
+    <div class="content book-display">
+      <% if flash[:notice] %>
+        <div class="alert alert-success">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <%= flash[:notice] %>
         </div>
+      <% elsif flash[:error] %>
+        <div class="alert alert-error">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <%= flash[:error] %>
+        </div>
+      <% elsif flash[:alert] %>
+        <div class="alert alert-success">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <%= flash[:alert] %>
+        </div>
+      <% end %>
+      <%= yield %>
+    </div>
+
+    <footer class="footer">
+      <div class="col-sm-1 col-xs-1">
+        <%= image_tag("bookhippo-footer.png", width:'200px') %>
       </div>
     </footer>
   </body>

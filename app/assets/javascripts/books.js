@@ -1,12 +1,15 @@
+const READ_STATUS_OPTIONS = {
+  'want_to_read': 'Want to Read',
+  'currently_reading': 'Currently Reading',
+  'finished_reading': 'Finished Reading'
+}
+
 document.addEventListener("DOMContentLoaded", function(e){
   // Selects all buttons with that relate to adding books to the library
-  var read_buttons = document.querySelectorAll('.read-btn');
-
-  // Provides the three string options to find the correct buttons to style
-  var readStatusOptions = ["want_to_read", "currently_reading", "finished_reading"];
+  var read_buttons = document.querySelectorAll('[data-status]');
 
   // Goes through each read_status class option, and checks to see if any button divs have that class. If they do, it styles the button with the matching class
-  readStatusOptions.forEach(function(option) {
+  Object.keys(READ_STATUS_OPTIONS).forEach(function(option) {
     var readButtonBoxes = document.querySelectorAll('.button-div');
 
     readButtonBoxes.forEach(function(box){
@@ -70,19 +73,19 @@ document.addEventListener("DOMContentLoaded", function(e){
   // duration of scroll animation
   var scrollDuration = 300;
   // paddles
-  var leftPaddles = document.querySelectorAll('.left-paddle');
-  var rightPaddles = document.querySelectorAll('.right-paddle');
+  var leftPaddles = document.querySelectorAll('.paddle--left');
+  var rightPaddles = document.querySelectorAll('.paddle--right');
   var clickables = document.querySelectorAll('.clickable');
 
   // get some relevant size for the paddle triggering point
   var paddleMargin = 20;
-  var itemSize = $('.item').outerWidth(true);
+  var itemSize = $('.book-container').outerWidth(true);
 
   // finally, what happens when we are actually scrolling the menu
   $('.menu').on('scroll', function(e) {
     // debugger
     // get items dimensions
-    var itemsLength = $(e.target).find('.item').length;
+    var itemsLength = $(e.target).find('.book-container').length;
 
     // get total width of all menu items
     var getMenuSize = function() {
@@ -118,8 +121,8 @@ document.addEventListener("DOMContentLoaded", function(e){
 
     var menuEndOffset = menuInvisibleSize - paddleMargin;
 
-    var leftPaddle = $(e.target).parent().find('.left-paddle')
-    var rightPaddle = $(e.target).parent().find('.right-paddle')
+    var leftPaddle = $(e.target).parent().find('.paddle--left')
+    var rightPaddle = $(e.target).parent().find('.paddle--right')
     // show & hide the paddles
     // depending on scroll position
     if (menuPosition <= paddleMargin) {
@@ -137,9 +140,7 @@ document.addEventListener("DOMContentLoaded", function(e){
 
   // scroll to left
   $('.js-right-clickable').on('click', function(e) {
-    // console.log('Clicked right.');
-    // console.log($(e.target).parents('.menu-wrapper'));
-    var itemsLength = $(e.target).parents('.menu-wrapper').find('.item').length;
+    var itemsLength = $(e.target).parents('.menu-wrapper').find('.book-container').length;
     var getMenuSize = function() {
       return itemsLength * itemSize;
     };
@@ -149,11 +150,6 @@ document.addEventListener("DOMContentLoaded", function(e){
     }
     var menuWrapperSize = getMenuWrapperSize();
     var menuInvisibleSize = menuSize - menuWrapperSize;
-    // console.log(itemsLength);
-    // console.log(itemSize);
-    // console.log(menuSize)
-    // console.log(menuWrapperSize)
-    // console.log(menuInvisibleSize)
     $(e.target).parents('.menu-wrapper').find('.menu').animate({
       scrollLeft: menuInvisibleSize + 100
     }, scrollDuration);
@@ -161,7 +157,6 @@ document.addEventListener("DOMContentLoaded", function(e){
 
   // scroll to right
   $('.js-left-clickable').on('click', function(e) {
-    // console.log('Clicked left.');
     $(e.target).parents('.menu-wrapper').find('.menu').animate({
       scrollLeft: '0'
     }, scrollDuration);
