@@ -15,6 +15,7 @@ class BooksController < ApplicationController
     @reviews = @book.reviews
     @average_rating = @book.average_rating
     set_logged_in_show_variables
+    json_response(@book)
   end
 
   def recommendations
