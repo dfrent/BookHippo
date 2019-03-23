@@ -1,5 +1,5 @@
 class BookResource < JSONAPI::Resource
-  # belongs_to :genre
+  has_one :genre
 
   attributes :title, :author, :published_date, :average_rating, :book_cover, :genre_id, :isbn,
              :page_count, :country_of_origin, :description, :small_thumbnail, :ny_times_list,

@@ -38,5 +38,7 @@ Rails.application.routes.draw do
     end
   end
   resources :relationships, only: %i[create destroy]
-  jsonapi_resources :books
+
+  jsonapi_resources :books, only: %i[index show]
+  jsonapi_resources :genres, only: %i[index]
 end
