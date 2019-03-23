@@ -1,5 +1,5 @@
 class GenreResource < JSONAPI::Resource
-  has_many :book
+  has_many :books
 
   attributes :name
 end
