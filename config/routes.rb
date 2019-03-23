@@ -38,4 +38,5 @@ Rails.application.routes.draw do
     end
   end
   resources :relationships, only: %i[create destroy]
+  jsonapi_resources :books
 end
